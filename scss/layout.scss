@@ -1,0 +1,458 @@
+@font-face {
+  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/polar.otf');
+  font-family: 'Custom Font';
+}
+$arrowSize: 20px;
+$customFont: 'Custom Font', Helvetica, Arial, sans-serif;
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  //   background-size: 100%;
+  //   background-image: url('../img/background-body.png');
+  //   border-radius: 1rem;
+  position: relative;
+  font-family: 'Londrina Solid', sans-serif;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.substrate-body {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-image: url('/img/background-body.png');
+  background-repeat: no-repeat;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    // transform: scale(1.1);
+  }
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 4;
+
+  &__container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4.3rem 4.3rem;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+  }
+
+  &__logo-text {
+    color: #fff;
+    font-family: 'Londrina Solid';
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  &__nav {
+    cursor: pointer;
+  }
+}
+
+$preloaderAT: 1.5s;
+$preloaderDelay: 0.5s;
+$preloaderFadeAT: 0.5s;
+
+$numOfPages: 6;
+
+$padding: 50px;
+$pagiItemW: 14px;
+$yellow: #f6cc4c;
+
+$rotatingAT: 1s;
+$headingsAT: $rotatingAT * 0.6;
+$headingsDelay: $rotatingAT * 0.8;
+
+$phoneW: 36.4rem;
+$phoneH: $phoneW * 2.042;
+$iphoneImg: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/iphone-6-mockup.png';
+
+@mixin centerElement($width, $height) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: $width;
+  height: $height;
+  margin-left: $width / -2;
+  margin-top: $height / -2;
+}
+
+%fullSizeAbsEl {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.preloader {
+  z-index: 10;
+  @extend %fullSizeAbsEl;
+  background: #000;
+  transition: opacity $preloaderFadeAT;
+
+  &.inactive {
+    opacity: 0;
+  }
+
+  &.hidden {
+    display: none;
+  }
+
+  &__cont {
+    overflow: hidden;
+    @include centerElement(25.6rem, 25.6rem);
+  }
+
+  &__img {
+    @extend %fullSizeAbsEl;
+    background-size: cover;
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/profile/profile-512_5.jpg');
+    border-radius: 1rem;
+  }
+
+  &__overlay {
+    @extend %fullSizeAbsEl;
+    background: #000;
+    transform: translate3d(0, 0, 0);
+    animation: animatePreloader $preloaderAT $preloaderDelay ease-in forwards;
+  }
+}
+
+@keyframes animatePreloader {
+  to {
+    transform: translate3d(100%, 0, 0);
+  }
+}
+
+.main-content {
+  position: relative;
+  padding: $padding;
+  width: 100%;
+  height: 100vh;
+
+  &__inner {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    // background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/big-img.jpg');
+    // background-size: cover;
+
+    // &:before {
+    //   content: '';
+    //   @extend %fullSizeAbsEl;
+    //   background: rgba(0, 0, 0, 0.2);
+    // }
+  }
+}
+
+.rotater {
+  opacity: 0;
+  z-index: 1;
+  @include centerElement(150vmax, 150vmax);
+  margin-top: 0;
+  background: $yellow;
+  transform-origin: 50% 0;
+  transition: transform $rotatingAT cubic-bezier(1, -0.01, 0.6, 1);
+  transform: translate3d(0, calc(50vh - #{$padding}* 1.5), 0) rotate(0);
+
+  &.active {
+    transform: translate3d(0, 0, 0) rotate(0);
+  }
+}
+
+.pages {
+  z-index: 2;
+  position: relative;
+  height: 100%;
+}
+
+%movingHeading {
+  position: absolute;
+  right: calc(50% + #{$phoneW} / 2 + 5rem);
+  opacity: 0;
+  transform: translateX(200px);
+  transition: opacity $headingsAT, transform $headingsAT ease-out;
+
+  .page.active & {
+    opacity: 1;
+    transform: none;
+    transition-timing-function: ease;
+    transition-delay: $headingsDelay;
+  }
+}
+
+.page {
+  @extend %fullSizeAbsEl;
+
+  &.active {
+    z-index: 1;
+  }
+
+  &__number {
+    top: 75%;
+    margin-top: -7.5rem;
+    font-size: 15rem;
+    line-height: 1;
+    font-family: $customFont;
+    color: #fff;
+    @extend %movingHeading;
+
+    .page:nth-child(even) & {
+      top: 25%;
+    }
+  }
+
+  &__headings {
+    top: 25%;
+    @extend %movingHeading;
+    text-align: right;
+
+    .page:nth-child(even) & {
+      top: 75%;
+    }
+
+    &-main {
+      margin-bottom: 0.5rem;
+      font-size: 4rem;
+      font-family: $customFont;
+      color: $yellow;
+      text-transform: uppercase;
+    }
+
+    &-sub {
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    &-link {
+      color: $yellow;
+    }
+  }
+}
+
+.phone {
+  z-index: 3;
+  @include centerElement($phoneW, $phoneH);
+  padding-top: $phoneH * 0.12;
+  transform: translate3d(0, 100vh, 0) rotate(-30deg);
+  transition: transform $rotatingAT * 0.7 $rotatingAT * 0.3 ease-out;
+
+  &:before {
+    content: '';
+    z-index: -10;
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    width: 90%;
+    height: 90%;
+    border-radius: 5.6rem;
+    box-shadow: 4rem 4rem 6rem rgba(0, 0, 0, 0.3), -2rem 2rem 5rem rgba(0, 0, 0, 0.3);
+  }
+
+  &.active {
+    transform: translate3d(0, 0, 0);
+  }
+
+  &__bg {
+    @extend %fullSizeAbsEl;
+    background-size: cover;
+    background-image: url(#{$iphoneImg});
+  }
+
+  &__inner {
+    position: relative;
+    width: 320px;
+    height: $phoneH * 0.76;
+    margin: 0 auto;
+    background: #000;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      width: calc(100% + 2px);
+      height: calc(100% + 2px);
+      border: 1px solid #000;
+    }
+  }
+
+  &__content {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+  }
+
+  &__iframes {
+    position: relative;
+    height: 100%;
+    transition: transform $rotatingAT * 0.7 $rotatingAT * 0.3;
+    transform: translate3d(0, 0, 0);
+  }
+
+  &__iframe {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+
+    @for $i from 1 through $numOfPages {
+      &-#{$i} {
+        left: ($i - 1) * 100%;
+      }
+    }
+
+    &-6 {
+      background: #fff;
+      color: #000;
+      padding: 2rem;
+      text-align: center;
+    }
+  }
+}
+
+.pagination {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: $padding;
+  transform: translateY(-50%) scale(0.8);
+  opacity: 0;
+  transition: opacity $rotatingAT, transform $rotatingAT;
+
+  &.active {
+    transform: translateY(-50%);
+    opacity: 1;
+  }
+
+  &__arrow {
+    $arrowSize: $pagiItemW;
+    position: absolute;
+    left: 50%;
+    width: $arrowSize;
+    height: $arrowSize;
+    margin-left: $arrowSize / -2;
+    border: 0.3rem solid #cfcfcf;
+    border-left: none;
+    border-bottom: none;
+    transition: border-color 0.3s;
+    cursor: pointer;
+
+    &--up {
+      bottom: 110%;
+      transform: rotate(-45deg);
+    }
+
+    &--down {
+      top: 110%;
+      transform: rotate(135deg);
+    }
+
+    &:hover {
+      border-color: $yellow;
+    }
+  }
+
+  &__items {
+    list-style-type: none;
+  }
+
+  &__item {
+    position: relative;
+    display: block;
+    width: $pagiItemW;
+    height: $pagiItemW;
+    margin: 0 auto $pagiItemW * 2.5;
+    cursor: pointer;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:before,
+    &:after {
+      content: '';
+      @extend %fullSizeAbsEl;
+    }
+
+    &:before {
+      border-radius: 50%;
+      border: 0.3rem solid #cfcfcf;
+    }
+
+    &:after {
+      border-radius: 50%;
+      background: $yellow;
+      transform: scale(0);
+      transition: transform 0.3s;
+    }
+
+    &.active:after,
+    &:hover:after {
+      transform: scale(1);
+    }
+  }
+}
+
+.info {
+  &__heading {
+    margin-bottom: 20px;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-family: $customFont;
+  }
+
+  &__img {
+    display: block;
+    width: 60%;
+    margin: 0 auto 20px;
+  }
+
+  &__text {
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+
+  &__link {
+    color: #03a9f4;
+  }
+}

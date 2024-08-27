@@ -1,0 +1,10 @@
+{
+  "name": "my-project",
+  "version": "1.0.0",
+  "scripts": {
+    "watch-css": "sass --watch scss/index.scss css/style.css"
+  },
+  "devDependencies": {
+    "sass": "^1.77.8"
+  }
+}
