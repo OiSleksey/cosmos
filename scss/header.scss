@@ -1,0 +1,51 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+
+  &__container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4.3rem 4.3rem;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+  }
+
+  &__logo-text {
+    color: #fff;
+    font-family: 'Londrina Solid';
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  &__nav {
+    cursor: pointer;
+  }
+}
+
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  min-height: 100vh;
+  background: aqua;
+  opacity: 0;
+  transition: opacity $headingsAT ease-out;
+
+  &--active {
+    opacity: 1;
+    z-index: 5;
+  }
+}

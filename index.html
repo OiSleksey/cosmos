@@ -11,136 +11,387 @@
       rel="stylesheet"
     />
     <link href="/css/reset.css" rel="stylesheet" />
-    <link href="/css/normalize.css" rel="stylesheet" />
+    <!-- <link href="/css/normalize.css" rel="stylesheet" /> -->
     <link href="/css/style.css" rel="stylesheet" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   </head>
   <body>
-    <div class="substrate-body">
-      <!-- <img src="img/background-body.png" alt="" /> -->
-    </div>
-    <div class="preloader">
-      <div class="preloader__cont">
-        <div class="preloader__img"></div>
+    <div class="body-container">
+      <div class="substrate-body">
+        <!-- <img src="img/background-body.png" alt="" /> -->
+      </div>
+      <div class="overlay-body"></div>
+
+      <div class="preloader">
         <div class="preloader__overlay"></div>
       </div>
-    </div>
-    <header class="header">
-      <div class="header__container">
-        <div class="header__logo">
-          <img src="/icons/logo.svg" alt="" />
-          <div class="header__logo-text">LunaSustain</div>
-        </div>
-        <div class="header__nav">
-          <img src="/icons/nav.svg" alt="" />
-        </div>
-      </div>
-    </header>
-    <main class="main-content">
-      <div class="main-content__inner">
-        <div class="rotater"></div>
-        <!-- pages start -->
-        <div class="pages">
-          <section class="page page-1">
-            <h3 class="page__number">01</h3>
-            <div class="page__headings">
-              <h2 class="page__headings-main">Elastic Sidebar</h2>
-              <h4 class="page__headings-sub">
-                Just scroll down!<br />
-                You can find demo code
-                <a
-                  href="https://codepen.io/suez/pen/emjwvP"
-                  target="_blank"
-                  class="page__headings-link"
-                  >here</a
-                >
-              </h4>
-            </div>
-          </section>
-          <div class="page page-2">
-            <h3 class="page__number">02</h3>
-            <div class="page__headings">
-              <h2 class="page__headings-main">Paper Plane PDTR</h2>
-              <h4 class="page__headings-sub">
-                You can find code
-                <a
-                  href="https://codepen.io/suez/pen/oXLroX"
-                  target="_blank"
-                  class="page__headings-link"
-                  >here</a
-                >
-              </h4>
-            </div>
+      <header class="header">
+        <div class="header__container">
+          <div class="header__logo">
+            <img src="/icons/logo.svg" alt="" />
+            <div class="header__logo-text">LunaSustain</div>
           </div>
-          <div class="page page-3">
-            <h3 class="page__number">03</h3>
-            <div class="page__headings">
-              <h2 class="page__headings-main">Login Animation</h2>
-              <h4 class="page__headings-sub">
-                You can find code
-                <a
-                  href="https://codepen.io/suez/pen/dPqxoM"
-                  target="_blank"
-                  class="page__headings-link"
-                  >here</a
-                >
-              </h4>
-            </div>
-          </div>
-          <div class="page page-4">
-            <h3 class="page__number">04</h3>
-            <div class="page__headings">
-              <h2 class="page__headings-main">Elastic PDTR</h2>
-              <h4 class="page__headings-sub">
-                You can find code
-                <a
-                  href="https://codepen.io/suez/pen/epgZjK"
-                  target="_blank"
-                  class="page__headings-link"
-                  >here</a
-                >
-              </h4>
-            </div>
-          </div>
-          <div class="page page-5">
-            <h3 class="page__number">05</h3>
-            <div class="page__headings">
-              <h2 class="page__headings-main">CSS Questionnaire</h2>
-              <h4 class="page__headings-sub">
-                You can find code
-                <a
-                  href="https://codepen.io/suez/pen/XJGOyL"
-                  target="_blank"
-                  class="page__headings-link"
-                  >here</a
-                >
-              </h4>
-            </div>
-          </div>
-          <div class="page page-6">
-            <h3 class="page__number">06</h3>
-            <div class="page__headings">
-              <h2 class="page__headings-main">The end</h2>
-              <h4 class="page__headings-sub">Very end!</h4>
-            </div>
+          <div class="header__nav">
+            <img src="/icons/nav.svg" alt="" id="navigationOpen" />
           </div>
         </div>
-      </div>
-      <nav class="pagination">
-        <div class="pagination__arrow pagination__arrow--up js-up"></div>
-        <div class="pagination__arrow pagination__arrow--down js-down"></div>
-        <ul class="pagination__items">
-          <li class="pagination__item active" data-page="1"></li>
-          <li class="pagination__item" data-page="2"></li>
-          <li class="pagination__item" data-page="3"></li>
-          <li class="pagination__item" data-page="4"></li>
-          <li class="pagination__item" data-page="5"></li>
-          <li class="pagination__item" data-page="6"></li>
-        </ul>
+      </header>
+      <nav class="navigation">
+        <h1>Navigation</h1>
+        <div class="navigation__close" id="navigationClose">
+          <img src="/icons/cross.svg" alt="cross" />
+        </div>
       </nav>
-    </main>
-    <script src="/js/layout.js"></script>
+
+      <main class="main-content">
+        <div class="main-content__inner">
+          <div class="rotater"></div>
+          <!-- pages start -->
+          <div class="show-up-home" id="homeShowUpOne">
+            <div class="show-up-home__substrate-pink">
+              <div class="show-up-home__substrate-blue">
+                <div class="show-up-home__close" id="homeShowUpOneClose">
+                  <img src="/icons/cross.svg" alt="cross" />
+                </div>
+                <div class="show-up-home__content">
+                  <div class="show-up-home__text">
+                    Join us on a journey from Earth to the Moon and beyond. Complete the activities
+                    in each section to learn more about sustainability.
+                  </div>
+                  <div class="show-up-home__control">
+                    <div class="show-up-home__button-pink">
+                      <img src="/img/rectangle-pink.svg" alt="" />
+                      <span>What does it mean?</span>
+                    </div>
+                    <div class="show-up-home__button-blue">
+                      <img src="/img/rectangle-blue.svg" alt="" />
+                      <span>What can you do?</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="show-up-home" id="homeShowUpTwo">
+            <div class="show-up-home__substrate-pink">
+              <div class="show-up-home__substrate-blue">
+                <div class="show-up-home__close" id="homeShowUpTwoClose">
+                  <img src="/icons/cross.svg" alt="cross" />
+                </div>
+                <div class="show-up-home__content">
+                  <div class="show-up-home__text">
+                    Become a solutionary . Use your critical and creative thinking skills to look at
+                    sustainability in new ways. Then make your own pledge to protect our Earth so
+                    future generations have the resources they need to survive.
+                  </div>
+                  <div class="show-up-home__control">
+                    <div class="show-up-home__button-pink">
+                      <img src="/img/rectangle-pink.svg" alt="" />
+                      <span>Ready – let’s go</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pages">
+            <section class="home-page page page-1 page--moving-up">
+              <div class="home-page__content">
+                <div class="home-page__line">
+                  <img src="/icons/line-home-page.svg" alt="line" />
+                </div>
+                <h1 class="home-page__header">Lunasustain</h1>
+                <p class="home-page__description">
+                  People around the world are working together to create a sustainable future. But
+                  we need to make choices that will protect valuable resources today and make sure
+                  those resources are available tomorrow, next year, and years from now.
+                </p>
+                <div class="home-page__nav">
+                  <div class="home-page__row">
+                    <img
+                      class="home-page__arrow"
+                      src="/icons/arrow-nav.svg"
+                      alt="arrow"
+                      id="homeArrowOne"
+                    />
+                    <div class="home-page__text">
+                      Join us on a journey from Earth to the Moon and beyond.
+                    </div>
+                  </div>
+                  <div class="home-page__row">
+                    <img
+                      class="home-page__arrow"
+                      src="/icons/arrow-nav.svg"
+                      alt="arrow"
+                      id="homeArrowTwo"
+                    />
+                    <div class="home-page__text">
+                      Become a solutionary . Use your critical and creative thinking skills ...
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="substrate-home-page">
+                <div class="substrate-home-page__planet">
+                  <div class="substrate-home-page__planet-3-wrap">
+                    <div class="substrate-home-page__planet-2-wrap">
+                      <div class="substrate-home-page__planet-1-wrap">
+                        <img src="/img/earth-planet.png" alt="planet" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="substrate-home-page__satellite-1">
+                  <img src="/img/satellite-1.png" alt="planet" />
+                </div>
+                <div class="substrate-home-page__satellite-2">
+                  <img src="/img/satellite-2.png" alt="planet" />
+                </div>
+              </div>
+            </section>
+            <section class="home-page page page-2 page--moving-up">
+              <div class="home-page__content">
+                <div class="home-page__line">
+                  <img src="/icons/line-home-page.svg" alt="line" />
+                </div>
+                <h1 class="home-page__header">Lunasustain</h1>
+                <p class="home-page__description">
+                  People around the world are working together to create a sustainable future. But
+                  we need to make choices that will protect valuable resources today and make sure
+                  those resources are available tomorrow, next year, and years from now.
+                </p>
+                <div class="home-page__nav">
+                  <div class="home-page__row">
+                    <img class="home-page__arrow" src="/icons/arrow-nav.svg" alt="arrow" />
+                    <div class="home-page__text">
+                      Join us on a journey from Earth to the Moon and beyond.
+                    </div>
+                  </div>
+                  <div class="home-page__row">
+                    <img class="home-page__arrow" src="/icons/arrow-nav.svg" alt="arrow" />
+                    <div class="home-page__text">
+                      Become a solutionary . Use your critical and creative thinking skills ...
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="substrate-home-page">
+                <div class="substrate-home-page__planet">
+                  <div class="substrate-home-page__planet-3-wrap">
+                    <div class="substrate-home-page__planet-2-wrap">
+                      <div class="substrate-home-page__planet-1-wrap">
+                        <img src="/img/earth-planet.png" alt="planet" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="substrate-home-page__satellite-1">
+                  <img src="/img/satellite-1.png" alt="planet" />
+                </div>
+                <div class="substrate-home-page__satellite-2">
+                  <img src="/img/satellite-2.png" alt="planet" />
+                </div>
+              </div>
+            </section>
+            <section class="home-page page page-3">
+              <div class="home-page__content">
+                <div class="home-page__line">
+                  <img src="/icons/line-home-page.svg" alt="line" />
+                </div>
+                <h1 class="home-page__header">Lunasustain</h1>
+                <p class="home-page__description">
+                  People around the world are working together to create a sustainable future. But
+                  we need to make choices that will protect valuable resources today and make sure
+                  those resources are available tomorrow, next year, and years from now.
+                </p>
+                <div class="home-page__nav">
+                  <div class="home-page__row">
+                    <img class="home-page__arrow" src="/icons/arrow-nav.svg" alt="arrow" />
+                    <div class="home-page__text">
+                      Join us on a journey from Earth to the Moon and beyond.
+                    </div>
+                  </div>
+                  <div class="home-page__row">
+                    <img class="home-page__arrow" src="/icons/arrow-nav.svg" alt="arrow" />
+                    <div class="home-page__text">
+                      Become a solutionary . Use your critical and creative thinking skills ...
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="substrate-home-page">
+                <div class="substrate-home-page__planet">
+                  <div class="substrate-home-page__planet-3-wrap">
+                    <div class="substrate-home-page__planet-2-wrap">
+                      <div class="substrate-home-page__planet-1-wrap">
+                        <img src="/img/earth-planet.png" alt="planet" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="substrate-home-page__satellite-1">
+                  <img src="/img/satellite-1.png" alt="planet" />
+                </div>
+                <div class="substrate-home-page__satellite-2">
+                  <img src="/img/satellite-2.png" alt="planet" />
+                </div>
+              </div>
+            </section>
+            <section class="home-page page page-4">
+              <div class="home-page__content">
+                <div class="home-page__line">
+                  <img src="/icons/line-home-page.svg" alt="line" />
+                </div>
+                <h1 class="home-page__header">Lunasustain</h1>
+                <p class="home-page__description">
+                  People around the world are working together to create a sustainable future. But
+                  we need to make choices that will protect valuable resources today and make sure
+                  those resources are available tomorrow, next year, and years from now.
+                </p>
+                <div class="home-page__nav">
+                  <div class="home-page__row">
+                    <img class="home-page__arrow" src="/icons/arrow-nav.svg" alt="arrow" />
+                    <div class="home-page__text">
+                      Join us on a journey from Earth to the Moon and beyond.
+                    </div>
+                  </div>
+                  <div class="home-page__row">
+                    <img class="home-page__arrow" src="/icons/arrow-nav.svg" alt="arrow" />
+                    <div class="home-page__text">
+                      Become a solutionary . Use your critical and creative thinking skills ...
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="substrate-home-page">
+                <div class="substrate-home-page__planet">
+                  <div class="substrate-home-page__planet-3-wrap">
+                    <div class="substrate-home-page__planet-2-wrap">
+                      <div class="substrate-home-page__planet-1-wrap">
+                        <img src="/img/earth-planet.png" alt="planet" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="substrate-home-page__satellite-1">
+                  <img src="/img/satellite-1.png" alt="planet" />
+                </div>
+                <div class="substrate-home-page__satellite-2">
+                  <img src="/img/satellite-2.png" alt="planet" />
+                </div>
+              </div>
+            </section>
+            <section class="home-page page page-5">
+              <div class="home-page__content">
+                <div class="home-page__line">
+                  <img src="/icons/line-home-page.svg" alt="line" />
+                </div>
+                <h1 class="home-page__header">Lunasustain</h1>
+                <p class="home-page__description">
+                  People around the world are working together to create a sustainable future. But
+                  we need to make choices that will protect valuable resources today and make sure
+                  those resources are available tomorrow, next year, and years from now.
+                </p>
+                <div class="home-page__nav">
+                  <div class="home-page__row">
+                    <img class="home-page__arrow" src="/icons/arrow-nav.svg" alt="arrow" />
+                    <div class="home-page__text">
+                      Join us on a journey from Earth to the Moon and beyond.
+                    </div>
+                  </div>
+                  <div class="home-page__row">
+                    <img class="home-page__arrow" src="/icons/arrow-nav.svg" alt="arrow" />
+                    <div class="home-page__text">
+                      Become a solutionary . Use your critical and creative thinking skills ...
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="substrate-home-page">
+                <div class="substrate-home-page__planet">
+                  <div class="substrate-home-page__planet-3-wrap">
+                    <div class="substrate-home-page__planet-2-wrap">
+                      <div class="substrate-home-page__planet-1-wrap">
+                        <img src="/img/earth-planet.png" alt="planet" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="substrate-home-page__satellite-1">
+                  <img src="/img/satellite-1.png" alt="planet" />
+                </div>
+                <div class="substrate-home-page__satellite-2">
+                  <img src="/img/satellite-2.png" alt="planet" />
+                </div>
+              </div>
+            </section>
+            <section class="home-page page page-6">
+              <div class="home-page__content">
+                <div class="home-page__line">
+                  <img src="/icons/line-home-page.svg" alt="line" />
+                </div>
+                <h1 class="home-page__header">Lunasustain</h1>
+                <p class="home-page__description">
+                  People around the world are working together to create a sustainable future. But
+                  we need to make choices that will protect valuable resources today and make sure
+                  those resources are available tomorrow, next year, and years from now.
+                </p>
+                <div class="home-page__nav">
+                  <div class="home-page__row">
+                    <img class="home-page__arrow" src="/icons/arrow-nav.svg" alt="arrow" />
+                    <div class="home-page__text">
+                      Join us on a journey from Earth to the Moon and beyond.
+                    </div>
+                  </div>
+                  <div class="home-page__row">
+                    <img class="home-page__arrow" src="/icons/arrow-nav.svg" alt="arrow" />
+                    <div class="home-page__text">
+                      Become a solutionary . Use your critical and creative thinking skills ...
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="substrate-home-page">
+                <div class="substrate-home-page__planet">
+                  <div class="substrate-home-page__planet-3-wrap">
+                    <div class="substrate-home-page__planet-2-wrap">
+                      <div class="substrate-home-page__planet-1-wrap">
+                        <img src="/img/earth-planet.png" alt="planet" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="substrate-home-page__satellite-1">
+                  <img src="/img/satellite-1.png" alt="planet" />
+                </div>
+                <div class="substrate-home-page__satellite-2">
+                  <img src="/img/satellite-2.png" alt="planet" />
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <nav class="pagination">
+          <div class="pagination__arrow pagination__arrow--up js-up"></div>
+          <div class="pagination__arrow pagination__arrow--down js-down"></div>
+          <ul class="pagination__items">
+            <li class="pagination__item pagination--active" data-page="1"></li>
+            <li class="pagination__item" data-page="2"></li>
+            <li class="pagination__item" data-page="3"></li>
+            <li class="pagination__item" data-page="4"></li>
+            <li class="pagination__item" data-page="5"></li>
+            <li class="pagination__item" data-page="6"></li>
+          </ul>
+        </nav>
+      </main>
+    </div>
+
+    <script src="/js/general.js" type="module"></script>
+    <script src="/js/layout.js" type="module"></script>
+    <script src="/js/navigation.js" type="module"></script>
+    <script src="/js/home-page.js" type="module"></script>
+
     <script src="/js/script.js"></script>
   </body>
 </html>
