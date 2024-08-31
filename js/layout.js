@@ -6,6 +6,7 @@ import {
   setIsScroling,
 } from '../js/general.js'
 
+const substrateBody = document.querySelector('.substrate-body')
 const preloader = document.querySelector('.preloader')
 const pages = document.querySelectorAll('.page')
 const numOfPages = pages.length
@@ -146,6 +147,7 @@ const startPreloader = () => {
 
 function afterPreloader() {
   pageOne.classList.add('page--active')
+  substrateBody.classList.add('substrate-body--active')
   paginationBlock.classList.add('pagination--active')
 
   document.addEventListener('wheel', scrollHandler)

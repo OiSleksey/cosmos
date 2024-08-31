@@ -19,7 +19,7 @@
   <body>
     <div class="body-container">
       <div class="substrate-body">
-        <!-- <img src="img/background-body.png" alt="" /> -->
+        <div class="substrate-body__bottom"></div>
       </div>
       <div class="overlay-body"></div>
 
@@ -74,13 +74,11 @@
                     in each section to learn more about sustainability.
                   </div>
                   <div class="show-up-home__control">
-                    <div class="show-up-home__button-pink">
-                      <img src="/img/rectangle-pink.svg" alt="" />
-                      <span>What does it mean?</span>
+                    <div class="show-up-home__button show-up-home__button--pink">
+                      What does it mean?
                     </div>
-                    <div class="show-up-home__button-blue">
-                      <img src="/img/rectangle-violet.svg" alt="" />
-                      <span>What can you do?</span>
+                    <div class="show-up-home__button show-up-home__button--violet">
+                      What can you do?
                     </div>
                   </div>
                 </div>
@@ -100,9 +98,8 @@
                     future generations have the resources they need to survive.
                   </div>
                   <div class="show-up-home__control">
-                    <div class="show-up-home__button-pink">
-                      <img src="/img/rectangle-pink.svg" alt="" />
-                      <span>Ready – let’s go</span>
+                    <div class="show-up-home__button show-up-home__button--pink">
+                      Ready – let’s go
                     </div>
                   </div>
                 </div>
@@ -110,7 +107,7 @@
             </div>
           </div>
           <div class="pages">
-            <section class="home-page page page-1 page--moving-up">
+            <section class="home-page page-planet page page-1 page--moving-up">
               <div class="home-page__content">
                 <div class="home-page__line">
                   <img src="/icons/line-home-page.svg" alt="line" />
@@ -163,12 +160,20 @@
                   <img src="/img/satellite-2.png" alt="planet" />
                 </div>
               </div>
+              <div class="scroll-down">
+                <div class="scroll-down__title">Scroll Down</div>
+                <div class="scroll-down__arrow">
+                  <img src="/icons/arrow-scroll.svg" alt="arrow-scroll" />
+                </div>
+              </div>
             </section>
-            <section class="earth-page page page-2 page--moving-up">
+            <section class="earth-page page-planet page page-2 page--moving-up">
               <div class="earth-page__content">
                 <div class="earth-page-main">
                   <div class="earth-page-main__wrap">
-                    <div class="earth-page-main__title">Destination:</div>
+                    <div class="earth-page-main__title earth-page-main__title--blue">
+                      Destination:
+                    </div>
                     <h2 class="earth-page-main__header">Earth</h2>
                     <div class="earth-page-main__description">
                       Our planet has a limited amount of resources, but demand for those resources
@@ -177,7 +182,7 @@
                     </div>
                   </div>
                   <div class="earth-page-main__wrap">
-                    <div class="earth-page-main__title">Factoids</div>
+                    <div class="earth-page-main__title earth-page-main__title--blue">Factoids</div>
                     <div class="earth-page-main__versions">
                       <div class="earth-page-main__item">
                         <div class="earth-page-main__version">1.0</div>
@@ -207,7 +212,7 @@
                     <div class="earth-page-add__description">
                       We can reduce our carbon footprint in day-to-day activities.
                     </div>
-                    <div class="earth-page-add__button">EXPLORE</div>
+                    <div class="earth-page-add__button earth-page-add__button--blue">EXPLORE</div>
                   </div>
                   <div class="earth-page-add__wrap">
                     <h3 class="earth-page-add__header">Recycle</h3>
@@ -220,7 +225,9 @@
                       <li class="earth-page-add__item">Economic impact from recycling</li>
                       <li class="earth-page-add__item">Process for recycling"</li>
                     </ul>
-                    <div class="earth-page-add__button">Learn More</div>
+                    <div class="earth-page-add__button earth-page-add__button--blue">
+                      Learn More
+                    </div>
                   </div>
                 </div>
               </div>
@@ -239,183 +246,568 @@
                   <img src="/img/satellite-2.png" alt="planet" />
                 </div>
                 <div class="substrate-earth-page__luna">
-                  <img src="/img/luna.png" alt="planet" />
+                  <img src="/img/luna-small.png" alt="planet" />
+                </div>
+              </div>
+              <div class="scroll-down">
+                <div class="scroll-down__title">Scroll Down</div>
+                <div class="scroll-down__arrow">
+                  <img src="/icons/arrow-scroll.svg" alt="arrow-scroll" />
                 </div>
               </div>
             </section>
-            <section class="home-page page page-3">
-              <div class="home-page__content">
-                <div class="home-page__line">
-                  <img src="/icons/line-home-page.svg" alt="line" />
-                </div>
-                <h1 class="home-page__header">Lunasustain</h1>
-                <p class="home-page__description">
-                  People around the world are working together to create a sustainable future. But
-                  we need to make choices that will protect valuable resources today and make sure
-                  those resources are available tomorrow, next year, and years from now.
-                </p>
-                <div class="home-page__nav">
-                  <div class="home-page__row">
-                    <img class="home-page__arrow" src="/icons/arrow-nav.svg" alt="arrow" />
-                    <div class="home-page__text">
-                      Join us on a journey from Earth to the Moon and beyond.
+            <section class="deep-page page page-3">
+              <div class="deep-page__substrate-pink">
+                <div class="deep-page__substrate-blue">
+                  <div class="deep-page__content">
+                    <h3 class="deep-page__title">Dig Deeper</h3>
+                    <div class="deep-page__description">Dig Deeper - Short Description</div>
+                    <div class="deep-page__cards">
+                      <div class="deep-page__card">
+                        <div class="deep-page__img-container">
+                          <img src="/img/deep-images/image-1.png" alt="amage" />
+                          <div class="deep-page__img-overlay"></div>
+                        </div>
+                        <div class="deep-page__img-name">Dig Deeper 1 - Short Description</div>
+                      </div>
+                      <div class="deep-page__card">
+                        <div class="deep-page__img-container">
+                          <img src="/img/deep-images/image-2.png" alt="amage" />
+                          <div class="deep-page__img-overlay"></div>
+                        </div>
+                        <div class="deep-page__img-name">Dig Deeper 1 - Short Description</div>
+                      </div>
+                      <div class="deep-page__card">
+                        <div class="deep-page__img-container">
+                          <img src="/img/deep-images/image-3.png" alt="amage" />
+                          <div class="deep-page__img-overlay"></div>
+                        </div>
+                        <div class="deep-page__img-name">Dig Deeper 1 - Short Description</div>
+                      </div>
+                      <div class="deep-page__card">
+                        <div class="deep-page__img-container">
+                          <img src="/img/deep-images/image-4.png" alt="amage" />
+                          <div class="deep-page__img-overlay"></div>
+                        </div>
+                        <div class="deep-page__img-name">Dig Deeper 1 - Short Description</div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="home-page__row">
-                    <img class="home-page__arrow" src="/icons/arrow-nav.svg" alt="arrow" />
-                    <div class="home-page__text">
-                      Become a solutionary . Use your critical and creative thinking skills ...
+                    <div class="deep-page__body">
+                      <h2 class="deep-page__header">WE CAN REDUCE OUR CARBON FOOTPRINT</h2>
+                      <div class="deep-page__caption">Congratulations!</div>
+                      <div class="deep-page__text">You’re ready to explore more.</div>
+                      <div class="deep-page__button deep-page__button--blue">Next Destination</div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="substrate-home-page">
-                <div class="substrate-home-page__planet">
-                  <div class="substrate-home-page__planet-3-wrap">
-                    <div class="substrate-home-page__planet-2-wrap">
-                      <div class="substrate-home-page__planet-1-wrap">
-                        <img src="/img/earth-planet.png" alt="planet" />
+            </section>
+            <section class="earth-page page page-4">
+              <div class="earth-page__content">
+                <div class="earth-page-main">
+                  <div class="earth-page-main__wrap">
+                    <div class="earth-page-main__title earth-page-main__title--aqua">
+                      Destination:
+                    </div>
+                    <h2 class="earth-page-main__header">International Space Station</h2>
+                    <div class="earth-page-main__description">
+                      "NASA is working on plans to explore other worlds. The international Space
+                      Station is one of the first steps to deep space exploration. NASA will use
+                      what they learn here to benefit people on Earth and prepare for missions that
+                      reach farther into space. On the station, responsible use of resources is
+                      critical. "
+                    </div>
+                  </div>
+                  <div class="earth-page-main__wrap">
+                    <div class="earth-page-main__title earth-page-main__title--aqua">Factoids</div>
+                    <div class="earth-page-main__versions">
+                      <div class="earth-page-main__item">
+                        <div class="earth-page-main__version">1.0</div>
+                        <div class="earth-page-main__info">
+                          On average, a large supermarket uses more than 60 million grocery bags per
+                          year.
+                        </div>
+                      </div>
+                      <div class="earth-page-main__item">
+                        <div class="earth-page-main__version">2.0</div>
+                        <div class="earth-page-main__info">
+                          The five warmest years on record have occurred within the last decade.
+                        </div>
+                      </div>
+                      <div class="earth-page-main__item">
+                        <div class="earth-page-main__version">3.0</div>
+                        <div class="earth-page-main__info">
+                          The five warmest years on record have occurred within the last decade.
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="substrate-home-page__satellite-1">
-                  <img src="/img/satellite-1.png" alt="planet" />
+                <div class="earth-page-add">
+                  <div class="earth-page-add__wrap">
+                    <h3 class="earth-page-add__header">Reusable Resources</h3>
+                    <div class="earth-page-add__description">
+                      We can look for innovative ways to turn trash into other usable resources.
+                    </div>
+                    <div class="earth-page-add__button earth-page-add__button--aqua">EXPLORE</div>
+                  </div>
+                  <div class="earth-page-add__wrap">
+                    <h3 class="earth-page-add__header">Clean Air</h3>
+                    <div class="earth-page-add__description">
+                      We can create filters to remove contaminants from the air.
+                    </div>
+
+                    <div class="earth-page-add__button earth-page-add__button--aqua">
+                      Learn More
+                    </div>
+                  </div>
                 </div>
-                <div class="substrate-home-page__satellite-2">
-                  <img src="/img/satellite-2.png" alt="planet" />
+              </div>
+              <div class="substrate-earth-page">
+                <div class="substrate-earth-page__space-station">
+                  <img src="/img/space-station-horizontal.png" alt="space-station" />
+                </div>
+              </div>
+              <div class="scroll-down">
+                <div class="scroll-down__title">Scroll Down</div>
+                <div class="scroll-down__arrow">
+                  <img src="/icons/arrow-scroll.svg" alt="arrow-scroll" />
                 </div>
               </div>
             </section>
-            <section class="home-page page page-4">
-              <div class="home-page__content">
-                <div class="home-page__line">
-                  <img src="/icons/line-home-page.svg" alt="line" />
-                </div>
-                <h1 class="home-page__header">Lunasustain</h1>
-                <p class="home-page__description">
-                  People around the world are working together to create a sustainable future. But
-                  we need to make choices that will protect valuable resources today and make sure
-                  those resources are available tomorrow, next year, and years from now.
-                </p>
-                <div class="home-page__nav">
-                  <div class="home-page__row">
-                    <img class="home-page__arrow" src="/icons/arrow-nav.svg" alt="arrow" />
-                    <div class="home-page__text">
-                      Join us on a journey from Earth to the Moon and beyond.
+            <section class="deep-page page page-5">
+              <div class="deep-page__substrate-pink">
+                <div class="deep-page__substrate-blue">
+                  <div class="deep-page__content">
+                    <h3 class="deep-page__title">Dig Deeper</h3>
+                    <div class="deep-page__description">Dig Deeper - Short Description</div>
+                    <div class="deep-page__cards">
+                      <div class="deep-page__card">
+                        <div class="deep-page__img-container">
+                          <img src="/img/deep-images/image-1.png" alt="amage" />
+                          <div class="deep-page__img-overlay"></div>
+                        </div>
+                        <div class="deep-page__img-name">Dig Deeper 1 - Short Description</div>
+                      </div>
+                      <div class="deep-page__card">
+                        <div class="deep-page__img-container">
+                          <img src="/img/deep-images/image-2.png" alt="amage" />
+                          <div class="deep-page__img-overlay"></div>
+                        </div>
+                        <div class="deep-page__img-name">Dig Deeper 1 - Short Description</div>
+                      </div>
+                      <div class="deep-page__card">
+                        <div class="deep-page__img-container">
+                          <img src="/img/deep-images/image-3.png" alt="amage" />
+                          <div class="deep-page__img-overlay"></div>
+                        </div>
+                        <div class="deep-page__img-name">Dig Deeper 1 - Short Description</div>
+                      </div>
+                      <div class="deep-page__card">
+                        <div class="deep-page__img-container">
+                          <img src="/img/deep-images/image-4.png" alt="amage" />
+                          <div class="deep-page__img-overlay"></div>
+                        </div>
+                        <div class="deep-page__img-name">Dig Deeper 1 - Short Description</div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="home-page__row">
-                    <img class="home-page__arrow" src="/icons/arrow-nav.svg" alt="arrow" />
-                    <div class="home-page__text">
-                      Become a solutionary . Use your critical and creative thinking skills ...
+                    <div class="deep-page__body">
+                      <h2 class="deep-page__header">WE CAN REDUCE OUR CARBON FOOTPRINT</h2>
+                      <div class="deep-page__caption">Congratulations!</div>
+                      <div class="deep-page__text">You’re ready to explore more.</div>
+                      <div class="deep-page__button deep-page__button--aqua">Next Destination</div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="substrate-home-page">
-                <div class="substrate-home-page__planet">
-                  <div class="substrate-home-page__planet-3-wrap">
-                    <div class="substrate-home-page__planet-2-wrap">
-                      <div class="substrate-home-page__planet-1-wrap">
-                        <img src="/img/earth-planet.png" alt="planet" />
+            </section>
+            <section class="earth-page page page-6">
+              <div class="earth-page__content">
+                <div class="earth-page-main">
+                  <div class="earth-page-main__wrap">
+                    <div class="earth-page-main__title earth-page-main__title--yellow">
+                      Destination:
+                    </div>
+                    <h2 class="earth-page-main__header">Orion</h2>
+                    <div class="earth-page-main__description">
+                      NASA’s Orion spacecraft is built to take humans farther than they’ve gone
+                      before. The crew module will carry Artemis astronauts to space. NASA designed
+                      the Orion spacecraft with sustainability in mind.
+                    </div>
+                  </div>
+                  <div class="earth-page-main__wrap">
+                    <div class="earth-page-main__title earth-page-main__title--yellow">
+                      Factoids
+                    </div>
+                    <div class="earth-page-main__versions">
+                      <div class="earth-page-main__item">
+                        <div class="earth-page-main__version">1.0</div>
+                        <div class="earth-page-main__info">
+                          On average, a large supermarket uses more than 60 million grocery bags per
+                          year.
+                        </div>
+                      </div>
+                      <div class="earth-page-main__item">
+                        <div class="earth-page-main__version">2.0</div>
+                        <div class="earth-page-main__info">
+                          The five warmest years on record have occurred within the last decade.
+                        </div>
+                      </div>
+                      <div class="earth-page-main__item">
+                        <div class="earth-page-main__version">3.0</div>
+                        <div class="earth-page-main__info">
+                          The five warmest years on record have occurred within the last decade.
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="substrate-home-page__satellite-1">
-                  <img src="/img/satellite-1.png" alt="planet" />
+                <div class="earth-page-add">
+                  <div class="earth-page-add__wrap">
+                    <h3 class="earth-page-add__header">Amount of water used or Electrolysis</h3>
+                    <div class="earth-page-add__description">
+                      We can reduce our carbon footprint in day-to-day activities.
+                    </div>
+                    <div class="earth-page-add__button earth-page-add__button--yellow">EXPLORE</div>
+                  </div>
+                  <div class="earth-page-add__wrap">
+                    <h3 class="earth-page-add__header">Shower Clock</h3>
+                    <div class="earth-page-add__description">
+                      We can create filters to remove contaminants from the air.
+                    </div>
+                    <ul class="earth-page-add__list">
+                      <li class="earth-page-add__item">Recycling numbers</li>
+                      <li class="earth-page-add__item">Products from recycled goods</li>
+                      <li class="earth-page-add__item">Economic impact from recycling</li>
+                      <li class="earth-page-add__item">Process for recycling"</li>
+                    </ul>
+                    <div class="earth-page-add__button earth-page-add__button--yellow">
+                      Learn More
+                    </div>
+                  </div>
                 </div>
-                <div class="substrate-home-page__satellite-2">
-                  <img src="/img/satellite-2.png" alt="planet" />
+              </div>
+              <div class="substrate-earth-page">
+                <div class="substrate-earth-page__space-station">
+                  <img src="/img/space-ship.png" alt="space-ship" />
+                </div>
+              </div>
+              <div class="scroll-down">
+                <div class="scroll-down__title">Scroll Down</div>
+                <div class="scroll-down__arrow">
+                  <img src="/icons/arrow-scroll.svg" alt="arrow-scroll" />
                 </div>
               </div>
             </section>
-            <section class="home-page page page-5">
-              <div class="home-page__content">
-                <div class="home-page__line">
-                  <img src="/icons/line-home-page.svg" alt="line" />
-                </div>
-                <h1 class="home-page__header">Lunasustain</h1>
-                <p class="home-page__description">
-                  People around the world are working together to create a sustainable future. But
-                  we need to make choices that will protect valuable resources today and make sure
-                  those resources are available tomorrow, next year, and years from now.
-                </p>
-                <div class="home-page__nav">
-                  <div class="home-page__row">
-                    <img class="home-page__arrow" src="/icons/arrow-nav.svg" alt="arrow" />
-                    <div class="home-page__text">
-                      Join us on a journey from Earth to the Moon and beyond.
+            <section class="deep-page page page-7">
+              <div class="deep-page__substrate-pink">
+                <div class="deep-page__substrate-blue">
+                  <div class="deep-page__content">
+                    <h3 class="deep-page__title">Dig Deeper</h3>
+                    <div class="deep-page__description">Dig Deeper - Short Description</div>
+                    <div class="deep-page__cards">
+                      <div class="deep-page__card">
+                        <div class="deep-page__img-container">
+                          <img src="/img/deep-images/image-1.png" alt="amage" />
+                          <div class="deep-page__img-overlay"></div>
+                        </div>
+                        <div class="deep-page__img-name">Dig Deeper 1 - Short Description</div>
+                      </div>
+                      <div class="deep-page__card">
+                        <div class="deep-page__img-container">
+                          <img src="/img/deep-images/image-2.png" alt="amage" />
+                          <div class="deep-page__img-overlay"></div>
+                        </div>
+                        <div class="deep-page__img-name">Dig Deeper 1 - Short Description</div>
+                      </div>
+                      <div class="deep-page__card">
+                        <div class="deep-page__img-container">
+                          <img src="/img/deep-images/image-3.png" alt="amage" />
+                          <div class="deep-page__img-overlay"></div>
+                        </div>
+                        <div class="deep-page__img-name">Dig Deeper 1 - Short Description</div>
+                      </div>
+                      <div class="deep-page__card">
+                        <div class="deep-page__img-container">
+                          <img src="/img/deep-images/image-4.png" alt="amage" />
+                          <div class="deep-page__img-overlay"></div>
+                        </div>
+                        <div class="deep-page__img-name">Dig Deeper 1 - Short Description</div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="home-page__row">
-                    <img class="home-page__arrow" src="/icons/arrow-nav.svg" alt="arrow" />
-                    <div class="home-page__text">
-                      Become a solutionary . Use your critical and creative thinking skills ...
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="substrate-home-page">
-                <div class="substrate-home-page__planet">
-                  <div class="substrate-home-page__planet-3-wrap">
-                    <div class="substrate-home-page__planet-2-wrap">
-                      <div class="substrate-home-page__planet-1-wrap">
-                        <img src="/img/earth-planet.png" alt="planet" />
+                    <div class="deep-page__body">
+                      <h2 class="deep-page__header">WE CAN REDUCE OUR CARBON FOOTPRINT</h2>
+                      <div class="deep-page__caption">Congratulations!</div>
+                      <div class="deep-page__text">You’re ready to explore more.</div>
+                      <div class="deep-page__button deep-page__button--yellow">
+                        Next Destination
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="substrate-home-page__satellite-1">
-                  <img src="/img/satellite-1.png" alt="planet" />
-                </div>
-                <div class="substrate-home-page__satellite-2">
-                  <img src="/img/satellite-2.png" alt="planet" />
-                </div>
               </div>
             </section>
-            <section class="home-page page page-6">
-              <div class="home-page__content">
-                <div class="home-page__line">
-                  <img src="/icons/line-home-page.svg" alt="line" />
-                </div>
-                <h1 class="home-page__header">Lunasustain</h1>
-                <p class="home-page__description">
-                  People around the world are working together to create a sustainable future. But
-                  we need to make choices that will protect valuable resources today and make sure
-                  those resources are available tomorrow, next year, and years from now.
-                </p>
-                <div class="home-page__nav">
-                  <div class="home-page__row">
-                    <img class="home-page__arrow" src="/icons/arrow-nav.svg" alt="arrow" />
-                    <div class="home-page__text">
-                      Join us on a journey from Earth to the Moon and beyond.
+            <section class="earth-page page-planet page page-8">
+              <div class="earth-page__content">
+                <div class="earth-page-main">
+                  <div class="earth-page-main__wrap">
+                    <div class="earth-page-main__title earth-page-main__title--magenta">
+                      Destination:
+                    </div>
+                    <h2 class="earth-page-main__header">Moon</h2>
+                    <div class="earth-page-main__description">
+                      Our planet has a limited amount of resources, but demand for those resources
+                      continues to grow. We need to change our habits if we are going to reduce how
+                      many resources we use each day. 
                     </div>
                   </div>
-                  <div class="home-page__row">
-                    <img class="home-page__arrow" src="/icons/arrow-nav.svg" alt="arrow" />
-                    <div class="home-page__text">
-                      Become a solutionary . Use your critical and creative thinking skills ...
+                  <div class="earth-page-main__wrap">
+                    <div class="earth-page-main__title earth-page-main__title--magenta">
+                      Factoids
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div class="substrate-home-page">
-                <div class="substrate-home-page__planet">
-                  <div class="substrate-home-page__planet-3-wrap">
-                    <div class="substrate-home-page__planet-2-wrap">
-                      <div class="substrate-home-page__planet-1-wrap">
-                        <img src="/img/earth-planet.png" alt="planet" />
+                    <div class="earth-page-main__versions">
+                      <div class="earth-page-main__item">
+                        <div class="earth-page-main__version">1.0</div>
+                        <div class="earth-page-main__info">
+                          On average, a large supermarket uses more than 60 million grocery bags per
+                          year.
+                        </div>
+                      </div>
+                      <div class="earth-page-main__item">
+                        <div class="earth-page-main__version">2.0</div>
+                        <div class="earth-page-main__info">
+                          The five warmest years on record have occurred within the last decade.
+                        </div>
+                      </div>
+                      <div class="earth-page-main__item">
+                        <div class="earth-page-main__version">3.0</div>
+                        <div class="earth-page-main__info">
+                          The five warmest years on record have occurred within the last decade.
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="substrate-home-page__satellite-1">
+                <div class="earth-page-add">
+                  <div class="earth-page-add__wrap">
+                    <h3 class="earth-page-add__header">Calculate Your Carbon Footprint</h3>
+                    <div class="earth-page-add__description">
+                      We can reduce our carbon footprint in day-to-day activities.
+                    </div>
+                    <div class="earth-page-add__button earth-page-add__button--magenta">
+                      EXPLORE
+                    </div>
+                  </div>
+                  <div class="earth-page-add__wrap">
+                    <h3 class="earth-page-add__header">Recycle</h3>
+                    <div class="earth-page-add__description">
+                      "We can reduce our carbon footprint in day-to-day activities.
+                    </div>
+                    <ul class="earth-page-add__list">
+                      <li class="earth-page-add__item">Recycling numbers</li>
+                      <li class="earth-page-add__item">Products from recycled goods</li>
+                      <li class="earth-page-add__item">Economic impact from recycling</li>
+                      <li class="earth-page-add__item">Process for recycling"</li>
+                    </ul>
+                    <div class="earth-page-add__button earth-page-add__button--magenta">
+                      Learn More
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="substrate-earth-page">
+                <div class="substrate-earth-page__planet">
+                  <div class="substrate-earth-page__planet-1-wrap">
+                    <img src="/img/luna-big.png" alt="planet" />
+                  </div>
+                </div>
+                <div class="substrate-earth-page__satellite-1">
                   <img src="/img/satellite-1.png" alt="planet" />
                 </div>
-                <div class="substrate-home-page__satellite-2">
+                <div class="substrate-earth-page__satellite-2">
                   <img src="/img/satellite-2.png" alt="planet" />
+                </div>
+                <div class="substrate-earth-page__luna">
+                  <img src="/img/luna-small.png" alt="planet" />
+                </div>
+              </div>
+              <div class="scroll-down">
+                <div class="scroll-down__title">Scroll Down</div>
+                <div class="scroll-down__arrow">
+                  <img src="/icons/arrow-scroll.svg" alt="arrow-scroll" />
+                </div>
+              </div>
+            </section>
+            <section class="deep-page page-planet page page-9">
+              <div class="deep-page__substrate-pink">
+                <div class="deep-page__substrate-blue">
+                  <div class="deep-page__content">
+                    <h3 class="deep-page__title">Dig Deeper</h3>
+                    <div class="deep-page__description">Dig Deeper - Short Description</div>
+                    <div class="deep-page__cards">
+                      <div class="deep-page__card">
+                        <div class="deep-page__img-container">
+                          <img src="/img/deep-images/image-1.png" alt="amage" />
+                          <div class="deep-page__img-overlay"></div>
+                        </div>
+                        <div class="deep-page__img-name">Dig Deeper 1 - Short Description</div>
+                      </div>
+                      <div class="deep-page__card">
+                        <div class="deep-page__img-container">
+                          <img src="/img/deep-images/image-2.png" alt="amage" />
+                          <div class="deep-page__img-overlay"></div>
+                        </div>
+                        <div class="deep-page__img-name">Dig Deeper 1 - Short Description</div>
+                      </div>
+                      <div class="deep-page__card">
+                        <div class="deep-page__img-container">
+                          <img src="/img/deep-images/image-3.png" alt="amage" />
+                          <div class="deep-page__img-overlay"></div>
+                        </div>
+                        <div class="deep-page__img-name">Dig Deeper 1 - Short Description</div>
+                      </div>
+                      <div class="deep-page__card">
+                        <div class="deep-page__img-container">
+                          <img src="/img/deep-images/image-4.png" alt="amage" />
+                          <div class="deep-page__img-overlay"></div>
+                        </div>
+                        <div class="deep-page__img-name">Dig Deeper 1 - Short Description</div>
+                      </div>
+                    </div>
+                    <div class="deep-page__body">
+                      <h2 class="deep-page__header">WE CAN REDUCE OUR CARBON FOOTPRINT</h2>
+                      <div class="deep-page__caption">Congratulations!</div>
+                      <div class="deep-page__text">You’re ready to explore more.</div>
+                      <div class="deep-page__button deep-page__button--magenta">
+                        Next Destination
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="earth-page page page-10">
+              <div class="earth-page__content">
+                <div class="earth-page-main">
+                  <div class="earth-page-main__wrap">
+                    <div class="earth-page-main__title earth-page-main__title--violet">
+                      Destination:
+                    </div>
+                    <h2 class="earth-page-main__header">Gateway</h2>
+                    <div class="earth-page-main__description">
+                      Gateway is a station that will orbit around the Moon. Power and propulsion
+                      will be provided by sustainable, renewable energy sources.
+                    </div>
+                  </div>
+                  <div class="earth-page-main__wrap">
+                    <div class="earth-page-main__title earth-page-main__title--violet">
+                      Factoids
+                    </div>
+                    <div class="earth-page-main__versions">
+                      <div class="earth-page-main__item">
+                        <div class="earth-page-main__version">1.0</div>
+                        <div class="earth-page-main__info">
+                          On average, a large supermarket uses more than 60 million grocery bags per
+                          year.
+                        </div>
+                      </div>
+                      <div class="earth-page-main__item">
+                        <div class="earth-page-main__version">2.0</div>
+                        <div class="earth-page-main__info">
+                          The five warmest years on record have occurred within the last decade.
+                        </div>
+                      </div>
+                      <div class="earth-page-main__item">
+                        <div class="earth-page-main__version">3.0</div>
+                        <div class="earth-page-main__info">
+                          The five warmest years on record have occurred within the last decade.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="earth-page-add">
+                  <div class="earth-page-add__wrap">
+                    <h3 class="earth-page-add__header">Title</h3>
+                    <div class="earth-page-add__description">
+                      We can look for innovative ways to turn trash into other usable resources.
+                    </div>
+                    <div class="earth-page-add__button earth-page-add__button--violet">EXPLORE</div>
+                  </div>
+                  <div class="earth-page-add__wrap">
+                    <h3 class="earth-page-add__header">Title</h3>
+                    <div class="earth-page-add__description">
+                      We can create filters to remove contaminants from the air.
+                    </div>
+                    <ul class="earth-page-add__list">
+                      <li class="earth-page-add__item">Recycling numbers</li>
+                      <li class="earth-page-add__item">Products from recycled goods</li>
+                      <li class="earth-page-add__item">Economic impact from recycling</li>
+                      <li class="earth-page-add__item">Process for recycling"</li>
+                    </ul>
+                    <div class="earth-page-add__button earth-page-add__button--violet">
+                      Learn More
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="substrate-earth-page">
+                <div class="substrate-earth-page__space-station">
+                  <img src="/img/space-station-vertical.png" alt="space-station" />
+                </div>
+              </div>
+              <div class="scroll-down">
+                <div class="scroll-down__title">Scroll Down</div>
+                <div class="scroll-down__arrow">
+                  <img src="/icons/arrow-scroll.svg" alt="arrow-scroll" />
+                </div>
+              </div>
+            </section>
+            <section class="deep-page page page-11">
+              <div class="deep-page__substrate-pink">
+                <div class="deep-page__substrate-blue">
+                  <div class="deep-page__content">
+                    <h3 class="deep-page__title">Dig Deeper</h3>
+                    <div class="deep-page__description">Dig Deeper - Short Description</div>
+                    <div class="deep-page__cards">
+                      <div class="deep-page__card">
+                        <div class="deep-page__img-container">
+                          <img src="/img/deep-images/image-1.png" alt="amage" />
+                          <div class="deep-page__img-overlay"></div>
+                        </div>
+                        <div class="deep-page__img-name">Dig Deeper 1 - Short Description</div>
+                      </div>
+                      <div class="deep-page__card">
+                        <div class="deep-page__img-container">
+                          <img src="/img/deep-images/image-2.png" alt="amage" />
+                          <div class="deep-page__img-overlay"></div>
+                        </div>
+                        <div class="deep-page__img-name">Dig Deeper 1 - Short Description</div>
+                      </div>
+                      <div class="deep-page__card">
+                        <div class="deep-page__img-container">
+                          <img src="/img/deep-images/image-3.png" alt="amage" />
+                          <div class="deep-page__img-overlay"></div>
+                        </div>
+                        <div class="deep-page__img-name">Dig Deeper 1 - Short Description</div>
+                      </div>
+                      <div class="deep-page__card">
+                        <div class="deep-page__img-container">
+                          <img src="/img/deep-images/image-4.png" alt="amage" />
+                          <div class="deep-page__img-overlay"></div>
+                        </div>
+                        <div class="deep-page__img-name">Dig Deeper 1 - Short Description</div>
+                      </div>
+                    </div>
+                    <div class="deep-page__body">
+                      <h2 class="deep-page__header">WE CAN REDUCE OUR CARBON FOOTPRINT</h2>
+                      <div class="deep-page__caption">Congratulations!</div>
+                      <div class="deep-page__text">You’re ready to explore more.</div>
+                      <div class="deep-page__button deep-page__button--magenta">
+                        Next Destination
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
@@ -431,6 +823,11 @@
             <li class="pagination__item" data-page="4"></li>
             <li class="pagination__item" data-page="5"></li>
             <li class="pagination__item" data-page="6"></li>
+            <li class="pagination__item" data-page="7"></li>
+            <li class="pagination__item" data-page="8"></li>
+            <li class="pagination__item" data-page="9"></li>
+            <li class="pagination__item" data-page="10"></li>
+            <li class="pagination__item" data-page="11"></li>
           </ul>
         </nav>
       </main>

@@ -150,6 +150,10 @@
 
   &-main,
   &-add {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
     &__description {
       margin-bottom: 1rem;
 
@@ -188,11 +192,30 @@
         left: -0.5rem;
         // left: 50%;
         // transform: translateX(-50%);
-        background-image: url('/icons/line-earth.svg');
         background-size: cover;
         background-repeat: no-repeat;
         width: 100%;
         height: 0.4rem;
+      }
+
+      &--blue::before {
+        background-image: url('/icons/line-blue.svg');
+      }
+
+      &--aqua::before {
+        background-image: url('/icons/line-aqua.svg');
+      }
+
+      &--yellow::before {
+        background-image: url('/icons/line-yellow.svg');
+      }
+
+      &--magenta::before {
+        background-image: url('/icons/line-magenta.svg');
+      }
+
+      &--violet::before {
+        background-image: url('/icons/line-violet.svg');
       }
     }
 
@@ -289,10 +312,30 @@
       font-weight: 400;
       letter-spacing: 4.25px;
       text-transform: uppercase;
-      background-image: url('/img/rectangle-blue.svg');
+
       background-size: cover;
       background-repeat: no-repeat;
       padding: 1rem 2rem;
+
+      &--blue {
+        background-image: url('/img/rectangle-blue.svg');
+      }
+
+      &--aqua {
+        background-image: url('/img/rectangle-aqua.svg');
+      }
+
+      &--yellow {
+        background-image: url('/img/rectangle-yellow.svg');
+      }
+
+      &--magenta {
+        background-image: url('/img/rectangle-magenta.svg');
+      }
+
+      &--violet {
+        background-image: url('/img/rectangle-violet.svg');
+      }
     }
   }
 }
@@ -310,7 +353,8 @@
   &__planet {
     position: absolute;
     top: calc(50% - $sizeSubstratePlanet / 2);
-    left: calc(50% - $sizeSubstratePlanet / 2);
+    left: 50%;
+    transform: translateX(-50%);
 
     &-3-wrap,
     &-2-wrap,
@@ -368,6 +412,225 @@
     left: calc(48% - $sizeSubstratePlanet / 2);
     img {
       width: 6.8rem;
+    }
+  }
+
+  &__space-station {
+    position: absolute;
+    top: 50%;
+    left: calc(50% - $sizeSubstrateSpaceStation / 2);
+    transform: translateY(-50%);
+    width: $sizeSubstrateSpaceStation;
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.scroll-down {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  @extend %opacityScroll;
+
+  &__title {
+    color: #fff;
+    font-family: 'Londrina Solid';
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+  }
+
+  img {
+    width: 100%;
+  }
+}
+
+$deep-page-pink: 100vh;
+.deep-page {
+  // &--active {
+  //   opacity: 1;
+  //   transform: none;
+  //   transition-timing-function: ease;
+  //   transition-delay: $headingsDelay;
+  // }
+
+  &__substrate-pink {
+    @extend %movingContainer;
+    position: relative;
+    min-height: $deep-page-pink;
+    width: 100%;
+    background-image: url('/img/show-up-pink.svg');
+    background-repeat: no-repeat;
+    background-size: $maxWidthAllContent $deep-page-pink;
+    background-position: top 50% left 0;
+  }
+
+  &__substrate-blue {
+    // @extend %movingContainer;
+    width: 100%;
+    background-image: url('/img/show-up-blue.svg');
+    background-repeat: no-repeat;
+    background-size: $maxWidthAllContent $deep-page-pink;
+    background-position: top 50%1rem left 0;
+    min-height: $deep-page-pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__title {
+    margin-bottom: 1rem;
+
+    color: #fff;
+    font-family: inherit;
+    font-size: 4.6rem;
+    font-weight: 400;
+    letter-spacing: 1.064px;
+  }
+
+  &__description {
+    margin-bottom: 2.4rem;
+
+    color: #fff;
+    font-family: inherit;
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 1.064px;
+  }
+
+  &__cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 2.4rem;
+    margin-bottom: 4.6rem;
+  }
+
+  &__card {
+    flex: 1 0 23.1rem;
+    max-width: 23.1rem;
+  }
+
+  &__img-container {
+    width: 23.1rem;
+    height: 15.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.6rem;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 2.4rem;
+    background-color: rgba(55, 6, 113, 0.9);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 3px solid rgba(253, 232, 176, 0.5);
+      z-index: 1;
+      border-radius: 0.6rem;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+
+    img {
+      width: 100%;
+      transition: transform 0.4s;
+    }
+  }
+
+  &__img-name {
+    color: #b5a8e8;
+    font-family: inherit;
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 1.064px;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__header {
+    margin-bottom: 1rem;
+
+    color: #fff;
+    font-family: inherit;
+    font-size: 5.6rem;
+    font-weight: 400;
+    letter-spacing: 3.06px;
+    text-transform: uppercase;
+  }
+
+  &__caption {
+    margin-bottom: 1rem;
+
+    color: #fff;
+    font-family: inherit;
+    font-size: 4rem;
+    font-weight: 400;
+    letter-spacing: 1.064px;
+  }
+
+  &__text {
+    margin-bottom: 2rem;
+
+    color: #fff;
+    font-family: inherit;
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: 1.064px;
+  }
+
+  &__button {
+    cursor: pointer;
+    color: #fff;
+    width: max-content;
+
+    font-family: inherit;
+    font-size: 4.6rem;
+    font-weight: 400;
+    letter-spacing: 1.064px;
+    text-transform: capitalize;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 1rem 2rem;
+
+    &--blue {
+      background-image: url('/img/rectangle-blue.svg');
+    }
+
+    &--aqua {
+      background-image: url('/img/rectangle-aqua.svg');
+    }
+
+    &--yellow {
+      background-image: url('/img/rectangle-yellow.svg');
+    }
+
+    &--magenta {
+      background-image: url('/img/rectangle-magenta.svg');
+    }
+
+    &--violet {
+      background-image: url('/img/rectangle-violet.svg');
     }
   }
 }

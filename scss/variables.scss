@@ -6,7 +6,7 @@ $maxWidthAllContent: 190.2rem;
 $arrowSize: 20px;
 $customFont: 'Custom Font', Helvetica, Arial, sans-serif;
 
-$numOfPages: 6;
+$numOfPages: 11;
 
 $padding: 50px;
 $pagiItemW: 14px;
@@ -21,6 +21,7 @@ $phoneH: $phoneW * 2.042;
 $iphoneImg: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/iphone-6-mockup.png';
 
 $sizeSubstratePlanet: 47.2rem;
+$sizeSubstrateSpaceStation: 52.5rem;
 $show-up-home-pink: 100%;
 $show-up-home-blue: calc($show-up-home-pink - 2rem);
 $show-up-home-content-width: 67rem;
@@ -42,6 +43,45 @@ $show-up-home-content-width: 67rem;
     transform: none;
     transition-timing-function: ease;
     transition-delay: $headingsDelay;
+  }
+}
+
+%movingBodyBottom {
+  transition: transform calc($headingsAT / 2) ease-out;
+  transform: translateY(100%) scaleY(0.8);
+
+  .substrate-body.substrate-body--active & {
+    opacity: 1;
+    transform: translateY(0) scaleY(0.8);
+    transition-timing-function: ease;
+    transition-delay: $headingsDelay;
+  }
+}
+
+%opacityScroll {
+  opacity: 0;
+  transition: opacity calc($headingsAT / 2) ease-out;
+
+  .page.page--active & {
+    opacity: 1;
+    transition: opacity $headingsAT calc($headingsAT * 4) ease-out;
+
+    img {
+      animation: bounce;
+      animation-duration: 1s;
+      animation-delay: 5s;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+
+@keyframes bounce {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, 10px, 0);
   }
 }
 
