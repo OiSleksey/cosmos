@@ -2,17 +2,17 @@
   src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/polar.otf");
   font-family: "Custom Font";
 }
-.substrate-home-page, .home-page__content {
+.substrate-earth-page, .earth-page__content, .substrate-home-page, .home-page__content {
   opacity: 0;
   transition: opacity 0.6s, transform 0.6s ease-out;
 }
-.page.page--moving-up .substrate-home-page, .page.page--moving-up .home-page__content {
+.page.page--moving-up .substrate-earth-page, .page.page--moving-up .earth-page__content, .page.page--moving-up .substrate-home-page, .page.page--moving-up .home-page__content {
   transform: translateY(200px);
 }
-.page.page--moving-down .substrate-home-page, .page.page--moving-down .home-page__content {
+.page.page--moving-down .substrate-earth-page, .page.page--moving-down .earth-page__content, .page.page--moving-down .substrate-home-page, .page.page--moving-down .home-page__content {
   transform: translateY(-200px);
 }
-.page.page--active .substrate-home-page, .page.page--active .home-page__content {
+.page.page--active .substrate-earth-page, .page.page--active .earth-page__content, .page.page--active .substrate-home-page, .page.page--active .home-page__content {
   opacity: 1;
   transform: none;
   transition-timing-function: ease;
@@ -118,117 +118,6 @@ body {
 }
 .page.page--active {
   z-index: 2;
-}
-
-.home-page {
-  padding: 0 4.3rem;
-  display: flex;
-  align-items: center;
-}
-.home-page__content {
-  max-width: 61.3rem;
-  position: relative;
-  z-index: 1;
-}
-.home-page__line {
-  margin-bottom: 2.4rem;
-}
-.home-page__header {
-  margin-bottom: 2.4rem;
-  color: #fff;
-  font-family: inherit;
-  font-size: 7.6rem;
-  font-weight: 900;
-  letter-spacing: 0.53rem;
-  text-transform: uppercase;
-}
-.home-page__description {
-  margin-bottom: 2.4rem;
-  color: var(--White, #fff);
-  font-family: inherit;
-  font-size: 2.6rem;
-  font-weight: 300;
-  letter-spacing: 0.1rem;
-}
-.home-page__nav {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  max-width: 51.3rem;
-}
-.home-page__row {
-  display: flex;
-  align-items: center;
-  gap: 1.6rem;
-}
-.home-page__arrow {
-  cursor: pointer;
-}
-.home-page__text {
-  color: #fff;
-  font-family: inherit;
-  font-size: 2.2rem;
-  font-weight: 300;
-  letter-spacing: 0.1rem;
-}
-
-.substrate-home-page {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 0;
-}
-.substrate-home-page__planet {
-  position: absolute;
-  top: calc(50% - 23.6rem);
-  left: calc(77% - 23.6rem);
-}
-.substrate-home-page__planet-3-wrap, .substrate-home-page__planet-2-wrap, .substrate-home-page__planet-1-wrap {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.substrate-home-page__planet-3-wrap {
-  width: 47.2rem;
-  height: 47.2rem;
-  border-radius: 50%;
-  background: rgba(162, 0, 188, 0.16);
-}
-.substrate-home-page__planet-2-wrap {
-  width: 41.2rem;
-  height: 41.2rem;
-  border-radius: 418px;
-  background: rgba(162, 0, 188, 0.16);
-}
-.substrate-home-page__planet-1-wrap {
-  width: 36rem;
-  height: 36rem;
-  border-radius: 50%;
-  background: rgba(162, 0, 188, 0.16);
-}
-.substrate-home-page__planet img {
-  width: 32.8rem;
-  height: 32.8rem;
-}
-.substrate-home-page__satellite-1 {
-  position: absolute;
-  top: calc(50% - 23.6rem);
-  left: calc(78% - 23.6rem);
-}
-.substrate-home-page__satellite-1 img {
-  width: 4rem;
-  height: 4rem;
-}
-.substrate-home-page__satellite-2 {
-  position: absolute;
-  top: calc(49% - 23.6rem);
-  left: calc(73% + 23.6rem);
-}
-.substrate-home-page__satellite-2 img {
-  width: 5.7rem;
-  height: 5.7rem;
 }
 
 .show-up-home {
@@ -527,6 +416,317 @@ body {
 }
 .navigation__item:hover::before {
   opacity: 1;
+}
+
+.home-page {
+  padding: 11rem 4.3rem;
+  display: flex;
+  align-items: center;
+}
+.home-page__content {
+  max-width: 61.3rem;
+  position: relative;
+  z-index: 1;
+}
+.home-page__line {
+  margin-bottom: 2.4rem;
+}
+.home-page__header {
+  margin-bottom: 2.4rem;
+  color: #fff;
+  font-family: inherit;
+  font-size: 7.6rem;
+  font-weight: 900;
+  letter-spacing: 0.53rem;
+  text-transform: uppercase;
+}
+.home-page__description {
+  margin-bottom: 2.4rem;
+  color: var(--White, #fff);
+  font-family: inherit;
+  font-size: 2.6rem;
+  font-weight: 300;
+  letter-spacing: 0.1rem;
+}
+.home-page__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  max-width: 51.3rem;
+}
+.home-page__row {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+.home-page__arrow {
+  cursor: pointer;
+}
+.home-page__text {
+  color: #fff;
+  font-family: inherit;
+  font-size: 2.2rem;
+  font-weight: 300;
+  letter-spacing: 0.1rem;
+}
+
+.substrate-home-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+.substrate-home-page__planet {
+  position: absolute;
+  top: calc(50% - 23.6rem);
+  left: calc(77% - 23.6rem);
+}
+.substrate-home-page__planet-3-wrap, .substrate-home-page__planet-2-wrap, .substrate-home-page__planet-1-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.substrate-home-page__planet-3-wrap {
+  width: 47.2rem;
+  height: 47.2rem;
+  border-radius: 50%;
+  background: rgba(162, 0, 188, 0.16);
+}
+.substrate-home-page__planet-2-wrap {
+  width: 41.2rem;
+  height: 41.2rem;
+  border-radius: 418px;
+  background: rgba(162, 0, 188, 0.16);
+}
+.substrate-home-page__planet-1-wrap {
+  width: 36rem;
+  height: 36rem;
+  border-radius: 50%;
+  background: rgba(162, 0, 188, 0.16);
+}
+.substrate-home-page__planet img {
+  width: 32.8rem;
+  height: 32.8rem;
+}
+.substrate-home-page__satellite-1 {
+  position: absolute;
+  top: calc(50% - 23.6rem);
+  left: calc(78% - 23.6rem);
+}
+.substrate-home-page__satellite-1 img {
+  width: 4rem;
+  height: 4rem;
+}
+.substrate-home-page__satellite-2 {
+  position: absolute;
+  top: calc(49% - 23.6rem);
+  left: calc(73% + 23.6rem);
+}
+.substrate-home-page__satellite-2 img {
+  width: 5.7rem;
+  height: 5.7rem;
+}
+
+.earth-page {
+  padding: 11rem 4.3rem;
+  display: flex;
+  align-items: center;
+}
+.earth-page__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-grow: 1;
+}
+.earth-page-main__description, .earth-page-add__description {
+  margin-bottom: 1rem;
+  color: #fff;
+  text-shadow: 0px 2px 12px rgba(0, 0, 0, 0.15);
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 2.7rem;
+  letter-spacing: 1px;
+}
+.earth-page-main {
+  max-width: 51rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.6rem;
+}
+.earth-page-main__title {
+  margin-bottom: 1rem;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 4.25px;
+  text-transform: uppercase;
+  position: relative;
+  width: max-content;
+}
+.earth-page-main__title::before {
+  content: "";
+  position: absolute;
+  bottom: -0.6rem;
+  left: -0.5rem;
+  background-image: url("/icons/line-earth.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 0.4rem;
+}
+.earth-page-main__header {
+  margin-bottom: 1rem;
+  color: #fff;
+  font-family: inherit;
+  font-size: 7rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+.earth-page-main__versions {
+  padding-top: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.8rem;
+}
+.earth-page-main__item {
+  display: flex;
+  gap: 2.4rem;
+}
+.earth-page-main__version {
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.8rem;
+  font-weight: 300;
+  letter-spacing: 1.064px;
+  padding-top: 0.4rem;
+}
+.earth-page-main__info {
+  color: #fff;
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 1.064px;
+}
+.earth-page-add {
+  max-width: 39rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+}
+.earth-page-add__header {
+  color: #fff;
+  font-family: inherit;
+  font-size: 4.8rem;
+  font-weight: 900;
+  line-height: 5.2rem;
+  letter-spacing: 1px;
+}
+.earth-page-add__list {
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+}
+.earth-page-add__item {
+  color: #fff;
+  text-shadow: 0px 2px 12px rgba(0, 0, 0, 0.15);
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 2.7rem;
+  letter-spacing: 1px;
+  position: relative;
+  margin-left: 3rem;
+}
+.earth-page-add__item::before {
+  content: "";
+  position: absolute;
+  left: -2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background-color: #fff;
+}
+.earth-page-add__button {
+  cursor: pointer;
+  color: #fff;
+  width: max-content;
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 4.25px;
+  text-transform: uppercase;
+  background-image: url("/img/rectangle-blue.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 1rem 2rem;
+}
+
+.substrate-earth-page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+.substrate-earth-page__planet {
+  position: absolute;
+  top: calc(50% - 23.6rem);
+  left: calc(50% - 23.6rem);
+}
+.substrate-earth-page__planet-3-wrap, .substrate-earth-page__planet-2-wrap, .substrate-earth-page__planet-1-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.substrate-earth-page__planet-2-wrap {
+  width: 39.2rem;
+  height: 39.2rem;
+  border-radius: 418px;
+  background: rgba(162, 0, 188, 0.16);
+}
+.substrate-earth-page__planet-1-wrap {
+  width: 35rem;
+  height: 35rem;
+  border-radius: 50%;
+  background: rgba(162, 0, 188, 0.16);
+}
+.substrate-earth-page__planet img {
+  width: 32.8rem;
+  height: 32.8rem;
+}
+.substrate-earth-page__satellite-1 {
+  position: absolute;
+  top: calc(47% - 23.6rem);
+  left: calc(13% + 23.6rem);
+}
+.substrate-earth-page__satellite-1 img {
+  width: 4rem;
+  height: 4rem;
+}
+.substrate-earth-page__satellite-2 {
+  position: absolute;
+  top: calc(49% - 23.6rem);
+  left: calc(78% - 23.6rem);
+}
+.substrate-earth-page__satellite-2 img {
+  width: 5.7rem;
+  height: 5.7rem;
+}
+.substrate-earth-page__luna {
+  position: absolute;
+  top: calc(89% - 23.6rem);
+  left: calc(48% - 23.6rem);
+}
+.substrate-earth-page__luna img {
+  width: 6.8rem;
 }
 
 /*# sourceMappingURL=style.css.map */
