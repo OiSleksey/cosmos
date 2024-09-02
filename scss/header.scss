@@ -48,7 +48,9 @@ $showDurationNav: 0.4s;
   opacity: 0;
   transition: opacity $hideDurationNav ease-in;
   background: rgba(50, 28, 86, 0.2);
+  // filter: blur(22px);
   backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
 
   &--active {
     opacity: 1;
@@ -71,6 +73,7 @@ $showDurationNav: 0.4s;
     min-height: 100vh;
     max-width: $maxWidthAllContent;
     margin: 0 auto;
+    z-index: 1;
   }
 
   &__close {
@@ -111,7 +114,7 @@ $showDurationNav: 0.4s;
       bottom: -1rem;
       left: 50%;
       transform: translateX(-50%);
-      background-image: url('/icons/line-navigation.svg');
+      background-image: url('/insignia/line-navigation.svg');
       background-size: cover;
       background-repeat: no-repeat;
       width: 100%;

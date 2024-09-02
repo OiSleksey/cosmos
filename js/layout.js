@@ -18,6 +18,9 @@ const PAGE_MOVING_UP = 'page--moving-up'
 const PAGE_MOVING_DOWN = 'page--moving-down'
 const DIRECTION_UP = 'direction-up'
 const DIRECTION_DOWN = 'direction-down'
+const SUBSTARATE_BODY_TO_BOTTOM = 'substrate-body--to-bottom'
+const SUBSTARATE_BODY_TO_TOP = 'substrate-body--to-top'
+const SUBSTARATE_BODY_ACTIVE = 'substrate-body--active'
 
 function setDirectionForPage(direction) {
   const currPageModal = getCurrentPage()
@@ -47,6 +50,7 @@ function setDirectionForPage(direction) {
 function pagination(direction, page) {
   setDirectionForPage(direction)
   setIsScroling(false)
+  setSubstrateBody()
   const currPageModal = getCurrentPage()
   setTimeout(() => {
     const pageActive = document.querySelectorAll('.page.page--active')
@@ -145,9 +149,24 @@ const startPreloader = () => {
   })
 }
 
+function setSubstrateBody() {
+  const currentPageTag = document.querySelector(`.page-${getCurrentPage()}`)
+  if (currentPageTag.classList.contains('substrate-bottom')) {
+    substrateBody.classList.add(SUBSTARATE_BODY_TO_BOTTOM)
+    substrateBody.classList.remove(SUBSTARATE_BODY_TO_TOP)
+  } else if (currentPageTag.classList.contains('substrate-top')) {
+    substrateBody.classList.add(SUBSTARATE_BODY_TO_TOP)
+    substrateBody.classList.remove(SUBSTARATE_BODY_TO_BOTTOM)
+  } else {
+    substrateBody.classList.remove(SUBSTARATE_BODY_TO_BOTTOM)
+    substrateBody.classList.remove(SUBSTARATE_BODY_TO_TOP)
+  }
+}
+
 function afterPreloader() {
   pageOne.classList.add('page--active')
-  substrateBody.classList.add('substrate-body--active')
+  setSubstrateBody()
+  substrateBody.classList.add(SUBSTARATE_BODY_ACTIVE)
   paginationBlock.classList.add('pagination--active')
 
   document.addEventListener('wheel', scrollHandler)

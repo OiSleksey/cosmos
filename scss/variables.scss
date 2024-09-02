@@ -6,7 +6,7 @@ $maxWidthAllContent: 190.2rem;
 $arrowSize: 20px;
 $customFont: 'Custom Font', Helvetica, Arial, sans-serif;
 
-$numOfPages: 11;
+$numOfPages: 13;
 
 $padding: 50px;
 $pagiItemW: 14px;
@@ -50,11 +50,26 @@ $show-up-home-content-width: 67rem;
   transition: transform calc($headingsAT / 2) ease-out;
   transform: translateY(100%) scaleY(0.8);
 
-  .substrate-body.substrate-body--active & {
+  .substrate-body.substrate-body--to-bottom & {
     opacity: 1;
     transform: translateY(0) scaleY(0.8);
     transition-timing-function: ease;
     transition-delay: $headingsDelay;
+  }
+
+  .substrate-body.substrate-body--to-top & {
+    opacity: 1;
+    transform: translateY(-60%) scaleY(0.8);
+    transition-timing-function: ease;
+    transition-delay: $headingsDelay;
+  }
+}
+
+%scaleBody {
+  transition: background-size $headingsAT ease-out;
+
+  &.substrate-body--active {
+    background-size: 120% 120%;
   }
 }
 

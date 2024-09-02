@@ -29,6 +29,7 @@ body {
 }
 
 .substrate-body {
+  @extend %scaleBody;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -38,31 +39,114 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-size: cover;
+  background-size: 100% 100%;
   background-image: url('/img/background-body.png');
   background-repeat: no-repeat;
+  background-position: center;
 
-  &__bottom {
+  &::before {
+    content: '';
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 3, 0.8) 0%,
+      // rgba(0, 0, 3, 0.5) 35%,
+      rgba(0, 0, 3, 0) 100%
+    );
+    z-index: 1;
+  }
+
+  // &--active {
+  //   background-size: 120% 120%;
+  // }
+
+  .substrate-body-stones {
     @extend %movingBodyBottom;
     position: fixed;
     bottom: -4rem;
     left: 0;
     right: 0;
-    background-size: cover;
-    background-image: url('/img/background-body-bottom.png');
-    background-repeat: no-repeat;
-    background-position-y: bottom;
+    // background-size: cover;
+    // background-image: url('/img/background-body-bottom.png');
+    // background-repeat: no-repeat;
+    // background-position-y: bottom;
     // width: 100%;
     height: 100%;
+    min-height: 100%;
+
+    // &::before {
+    //   content: '';
+    //   position: fixed;
+    //   left: 0;
+    //   right: 0;
+    //   top: 100%;
+    //   height: 100vh;
+    //   background: rgb(0, 0, 0);
+    //   // background: linear-gradient(
+    //   //   0deg,
+    //   //   rgba(0, 0, 3, 1) 0%,
+    //   //   rgba(0, 0, 3, 1) 35%,
+    //   //   rgba(0, 0, 3, 0.6867121848739496) 100%
+    //   // );
+    // }
+
+    &__top {
+      width: 100%;
+      background-size: cover;
+      background-image: url('/img/background-body-bottom.png');
+      background-repeat: no-repeat;
+      background-position-y: bottom;
+      height: 100%;
+    }
+
+    &__bottom {
+      // position: fixed;
+      // left: 0;
+      // right: 0;
+      // top: 100%;
+      height: 100vh;
+      width: 100%;
+      background: rgb(0, 0, 0);
+    }
+
+    // &::after {
+    //   content: '';
+    //   position: fixed;
+    //   left: 0;
+    //   right: 0;
+    //   top: 90%;
+    //   height: 100vh;
+    //   // background: radial-gradient(
+    //   //   circle,
+    //   //   rgba(238, 174, 202, 0) 0%,
+    //   //   rgba(0, 0, 0, 1) 50%,
+    //   //   rgba(0, 0, 0, 1) 100%
+    //   // );
+    //   z-index: 1;
+    // }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to bottom, transparent, black); // Adjust the gradient as needed
+      z-index: 1; // Ensure it's above the background image
+    }
   }
 }
 
 .overlay-body {
   position: fixed;
-  top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  top: 90%;
   background: rgba(0, 0, 0, 0.5);
   z-index: 0;
   opacity: 0;
@@ -144,6 +228,10 @@ body {
     background-repeat: no-repeat;
     background-size: $maxWidthAllContent $show-up-home-pink;
     background-position: bottom 0 left 50%;
+
+    @include respond(2xl) {
+      background-size: 100vw $show-up-home-pink;
+    }
   }
 
   &__substrate-blue {
@@ -156,6 +244,10 @@ body {
     min-height: $show-up-home-content-width;
     display: flex;
     justify-content: center;
+
+    @include respond(2xl) {
+      background-size: 100vw $show-up-home-blue;
+    }
   }
 
   &__close {
