@@ -48,9 +48,9 @@
   &__item {
     position: relative;
     display: block;
-    width: $pagiItemW;
-    height: $pagiItemW;
-    margin: 0 auto $pagiItemW * 2.5;
+    width: calc($pagiItemW / 2);
+    height: calc($pagiItemW/ 2);
+    margin: 0 auto $pagiItemW;
     cursor: pointer;
 
     &:last-child {
