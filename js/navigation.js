@@ -14,7 +14,7 @@ const navigation = document.querySelector('.navigation')
 navigationOpen.addEventListener('click', () => {
   setIsScroling(false)
   navigation.classList.add('navigation--active')
-  navigation.style.zIndex = 5
+  navigation.style.zIndex = 9
 })
 
 navigationClose.addEventListener('click', () => {
@@ -23,7 +23,6 @@ navigationClose.addEventListener('click', () => {
 })
 
 navigation.addEventListener('transitionend', function (event) {
-  console.log('transitionend')
   if (event.target.classList.contains('navigation--active')) {
     console.log('transitionend')
   } else {

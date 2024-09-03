@@ -12,6 +12,9 @@ const homeShowUpOne = document.querySelector('#homeShowUpOne')
 const homeShowUpTwo = document.querySelector('#homeShowUpTwo')
 const homeShowUpOneClose = document.querySelector('#homeShowUpOneClose')
 const homeShowUpTwoClose = document.querySelector('#homeShowUpTwoClose')
+
+const showUpHomeButtons = document.querySelectorAll('.home-page__arrow')
+const showUpHomeWrapper = document.querySelectorAll('.show-up-home')
 const overlayBody = document.querySelector('.overlay-body')
 
 const setStyleOverlayBody = (state) => {
@@ -47,3 +50,12 @@ homeShowUpTwoClose.addEventListener('click', () => {
   setStyleOverlayBody(false)
   setIsScroling(true)
 })
+
+// showUpHomeButtons.forEach((button) => {
+//   button.addEventListener('click', function (event) {
+//     const currDataset = event.target?.dataset?.showHome
+//     if(currDataset) {
+
+//     }
+//   })
+// })

@@ -10,6 +10,9 @@
       href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link href="/css/reset.css" rel="stylesheet" />
     <!-- <link href="/css/normalize.css" rel="stylesheet" /> -->
     <link href="/css/style.css" rel="stylesheet" />
@@ -65,7 +68,7 @@
         <div class="main-content__inner">
           <div class="rotater"></div>
           <!-- pages start -->
-          <div class="show-up-home" id="homeShowUpOne">
+          <div class="show-up-home" id="homeShowUpOne" data-show-home="1">
             <div class="show-up-home__substrate-pink">
               <div class="show-up-home__substrate-blue">
                 <div class="show-up-home__close" id="homeShowUpOneClose">
@@ -88,7 +91,7 @@
               </div>
             </div>
           </div>
-          <div class="show-up-home" id="homeShowUpTwo">
+          <div class="show-up-home" id="homeShowUpTwo" data-show-home="2">
             <div class="show-up-home__substrate-pink">
               <div class="show-up-home__substrate-blue">
                 <div class="show-up-home__close" id="homeShowUpTwoClose">
@@ -109,14 +112,14 @@
               </div>
             </div>
           </div>
-          <div class="show-up-socials">
+          <div class="show-up-socials" data-show-up="1">
             <div class="show-up-socials__substrate-pink">
               <div class="show-up-socials__substrate-blue">
-                <!-- <div class="show-up-socials__head">
+                <div class="show-up-socials__head">
                   <div class="show-up-socials__close">
                     <img src="/insignia/cross.svg" alt="cross" />
                   </div>
-                </div> -->
+                </div>
                 <div class="show-up-socials__body">
                   <div class="show-up-socials__card">
                     <div class="show-up-socials__company">
@@ -139,6 +142,11 @@
                       <a href="#" class="show-up-socials__link">
                         <div class="show-up-socials__icon">
                           <img src="/insignia/youtube.svg" alt="youtube" />
+                        </div>
+                      </a>
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/instagram.svg" alt="instagram" />
                         </div>
                       </a>
                       <a href="#" class="show-up-socials__link">
@@ -172,6 +180,483 @@
               </div>
             </div>
           </div>
+          <div class="show-up-socials" data-show-up="2">
+            <div class="show-up-socials__substrate-pink">
+              <div class="show-up-socials__substrate-blue">
+                <div class="show-up-socials__head">
+                  <div class="show-up-socials__close">
+                    <img src="/insignia/cross.svg" alt="cross" />
+                  </div>
+                </div>
+                <div class="show-up-socials__body">
+                  <div class="show-up-socials__card">
+                    <div class="show-up-socials__company">
+                      <div class="show-up-socials__img-container">
+                        <img src="/img/alabama.png" alt="alabama" />
+                      </div>
+                    </div>
+                    <div class="show-up-socials__name">University of Alabama</div>
+                    <div class="show-up-socials__links">
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/facebook.svg" alt="facebook" />
+                        </div>
+                      </a>
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/linkedin.svg" alt="linkedin" />
+                        </div>
+                      </a>
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/youtube.svg" alt="youtube" />
+                        </div>
+                      </a>
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/instagram.svg" alt="instagram" />
+                        </div>
+                      </a>
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/twitter.svg" alt="twitter" />
+                        </div>
+                      </a>
+                    </div>
+                    <div class="show-up-socials__button show-up-socials__button--yellow">
+                      Visit us
+                    </div>
+                  </div>
+                  <div class="show-up-socials__content">
+                    <h5 class="show-up-socials__header">Headline for People</h5>
+                    <ul class="show-up-socials__list">
+                      <li class="show-up-socials__item">Everette Maddox (poet)</li>
+                      <li class="show-up-socials__item">
+                        Jim Hilgartner (author of poetry and fiction)
+                      </li>
+                      <li class="show-up-socials__item">
+                        Blanche Evans Dean (naturalist, conservationist, and schoolteacher)
+                      </li>
+                      <li class="show-up-socials__item">Ann Waldron (author)</li>
+                      <li class="show-up-socials__item">
+                        Blanche Evans Dean (naturalist, conservationist, and schoolteacher)
+                      </li>
+                      <li class="show-up-socials__item">Kevin Crawford (scholar of William )</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="show-up-socials" data-show-up="3">
+            <div class="show-up-socials__substrate-pink">
+              <div class="show-up-socials__substrate-blue">
+                <div class="show-up-socials__head">
+                  <div class="show-up-socials__close">
+                    <img src="/insignia/cross.svg" alt="cross" />
+                  </div>
+                </div>
+                <div class="show-up-socials__body">
+                  <div class="show-up-socials__card">
+                    <div class="show-up-socials__company">
+                      <div class="show-up-socials__img-container">
+                        <img src="/img/alabama.png" alt="alabama" />
+                      </div>
+                    </div>
+                    <div class="show-up-socials__name">University of Alabama</div>
+                    <div class="show-up-socials__links">
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/facebook.svg" alt="facebook" />
+                        </div>
+                      </a>
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/linkedin.svg" alt="linkedin" />
+                        </div>
+                      </a>
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/youtube.svg" alt="youtube" />
+                        </div>
+                      </a>
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/instagram.svg" alt="instagram" />
+                        </div>
+                      </a>
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/twitter.svg" alt="twitter" />
+                        </div>
+                      </a>
+                    </div>
+                    <div class="show-up-socials__button show-up-socials__button--yellow">
+                      Visit us
+                    </div>
+                  </div>
+                  <div class="show-up-socials__content">
+                    <h5 class="show-up-socials__header">Headline for People</h5>
+                    <ul class="show-up-socials__list">
+                      <li class="show-up-socials__item">Everette Maddox (poet)</li>
+                      <li class="show-up-socials__item">
+                        Jim Hilgartner (author of poetry and fiction)
+                      </li>
+                      <li class="show-up-socials__item">
+                        Blanche Evans Dean (naturalist, conservationist, and schoolteacher)
+                      </li>
+                      <li class="show-up-socials__item">Ann Waldron (author)</li>
+                      <li class="show-up-socials__item">
+                        Blanche Evans Dean (naturalist, conservationist, and schoolteacher)
+                      </li>
+                      <li class="show-up-socials__item">Kevin Crawford (scholar of William )</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="show-up-socials" data-show-up="4">
+            <div class="show-up-socials__substrate-pink">
+              <div class="show-up-socials__substrate-blue">
+                <div class="show-up-socials__head">
+                  <div class="show-up-socials__close">
+                    <img src="/insignia/cross.svg" alt="cross" />
+                  </div>
+                </div>
+                <div class="show-up-socials__body">
+                  <div class="show-up-socials__card">
+                    <div class="show-up-socials__company">
+                      <div class="show-up-socials__img-container">
+                        <img src="/img/alabama.png" alt="alabama" />
+                      </div>
+                    </div>
+                    <div class="show-up-socials__name">University of Alabama</div>
+                    <div class="show-up-socials__links">
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/facebook.svg" alt="facebook" />
+                        </div>
+                      </a>
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/linkedin.svg" alt="linkedin" />
+                        </div>
+                      </a>
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/youtube.svg" alt="youtube" />
+                        </div>
+                      </a>
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/instagram.svg" alt="instagram" />
+                        </div>
+                      </a>
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/twitter.svg" alt="twitter" />
+                        </div>
+                      </a>
+                    </div>
+                    <div class="show-up-socials__button show-up-socials__button--yellow">
+                      Visit us
+                    </div>
+                  </div>
+                  <div class="show-up-socials__content">
+                    <h5 class="show-up-socials__header">Headline for People</h5>
+                    <ul class="show-up-socials__list">
+                      <li class="show-up-socials__item">Everette Maddox (poet)</li>
+                      <li class="show-up-socials__item">
+                        Jim Hilgartner (author of poetry and fiction)
+                      </li>
+                      <li class="show-up-socials__item">
+                        Blanche Evans Dean (naturalist, conservationist, and schoolteacher)
+                      </li>
+                      <li class="show-up-socials__item">Ann Waldron (author)</li>
+                      <li class="show-up-socials__item">
+                        Blanche Evans Dean (naturalist, conservationist, and schoolteacher)
+                      </li>
+                      <li class="show-up-socials__item">Kevin Crawford (scholar of William )</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="show-up-socials" data-show-up="5">
+            <div class="show-up-socials__substrate-pink">
+              <div class="show-up-socials__substrate-blue">
+                <div class="show-up-socials__head">
+                  <div class="show-up-socials__close">
+                    <img src="/insignia/cross.svg" alt="cross" />
+                  </div>
+                </div>
+                <div class="show-up-socials__body">
+                  <div class="show-up-socials__card">
+                    <div class="show-up-socials__company">
+                      <div class="show-up-socials__img-container">
+                        <img src="/img/alabama.png" alt="alabama" />
+                      </div>
+                    </div>
+                    <div class="show-up-socials__name">University of Alabama</div>
+                    <div class="show-up-socials__links">
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/facebook.svg" alt="facebook" />
+                        </div>
+                      </a>
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/linkedin.svg" alt="linkedin" />
+                        </div>
+                      </a>
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/youtube.svg" alt="youtube" />
+                        </div>
+                      </a>
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/instagram.svg" alt="instagram" />
+                        </div>
+                      </a>
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/twitter.svg" alt="twitter" />
+                        </div>
+                      </a>
+                    </div>
+                    <div class="show-up-socials__button show-up-socials__button--yellow">
+                      Visit us
+                    </div>
+                  </div>
+                  <div class="show-up-socials__content">
+                    <h5 class="show-up-socials__header">Headline for People</h5>
+                    <ul class="show-up-socials__list">
+                      <li class="show-up-socials__item">Everette Maddox (poet)</li>
+                      <li class="show-up-socials__item">
+                        Jim Hilgartner (author of poetry and fiction)
+                      </li>
+                      <li class="show-up-socials__item">
+                        Blanche Evans Dean (naturalist, conservationist, and schoolteacher)
+                      </li>
+                      <li class="show-up-socials__item">Ann Waldron (author)</li>
+                      <li class="show-up-socials__item">
+                        Blanche Evans Dean (naturalist, conservationist, and schoolteacher)
+                      </li>
+                      <li class="show-up-socials__item">Kevin Crawford (scholar of William )</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="show-up-socials" data-show-up="6">
+            <div class="show-up-socials__substrate-pink">
+              <div class="show-up-socials__substrate-blue">
+                <div class="show-up-socials__head">
+                  <div class="show-up-socials__close">
+                    <img src="/insignia/cross.svg" alt="cross" />
+                  </div>
+                </div>
+                <div class="show-up-socials__body">
+                  <div class="show-up-socials__card">
+                    <div class="show-up-socials__company">
+                      <div class="show-up-socials__img-container">
+                        <img src="/img/alabama.png" alt="alabama" />
+                      </div>
+                    </div>
+                    <div class="show-up-socials__name">University of Alabama</div>
+                    <div class="show-up-socials__links">
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/facebook.svg" alt="facebook" />
+                        </div>
+                      </a>
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/linkedin.svg" alt="linkedin" />
+                        </div>
+                      </a>
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/youtube.svg" alt="youtube" />
+                        </div>
+                      </a>
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/instagram.svg" alt="instagram" />
+                        </div>
+                      </a>
+                      <a href="#" class="show-up-socials__link">
+                        <div class="show-up-socials__icon">
+                          <img src="/insignia/twitter.svg" alt="twitter" />
+                        </div>
+                      </a>
+                    </div>
+                    <div class="show-up-socials__button show-up-socials__button--yellow">
+                      Visit us
+                    </div>
+                  </div>
+                  <div class="show-up-socials__content">
+                    <h5 class="show-up-socials__header">Headline for People</h5>
+                    <ul class="show-up-socials__list">
+                      <li class="show-up-socials__item">Everette Maddox (poet)</li>
+                      <li class="show-up-socials__item">
+                        Jim Hilgartner (author of poetry and fiction)
+                      </li>
+                      <li class="show-up-socials__item">
+                        Blanche Evans Dean (naturalist, conservationist, and schoolteacher)
+                      </li>
+                      <li class="show-up-socials__item">Ann Waldron (author)</li>
+                      <li class="show-up-socials__item">
+                        Blanche Evans Dean (naturalist, conservationist, and schoolteacher)
+                      </li>
+                      <li class="show-up-socials__item">Kevin Crawford (scholar of William )</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="show-up-sustainability-galery">
+            <div class="show-up-sustainability-galery__substrate-pink">
+              <div class="show-up-sustainability-galery__substrate-blue">
+                <div class="show-up-sustainability-galery__head">
+                  <div class="show-up-sustainability-galery__close">
+                    <img src="/insignia/cross.svg" alt="cross" />
+                  </div>
+                </div>
+                <div class="show-up-sustainability-galery__body">
+                  <div class="sustainability-slider">
+                    <div class="sustainability-slider__arrow sustainability-slider__arrow--left">
+                      <img src="/insignia/arrow-left.svg" alt="arrow" />
+                    </div>
+                    <div class="swiper sustainability-slider__swiper">
+                      <div class="swiper-wrapper sustainability-slider__wrapper">
+                        <div class="swiper-slide" data-slider="1">
+                          <div class="sustainability-slider__card">
+                            <div class="sustainability-slider__title">
+                              Lorem Ipsum Dolor sit Amet
+                            </div>
+                            <div class="sustainability-slider__description">
+                              Welcome to Gallery Preview, where we take your cravings to a whole new
+                              level! Our mouthwatering
+                            </div>
+                            <div class="sustainability-slider__img-container">
+                              <img src="/img/deep-images/image-1.png" alt="image" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide" data-slider="2">
+                          <div class="sustainability-slider__card">
+                            <div class="sustainability-slider__title">
+                              Lorem Ipsum Dolor sit Amet
+                            </div>
+                            <div class="sustainability-slider__description">
+                              Welcome to Gallery Preview, where we take your cravings to a whole new
+                              level! Our mouthwatering
+                            </div>
+                            <div class="sustainability-slider__img-container">
+                              <img src="/img/deep-images/image-2.png" alt="image" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide" data-slider="3">
+                          <div class="sustainability-slider__card">
+                            <div class="sustainability-slider__title">
+                              Lorem Ipsum Dolor sit Amet
+                            </div>
+                            <div class="sustainability-slider__description">
+                              Welcome to Gallery Preview, where we take your cravings to a whole new
+                              level! Our mouthwatering
+                            </div>
+                            <div class="sustainability-slider__img-container">
+                              <img src="/img/deep-images/image-3.png" alt="image" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide" data-slider="4">
+                          <div class="sustainability-slider__card">
+                            <div class="sustainability-slider__title">
+                              Lorem Ipsum Dolor sit Amet
+                            </div>
+                            <div class="sustainability-slider__description">
+                              Welcome to Gallery Preview, where we take your cravings to a whole new
+                              level! Our mouthwatering
+                            </div>
+                            <div class="sustainability-slider__img-container">
+                              <img src="/img/deep-images/image-4.png" alt="image" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide" data-slider="5">
+                          <div class="sustainability-slider__card">
+                            <div class="sustainability-slider__title">
+                              Lorem Ipsum Dolor sit Amet
+                            </div>
+                            <div class="sustainability-slider__description">
+                              Welcome to Gallery Preview, where we take your cravings to a whole new
+                              level! Our mouthwatering
+                            </div>
+                            <div class="sustainability-slider__img-container">
+                              <img src="/img/deep-images/image-1.png" alt="image" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide" data-slider="6">
+                          <div class="sustainability-slider__card">
+                            <div class="sustainability-slider__title">
+                              Lorem Ipsum Dolor sit Amet
+                            </div>
+                            <div class="sustainability-slider__description">
+                              Welcome to Gallery Preview, where we take your cravings to a whole new
+                              level! Our mouthwatering
+                            </div>
+                            <div class="sustainability-slider__img-container">
+                              <img src="/img/deep-images/image-2.png" alt="image" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide" data-slider="7">
+                          <div class="sustainability-slider__card">
+                            <div class="sustainability-slider__title">
+                              Lorem Ipsum Dolor sit Amet
+                            </div>
+                            <div class="sustainability-slider__description">
+                              Welcome to Gallery Preview, where we take your cravings to a whole new
+                              level! Our mouthwatering
+                            </div>
+                            <div class="sustainability-slider__img-container">
+                              <img src="/img/deep-images/image-3.png" alt="image" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide" data-slider="8">
+                          <div class="sustainability-slider__card">
+                            <div class="sustainability-slider__title">
+                              Lorem Ipsum Dolor sit Amet
+                            </div>
+                            <div class="sustainability-slider__description">
+                              Welcome to Gallery Preview, where we take your cravings to a whole new
+                              level! Our mouthwatering
+                            </div>
+                            <div class="sustainability-slider__img-container">
+                              <img src="/img/deep-images/image-4.png" alt="image" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="sustainability-slider__arrow sustainability-slider__arrow--right">
+                      <img src="/insignia/arrow-right.svg" alt="arrow" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <div class="pages">
             <section class="home-page substrate-bottom page page-1 page--moving-up">
               <div class="home-page__content">
@@ -191,6 +676,7 @@
                       src="/insignia/arrow-nav.svg"
                       alt="arrow"
                       id="homeArrowOne"
+                      data-show-home="1"
                     />
                     <div class="home-page__text">
                       Join us on a journey from Earth to the Moon and beyond.
@@ -202,6 +688,7 @@
                       src="/insignia/arrow-nav.svg"
                       alt="arrow"
                       id="homeArrowTwo"
+                      data-show-home="1"
                     />
                     <div class="home-page__text">
                       Become a solutionary . Use your critical and creative thinking skills ...
@@ -887,38 +1374,71 @@
                     resources for the future? 
                   </div>
                 </div>
-
                 <div class="company-slider">
                   <div class="company-slider__arrow company-slider__arrow--left">
                     <img src="/insignia/arrow-left.svg" alt="arrow" />
                   </div>
-                  <div class="company-slider__cards">
-                    <div class="company-slider__card">
-                      <div class="company-slider__title">United Nations</div>
-                      <div class="company-slider__description">
-                        The United Nations has developed sustainability goals for the people of our
-                        planet now and into the future.
+                  <div class="swiper company-slider__swiper">
+                    <div class="swiper-wrapper company-slider__wrapper">
+                      <div class="swiper-slide">
+                        <div class="company-slider__title">United Nations</div>
+                        <div class="company-slider__description">
+                          The United Nations has developed sustainability goals for the people of
+                          our planet now and into the future.
+                        </div>
+                        <div class="company-slider__button company-slider__button--pink">
+                          Explore
+                        </div>
                       </div>
-                      <div class="company-slider__button company-slider__button--pink">Explore</div>
-                    </div>
-                    <div class="company-slider__card">
-                      <div class="company-slider__title">NASA</div>
-                      <div class="company-slider__description">
-                        NASA recognizes the importance of sustainability on Earth and in space.
+                      <div class="swiper-slide">
+                        <div class="company-slider__title">NASA</div>
+                        <div class="company-slider__description">
+                          NASA recognizes the importance of sustainability on Earth and in space.
+                        </div>
+                        <div class="company-slider__button company-slider__button--pink">
+                          Learn more
+                        </div>
                       </div>
-                      <div class="company-slider__button company-slider__button--pink">
-                        Learn more
+                      <div class="swiper-slide">
+                        <div class="company-slider__title">PANASONIC</div>
+                        <div class="company-slider__description">
+                          Panasonic believes it is our obligation to act as responsible citizens.
+                          Like many other companies, Panasonic has established their own
+                          sustainability goals.
+                        </div>
+                        <div class="company-slider__button company-slider__button--pink">
+                          Learn more
+                        </div>
                       </div>
-                    </div>
-                    <div class="company-slider__card">
-                      <div class="company-slider__title">PANASONIC</div>
-                      <div class="company-slider__description">
-                        Panasonic believes it is our obligation to act as responsible citizens. Like
-                        many other companies, Panasonic has established their own sustainability
-                        goals.
+                      <div class="swiper-slide">
+                        <div class="company-slider__title">United Nations</div>
+                        <div class="company-slider__description">
+                          The United Nations has developed sustainability goals for the people of
+                          our planet now and into the future.
+                        </div>
+                        <div class="company-slider__button company-slider__button--pink">
+                          Explore
+                        </div>
                       </div>
-                      <div class="company-slider__button company-slider__button--pink">
-                        Learn more
+                      <div class="swiper-slide">
+                        <div class="company-slider__title">NASA</div>
+                        <div class="company-slider__description">
+                          NASA recognizes the importance of sustainability on Earth and in space.
+                        </div>
+                        <div class="company-slider__button company-slider__button--pink">
+                          Learn more
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="company-slider__title">PANASONIC</div>
+                        <div class="company-slider__description">
+                          Panasonic believes it is our obligation to act as responsible citizens.
+                          Like many other companies, Panasonic has established their own
+                          sustainability goals.
+                        </div>
+                        <div class="company-slider__button company-slider__button--pink">
+                          Learn more
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -926,6 +1446,7 @@
                     <img src="/insignia/arrow-right.svg" alt="arrow" />
                   </div>
                 </div>
+
                 <div class="dark-page__button dark-page__button--pink">
                   Create you own sustainability pledge
                 </div>
@@ -1011,7 +1532,7 @@
                 <div class="sustainability-galery">
                   <div class="sustainability-galery__cards">
                     <div class="sustainability-galery__card">
-                      <div class="sustainability-galery__img-container">
+                      <div class="sustainability-galery__img-container" data-slider="1">
                         <img src="/img/deep-images/image-1.png" alt="amage" />
                         <div class="sustainability-galery__img-overlay"></div>
                       </div>
@@ -1020,7 +1541,7 @@
                       </div>
                     </div>
                     <div class="sustainability-galery__card">
-                      <div class="sustainability-galery__img-container">
+                      <div class="sustainability-galery__img-container" data-slider="2">
                         <img src="/img/deep-images/image-2.png" alt="amage" />
                         <div class="sustainability-galery__img-overlay"></div>
                       </div>
@@ -1029,7 +1550,7 @@
                       </div>
                     </div>
                     <div class="sustainability-galery__card">
-                      <div class="sustainability-galery__img-container">
+                      <div class="sustainability-galery__img-container" data-slider="3">
                         <img src="/img/deep-images/image-3.png" alt="amage" />
                         <div class="sustainability-galery__img-overlay"></div>
                       </div>
@@ -1038,8 +1559,8 @@
                       </div>
                     </div>
                     <div class="sustainability-galery__card">
-                      <div class="sustainability-galery__img-container">
-                        <img src="/img/deep-images/image-4.png" alt="amage" />
+                      <div class="sustainability-galery__img-container" data-slider="4">
+                        <img src="/img/deep-images/image-4.png" alt="amage" data-slider="4" />
                         <div class="sustainability-galery__img-overlay"></div>
                       </div>
                       <div class="sustainability-galery__type sustainability-galery__type--yellow">
@@ -1047,7 +1568,7 @@
                       </div>
                     </div>
                     <div class="sustainability-galery__card">
-                      <div class="sustainability-galery__img-container">
+                      <div class="sustainability-galery__img-container" data-slider="5">
                         <img src="/img/deep-images/image-1.png" alt="amage" />
                         <div class="sustainability-galery__img-overlay"></div>
                       </div>
@@ -1056,7 +1577,7 @@
                       </div>
                     </div>
                     <div class="sustainability-galery__card">
-                      <div class="sustainability-galery__img-container">
+                      <div class="sustainability-galery__img-container" data-slider="6">
                         <img src="/img/deep-images/image-2.png" alt="amage" />
                         <div class="sustainability-galery__img-overlay"></div>
                       </div>
@@ -1065,7 +1586,7 @@
                       </div>
                     </div>
                     <div class="sustainability-galery__card">
-                      <div class="sustainability-galery__img-container">
+                      <div class="sustainability-galery__img-container" data-slider="7">
                         <img src="/img/deep-images/image-3.png" alt="amage" />
                         <div class="sustainability-galery__img-overlay"></div>
                       </div>
@@ -1074,7 +1595,7 @@
                       </div>
                     </div>
                     <div class="sustainability-galery__card">
-                      <div class="sustainability-galery__img-container">
+                      <div class="sustainability-galery__img-container" data-slider="8">
                         <img src="/img/deep-images/image-4.png" alt="amage" />
                         <div class="sustainability-galery__img-overlay"></div>
                       </div>
@@ -1129,7 +1650,7 @@
               </div>
             </section>
             <section class="dark-page substrate-top page page-16">
-              <div class="dark-page__content">
+              <div class="dark-page__content vertical-center gap-6">
                 <div class="dark-page__wrapper">
                   <h2 class="dark-page__header">Collaborators</h2>
                   <div class="dark-page__description">Special thanks to our collaborators</div>
@@ -1157,11 +1678,18 @@
                         </a>
                         <a href="#" class="socials__link">
                           <div class="socials__icon">
+                            <img src="/insignia/instagram.svg" alt="instagram" />
+                          </div>
+                        </a>
+                        <a href="#" class="socials__link">
+                          <div class="socials__icon">
                             <img src="/insignia/twitter.svg" alt="twitter" />
                           </div>
                         </a>
                       </div>
-                      <div class="socials__button socials__button--yellow">Visit Us</div>
+                      <div class="socials__button socials__button--yellow" data-show-up="1">
+                        Visit Us
+                      </div>
                     </div>
                     <div class="socials__card">
                       <div class="socials__title">National Institute of Aerospace (NIA)</div>
@@ -1183,11 +1711,18 @@
                         </a>
                         <a href="#" class="socials__link">
                           <div class="socials__icon">
+                            <img src="/insignia/instagram.svg" alt="instagram" />
+                          </div>
+                        </a>
+                        <a href="#" class="socials__link">
+                          <div class="socials__icon">
                             <img src="/insignia/twitter.svg" alt="twitter" />
                           </div>
                         </a>
                       </div>
-                      <div class="socials__button socials__button--yellow">Visit Us</div>
+                      <div class="socials__button socials__button--yellow" data-show-up="2">
+                        Visit Us
+                      </div>
                     </div>
                     <div class="socials__card">
                       <div class="socials__title">National Institute of Aerospace (NIA)</div>
@@ -1209,11 +1744,18 @@
                         </a>
                         <a href="#" class="socials__link">
                           <div class="socials__icon">
+                            <img src="/insignia/instagram.svg" alt="instagram" />
+                          </div>
+                        </a>
+                        <a href="#" class="socials__link">
+                          <div class="socials__icon">
                             <img src="/insignia/twitter.svg" alt="twitter" />
                           </div>
                         </a>
                       </div>
-                      <div class="socials__button socials__button--yellow">Visit Us</div>
+                      <div class="socials__button socials__button--yellow" data-show-up="3">
+                        Visit Us
+                      </div>
                     </div>
                     <div class="socials__card">
                       <div class="socials__title">National Institute of Aerospace (NIA)</div>
@@ -1235,11 +1777,18 @@
                         </a>
                         <a href="#" class="socials__link">
                           <div class="socials__icon">
+                            <img src="/insignia/instagram.svg" alt="instagram" />
+                          </div>
+                        </a>
+                        <a href="#" class="socials__link">
+                          <div class="socials__icon">
                             <img src="/insignia/twitter.svg" alt="twitter" />
                           </div>
                         </a>
                       </div>
-                      <div class="socials__button socials__button--yellow">Visit Us</div>
+                      <div class="socials__button socials__button--yellow" data-show-up="4">
+                        Visit Us
+                      </div>
                     </div>
                     <div class="socials__card">
                       <div class="socials__title">National Institute of Aerospace (NIA)</div>
@@ -1261,11 +1810,18 @@
                         </a>
                         <a href="#" class="socials__link">
                           <div class="socials__icon">
+                            <img src="/insignia/instagram.svg" alt="instagram" />
+                          </div>
+                        </a>
+                        <a href="#" class="socials__link">
+                          <div class="socials__icon">
                             <img src="/insignia/twitter.svg" alt="twitter" />
                           </div>
                         </a>
                       </div>
-                      <div class="socials__button socials__button--yellow">Visit Us</div>
+                      <div class="socials__button socials__button--yellow" data-show-up="5">
+                        Visit Us
+                      </div>
                     </div>
                     <div class="socials__card">
                       <div class="socials__title">National Institute of Aerospace (NIA)</div>
@@ -1287,11 +1843,18 @@
                         </a>
                         <a href="#" class="socials__link">
                           <div class="socials__icon">
+                            <img src="/insignia/instagram.svg" alt="instagram" />
+                          </div>
+                        </a>
+                        <a href="#" class="socials__link">
+                          <div class="socials__icon">
                             <img src="/insignia/twitter.svg" alt="twitter" />
                           </div>
                         </a>
                       </div>
-                      <div class="socials__button socials__button--yellow">Visit Us</div>
+                      <div class="socials__button socials__button--yellow" data-show-up="6">
+                        Visit Us
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1335,6 +1898,8 @@
     <script src="/js/layout.js" type="module"></script>
     <script src="/js/navigation.js" type="module"></script>
     <script src="/js/home-page.js" type="module"></script>
+    <script src="/js/show-up-socials.js" type="module"></script>
+    <script src="/js/slider.js" type="module"></script>
 
     <script src="/js/script.js"></script>
   </body>

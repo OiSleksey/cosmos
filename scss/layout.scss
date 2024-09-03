@@ -28,6 +28,14 @@ body {
   margin: 0 auto;
 }
 
+.vertical-center {
+  justify-content: center !important;
+}
+
+.gap-6 {
+  gap: 6rem;
+}
+
 .substrate-body {
   @extend %scaleBody;
   position: fixed;

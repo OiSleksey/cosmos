@@ -14,6 +14,7 @@ const rotater = document.querySelector('.rotater')
 const preloaderOverlay = document.querySelector('.preloader__overlay')
 const pageOne = document.querySelector('.page-1')
 const paginationBlock = document.querySelector('.pagination')
+const deepPageButtons = document.querySelectorAll('.deep-page__button')
 const PAGE_MOVING_UP = 'page--moving-up'
 const PAGE_MOVING_DOWN = 'page--moving-down'
 const DIRECTION_UP = 'direction-up'
@@ -21,6 +22,10 @@ const DIRECTION_DOWN = 'direction-down'
 const SUBSTARATE_BODY_TO_BOTTOM = 'substrate-body--to-bottom'
 const SUBSTARATE_BODY_TO_TOP = 'substrate-body--to-top'
 const SUBSTARATE_BODY_ACTIVE = 'substrate-body--active'
+
+deepPageButtons.forEach((button) => {
+  button.addEventListener('click', navigateDown)
+})
 
 function setDirectionForPage(direction) {
   const currPageModal = getCurrentPage()
