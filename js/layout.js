@@ -23,6 +23,96 @@ const SUBSTARATE_BODY_TO_BOTTOM = 'substrate-body--to-bottom'
 const SUBSTARATE_BODY_TO_TOP = 'substrate-body--to-top'
 const SUBSTARATE_BODY_ACTIVE = 'substrate-body--active'
 
+//showUpCosmicCareers START
+const showUpCosmicCareers = document.querySelector('.show-up-cosmic-careers')
+const SHOW_UP_COSMIC_CAREERS_ACTIVE = 'show-up-cosmic-careers--active'
+const SHOW_UP_COSMIC_CAREERS_MOVING_UP = 'show-up-cosmic-careers--moving-up'
+const NUMBER_PAGE_COSMIC_CARRER = 15
+
+showUpCosmicCareers.addEventListener('click', function (event) {
+  console.log(event.target)
+  showUpCosmicCareers.classList.toggle(SHOW_UP_COSMIC_CAREERS_MOVING_UP)
+})
+
+function toggleActiveShowUpCosmicCareers(state) {
+  if (state) {
+    showUpCosmicCareers.classList.add(SHOW_UP_COSMIC_CAREERS_ACTIVE)
+  } else {
+    showUpCosmicCareers.classList.remove(SHOW_UP_COSMIC_CAREERS_ACTIVE)
+    showUpCosmicCareers.classList.remove(SHOW_UP_COSMIC_CAREERS_MOVING_UP)
+  }
+}
+//showUpCosmicCareers END
+
+//substrateFirstWomen START
+const substrateFirstWomen = document.querySelector('.substrate-first-women')
+const SUBSTRATE_FIRST_WOMAN_ACTIVE = 'substrate-first-women--active'
+const NUMBER_SUBSTRATE_FIRST_WOMAN = 16
+
+function toggleSubstrateFirstWomen(state) {
+  if (state) {
+    substrateFirstWomen.classList.add(SUBSTRATE_FIRST_WOMAN_ACTIVE)
+  } else {
+    substrateFirstWomen.classList.remove(SUBSTRATE_FIRST_WOMAN_ACTIVE)
+  }
+}
+//substrateFirstWomen END
+
+//Navigation Main START
+const navigationClose = document.querySelector('#navigationClose')
+const navigationOpen = document.querySelector('#navigationOpen')
+const navigation = document.querySelector('.navigation')
+const navigationItems = document.querySelectorAll('.navigation__item')
+
+// function showNavigation() {
+//   setIsScroling(false)
+//   navigation.classList.add('navigation--active')
+//   navigation.style.zIndex = 9
+// }
+function toggleNavigation(state) {
+  if (state) {
+    setIsScroling(false)
+    navigation.classList.add('navigation--active')
+    navigation.style.zIndex = 9
+  } else {
+    setIsScroling(true)
+    navigation.classList.remove('navigation--active')
+  }
+}
+
+navigationOpen.addEventListener('click', () => toggleNavigation(true))
+navigationClose.addEventListener('click', () => toggleNavigation(false))
+
+// function hideNavigation() {
+//   setIsScroling(true)
+//   navigation.classList.remove('navigation--active')
+// }
+
+navigation.addEventListener('transitionend', function (event) {
+  if (event.target.classList.contains('navigation--active')) {
+    console.log('transitionend')
+  } else {
+    setTimeout(() => {
+      event.target.style.zIndex = 0
+    }, 300)
+  }
+})
+
+function navigationItemClick(event) {
+  const clickNumberPage = event.target.getAttribute('data-page')
+  if (clickNumberPage) {
+    const direction = getCurrentPage() < clickNumberPage ? DIRECTION_UP : DIRECTION_DOWN
+    setCurrentPage(clickNumberPage)
+    pagination(direction)
+    toggleNavigation(false)
+  }
+}
+
+navigationItems.forEach((item) => {
+  item.addEventListener('click', navigationItemClick)
+})
+//Navigation Main END
+
 deepPageButtons.forEach((button) => {
   button.addEventListener('click', navigateDown)
 })
@@ -58,6 +148,16 @@ function pagination(direction, page) {
   setSubstrateBody()
   const currPageModal = getCurrentPage()
   setTimeout(() => {
+    if (currPageModal == NUMBER_PAGE_COSMIC_CARRER) {
+      toggleActiveShowUpCosmicCareers(true)
+    } else {
+      toggleActiveShowUpCosmicCareers(false)
+    }
+    if (currPageModal == NUMBER_SUBSTRATE_FIRST_WOMAN) {
+      toggleSubstrateFirstWomen(true)
+    } else {
+      toggleSubstrateFirstWomen(false)
+    }
     const pageActive = document.querySelectorAll('.page.page--active')
     const nextActivePage = document.querySelector('.page-' + currPageModal)
     pageActive.forEach((page) => page.classList.remove('page--active'))
@@ -69,7 +169,7 @@ function pagination(direction, page) {
       .querySelector('.pagination__item[data-page="' + currPageModal + '"]')
       .classList.add('pagination--active')
     rotater.style.transform = 'rotate(' + (currPageModal - 1) * 180 + 'deg)'
-  }, 100)
+  }, 300)
 }
 
 function navigateUp() {

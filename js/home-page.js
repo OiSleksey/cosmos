@@ -51,6 +51,9 @@ homeShowUpTwoClose.addEventListener('click', () => {
   setIsScroling(true)
 })
 
+//deep-page__button
+//deep-page__button
+
 // showUpHomeButtons.forEach((button) => {
 //   button.addEventListener('click', function (event) {
 //     const currDataset = event.target?.dataset?.showHome

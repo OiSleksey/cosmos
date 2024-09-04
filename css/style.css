@@ -2,17 +2,17 @@
   src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/polar.otf");
   font-family: "Custom Font";
 }
-.footer, .first-woman__substrate, .first-woman, .dark-page__content, .deep-page__substrate-pink, .substrate-earth-page, .earth-page__content, .substrate-home-page, .home-page__content {
+.footer, .first-woman, .dark-page__content, .deep-page__substrate-pink, .substrate-earth-page, .earth-page__content, .substrate-home-page, .home-page__content {
   opacity: 0;
   transition: opacity 0.6s, transform 0.6s ease-out;
 }
-.page.page--moving-up .footer, .page.page--moving-up .first-woman__substrate, .page.page--moving-up .first-woman, .page.page--moving-up .dark-page__content, .page.page--moving-up .deep-page__substrate-pink, .page.page--moving-up .substrate-earth-page, .page.page--moving-up .earth-page__content, .page.page--moving-up .substrate-home-page, .page.page--moving-up .home-page__content {
+.page.page--moving-up .footer, .page.page--moving-up .first-woman, .page.page--moving-up .dark-page__content, .page.page--moving-up .deep-page__substrate-pink, .page.page--moving-up .substrate-earth-page, .page.page--moving-up .earth-page__content, .page.page--moving-up .substrate-home-page, .page.page--moving-up .home-page__content {
   transform: translateY(200px);
 }
-.page.page--moving-down .footer, .page.page--moving-down .first-woman__substrate, .page.page--moving-down .first-woman, .page.page--moving-down .dark-page__content, .page.page--moving-down .deep-page__substrate-pink, .page.page--moving-down .substrate-earth-page, .page.page--moving-down .earth-page__content, .page.page--moving-down .substrate-home-page, .page.page--moving-down .home-page__content {
+.page.page--moving-down .footer, .page.page--moving-down .first-woman, .page.page--moving-down .dark-page__content, .page.page--moving-down .deep-page__substrate-pink, .page.page--moving-down .substrate-earth-page, .page.page--moving-down .earth-page__content, .page.page--moving-down .substrate-home-page, .page.page--moving-down .home-page__content {
   transform: translateY(-200px);
 }
-.page.page--active .footer, .page.page--active .first-woman__substrate, .page.page--active .first-woman, .page.page--active .dark-page__content, .page.page--active .deep-page__substrate-pink, .page.page--active .substrate-earth-page, .page.page--active .earth-page__content, .page.page--active .substrate-home-page, .page.page--active .home-page__content {
+.page.page--active .footer, .page.page--active .first-woman, .page.page--active .dark-page__content, .page.page--active .deep-page__substrate-pink, .page.page--active .substrate-earth-page, .page.page--active .earth-page__content, .page.page--active .substrate-home-page, .page.page--active .home-page__content {
   opacity: 1;
   transform: none;
   transition-timing-function: ease;
@@ -93,6 +93,10 @@ body {
 
 .vertical-center {
   justify-content: center !important;
+}
+
+.vertical-start {
+  justify-content: flex-start !important;
 }
 
 .gap-6 {
@@ -532,6 +536,9 @@ body {
   transition: opacity 0.4s ease-in-out;
 }
 .navigation__item:hover::before {
+  opacity: 1;
+}
+.navigation__item--active::before {
   opacity: 1;
 }
 
@@ -1475,6 +1482,36 @@ body {
   background-image: url("/img/rectangle-violet.svg");
 }
 
+.substrate-first-women {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("/img/background-first-woman.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+.substrate-first-women--active {
+  opacity: 1;
+  transition-timing-function: ease;
+}
+.substrate-first-women--active {
+  opacity: 1;
+}
+.substrate-first-women__img-container {
+  width: 88.2rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.substrate-first-women__img-container img {
+  width: 100%;
+}
+
 .first-woman {
   margin: 0 -4.3rem;
   padding: 11rem 4.3rem;
@@ -1483,10 +1520,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-image: url("/img/background-first-woman.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 .first-woman__wrapper {
   max-width: 69rem;
@@ -1565,15 +1598,6 @@ body {
 }
 .first-woman__button--violet {
   background-image: url("/img/rectangle-violet.svg");
-}
-.first-woman__substrate {
-  width: 88.2rem;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-}
-.first-woman__substrate img {
-  width: 100%;
 }
 
 .socials {
@@ -2008,6 +2032,235 @@ body {
 }
 .sustainability-slider__arrow--right {
   margin-left: 5.5rem;
+}
+
+.cosmic-careers-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 123.2rem;
+  width: 100%;
+  padding: 7.4rem 0;
+}
+.cosmic-careers-slider__cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6.6rem;
+}
+.cosmic-careers-slider__card {
+  flex: 1 1 33%;
+  max-width: 33%;
+}
+.cosmic-careers-slider__arrow {
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+.cosmic-careers-slider__arrow:hover {
+  transform: scale(1.1);
+}
+.cosmic-careers-slider__arrow--left {
+  margin-right: 5.5rem;
+}
+.cosmic-careers-slider__arrow--right {
+  margin-left: 5.5rem;
+}
+.cosmic-careers-slider__img-container {
+  width: 31rem;
+  height: 15.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  position: relative;
+  background-color: rgba(55, 6, 113, 0.9);
+}
+.cosmic-careers-slider__img-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 3px solid rgba(253, 232, 176, 0.5);
+  z-index: 1;
+  border-radius: 0.6rem;
+}
+.cosmic-careers-slider__img-container img {
+  width: 100%;
+}
+.cosmic-careers-slider__title {
+  color: #fff;
+  color: #fff;
+  font-family: inherit;
+  font-size: 3.2rem;
+  font-weight: 900;
+  line-height: 5.2rem;
+  letter-spacing: 1px;
+}
+.cosmic-careers-slider__button {
+  cursor: pointer;
+  color: #fff;
+  width: max-content;
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 4.25px;
+  text-transform: uppercase;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 1rem 2rem;
+}
+.cosmic-careers-slider__button--blue {
+  background-image: url("/img/rectangle-blue.svg");
+}
+.cosmic-careers-slider__button--pink {
+  background-image: url("/img/rectangle-pink.svg");
+}
+.cosmic-careers-slider__button--aqua {
+  background-image: url("/img/rectangle-aqua.svg");
+}
+.cosmic-careers-slider__button--yellow {
+  background-image: url("/img/rectangle-yellow.svg");
+}
+.cosmic-careers-slider__button--magenta {
+  background-image: url("/img/rectangle-magenta.svg");
+}
+.cosmic-careers-slider__button--violet {
+  background-image: url("/img/rectangle-violet.svg");
+}
+
+.show-up-cosmic-careers {
+  position: absolute;
+  bottom: 0rem;
+  left: 0;
+  right: 0;
+  z-index: 8;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.6s, transform 0.6s ease-out;
+}
+.show-up-cosmic-careers--active {
+  opacity: 1;
+  transform: translateY(50%);
+  transition-timing-function: ease;
+}
+.show-up-cosmic-careers--moving-up {
+  transform: translateY(10%);
+}
+.show-up-cosmic-careers--moving-up .show-up-cosmic-careers__body {
+  opacity: 1;
+}
+.show-up-cosmic-careers__substrate-pink {
+  position: relative;
+  min-height: 46vh;
+  width: 100%;
+  background-image: url("/img/show-up-pink.svg");
+  background-repeat: no-repeat;
+  background-size: 230rem 46vh;
+  background-position: top 50% left 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media only screen and (min-width: 1536px) {
+  .show-up-cosmic-careers__substrate-pink {
+    background-size: 100vw 46vh;
+  }
+}
+.show-up-cosmic-careers__substrate-blue {
+  width: 100%;
+  background-image: url("/img/show-up-blue.svg");
+  background-repeat: no-repeat;
+  background-size: 230rem 44vh;
+  background-position: top 50% left 50%;
+  min-height: 44vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+@media only screen and (min-width: 1536px) {
+  .show-up-cosmic-careers__substrate-blue {
+    background-size: 100vw 44vh;
+  }
+}
+.show-up-cosmic-careers__head {
+  padding: 4.3rem 4.3rem 0 4.3rem;
+  max-width: 190.2rem;
+  margin: 0 auto 0 auto;
+  position: relative;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.show-up-cosmic-careers__body {
+  max-width: 190.2rem;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  max-width: 107.4rem;
+  transition: opacity 0.6s ease-in-out;
+  opacity: 0;
+  padding: 0 7rem 4.3rem 7rem;
+}
+.show-up-cosmic-careers__header {
+  color: #fff;
+  text-align: center;
+  font-family: inherit;
+  font-size: 5.6rem;
+  font-weight: 400;
+  letter-spacing: 3.06px;
+  text-transform: uppercase;
+}
+.show-up-cosmic-careers__description {
+  margin-bottom: 2.8rem;
+  color: #fff;
+  text-align: center;
+  font-family: inherit;
+  font-size: 3rem;
+  font-weight: 300;
+  letter-spacing: 1.064px;
+}
+.show-up-cosmic-careers__close {
+  position: absolute;
+  top: 0;
+  right: 4.3rem;
+  cursor: pointer;
+}
+.show-up-cosmic-careers__button {
+  cursor: pointer;
+  color: #fff;
+  width: max-content;
+  font-family: inherit;
+  font-size: 4.6rem;
+  font-weight: 400;
+  letter-spacing: 4.25px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 1rem 2rem;
+}
+.show-up-cosmic-careers__button--blue {
+  background-image: url("/img/rectangle-blue.svg");
+}
+.show-up-cosmic-careers__button--pink {
+  background-image: url("/img/rectangle-pink.svg");
+}
+.show-up-cosmic-careers__button--aqua {
+  background-image: url("/img/rectangle-aqua.svg");
+}
+.show-up-cosmic-careers__button--yellow {
+  background-image: url("/img/rectangle-yellow.svg");
+}
+.show-up-cosmic-careers__button--magenta {
+  background-image: url("/img/rectangle-magenta.svg");
+}
+.show-up-cosmic-careers__button--violet {
+  background-image: url("/img/rectangle-violet.svg");
 }
 
 /*# sourceMappingURL=style.css.map */

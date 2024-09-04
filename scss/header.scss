@@ -128,5 +128,11 @@ $showDurationNav: 0.4s;
         opacity: 1;
       }
     }
+
+    &--active {
+      &::before {
+        opacity: 1;
+      }
+    }
   }
 }

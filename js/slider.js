@@ -21,6 +21,20 @@ const swiper = new Swiper('.swiper.company-slider__swiper', {
   },
 })
 
+const swiper2 = new Swiper('.swiper.cosmic-careers-slider__swiper', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  slidesPerView: 3,
+  spaceBetween: 66,
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.cosmic-careers-slider__arrow--right',
+    prevEl: '.cosmic-careers-slider__arrow--left',
+  },
+})
+
 const closeButton = document.querySelector('.show-up-sustainability-galery__close')
 const sustainabilityGaleryImg = document.querySelectorAll('.sustainability-galery__img-container')
 const showUpSustainabilityGalery = document.querySelector('.show-up-sustainability-galery')
