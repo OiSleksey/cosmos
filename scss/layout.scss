@@ -9,7 +9,10 @@
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 40%;
+  @include respond(2xl) {
+    font-size: 62.5%;
+  }
 }
 
 body {

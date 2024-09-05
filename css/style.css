@@ -76,7 +76,12 @@
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 40%;
+}
+@media only screen and (min-width: 1536px) {
+  html {
+    font-size: 62.5%;
+  }
 }
 
 body {
@@ -359,6 +364,49 @@ body {
     transform: translate3d(100%, 0, 0);
   }
 }
+.loading-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s;
+  opacity: 1;
+}
+.loading-overlay.inactive {
+  opacity: 0;
+}
+.loading-overlay.hidden {
+  display: none;
+}
+.loading-overlay .loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loading-overlay .loader svg {
+  width: 10rem;
+  height: 10rem;
+  transform: scaleX(-1) rotate(-90deg);
+  transform-origin: center;
+  stroke-dasharray: 1666, 1650;
+  stroke-dashoffset: 1910;
+}
+.loading-overlay__text {
+  color: #fff;
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 2.25px;
+  text-transform: uppercase;
+}
+
 .pagination {
   z-index: 2;
   position: absolute;
@@ -464,6 +512,10 @@ body {
 }
 .header__nav {
   cursor: pointer;
+  width: 2.9rem;
+}
+.header__nav img {
+  width: 100%;
 }
 
 .navigation {
@@ -491,6 +543,7 @@ body {
   max-width: 190.2rem;
   margin: 0 auto;
   z-index: 1;
+  padding: 3rem 0;
 }
 .navigation__close {
   position: absolute;
@@ -510,7 +563,18 @@ body {
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  padding: 3rem;
+  padding: 0 3rem;
+  max-height: calc(100vh - 10rem);
+  overflow-y: auto;
+}
+.navigation__list::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+@media only screen and (min-width: 1536px) {
+  .navigation__list {
+    max-height: none;
+  }
 }
 .navigation__item {
   color: #fff;
@@ -586,12 +650,62 @@ body {
 .home-page__arrow {
   cursor: pointer;
 }
+.home-page__info-button {
+  display: inline-block;
+  width: 2rem;
+  cursor: pointer;
+}
 .home-page__text {
   color: #fff;
   font-family: inherit;
   font-size: 2.2rem;
   font-weight: 300;
   letter-spacing: 0.1rem;
+}
+
+.info-button {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+}
+.info-button__img {
+  width: 2rem;
+}
+
+.info-tooltip {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  position: absolute;
+  bottom: 5rem;
+  left: -2.6rem;
+}
+.info-tooltip--active {
+  opacity: 1;
+}
+.info-tooltip__container {
+  padding: 2rem;
+  border-radius: 0.8rem;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), #7c4ffd;
+  width: max-content;
+  max-width: 49.6rem;
+  z-index: 10;
+  color: #fff;
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 1.064px;
+}
+.info-tooltip__container::after {
+  content: "";
+  background-image: url("/img/triangle-tooltip.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  bottom: -2.4rem;
+  left: 3.5rem;
+  width: 2.6rem;
+  height: 2.6rem;
+  z-index: -1;
 }
 
 .substrate-home-page {
@@ -918,6 +1032,9 @@ body {
   width: 100%;
 }
 
+.deep-page {
+  max-width: none;
+}
 @media only screen and (min-width: 1536px) {
   .deep-page {
     width: 100vw;
@@ -1354,9 +1471,20 @@ body {
 }
 
 .sustainability-galery {
-  padding: 4.6rem 0;
-  margin: 0 auto;
+  margin: 4.6rem auto 4.6rem auto;
   max-width: 102.4rem;
+  max-height: 38rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.sustainability-galery::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+@media only screen and (min-width: 1536px) {
+  .sustainability-galery {
+    max-height: 50rem;
+  }
 }
 .sustainability-galery__cards {
   display: flex;
@@ -1369,6 +1497,9 @@ body {
   max-width: calc(25% - 2.45rem);
   position: relative;
 }
+.sustainability-galery__card--none {
+  display: none;
+}
 .sustainability-galery__img-container {
   width: 23.1rem;
   height: 15.3rem;
@@ -1379,6 +1510,7 @@ body {
   overflow: hidden;
   position: relative;
   background-color: rgba(55, 6, 113, 0.9);
+  cursor: pointer;
 }
 .sustainability-galery__img-container::before {
   content: "";
@@ -1601,15 +1733,26 @@ body {
 }
 
 .socials {
-  margin: 0 auto;
+  margin: 0 auto 3rem auto;
   max-width: 96.6rem;
-  padding-bottom: 3rem;
+  max-height: 30rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.socials::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+@media only screen and (min-width: 1536px) {
+  .socials {
+    max-height: none;
+  }
 }
 .socials__cards {
   display: flex;
-  justify-content: space-between;
   gap: 4rem 2.9rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .socials__card {
   flex: 1 0 calc(33% - 2rem);
@@ -1624,6 +1767,7 @@ body {
   border-radius: 0.6rem;
   border: 0.4rem solid rgba(255, 255, 255, 0.1);
   background: rgba(36, 24, 69, 0.6);
+  margin: auto;
 }
 .socials__title {
   color: #fff;
@@ -2066,7 +2210,6 @@ body {
   margin-left: 5.5rem;
 }
 .cosmic-careers-slider__img-container {
-  width: 31rem;
   height: 15.4rem;
   display: flex;
   align-items: center;
@@ -2155,11 +2298,11 @@ body {
 }
 .show-up-cosmic-careers__substrate-pink {
   position: relative;
-  min-height: 46vh;
+  min-height: 86vh;
   width: 100%;
   background-image: url("/img/show-up-pink.svg");
   background-repeat: no-repeat;
-  background-size: 230rem 46vh;
+  background-size: 230rem 86vh;
   background-position: top 50% left 50%;
   display: flex;
   align-items: center;
@@ -2167,25 +2310,25 @@ body {
 }
 @media only screen and (min-width: 1536px) {
   .show-up-cosmic-careers__substrate-pink {
-    background-size: 100vw 46vh;
+    background-size: 100vw 86vh;
   }
 }
 .show-up-cosmic-careers__substrate-blue {
   width: 100%;
   background-image: url("/img/show-up-blue.svg");
   background-repeat: no-repeat;
-  background-size: 230rem 44vh;
+  background-size: 230rem 84vh;
   background-position: top 50% left 50%;
-  min-height: 44vh;
+  min-height: 84vh;
   display: flex;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
   position: relative;
+  padding: 3rem 0;
 }
 @media only screen and (min-width: 1536px) {
   .show-up-cosmic-careers__substrate-blue {
-    background-size: 100vw 44vh;
+    background-size: 100vw 84vh;
   }
 }
 .show-up-cosmic-careers__head {

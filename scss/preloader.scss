@@ -37,3 +37,60 @@ $preloaderFadeAT: 0.5s;
     transform: translate3d(100%, 0, 0);
   }
 }
+
+.loading-overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity $preloaderFadeAT;
+  opacity: 1;
+
+  &.inactive {
+    opacity: 0;
+  }
+
+  &.hidden {
+    display: none;
+  }
+
+  // &__container {
+  //   position: absolute;
+  //   left: 0;
+  //   top: 0;
+  //   bottom: 0;
+  //   right: 0;
+  //   animation: animatePreloader $preloaderAT $preloaderDelay ease-in forwards;
+  // }
+
+  .loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    svg {
+      width: 10rem;
+      height: 10rem;
+      transform: scaleX(-1) rotate(-90deg);
+      transform-origin: center;
+      stroke-dasharray: 1666, 1650;
+      stroke-dashoffset: 1910;
+    }
+  }
+
+  &__text {
+    color: #fff;
+    font-family: inherit;
+    // font-family: "DM Mono";
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 2.25px;
+    text-transform: uppercase;
+  }
+}

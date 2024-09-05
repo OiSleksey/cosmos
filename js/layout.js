@@ -23,6 +23,34 @@ const SUBSTARATE_BODY_TO_BOTTOM = 'substrate-body--to-bottom'
 const SUBSTARATE_BODY_TO_TOP = 'substrate-body--to-top'
 const SUBSTARATE_BODY_ACTIVE = 'substrate-body--active'
 
+//scroll main START
+function togleMainScroll(event, state) {
+  // console.log(event.target)
+  if (state) {
+    setIsScroling(true)
+  } else {
+    setIsScroling(false)
+  }
+}
+//scroll main END
+
+//infoButton start
+const infoButton = document.querySelector('.info-button__img')
+const infoTooltip = document.querySelector('.info-tooltip')
+const INFO_TOOLTIP_ACTIVE = 'info-tooltip--active'
+
+function toggleInfoTooltip(state) {
+  if (state) {
+    infoTooltip.classList.add(INFO_TOOLTIP_ACTIVE)
+  } else {
+    infoTooltip.classList.remove(INFO_TOOLTIP_ACTIVE)
+  }
+}
+
+infoButton.addEventListener('mouseenter', () => toggleInfoTooltip(true))
+infoButton.addEventListener('mouseleave', () => toggleInfoTooltip(false))
+//infoButton end
+
 //showUpCosmicCareers START
 const showUpCosmicCareers = document.querySelector('.show-up-cosmic-careers')
 const SHOW_UP_COSMIC_CAREERS_ACTIVE = 'show-up-cosmic-careers--active'
@@ -47,7 +75,7 @@ function toggleActiveShowUpCosmicCareers(state) {
 //substrateFirstWomen START
 const substrateFirstWomen = document.querySelector('.substrate-first-women')
 const SUBSTRATE_FIRST_WOMAN_ACTIVE = 'substrate-first-women--active'
-const NUMBER_SUBSTRATE_FIRST_WOMAN = 16
+const NUMBER_SUBSTRATE_FIRST_WOMAN = 17
 
 function toggleSubstrateFirstWomen(state) {
   if (state) {
@@ -57,6 +85,29 @@ function toggleSubstrateFirstWomen(state) {
   }
 }
 //substrateFirstWomen END
+
+//sustainabilityGalery START
+const sustainabilityGalery = document.querySelector('.sustainability-galery')
+const sustainabilityGaleryButton = document.querySelector('#sustainabilityGaleryButton')
+const sustainabilityGaleryCards = document.querySelectorAll('.sustainability-galery__card')
+const SUSTABILITY_GALERY_CARD_NONE = 'sustainability-galery__card--none'
+
+sustainabilityGalery.addEventListener('mouseenter', (event) => togleMainScroll(event, false))
+sustainabilityGalery.addEventListener('mouseleave', (event) => togleMainScroll(event, true))
+sustainabilityGaleryButton.addEventListener('click', function () {
+  sustainabilityGaleryCards.forEach((card) => {
+    card.classList.remove(SUSTABILITY_GALERY_CARD_NONE)
+  })
+  this.style.display = 'none'
+})
+//sustainabilityGalery END
+
+//socials  START
+const socials = document.querySelector('.socials')
+
+socials.addEventListener('mouseenter', (event) => togleMainScroll(event, false))
+socials.addEventListener('mouseleave', (event) => togleMainScroll(event, true))
+//socials  END
 
 //Navigation Main START
 const navigationClose = document.querySelector('#navigationClose')
@@ -148,11 +199,11 @@ function pagination(direction, page) {
   setSubstrateBody()
   const currPageModal = getCurrentPage()
   setTimeout(() => {
-    if (currPageModal == NUMBER_PAGE_COSMIC_CARRER) {
-      toggleActiveShowUpCosmicCareers(true)
-    } else {
-      toggleActiveShowUpCosmicCareers(false)
-    }
+    // if (currPageModal == NUMBER_PAGE_COSMIC_CARRER) {
+    //   toggleActiveShowUpCosmicCareers(true)
+    // } else {
+    //   toggleActiveShowUpCosmicCareers(false)
+    // }
     if (currPageModal == NUMBER_SUBSTRATE_FIRST_WOMAN) {
       toggleSubstrateFirstWomen(true)
     } else {
@@ -244,15 +295,15 @@ const paginationClick = (event) => {
 paginationBlock.addEventListener('click', paginationClick)
 
 //Preloader
-const startPreloader = () => {
-  preloaderOverlay.addEventListener('animationend', function () {
-    preloader.classList.add('inactive')
-  })
-  preloader.addEventListener('transitionend', function () {
-    preloader.classList.add('hidden')
-    setTimeout(afterPreloader, afterPreloaderAT)
-  })
-}
+// const startPreloader = () => {
+//   preloaderOverlay.addEventListener('animationend', function () {
+//     preloader.classList.add('inactive')
+//   })
+//   preloader.addEventListener('transitionend', function () {
+//     preloader.classList.add('hidden')
+//     setTimeout(afterPreloader, afterPreloaderAT)
+//   })
+// }
 
 function setSubstrateBody() {
   const currentPageTag = document.querySelector(`.page-${getCurrentPage()}`)
@@ -283,6 +334,67 @@ rotater.addEventListener('transitionend', function (e) {
 })
 
 //DOMContentLoaded
-document.addEventListener('DOMContentLoaded', function () {
-  startPreloader()
+// document.addEventListener('DOMContentLoaded', function () {
+//   startPreloader()
+// })
+
+//Loader START
+const circleLoader = document.querySelector('#white')
+const loadingOverlay = document.querySelector('.loading-overlay')
+const loadingOverlayContainer = document.querySelector('.loading-overlay__')
+const STROKE_DASHARRAY = '1685, 1660'
+const STROKE_DASHOFFSET_START = 1910
+const STROKE_DASHOFFSET_FINISH = 3350
+const START_LOAD = 0
+const FINISH_LOAD = 100
+const DOM_SPEED = 40
+const LOAD_SPEED = 20
+const loadingText = document.querySelector('.loading-overlay__text')
+const coefficientDasharray = (STROKE_DASHOFFSET_FINISH - STROKE_DASHOFFSET_START) / FINISH_LOAD
+
+circleLoader.style.strokeDasharray = STROKE_DASHARRAY
+circleLoader.style.strokeDashoffset = STROKE_DASHOFFSET_START
+
+let counterText = START_LOAD
+let loaderInterval = null
+let couterSVG = STROKE_DASHOFFSET_START
+
+function startAnimation(speed) {
+  clearInterval(loaderInterval)
+  loaderInterval = setInterval(() => {
+    counterText++
+    couterSVG = couterSVG + coefficientDasharray
+    circleLoader.style.strokeDashoffset = couterSVG + ''
+    loadingText.innerHTML = counterText + '%'
+    if (counterText >= FINISH_LOAD) {
+      console.log(counterText)
+      clearInterval(loaderInterval)
+      loadingOverlay.classList.add('inactive')
+      setTimeout(() => {
+        loadingOverlay.classList.add('hidden')
+        setTimeout(afterPreloader, afterPreloaderAT)
+      }, 100)
+    }
+  }, speed)
+}
+
+startAnimation(500)
+
+const startPreloader = () => {
+  loadingOverlayContainer.addEventListener('animationend', function () {
+    loadingOverlay.classList.add('inactive')
+  })
+  loadingOverlay.addEventListener('transitionend', function () {
+    loadingOverlay.classList.add('hidden')
+    setTimeout(afterPreloader, afterPreloaderAT)
+  })
+}
+
+window.addEventListener('DOMContentLoaded', async () => {
+  startAnimation(DOM_SPEED)
 })
+
+window.addEventListener('load', async () => {
+  startAnimation(LOAD_SPEED)
+})
+//Loader END

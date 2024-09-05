@@ -65,6 +65,13 @@ $show-up-home-content-width: 67rem;
   }
 }
 
+@mixin hideScroll {
+  &::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+}
+
 %scaleBody {
   transition: background-size $headingsAT ease-out;
 

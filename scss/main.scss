@@ -52,12 +52,68 @@
     cursor: pointer;
   }
 
+  &__info-button {
+    display: inline-block;
+    width: 2rem;
+    cursor: pointer;
+  }
+
   &__text {
     color: #fff;
     font-family: inherit;
     font-size: 2.2rem;
     font-weight: 300;
     letter-spacing: 0.1rem;
+  }
+}
+
+.info-button {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+
+  &__img {
+    width: 2rem;
+  }
+}
+
+.info-tooltip {
+  opacity: 0;
+  transition: opacity calc($headingsAT / 2) ease-in-out;
+  position: absolute;
+  bottom: 5rem;
+  left: -2.6rem;
+
+  &--active {
+    opacity: 1;
+  }
+
+  &__container {
+    padding: 2rem;
+    border-radius: 0.8rem;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), #7c4ffd;
+    width: max-content;
+    max-width: 49.6rem;
+    z-index: 10;
+
+    color: #fff;
+    font-family: inherit;
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 1.064px;
+
+    &::after {
+      content: '';
+      background-image: url('/img/triangle-tooltip.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      bottom: -2.4rem;
+      left: 3.5rem;
+      width: 2.6rem;
+      height: 2.6rem;
+      z-index: -1;
+    }
   }
 }
 
@@ -460,6 +516,7 @@ $deep-page-pink: 100vh;
   //   transition-timing-function: ease;
   //   transition-delay: $headingsDelay;
   // }
+  max-width: none;
   @include respond(2xl) {
     width: 100vw;
     max-width: 100vw;
@@ -989,9 +1046,17 @@ $deep-page-pink: 100vh;
 }
 
 .sustainability-galery {
-  padding: 4.6rem 0;
-  margin: 0 auto;
+  // padding: 4.6rem 0 0 0;
+  margin: 4.6rem auto 4.6rem auto;
   max-width: 102.4rem;
+  max-height: 38rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  @include hideScroll;
+
+  @include respond(2xl) {
+    max-height: 50rem;
+  }
 
   &__cards {
     display: flex;
@@ -1005,6 +1070,10 @@ $deep-page-pink: 100vh;
     flex: 1 0 calc(25% - 4.9rem / 2);
     max-width: calc(25% - 4.9rem / 2);
     position: relative;
+
+    &--none {
+      display: none;
+    }
   }
 
   &__img-container {
@@ -1017,6 +1086,7 @@ $deep-page-pink: 100vh;
     overflow: hidden;
     position: relative;
     background-color: rgba(55, 6, 113, 0.9);
+    cursor: pointer;
 
     &::before {
       content: '';
@@ -1304,15 +1374,22 @@ $deep-page-pink: 100vh;
 }
 
 .socials {
-  margin: 0 auto;
+  margin: 0 auto 3rem auto;
   max-width: 96.6rem;
-  padding-bottom: 3rem;
+  max-height: 30rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  @include hideScroll;
+
+  @include respond(2xl) {
+    max-height: none;
+  }
 
   &__cards {
     display: flex;
-    justify-content: space-between;
     gap: 4rem 2.9rem;
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   &__card {
@@ -1328,6 +1405,7 @@ $deep-page-pink: 100vh;
     border-radius: 0.6rem;
     border: 0.4rem solid rgba(255, 255, 255, 0.1);
     background: rgba(36, 24, 69, 0.6);
+    margin: auto;
   }
 
   &__title {
@@ -1453,6 +1531,7 @@ $showUpBackgroundWidth: 230rem;
 
   &__substrate-pink {
     // @extend %movingContainer;
+
     position: relative;
     min-height: $deep-page-pink;
     width: 100%;
@@ -1801,6 +1880,7 @@ $showUpBackgroundWidth: 230rem;
   &__img-container {
     width: 104.8rem;
     height: 53.5rem;
+    // width: calc(100vw - 10rem);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1883,7 +1963,7 @@ $showUpBackgroundWidth: 230rem;
   }
 
   &__img-container {
-    width: 31rem;
+    // width: 31rem;
     height: 15.4rem;
     display: flex;
     align-items: center;
@@ -1963,6 +2043,9 @@ $showUpBackgroundWidth: 230rem;
   }
 }
 
+$show-up-cosmic-careers-pink: 86vh;
+$show-up-cosmic-careers-blue: 84vh;
+
 .show-up-cosmic-careers {
   position: absolute;
   bottom: 0rem;
@@ -1993,18 +2076,18 @@ $showUpBackgroundWidth: 230rem;
   &__substrate-pink {
     // @extend %movingContainer;
     position: relative;
-    min-height: 46vh;
+    min-height: $show-up-cosmic-careers-pink;
     width: 100%;
     background-image: url('/img/show-up-pink.svg');
     background-repeat: no-repeat;
-    background-size: calc($showUpBackgroundWidth * 1) 46vh;
+    background-size: calc($showUpBackgroundWidth * 1) $show-up-cosmic-careers-pink;
     background-position: top 50% left 50%;
     display: flex;
     align-items: center;
     justify-content: center;
 
     @include respond(2xl) {
-      background-size: calc(100vw * 1) 46vh;
+      background-size: calc(100vw * 1) $show-up-cosmic-careers-pink;
     }
   }
 
@@ -2013,19 +2096,20 @@ $showUpBackgroundWidth: 230rem;
     width: 100%;
     background-image: url('/img/show-up-blue.svg');
     background-repeat: no-repeat;
-    background-size: calc($showUpBackgroundWidth * 1) 44vh;
+    background-size: calc($showUpBackgroundWidth * 1) $show-up-cosmic-careers-blue;
     // background-size: cover;
     background-position: top 50% left 50%;
-    min-height: 44vh;
+    min-height: $show-up-cosmic-careers-blue;
     // padding-top: 18rem;
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: center;
+    // justify-content: center;
     position: relative;
+    padding: 3rem 0;
 
     @include respond(2xl) {
-      background-size: calc(100vw * 1) 44vh;
+      background-size: calc(100vw * 1) $show-up-cosmic-careers-blue;
     }
   }
 

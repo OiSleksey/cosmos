@@ -33,9 +33,38 @@
         </div>
       </div>
       <div class="overlay-body"></div>
-
+      <!-- 
       <div class="preloader">
         <div class="preloader__overlay"></div>
+      </div> -->
+      <div class="loading-overlay">
+        <div class="loading-overlay__container">
+          <div class="loading-overlay__loader"></div>
+          <div class="loader">
+            <svg
+              x="0px"
+              y="0px"
+              width="60px"
+              height="60px"
+              viewBox="0 0 471.197 471.197"
+              overflow="inherit"
+            >
+              <circle
+                id="white"
+                class="circle"
+                fill="transparent"
+                stroke="#1C67E3"
+                stroke-width="46"
+                stroke-linecap="round"
+                stroke-miterlimit="10"
+                cx="235.582"
+                cy="235.114"
+                r="212.599"
+              />
+            </svg>
+          </div>
+          <div class="loading-overlay__text">0%</div>
+        </div>
       </div>
       <header class="header">
         <div class="header__container">
@@ -61,10 +90,10 @@
             <li class="navigation__item" data-page="8">Moon</li>
             <li class="navigation__item" data-page="10">Gateway</li>
             <li class="navigation__item" data-page="12">Sustainability Pledge</li>
-            <li class="navigation__item" data-page="14">Cosmic Careers</li>
-            <li class="navigation__item" data-page="15">For Educators</li>
-            <li class="navigation__item" data-page="16">First Woman</li>
-            <li class="navigation__item" data-page="17">Collaborators</li>
+            <li class="navigation__item" data-page="15">Cosmic Careers</li>
+            <li class="navigation__item" data-page="16">For Educators</li>
+            <li class="navigation__item" data-page="17">First Woman</li>
+            <li class="navigation__item" data-page="18">Collaborators</li>
           </ul>
         </div>
       </nav>
@@ -652,6 +681,76 @@
                             </div>
                           </div>
                         </div>
+                        <div class="swiper-slide" data-slider="9">
+                          <div class="sustainability-slider__card">
+                            <div class="sustainability-slider__title">
+                              Lorem Ipsum Dolor sit Amet
+                            </div>
+                            <div class="sustainability-slider__description">
+                              Welcome to Gallery Preview, where we take your cravings to a whole new
+                              level! Our mouthwatering
+                            </div>
+                            <div class="sustainability-slider__img-container">
+                              <img src="/img/deep-images/image-1.png" alt="image" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide" data-slider="10">
+                          <div class="sustainability-slider__card">
+                            <div class="sustainability-slider__title">
+                              Lorem Ipsum Dolor sit Amet
+                            </div>
+                            <div class="sustainability-slider__description">
+                              Welcome to Gallery Preview, where we take your cravings to a whole new
+                              level! Our mouthwatering
+                            </div>
+                            <div class="sustainability-slider__img-container">
+                              <img src="/img/deep-images/image-2.png" alt="image" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide" data-slider="11">
+                          <div class="sustainability-slider__card">
+                            <div class="sustainability-slider__title">
+                              Lorem Ipsum Dolor sit Amet
+                            </div>
+                            <div class="sustainability-slider__description">
+                              Welcome to Gallery Preview, where we take your cravings to a whole new
+                              level! Our mouthwatering
+                            </div>
+                            <div class="sustainability-slider__img-container">
+                              <img src="/img/deep-images/image-3.png" alt="image" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide" data-slider="12">
+                          <div class="sustainability-slider__card">
+                            <div class="sustainability-slider__title">
+                              Lorem Ipsum Dolor sit Amet
+                            </div>
+                            <div class="sustainability-slider__description">
+                              Welcome to Gallery Preview, where we take your cravings to a whole new
+                              level! Our mouthwatering
+                            </div>
+                            <div class="sustainability-slider__img-container">
+                              <img src="/img/deep-images/image-4.png" alt="image" />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="swiper-slide" data-slider="13">
+                          <div class="sustainability-slider__card">
+                            <div class="sustainability-slider__title">
+                              Lorem Ipsum Dolor sit Amet
+                            </div>
+                            <div class="sustainability-slider__description">
+                              Welcome to Gallery Preview, where we take your cravings to a whole new
+                              level! Our mouthwatering
+                            </div>
+                            <div class="sustainability-slider__img-container">
+                              <img src="/img/deep-images/image-1.png" alt="image" />
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <div class="sustainability-slider__arrow sustainability-slider__arrow--right">
@@ -662,7 +761,7 @@
               </div>
             </div>
           </div>
-          <div class="show-up-cosmic-careers"  id="cosmicCarrersShowUp">
+          <div class="show-up-cosmic-careers" id="cosmicCarrersShowUp">
             <div class="show-up-cosmic-careers__substrate-pink">
               <div class="show-up-cosmic-careers__substrate-blue">
                 <div class="show-up-cosmic-careers__head">
@@ -670,9 +769,12 @@
                 </div>
                 <div class="show-up-cosmic-careers__body">
                   <div class="show-up-cosmic-careers__description">
-                    Register here for an implementation guide that includes background information, additional activities, and certificates.  
+                    Register here for an implementation guide that includes background information,
+                    additional activities, and certificates.
                   </div>
-                  <div class="show-up-cosmic-careers__button show-up-cosmic-careers__button--violet">
+                  <div
+                    class="show-up-cosmic-careers__button show-up-cosmic-careers__button--violet"
+                  >
                     Link to Form
                   </div>
                 </div>
@@ -713,7 +815,18 @@
                       data-show-home="1"
                     />
                     <div class="home-page__text">
-                      Become a solutionary . Use your critical and creative thinking skills ...
+                      Become a solutionary
+                      <div class="info-button">
+                        <img src="/insignia/info.png" alt="info" class="info-button__img" />
+                        <div class="info-tooltip">
+                          <div class="info-tooltip__container">
+                            Noun. a person who identifies inhumane, unsustainable, and unjust
+                            systems and then develops solutions that are healthy and equitable for
+                            people, animals, and the environment.
+                          </div>
+                        </div>
+                      </div>
+                      . Use your critical and creative thinking skills ...
                     </div>
                   </div>
                 </div>
@@ -1386,7 +1499,7 @@
                 </div>
               </div>
             </section>
-            <section class="dark-page substrate-top page page-12" >
+            <section class="dark-page substrate-top page page-12">
               <div class="dark-page__content">
                 <div class="dark-page__wrapper">
                   <h2 class="dark-page__header">My Susstainability Pledge</h2>
@@ -1582,7 +1695,7 @@
                     </div>
                     <div class="sustainability-galery__card">
                       <div class="sustainability-galery__img-container" data-slider="4">
-                        <img src="/img/deep-images/image-4.png" alt="amage" data-slider="4" />
+                        <img src="/img/deep-images/image-4.png" alt="amage" />
                         <div class="sustainability-galery__img-overlay"></div>
                       </div>
                       <div class="sustainability-galery__type sustainability-galery__type--yellow">
@@ -1625,9 +1738,59 @@
                         DOC
                       </div>
                     </div>
+                    <div class="sustainability-galery__card sustainability-galery__card--none">
+                      <div class="sustainability-galery__img-container" data-slider="9">
+                        <img src="/img/deep-images/image-1.png" alt="amage" />
+                        <div class="sustainability-galery__img-overlay"></div>
+                      </div>
+                      <div class="sustainability-galery__type sustainability-galery__type--violet">
+                        MP4
+                      </div>
+                    </div>
+                    <div class="sustainability-galery__card sustainability-galery__card--none">
+                      <div class="sustainability-galery__img-container" data-slider="10">
+                        <img src="/img/deep-images/image-2.png" alt="amage" />
+                        <div class="sustainability-galery__img-overlay"></div>
+                      </div>
+                      <div class="sustainability-galery__type sustainability-galery__type--yellow">
+                        JPG
+                      </div>
+                    </div>
+                    <div class="sustainability-galery__card sustainability-galery__card--none">
+                      <div class="sustainability-galery__img-container" data-slider="11">
+                        <img src="/img/deep-images/image-3.png" alt="amage" />
+                        <div class="sustainability-galery__img-overlay"></div>
+                      </div>
+                      <div class="sustainability-galery__type sustainability-galery__type--violet">
+                        MP4
+                      </div>
+                    </div>
+                    <div class="sustainability-galery__card sustainability-galery__card--none">
+                      <div class="sustainability-galery__img-container" data-slider="12">
+                        <img src="/img/deep-images/image-4.png" alt="amage" />
+                        <div class="sustainability-galery__img-overlay"></div>
+                      </div>
+                      <div class="sustainability-galery__type sustainability-galery__type--blue">
+                        DOC
+                      </div>
+                    </div>
+                    <div class="sustainability-galery__card sustainability-galery__card--none">
+                      <div class="sustainability-galery__img-container" data-slider="13">
+                        <img src="/img/deep-images/image-4.png" alt="amage" />
+                        <div class="sustainability-galery__img-overlay"></div>
+                      </div>
+                      <div class="sustainability-galery__type sustainability-galery__type--blue">
+                        DOC
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="dark-page__button dark-page__button--magenta">View more</div>
+                <div
+                  class="dark-page__button dark-page__button--magenta"
+                  id="sustainabilityGaleryButton"
+                >
+                  View more
+                </div>
               </div>
 
               <div class="scroll-down">
@@ -1637,13 +1800,11 @@
                 </div>
               </div>
             </section>
-            <section class="dark-page substrate-top page page-15" id="cosmicCarrersPage">
-              <div class="dark-page__content dark-page__content--center vertical-start ">
+            <section class="dark-page substrate-top page page-15">
+              <div class="dark-page__content dark-page__content--center vertical-start">
                 <div class="dark-page__wrapper">
                   <h2 class="dark-page__header">Cosmic Careers</h2>
-                  <div class="dark-page__description">
-                    Sub header
-                  </div>
+                  <div class="dark-page__description">Sub header</div>
                 </div>
                 <div class="cosmic-careers-slider">
                   <div class="cosmic-careers-slider__arrow cosmic-careers-slider__arrow--left">
@@ -1653,55 +1814,67 @@
                     <div class="swiper-wrapper cosmic-careers-slider__wrapper">
                       <div class="swiper-slide">
                         <div class="cosmic-careers-slider__img-container">
-                          <img src="/img/deep-images/image-1.png" alt="image">
+                          <img src="/img/deep-images/image-1.png" alt="image" />
                         </div>
                         <div class="cosmic-careers-slider__title">United Nations</div>
-                        <div class="cosmic-careers-slider__button cosmic-careers-slider__button--magenta">
+                        <div
+                          class="cosmic-careers-slider__button cosmic-careers-slider__button--magenta"
+                        >
                           Explore
                         </div>
                       </div>
                       <div class="swiper-slide">
                         <div class="cosmic-careers-slider__img-container">
-                          <img src="/img/deep-images/image-1.png" alt="image">
+                          <img src="/img/deep-images/image-1.png" alt="image" />
                         </div>
                         <div class="cosmic-careers-slider__title">United Nations</div>
-                        <div class="cosmic-careers-slider__button cosmic-careers-slider__button--magenta">
+                        <div
+                          class="cosmic-careers-slider__button cosmic-careers-slider__button--magenta"
+                        >
                           Explore
                         </div>
                       </div>
                       <div class="swiper-slide">
                         <div class="cosmic-careers-slider__img-container">
-                          <img src="/img/deep-images/image-1.png" alt="image">
+                          <img src="/img/deep-images/image-1.png" alt="image" />
                         </div>
                         <div class="cosmic-careers-slider__title">United Nations</div>
-                        <div class="cosmic-careers-slider__button cosmic-careers-slider__button--magenta">
+                        <div
+                          class="cosmic-careers-slider__button cosmic-careers-slider__button--magenta"
+                        >
                           Explore
                         </div>
                       </div>
                       <div class="swiper-slide">
                         <div class="cosmic-careers-slider__img-container">
-                          <img src="/img/deep-images/image-1.png" alt="image">
+                          <img src="/img/deep-images/image-1.png" alt="image" />
                         </div>
                         <div class="cosmic-careers-slider__title">United Nations</div>
-                        <div class="cosmic-careers-slider__button cosmic-careers-slider__button--magenta">
+                        <div
+                          class="cosmic-careers-slider__button cosmic-careers-slider__button--magenta"
+                        >
                           Explore
                         </div>
                       </div>
                       <div class="swiper-slide">
                         <div class="cosmic-careers-slider__img-container">
-                          <img src="/img/deep-images/image-1.png" alt="image">
+                          <img src="/img/deep-images/image-1.png" alt="image" />
                         </div>
                         <div class="cosmic-careers-slider__title">United Nations</div>
-                        <div class="cosmic-careers-slider__button cosmic-careers-slider__button--magenta">
+                        <div
+                          class="cosmic-careers-slider__button cosmic-careers-slider__button--magenta"
+                        >
                           Explore
                         </div>
                       </div>
                       <div class="swiper-slide">
                         <div class="cosmic-careers-slider__img-container">
-                          <img src="/img/deep-images/image-1.png" alt="image">
+                          <img src="/img/deep-images/image-1.png" alt="image" />
                         </div>
                         <div class="cosmic-careers-slider__title">United Nations</div>
-                        <div class="cosmic-careers-slider__button cosmic-careers-slider__button--magenta">
+                        <div
+                          class="cosmic-careers-slider__button cosmic-careers-slider__button--magenta"
+                        >
                           Explore
                         </div>
                       </div>
@@ -1711,8 +1884,24 @@
                     <img src="/insignia/arrow-right.svg" alt="arrow" />
                   </div>
                 </div>
+              </div>
             </section>
-            <section class="dark-page substrate-top page page-16">
+            <section class="deep-page substrate-top page page-16">
+              <div class="deep-page__substrate-pink">
+                <div class="deep-page__substrate-blue">
+                  <div class="deep-page__body">
+                    <h2 class="deep-page__header">FOR EDUCATORS</h2>
+
+                    <div class="deep-page__description">
+                      Register here for an implementation guide that includes background
+                      information, additional activities, and certificates.
+                    </div>
+                    <div class="deep-page__button deep-page__button--violet">Link to Form</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section class="dark-page substrate-top page page-17">
               <div class="first-woman">
                 <div class="first-woman__wrapper">
                   <h2 class="first-woman__header">First Woman</h2>
@@ -1735,8 +1924,6 @@
                 </div>
               </div>
 
-    
-
               <div class="scroll-down">
                 <div class="scroll-down__title">Scroll Down</div>
                 <div class="scroll-down__arrow">
@@ -1744,7 +1931,7 @@
                 </div>
               </div>
             </section>
-            <section class="dark-page substrate-top page page-17">
+            <section class="dark-page substrate-top page page-18">
               <div class="dark-page__content vertical-center gap-6">
                 <div class="dark-page__wrapper">
                   <h2 class="dark-page__header">Collaborators</h2>
@@ -1962,10 +2149,9 @@
                 <div class="footer__copyright">copyright (© 2024 NIA. All rights reserved.)</div>
               </div>
             </section>
-
           </div>
         </div>
-        <nav class="pagination" style="display: none;">
+        <nav class="pagination" style="display: none">
           <div class="pagination__arrow pagination__arrow--up js-up"></div>
           <div class="pagination__arrow pagination__arrow--down js-down"></div>
           <ul class="pagination__items">
@@ -1986,6 +2172,7 @@
             <li class="pagination__item" data-page="15"></li>
             <li class="pagination__item" data-page="16"></li>
             <li class="pagination__item" data-page="17"></li>
+            <li class="pagination__item" data-page="18"></li>
           </ul>
         </nav>
       </main>

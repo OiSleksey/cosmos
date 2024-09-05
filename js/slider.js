@@ -41,28 +41,25 @@ const showUpSustainabilityGalery = document.querySelector('.show-up-sustainabili
 const SHOW_UP_SUSTAINABILITY_GALERY_ACTIVE = 'show-up-sustainability-galery--active'
 let swiperGalery
 
-sustainabilityGaleryImg.forEach((card) => {
+sustainabilityGaleryImg.forEach((card, index) => {
   card.addEventListener('click', function (event) {
     event.stopPropagation()
-    const cardNumber = event.target?.dataset?.slider
-    if (cardNumber) {
-      setIsScroling(false)
-      const currIndex = Number(cardNumber)
-      showUpSustainabilityGalery.classList.add(SHOW_UP_SUSTAINABILITY_GALERY_ACTIVE)
-      swiperGalery = new Swiper('.swiper.sustainability-slider__swiper', {
-        // Optional parameters
-        direction: 'horizontal',
-        initialSlide: currIndex - 1,
-        //   rewind: true,
-        //   loop: true,
 
-        // Navigation arrows
-        navigation: {
-          nextEl: '.sustainability-slider__arrow--right',
-          prevEl: '.sustainability-slider__arrow--left',
-        },
-      })
-    }
+    setIsScroling(false)
+    showUpSustainabilityGalery.classList.add(SHOW_UP_SUSTAINABILITY_GALERY_ACTIVE)
+    swiperGalery = new Swiper('.swiper.sustainability-slider__swiper', {
+      // Optional parameters
+      direction: 'horizontal',
+      initialSlide: index,
+      //   rewind: true,
+      //   loop: true,
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.sustainability-slider__arrow--right',
+        prevEl: '.sustainability-slider__arrow--left',
+      },
+    })
   })
 })
 
