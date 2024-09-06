@@ -104,7 +104,11 @@ sustainabilityGaleryButton.addEventListener('click', function () {
 
 //socials  START
 const socials = document.querySelector('.socials')
-
+const socialsCards = document.querySelectorAll('.socials__card')
+socialsCards.forEach((card, index) => {
+  const delay = 1 + 0.1 * index
+  card.style.transitionDelay = `${delay}s`
+})
 socials.addEventListener('mouseenter', (event) => togleMainScroll(event, false))
 socials.addEventListener('mouseleave', (event) => togleMainScroll(event, true))
 //socials  END

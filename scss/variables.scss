@@ -22,7 +22,7 @@ $iphoneImg: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/iphone-6-mockup
 
 $sizeSubstratePlanet: 47.2rem;
 $sizeSubstrateSpaceStation: 52.5rem;
-$show-up-home-pink: 100%;
+$show-up-home-pink: 100vh;
 $show-up-home-blue: calc($show-up-home-pink - 2rem);
 $show-up-home-content-width: 67rem;
 
@@ -46,9 +46,70 @@ $show-up-home-content-width: 67rem;
   }
 }
 
+%movingSubstrate {
+  opacity: 0;
+  transition: opacity calc($headingsAT * 1.5), transform calc($headingsAT * 1.5) ease-out;
+
+  .page.page--moving-up & {
+    transform: translateY(200px);
+  }
+
+  .page.page--moving-down & {
+    transform: translateY(-200px);
+  }
+
+  .page.page--active & {
+    opacity: 1;
+    transform: none;
+    transition-timing-function: ease;
+    transition-delay: $headingsDelay;
+  }
+}
+
+// %movingEarthPlanet {
+//   opacity: 0;
+//   transition: opacity calc($headingsAT * 1.5), transform calc($headingsAT * 1.5) ease-out;
+
+//   .page.page--moving-up & {
+//     transform: translateY(200px);
+//   }
+
+//   .page.page--moving-down & {
+//     transform: translateY(-200px);
+//   }
+
+//   .page.page--active & {
+//     opacity: 1;
+//     transform: none;
+//     transition-timing-function: ease;
+//     transition-delay: $headingsDelay;
+//   }
+// }
+
+@mixin movingCard {
+  opacity: 0;
+  transition: opacity $headingsAT, transform $headingsAT ease-out;
+
+  .page.page--moving-up & {
+    transform: translateY(200px);
+  }
+
+  .page.page--moving-down & {
+    transform: translateY(-200px);
+  }
+
+  .page.page--active & {
+    opacity: 1;
+    transform: none;
+    transition-timing-function: ease;
+    transition-delay: $headingsDelay;
+  }
+}
+
 %movingBodyBottom {
-  transition: transform calc($headingsAT / 2) ease-out;
+  transition: transform calc($headingsAT * 1.2) ease-out;
   transform: translateY(100%) scaleY(0.8);
+  transition-delay: $headingsDelay;
 
   .substrate-body.substrate-body--to-bottom & {
     opacity: 1;
@@ -74,9 +135,12 @@ $show-up-home-content-width: 67rem;
 
 %scaleBody {
   transition: background-size $headingsAT ease-out;
+  // transition: transform $headingsAT ease-out;
 
   &.substrate-body--active {
-    background-size: 120% 120%;
+    // background-size: 3040px, 1568px;
+    background-size: 160%, 120%;
+    // transform: translate(-50%, -50%) scale(2.8);
   }
 }
 
