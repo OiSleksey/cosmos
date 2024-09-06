@@ -25,6 +25,11 @@ body {
   line-height: 1;
 }
 
+a {
+  text-decoration: none;
+  display: inline-block;
+}
+
 .body-container {
   //   max-width: 210.2rem;
   position: relative;
@@ -55,7 +60,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-size: cover;
+  background-size: 160%, 100vh;
   // background-size: 3040px, 1568px;
   // background-size: 100vw, auto;
   background-image: url('/img/background-body-mobile.png');
@@ -162,7 +167,7 @@ body {
       background: linear-gradient(
         to bottom,
         transparent,
-        rgba(0, 0, 0, 0.7)
+        rgba(0, 0, 0, 0.9)
       ); // Adjust the gradient as needed
       z-index: 1; // Ensure it's above the background image
     }
@@ -316,15 +321,14 @@ body {
 
   &__button {
     cursor: pointer;
-
     width: max-content;
-
     color: #fff;
     font-family: inherit;
     font-size: 4.6rem;
     font-weight: 400;
     letter-spacing: 4.25px;
     white-space: nowrap;
+    text-decoration: none;
 
     background-size: cover;
     background-repeat: no-repeat;

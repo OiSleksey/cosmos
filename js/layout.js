@@ -156,7 +156,10 @@ navigation.addEventListener('transitionend', function (event) {
 function navigationItemClick(event) {
   const clickNumberPage = event.target.getAttribute('data-page')
   if (clickNumberPage) {
+    console.log('CurrPage ', getCurrentPage())
+    console.log('clicPage ', clickNumberPage)
     const direction = getCurrentPage() < clickNumberPage ? DIRECTION_UP : DIRECTION_DOWN
+    console.log(direction)
     setCurrentPage(clickNumberPage)
     pagination(direction)
     toggleNavigation(false)

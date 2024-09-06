@@ -6,7 +6,7 @@ import {
   setIsScroling,
 } from '../js/general.js'
 
-const socialsButtons = document.querySelectorAll('.socials__button')
+const socialsCards = document.querySelectorAll('.socials__card')
 const showUpSocials = document.querySelectorAll('.show-up-socials')
 const SHOW_UP_SOCIALS_ACTIVE = 'show-up-socials--active'
 const header = document.querySelector('.header')
@@ -31,11 +31,11 @@ function setEventCloseButton(social) {
 }
 
 function setStateShowUp(showUpCurrent) {
-  showUpSocials.forEach((social) => {
+  showUpSocials.forEach((social, index) => {
     const socialCurr = social?.dataset?.showUp
     if (socialCurr) {
       setIsScroling(false)
-      if (socialCurr === showUpCurrent) {
+      if (index === showUpCurrent) {
         social.classList.add(SHOW_UP_SOCIALS_ACTIVE)
         setEventCloseButton(social)
       } else {
@@ -45,11 +45,11 @@ function setStateShowUp(showUpCurrent) {
   })
 }
 
-socialsButtons.forEach((button) => {
+socialsCards.forEach((button, index) => {
   button.addEventListener('click', function (event) {
-    const showUpCurrent = event.target?.dataset?.showUp
-    if (showUpCurrent) {
-      setStateShowUp(showUpCurrent)
-    }
+    // const showUpCurrent = event.target?.dataset?.showUp
+    // if (showUpCurrent) {
+    setStateShowUp(index)
+    // }
   })
 })

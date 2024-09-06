@@ -89,14 +89,15 @@ $show-up-home-content-width: 67rem;
 @mixin movingCard {
   opacity: 0;
   transition: opacity $headingsAT, transform $headingsAT ease-out;
+  transform: translateY(200px);
 
-  .page.page--moving-up & {
-    transform: translateY(200px);
-  }
+  // .page.page--moving-up & {
+  //   transform: translateY(200px);
+  // }
 
-  .page.page--moving-down & {
-    transform: translateY(-200px);
-  }
+  // .page.page--moving-down & {
+  //   transform: translateY(-200px);
+  // }
 
   .page.page--active & {
     opacity: 1;
@@ -139,7 +140,7 @@ $show-up-home-content-width: 67rem;
 
   &.substrate-body--active {
     // background-size: 3040px, 1568px;
-    background-size: 160%, 120%;
+    background-size: 190%, 120vh;
     // transform: translate(-50%, -50%) scale(2.8);
   }
 }

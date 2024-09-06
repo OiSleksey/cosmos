@@ -13,7 +13,7 @@ $showDurationNav: 0.4s;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 4.3rem 4.3rem;
+    padding: 4rem 4rem;
     max-width: $maxWidthAllContent;
     margin: 0 auto;
   }
@@ -57,13 +57,14 @@ $showDurationNav: 0.4s;
   top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
   min-height: 100vh;
   opacity: 0;
   transition: opacity $hideDurationNav ease-in;
   background: rgba(50, 28, 86, 0.2);
   // filter: blur(22px);
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
+  backdrop-filter: blur(45px);
+  -webkit-backdrop-filter: blur(45px);
 
   &--active {
     opacity: 1;
@@ -84,16 +85,17 @@ $showDurationNav: 0.4s;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    width: 100vw;
     max-width: $maxWidthAllContent;
-    margin: 0 auto;
     z-index: 1;
     padding: 3rem 0;
+    margin: 0 auto;
   }
 
   &__close {
     position: absolute;
-    top: 3rem;
-    right: 3rem;
+    top: 4.6rem;
+    right: 4rem;
     cursor: pointer;
     width: 2.8rem;
     height: 2.8rem;
@@ -105,13 +107,13 @@ $showDurationNav: 0.4s;
 
   &__list {
     list-style: none;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
     gap: 2rem;
     padding: 0 3rem;
-    max-height: calc(100vh - 10rem);
+    max-height: calc(100vh - 6rem);
     overflow-y: auto;
 
     @include hideScroll;
@@ -127,7 +129,15 @@ $showDurationNav: 0.4s;
     font-weight: 400;
     letter-spacing: 3.616px;
     position: relative;
+    margin: 0 auto;
+    text-align: center;
     cursor: pointer;
+    margin-bottom: 2rem;
+    width: max-content;
+
+    // &:last-child {
+    //   margin-bottom: 1rem;
+    // }
 
     &::before {
       content: '';

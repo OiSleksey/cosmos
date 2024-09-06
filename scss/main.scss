@@ -317,12 +317,14 @@
   }
 
   &-add {
-    max-width: 39rem;
+    max-width: 41rem;
     display: flex;
     flex-direction: column;
     gap: 4.8rem;
 
     &__header {
+      margin-bottom: 1rem;
+
       color: #fff;
       font-family: inherit;
       font-size: 4.8rem;
@@ -563,6 +565,18 @@ $deep-page-pink: 100vh;
     }
   }
 
+  &__content {
+    max-width: $maxWidthAllContent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &__wrap {
+    max-width: 103.4rem;
+  }
+
   &__title {
     margin-bottom: 1rem;
 
@@ -584,6 +598,7 @@ $deep-page-pink: 100vh;
   }
 
   &__cards {
+    max-width: 103.4rem;
     display: flex;
     justify-content: space-between;
     gap: 2.4rem;
@@ -646,7 +661,7 @@ $deep-page-pink: 100vh;
   }
 
   &__header {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 
     color: #fff;
     font-family: inherit;
@@ -657,7 +672,7 @@ $deep-page-pink: 100vh;
   }
 
   &__caption {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 
     color: #fff;
     font-family: inherit;
@@ -667,7 +682,7 @@ $deep-page-pink: 100vh;
   }
 
   &__text {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 
     color: #fff;
     font-family: inherit;
@@ -768,6 +783,7 @@ $deep-page-pink: 100vh;
     cursor: pointer;
     color: #fff;
     width: max-content;
+    text-decoration: none;
 
     font-family: inherit;
     font-size: 4.6rem;
@@ -776,7 +792,7 @@ $deep-page-pink: 100vh;
 
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 1rem 3rem;
+    padding: 2rem 3rem;
 
     &--blue {
       background-image: url('/img/rectangle-blue.svg');
@@ -1022,7 +1038,7 @@ $deep-page-pink: 100vh;
     font-family: inherit;
     font-size: 4.6rem;
     font-weight: 400;
-    letter-spacing: 1;
+    letter-spacing: 1px;
 
     background-size: cover;
     background-repeat: no-repeat;
@@ -1058,7 +1074,7 @@ $deep-page-pink: 100vh;
   // padding: 4.6rem 0 0 0;
   margin: 4.6rem auto 4.6rem auto;
   max-width: 102.4rem;
-  max-height: 38rem;
+  max-height: 44rem;
   overflow-y: auto;
   overflow-x: hidden;
   @include hideScroll;
@@ -1385,7 +1401,7 @@ $deep-page-pink: 100vh;
 .socials {
   margin: 0 auto 3rem auto;
   max-width: 96.6rem;
-  max-height: 30rem;
+  max-height: 52vh;
   overflow-y: auto;
   overflow-x: hidden;
   @include hideScroll;
@@ -1416,6 +1432,7 @@ $deep-page-pink: 100vh;
     border: 0.4rem solid rgba(255, 255, 255, 0.1);
     background: rgba(36, 24, 69, 0.6);
     margin: auto;
+    cursor: pointer;
 
     //  @extend %movingContainer;
 
@@ -1566,7 +1583,6 @@ $showUpBackgroundWidth: 230rem;
     opacity: 1;
     transform: none;
     transition-timing-function: ease;
-    transition-delay: $headingsDelay;
   }
 
   &__substrate-pink {
