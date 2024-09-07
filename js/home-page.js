@@ -6,15 +6,9 @@ import {
   setIsScroling,
 } from '../js/general.js'
 
-const homeArrowOne = document.querySelector('#homeArrowOne')
-const homeArrowTwo = document.querySelector('#homeArrowTwo')
-const homeShowUpOne = document.querySelector('#homeShowUpOne')
-const homeShowUpTwo = document.querySelector('#homeShowUpTwo')
-const homeShowUpOneClose = document.querySelector('#homeShowUpOneClose')
-const homeShowUpTwoClose = document.querySelector('#homeShowUpTwoClose')
-
-const showUpHomeButtons = document.querySelectorAll('.home-page__arrow')
+const showUpHomeOpenButtons = document.querySelectorAll('.home-page__button')
 const showUpHomeWrapper = document.querySelectorAll('.show-up-home')
+const SHOW_UP_HOME_ACTIVE = 'show-up-home--active'
 const overlayBody = document.querySelector('.overlay-body')
 
 const setStyleOverlayBody = (state) => {
@@ -25,40 +19,20 @@ const setStyleOverlayBody = (state) => {
   }
 }
 
-homeArrowOne.addEventListener('click', () => {
-  setIsScroling(false)
-  setStyleOverlayBody(true)
-  homeShowUpTwo.classList.remove('show-up-home--active')
-  homeShowUpOne.classList.add('show-up-home--active')
+showUpHomeOpenButtons.forEach(function (button, index) {
+  button.addEventListener('click', function (event) {
+    setIsScroling(false)
+    setStyleOverlayBody(true)
+    showUpHomeWrapper[index].classList.add(SHOW_UP_HOME_ACTIVE)
+  })
 })
 
-homeArrowTwo.addEventListener('click', () => {
-  setIsScroling(false)
-  setStyleOverlayBody(true)
-  homeShowUpOne.classList.remove('show-up-home--active')
-  homeShowUpTwo.classList.add('show-up-home--active')
+showUpHomeWrapper.forEach(function (wrapper, index) {
+  const closeButton = wrapper.querySelector('.show-up-home__close')
+
+  closeButton.addEventListener('click', function (event) {
+    setIsScroling(true)
+    setStyleOverlayBody(false)
+    showUpHomeWrapper[index].classList.remove(SHOW_UP_HOME_ACTIVE)
+  })
 })
-
-homeShowUpOneClose.addEventListener('click', () => {
-  homeShowUpOne.classList.remove('show-up-home--active')
-  setStyleOverlayBody(false)
-  setIsScroling(true)
-})
-
-homeShowUpTwoClose.addEventListener('click', () => {
-  homeShowUpTwo.classList.remove('show-up-home--active')
-  setStyleOverlayBody(false)
-  setIsScroling(true)
-})
-
-//deep-page__button
-//deep-page__button
-
-// showUpHomeButtons.forEach((button) => {
-//   button.addEventListener('click', function (event) {
-//     const currDataset = event.target?.dataset?.showHome
-//     if(currDataset) {
-
-//     }
-//   })
-// })

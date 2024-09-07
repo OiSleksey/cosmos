@@ -113,6 +113,27 @@ socials.addEventListener('mouseenter', (event) => togleMainScroll(event, false))
 socials.addEventListener('mouseleave', (event) => togleMainScroll(event, true))
 //socials  END
 
+//deep-page-slider  START
+const deepPageSliders = document.querySelectorAll('.deep-page-slider')
+deepPageSliders.forEach((deepPage) => {
+  const deepPageSliderSlides = deepPage.querySelectorAll('.swiper-slide')
+  deepPageSliderSlides.forEach((card, index) => {
+    const delay = 0.8 + 0.05 * index
+    card.style.transitionDelay = `${delay}s`
+  })
+})
+//deep-page-slider  END
+
+//cosmic-careers-slider  START
+const cosmicCareersSlider = document.querySelector('.cosmic-careers-slider')
+const deepPageSliderSlides = cosmicCareersSlider.querySelectorAll('.swiper-slide')
+deepPageSliderSlides.forEach((card, index) => {
+  console.log(card)
+  const delay = 0.8 + 0.05 * index
+  card.style.transitionDelay = `${delay}s`
+})
+//cosmic-careers-slider  END
+
 //Navigation Main START
 const navigationClose = document.querySelector('#navigationClose')
 const navigationOpen = document.querySelector('#navigationOpen')
@@ -159,7 +180,7 @@ function navigationItemClick(event) {
     console.log('CurrPage ', getCurrentPage())
     console.log('clicPage ', clickNumberPage)
     const direction = getCurrentPage() < clickNumberPage ? DIRECTION_UP : DIRECTION_DOWN
-    console.log(direction)
+    console.log(direction, 'navigationItemClick')
     setCurrentPage(clickNumberPage)
     pagination(direction)
     toggleNavigation(false)
@@ -177,9 +198,10 @@ deepPageButtons.forEach((button) => {
 
 function setDirectionForPage(direction) {
   const currPageModal = getCurrentPage()
+  console.log(direction)
   if (direction === DIRECTION_DOWN) {
     pages.forEach((page, index) => {
-      if (currPageModal == index + 1 || currPageModal == index + 2) {
+      if (currPageModal >= index + 1) {
         page.classList.add(PAGE_MOVING_DOWN)
         page.classList.remove(PAGE_MOVING_UP)
       } else {
@@ -189,10 +211,19 @@ function setDirectionForPage(direction) {
     })
   } else {
     pages.forEach((page, index) => {
-      if (currPageModal == index || currPageModal == index + 1) {
+      if (index === 11) {
+        console.log('if')
+      }
+      if (currPageModal <= index + 1) {
+        if (index === 11) {
+          console.log('if ', currPageModal)
+        }
         page.classList.add(PAGE_MOVING_UP)
         page.classList.remove(PAGE_MOVING_DOWN)
       } else {
+        if (index === 11) {
+          console.log('else ', currPageModal)
+        }
         page.classList.remove(PAGE_MOVING_UP)
         page.classList.add(PAGE_MOVING_DOWN)
       }
@@ -205,29 +236,29 @@ function pagination(direction, page) {
   setIsScroling(false)
   setSubstrateBody()
   const currPageModal = getCurrentPage()
-  setTimeout(() => {
-    // if (currPageModal == NUMBER_PAGE_COSMIC_CARRER) {
-    //   toggleActiveShowUpCosmicCareers(true)
-    // } else {
-    //   toggleActiveShowUpCosmicCareers(false)
-    // }
-    if (currPageModal == NUMBER_SUBSTRATE_FIRST_WOMAN) {
-      toggleSubstrateFirstWomen(true)
-    } else {
-      toggleSubstrateFirstWomen(false)
-    }
-    const pageActive = document.querySelectorAll('.page.page--active')
-    const nextActivePage = document.querySelector('.page-' + currPageModal)
-    pageActive.forEach((page) => page.classList.remove('page--active'))
-    nextActivePage.classList.add('page--active')
-    document
-      .querySelectorAll('.pagination__item.pagination--active')
-      .forEach((item) => item.classList.remove('pagination--active'))
-    document
-      .querySelector('.pagination__item[data-page="' + currPageModal + '"]')
-      .classList.add('pagination--active')
-    rotater.style.transform = 'rotate(' + (currPageModal - 1) * 180 + 'deg)'
-  }, 300)
+  // setTimeout(() => {
+  // if (currPageModal == NUMBER_PAGE_COSMIC_CARRER) {
+  //   toggleActiveShowUpCosmicCareers(true)
+  // } else {
+  //   toggleActiveShowUpCosmicCareers(false)
+  // }
+  if (currPageModal == NUMBER_SUBSTRATE_FIRST_WOMAN) {
+    toggleSubstrateFirstWomen(true)
+  } else {
+    toggleSubstrateFirstWomen(false)
+  }
+  const pageActive = document.querySelectorAll('.page.page--active')
+  const nextActivePage = document.querySelector('.page-' + currPageModal)
+  pageActive.forEach((page) => page.classList.remove('page--active'))
+  nextActivePage.classList.add('page--active')
+  document
+    .querySelectorAll('.pagination__item.pagination--active')
+    .forEach((item) => item.classList.remove('pagination--active'))
+  document
+    .querySelector('.pagination__item[data-page="' + currPageModal + '"]')
+    .classList.add('pagination--active')
+  rotater.style.transform = 'rotate(' + (currPageModal - 1) * 180 + 'deg)'
+  // }, 600)
 }
 
 function navigateUp() {
@@ -380,6 +411,7 @@ function startAnimation(speed) {
       setTimeout(() => {
         loadingOverlay.classList.add('hidden')
         setTimeout(afterPreloader, afterPreloaderAT)
+        setDirectionForPage(DIRECTION_UP)
       }, 100)
     }
   }, speed)

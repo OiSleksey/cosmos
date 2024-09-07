@@ -7,6 +7,21 @@ import {
   setIsScroling,
 } from '../js/general.js'
 
+const deepPageSliders = document.querySelectorAll('.deep-page-slider')
+
+deepPageSliders.forEach((wrapper, index) => {
+  new Swiper(`.swiper.deep-page-slider__swiper[data-slider='${index + 1}']`, {
+    direction: 'horizontal',
+    loop: true,
+    slidesPerView: 4,
+    spaceBetween: 40,
+    navigation: {
+      nextEl: `.deep-page-slider__arrow--right[data-slider='${index + 1}']`,
+      prevEl: `.deep-page-slider__arrow--left[data-slider='${index + 1}']`,
+    },
+  })
+})
+
 const swiper = new Swiper('.swiper.company-slider__swiper', {
   // Optional parameters
   direction: 'horizontal',

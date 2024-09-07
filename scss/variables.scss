@@ -27,22 +27,24 @@ $show-up-home-blue: calc($show-up-home-pink - 2rem);
 $show-up-home-content-width: 67rem;
 
 %movingContainer {
-  opacity: 0;
-  transition: opacity $headingsAT, transform $headingsAT ease-out;
+  @include respond(lg) {
+    opacity: 0;
+    transition: opacity $headingsAT, transform $headingsAT ease-out;
 
-  .page.page--moving-up & {
-    transform: translateY(200px);
-  }
+    .page.page--moving-up & {
+      transform: translateY(200px);
+    }
 
-  .page.page--moving-down & {
-    transform: translateY(-200px);
-  }
+    .page.page--moving-down & {
+      transform: translateY(-200px);
+    }
 
-  .page.page--active & {
-    opacity: 1;
-    transform: none;
-    transition-timing-function: ease;
-    transition-delay: $headingsDelay;
+    .page.page--active & {
+      opacity: 1;
+      transform: none;
+      transition-timing-function: ease;
+      transition-delay: $headingsDelay;
+    }
   }
 }
 
@@ -85,6 +87,31 @@ $show-up-home-content-width: 67rem;
 //     transition-delay: $headingsDelay;
 //   }
 // }
+
+@mixin movingElement($delay) {
+  @include respond(lg) {
+    opacity: 0;
+    transition: opacity $headingsAT, transform $headingsAT ease-out;
+
+    .page.page--moving-up & {
+      transform: translateY(200px);
+      // transition-delay: calc($headingsDelay * $delay);
+    }
+
+    .page.page--moving-down & {
+      transform: translateY(-200px);
+      // transition-delay: calc($headingsDelay * 1);
+    }
+
+    .page.page--active & {
+      opacity: 1;
+      transform: none;
+      transition-timing-function: ease;
+      transition-delay: calc($headingsDelay * $delay);
+      // transition-delay: calc($headingsDelay * $delay);
+    }
+  }
+}
 
 @mixin movingCard {
   opacity: 0;

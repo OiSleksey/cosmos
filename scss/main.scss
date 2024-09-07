@@ -7,14 +7,16 @@
     max-width: 61.3rem;
     position: relative;
     z-index: 1;
-    @extend %movingContainer;
+    @include movingElement(1);
   }
 
   &__line {
     margin-bottom: 2.4rem;
+    @include movingElement(1);
   }
 
   &__header {
+    @include movingElement(1);
     margin-bottom: 2.4rem;
 
     color: #fff;
@@ -26,6 +28,7 @@
   }
 
   &__description {
+    @include movingElement(1.1);
     margin-bottom: 2.4rem;
 
     color: var(--White, #fff);
@@ -46,10 +49,12 @@
     display: flex;
     align-items: center;
     gap: 1.6rem;
+    @include movingElement(1.2);
   }
 
-  &__arrow {
+  &__button {
     cursor: pointer;
+    width: 5.2rem;
   }
 
   &__info-button {
@@ -118,7 +123,6 @@
 }
 
 .substrate-home-page {
-  @extend %movingSubstrate;
   position: absolute;
   top: 0;
   left: 0;
@@ -126,8 +130,10 @@
   bottom: 0;
 
   z-index: 0;
+  @include movingElement(1);
 
   &__planet {
+    @include movingElement(1.3);
     position: absolute;
     top: calc(50% - $sizeSubstratePlanet / 2);
     left: calc(77% - $sizeSubstratePlanet / 2);
@@ -169,7 +175,7 @@
   }
 
   &__satellite-1 {
-    @extend %movingSubstrate;
+    @include movingElement(1.4);
     position: absolute;
     top: calc(50% - $sizeSubstratePlanet / 2);
     left: calc(78% - $sizeSubstratePlanet / 2);
@@ -180,7 +186,7 @@
   }
 
   &__satellite-2 {
-    @extend %movingSubstrate;
+    @include movingElement(1.5);
     position: absolute;
     top: calc(49% - $sizeSubstratePlanet / 2);
     left: calc(73% + $sizeSubstratePlanet / 2);
@@ -199,7 +205,6 @@
   &__content {
     position: relative;
     z-index: 1;
-    @extend %movingContainer;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -226,6 +231,7 @@
   }
 
   &-main {
+    @include movingElement(1);
     max-width: 51rem;
     display: flex;
     flex-direction: column;
@@ -317,6 +323,7 @@
   }
 
   &-add {
+    @include movingElement(1.1);
     max-width: 41rem;
     display: flex;
     flex-direction: column;
@@ -401,14 +408,13 @@
 }
 
 .substrate-earth-page {
-  @extend %movingSubstrate;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-
   z-index: 0;
+  @include movingElement(1.2);
 
   &__planet {
     position: absolute;
@@ -447,7 +453,7 @@
 
   &__satellite-1 {
     position: absolute;
-    @extend %movingSubstrate;
+    @include movingElement(1.3);
 
     top: calc(47% - $sizeSubstratePlanet / 2);
     left: calc(13% + $sizeSubstratePlanet / 2);
@@ -459,7 +465,7 @@
 
   &__satellite-2 {
     position: absolute;
-    @extend %movingSubstrate;
+    @include movingElement(1.4);
     top: calc(49% - $sizeSubstratePlanet / 2);
     left: calc(78% - $sizeSubstratePlanet / 2);
     img {
@@ -470,7 +476,7 @@
 
   &__luna {
     position: absolute;
-    @extend %movingSubstrate;
+    @include movingElement(1.5);
     top: calc(89% - $sizeSubstratePlanet / 2);
     left: calc(48% - $sizeSubstratePlanet / 2);
     img {
@@ -530,7 +536,7 @@ $deep-page-pink: 100vh;
   }
 
   &__substrate-pink {
-    @extend %movingContainer;
+    @include movingElement(1);
     position: relative;
     min-height: $deep-page-pink;
     width: 100%;
@@ -574,11 +580,14 @@ $deep-page-pink: 100vh;
   }
 
   &__wrap {
-    max-width: 103.4rem;
+    // max-width: 103.4rem;
+    @include movingElement(1);
   }
 
   &__title {
-    margin-bottom: 1rem;
+    @include movingElement(1);
+    margin: 0 auto 1rem auto;
+    max-width: 114rem;
 
     color: #fff;
     font-family: inherit;
@@ -588,7 +597,9 @@ $deep-page-pink: 100vh;
   }
 
   &__description {
-    margin-bottom: 2.4rem;
+    @include movingElement(1);
+    margin: 0 auto 2.4rem auto;
+    max-width: 114rem;
 
     color: #fff;
     font-family: inherit;
@@ -597,19 +608,130 @@ $deep-page-pink: 100vh;
     letter-spacing: 1.064px;
   }
 
-  &__cards {
-    max-width: 103.4rem;
+  // &__cards {
+  //   max-width: 103.4rem;
+  //   display: flex;
+  //   justify-content: space-between;
+  //   gap: 2.4rem;
+  //   margin-bottom: 4.6rem;
+  // }
+
+  // &__card {
+  //   flex: 1 0 23.1rem;
+  //   max-width: 23.1rem;
+  // }
+
+  &__body {
+    @include movingElement(1);
     display: flex;
-    justify-content: space-between;
-    gap: 2.4rem;
-    margin-bottom: 4.6rem;
+    flex-direction: column;
+    align-items: center;
   }
 
-  &__card {
-    flex: 1 0 23.1rem;
-    max-width: 23.1rem;
+  &__header {
+    @include movingElement(1);
+    margin-bottom: 2rem;
+
+    color: #fff;
+    font-family: inherit;
+    font-size: 5.6rem;
+    font-weight: 400;
+    letter-spacing: 3.06px;
+    text-transform: uppercase;
   }
 
+  &__caption {
+    @include movingElement(1);
+    margin-bottom: 2rem;
+
+    color: #fff;
+    font-family: inherit;
+    font-size: 4rem;
+    font-weight: 400;
+    letter-spacing: 1.064px;
+  }
+
+  &__text {
+    @include movingElement(1);
+    margin-bottom: 3rem;
+
+    color: #fff;
+    font-family: inherit;
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: 1.064px;
+  }
+
+  &__button {
+    @include movingElement(1);
+    cursor: pointer;
+    color: #fff;
+    width: max-content;
+
+    font-family: inherit;
+    font-size: 4.6rem;
+    font-weight: 400;
+    letter-spacing: 1.064px;
+    text-transform: capitalize;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 1rem 2rem;
+
+    &--blue {
+      background-image: url('/img/rectangle-blue.svg');
+    }
+
+    &--aqua {
+      background-image: url('/img/rectangle-aqua.svg');
+    }
+
+    &--yellow {
+      background-image: url('/img/rectangle-yellow.svg');
+    }
+
+    &--magenta {
+      background-image: url('/img/rectangle-magenta.svg');
+    }
+
+    &--violet {
+      background-image: url('/img/rectangle-violet.svg');
+    }
+  }
+}
+
+.deep-page-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 130.2rem;
+  width: 100%;
+  padding: 2.4rem 0;
+
+  &__arrow {
+    cursor: pointer;
+    transition: transform 0.4s ease;
+    width: 4rem;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &--left {
+      margin-right: 5.5rem;
+    }
+
+    &--right {
+      margin-left: 5.5rem;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+  .swiper-slide {
+    @include movingElement(1);
+  }
   &__img-container {
     width: 23.1rem;
     height: 15.3rem;
@@ -653,79 +775,6 @@ $deep-page-pink: 100vh;
     font-weight: 300;
     letter-spacing: 1.064px;
   }
-
-  &__body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  &__header {
-    margin-bottom: 2rem;
-
-    color: #fff;
-    font-family: inherit;
-    font-size: 5.6rem;
-    font-weight: 400;
-    letter-spacing: 3.06px;
-    text-transform: uppercase;
-  }
-
-  &__caption {
-    margin-bottom: 2rem;
-
-    color: #fff;
-    font-family: inherit;
-    font-size: 4rem;
-    font-weight: 400;
-    letter-spacing: 1.064px;
-  }
-
-  &__text {
-    margin-bottom: 3rem;
-
-    color: #fff;
-    font-family: inherit;
-    font-size: 3rem;
-    font-weight: 300;
-    letter-spacing: 1.064px;
-  }
-
-  &__button {
-    cursor: pointer;
-    color: #fff;
-    width: max-content;
-
-    font-family: inherit;
-    font-size: 4.6rem;
-    font-weight: 400;
-    letter-spacing: 1.064px;
-    text-transform: capitalize;
-
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding: 1rem 2rem;
-
-    &--blue {
-      background-image: url('/img/rectangle-blue.svg');
-    }
-
-    &--aqua {
-      background-image: url('/img/rectangle-aqua.svg');
-    }
-
-    &--yellow {
-      background-image: url('/img/rectangle-yellow.svg');
-    }
-
-    &--magenta {
-      background-image: url('/img/rectangle-magenta.svg');
-    }
-
-    &--violet {
-      background-image: url('/img/rectangle-violet.svg');
-    }
-  }
 }
 
 .dark-page {
@@ -738,11 +787,11 @@ $deep-page-pink: 100vh;
     z-index: 1;
     height: 100%;
     width: 100%;
-    @extend %movingContainer;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    @include movingElement(1);
 
     &--center {
       margin: 0 auto;
@@ -757,6 +806,7 @@ $deep-page-pink: 100vh;
   }
 
   &__header {
+    @include movingElement(1.1);
     color: #fff;
     // text-align: center;
     font-family: inherit;
@@ -768,6 +818,7 @@ $deep-page-pink: 100vh;
 
   &__description {
     max-width: 92.6rem;
+    @include movingElement(1.2);
 
     color: #fff;
     // text-align: center;
@@ -780,6 +831,7 @@ $deep-page-pink: 100vh;
   }
 
   &__button {
+    @include movingElement(1.5);
     cursor: pointer;
     color: #fff;
     width: max-content;
@@ -826,6 +878,7 @@ $deep-page-pink: 100vh;
   justify-content: center;
   max-width: $maxWidthAllContent;
   width: 100%;
+  @include movingElement(1.4);
 
   &__cards {
     display: flex;
@@ -1078,6 +1131,7 @@ $deep-page-pink: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
   @include hideScroll;
+  @include movingElement(1.2);
 
   @include respond(2xl) {
     max-height: 50rem;
@@ -1254,7 +1308,7 @@ $deep-page-pink: 100vh;
   background-repeat: no-repeat;
   background-position: center;
   opacity: 0;
-  transition: opacity $headingsAT ease-out;
+  transition: opacity $headingsAT 1s ease-out;
   // height: 100%;
 
   &--active {
@@ -1281,7 +1335,7 @@ $deep-page-pink: 100vh;
 }
 
 .first-woman {
-  @extend %movingContainer;
+  @include movingElement(1);
   margin: 0 -4.3rem;
   padding: 11rem 4.3rem;
   width: 100vw;
@@ -1532,7 +1586,7 @@ $deep-page-pink: 100vh;
 }
 
 .footer {
-  @extend %movingContainer;
+  @include movingElement(1);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -2004,6 +2058,10 @@ $showUpBackgroundWidth: 230rem;
   &__card {
     flex: 1 1 33%;
     max-width: 33%;
+  }
+
+  .swiper-slide {
+    @include movingElement(1);
   }
 
   &__arrow {
