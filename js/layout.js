@@ -148,15 +148,13 @@ const navigationItems = document.querySelectorAll('.navigation__item')
 //   navigation.style.zIndex = 9
 // }
 function toggleNavigation(state) {
-  if (!getTypeDevice()) {
-    if (state) {
-      setIsScroling(false)
-      navigation.classList.add('navigation--active')
-      navigation.style.zIndex = 9
-    } else {
-      setIsScroling(true)
-      navigation.classList.remove('navigation--active')
-    }
+  if (state) {
+    setIsScroling(false)
+    navigation.classList.add('navigation--active')
+    navigation.style.zIndex = 9
+  } else {
+    setIsScroling(true)
+    navigation.classList.remove('navigation--active')
   }
 }
 
@@ -237,9 +235,9 @@ function setDirectionForPage(direction) {
 
 function pagination(direction, page) {
   setDirectionForPage(direction)
-  if (!getTypeDevice()) {
-    setIsScroling(false)
-  }
+
+  setIsScroling(false)
+
   setSubstrateBody()
   const currPageModal = getCurrentPage()
   // setTimeout(() => {
@@ -284,9 +282,7 @@ function navigateDown() {
 }
 
 function scrollHandler(e) {
-  if (!getTypeDevice()) {
-    if (!getIsScroling()) return
-  }
+  if (!getIsScroling()) return
 
   if (e.deltaY < 0) {
     navigateUp()
@@ -448,6 +444,6 @@ window.addEventListener('load', async () => {
 })
 //Loader END
 
-window.addEventListener('resize', function (event) {
-  window.location.reload()
-})
+// window.addEventListener('resize', function (event) {
+//   window.location.reload()
+// })
