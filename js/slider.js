@@ -13,8 +13,29 @@ deepPageSliders.forEach((wrapper, index) => {
   new Swiper(`.swiper.deep-page-slider__swiper[data-slider='${index + 1}']`, {
     direction: 'horizontal',
     loop: true,
-    slidesPerView: 4,
-    spaceBetween: 40,
+    slidesPerView: 'auto',
+    // slidesPerView: 4,
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 10,
+      },
+      600: {
+        slidesPerView: 2,
+        spaceBetween: 10,
+      },
+      // когда ширина экрана меньше или равна 768px
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 10,
+      },
+      // когда ширина экрана больше 768px
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 10,
+      },
+    },
+    // spaceBetween: 'auto',
     navigation: {
       nextEl: `.deep-page-slider__arrow--right[data-slider='${index + 1}']`,
       prevEl: `.deep-page-slider__arrow--left[data-slider='${index + 1}']`,
@@ -26,8 +47,31 @@ const swiper = new Swiper('.swiper.company-slider__swiper', {
   // Optional parameters
   direction: 'horizontal',
   loop: true,
-  slidesPerView: 3,
-  spaceBetween: 66,
+  // slidesPerView: 3,
+  // spaceBetween: 66,
+  slidesPerView: 'auto',
+  // slidesPerView: 4,
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+    600: {
+      slidesPerView: 2,
+      spaceBetween: 10,
+    },
+    // когда ширина экрана меньше или равна 768px
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 10,
+    },
+    // когда ширина экрана больше 768px
+    1024: {
+      slidesPerView: 4,
+      spaceBetween: 66,
+    },
+  },
+  // spaceBetween: 'auto',
 
   // Navigation arrows
   navigation: {
@@ -40,9 +84,32 @@ const swiper2 = new Swiper('.swiper.cosmic-careers-slider__swiper', {
   // Optional parameters
   direction: 'horizontal',
   loop: true,
-  slidesPerView: 3,
-  spaceBetween: 66,
-
+  direction: 'horizontal',
+  loop: true,
+  // slidesPerView: 3,
+  // spaceBetween: 66,
+  slidesPerView: 'auto',
+  // slidesPerView: 4,
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+    600: {
+      slidesPerView: 2,
+      spaceBetween: 10,
+    },
+    // когда ширина экрана меньше или равна 768px
+    768: {
+      slidesPerView: 3,
+      spaceBetween: 10,
+    },
+    // когда ширина экрана больше 768px
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 50,
+    },
+  },
   // Navigation arrows
   navigation: {
     nextEl: '.cosmic-careers-slider__arrow--right',
@@ -68,7 +135,10 @@ sustainabilityGaleryImg.forEach((card, index) => {
       initialSlide: index,
       //   rewind: true,
       //   loop: true,
-
+      centeredSlides: true,
+      spaceBetween: 66,
+      slidesPerView: 1,
+      zoom: true,
       // Navigation arrows
       navigation: {
         nextEl: '.sustainability-slider__arrow--right',

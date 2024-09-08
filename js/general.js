@@ -17,3 +17,15 @@ export function getIsScroling() {
 export function setIsScroling(state) {
   isScrolling = state
 }
+
+let isMobileDevice = true
+
+export function setTypeDevice() {
+  isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent,
+  )
+}
+
+export function getTypeDevice() {
+  return isMobileDevice
+}

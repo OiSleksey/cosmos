@@ -4,6 +4,8 @@ import {
   setCurrentPage,
   getIsScroling,
   setIsScroling,
+  setTypeDevice,
+  getTypeDevice,
 } from '../js/general.js'
 
 const substrateBody = document.querySelector('.substrate-body')
@@ -146,13 +148,15 @@ const navigationItems = document.querySelectorAll('.navigation__item')
 //   navigation.style.zIndex = 9
 // }
 function toggleNavigation(state) {
-  if (state) {
-    setIsScroling(false)
-    navigation.classList.add('navigation--active')
-    navigation.style.zIndex = 9
-  } else {
-    setIsScroling(true)
-    navigation.classList.remove('navigation--active')
+  if (!getTypeDevice()) {
+    if (state) {
+      setIsScroling(false)
+      navigation.classList.add('navigation--active')
+      navigation.style.zIndex = 9
+    } else {
+      setIsScroling(true)
+      navigation.classList.remove('navigation--active')
+    }
   }
 }
 
@@ -233,7 +237,9 @@ function setDirectionForPage(direction) {
 
 function pagination(direction, page) {
   setDirectionForPage(direction)
-  setIsScroling(false)
+  if (!getTypeDevice()) {
+    setIsScroling(false)
+  }
   setSubstrateBody()
   const currPageModal = getCurrentPage()
   // setTimeout(() => {
@@ -278,7 +284,10 @@ function navigateDown() {
 }
 
 function scrollHandler(e) {
-  if (!getIsScroling()) return
+  if (!getTypeDevice()) {
+    if (!getIsScroling()) return
+  }
+
   if (e.deltaY < 0) {
     navigateUp()
   } else {
@@ -430,6 +439,7 @@ const startPreloader = () => {
 }
 
 window.addEventListener('DOMContentLoaded', async () => {
+  setTypeDevice()
   startAnimation(DOM_SPEED)
 })
 
@@ -437,3 +447,7 @@ window.addEventListener('load', async () => {
   startAnimation(LOAD_SPEED)
 })
 //Loader END
+
+window.addEventListener('resize', function (event) {
+  window.location.reload()
+})

@@ -2,7 +2,7 @@ $hideDurationNav: 0.2s;
 $showDurationNav: 0.4s;
 
 .header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -23,15 +23,25 @@ $showDurationNav: 0.4s;
     align-items: center;
     gap: 0.8rem;
     cursor: pointer;
+    width: 2.8rem;
+
+    img {
+      width: 100%;
+    }
   }
 
   &__logo-text {
+    display: none;
     color: #fff;
-    font-family: 'Londrina Solid';
+    font-family: inherit;
     font-size: 3rem;
     font-style: normal;
     font-weight: 900;
     text-transform: uppercase;
+
+    @include respond(lg) {
+      display: block;
+    }
   }
 
   &__nav {
