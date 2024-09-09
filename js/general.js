@@ -26,6 +26,28 @@ export function setTypeDevice() {
   )
 }
 
-export function getTypeDevice() {
+export function getIsMobileDevice() {
   return isMobileDevice
+}
+
+const header = document.querySelector('.header')
+const HIDDEN_HEADER = 'header--hidden'
+const NO_SCROLL = 'no-scroll'
+
+export function toggleIsBlockBody(state) {
+  if (!getIsMobileDevice()) return null
+  if (!state) {
+    document.body.classList.add(NO_SCROLL)
+  } else {
+    document.body.classList.remove(NO_SCROLL)
+  }
+}
+
+export function toggleVisibleHeader(state) {
+  if (!getIsMobileDevice()) return null
+  if (!state) {
+    header.classList.add(HIDDEN_HEADER)
+  } else {
+    header.classList.remove(HIDDEN_HEADER)
+  }
 }

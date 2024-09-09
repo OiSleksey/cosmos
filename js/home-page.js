@@ -4,6 +4,8 @@ import {
   setCurrentPage,
   getIsScroling,
   setIsScroling,
+  toggleIsBlockBody,
+  toggleVisibleHeader,
 } from '../js/general.js'
 
 const showUpHomeOpenButtons = document.querySelectorAll('.home-page__button')
@@ -24,6 +26,8 @@ showUpHomeOpenButtons.forEach(function (button, index) {
     setIsScroling(false)
     setStyleOverlayBody(true)
     showUpHomeWrapper[index].classList.add(SHOW_UP_HOME_ACTIVE)
+    toggleIsBlockBody(false)
+    toggleVisibleHeader(false)
   })
 })
 
@@ -32,6 +36,8 @@ showUpHomeWrapper.forEach(function (wrapper, index) {
 
   closeButton.addEventListener('click', function (event) {
     setIsScroling(true)
+    toggleIsBlockBody(true)
+    toggleVisibleHeader(true)
     setStyleOverlayBody(false)
     showUpHomeWrapper[index].classList.remove(SHOW_UP_HOME_ACTIVE)
   })

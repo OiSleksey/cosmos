@@ -5,7 +5,7 @@ import {
   getIsScroling,
   setIsScroling,
   setTypeDevice,
-  getTypeDevice,
+  getIsMobileDevice,
 } from '../js/general.js'
 
 const substrateBody = document.querySelector('.substrate-body')
@@ -106,11 +106,13 @@ sustainabilityGaleryButton.addEventListener('click', function () {
 
 //socials  START
 const socials = document.querySelector('.socials')
-const socialsCards = document.querySelectorAll('.socials__card')
+const socialsCards = socials.querySelectorAll('.socials__card')
+
 socialsCards.forEach((card, index) => {
   const delay = 1 + 0.1 * index
   card.style.transitionDelay = `${delay}s`
 })
+
 socials.addEventListener('mouseenter', (event) => togleMainScroll(event, false))
 socials.addEventListener('mouseleave', (event) => togleMainScroll(event, true))
 //socials  END
@@ -200,7 +202,6 @@ deepPageButtons.forEach((button) => {
 
 function setDirectionForPage(direction) {
   const currPageModal = getCurrentPage()
-  console.log(direction)
   if (direction === DIRECTION_DOWN) {
     pages.forEach((page, index) => {
       if (currPageModal >= index + 1) {
@@ -234,11 +235,12 @@ function setDirectionForPage(direction) {
 }
 
 function pagination(direction, page) {
-  setDirectionForPage(direction)
+  if (!getIsMobileDevice()) {
+    setDirectionForPage(direction)
+    setIsScroling(false)
+    setSubstrateBody()
+  }
 
-  setIsScroling(false)
-
-  setSubstrateBody()
   const currPageModal = getCurrentPage()
   // setTimeout(() => {
   // if (currPageModal == NUMBER_PAGE_COSMIC_CARRER) {
@@ -303,7 +305,7 @@ function keydownHandler(e) {
   }
 }
 
-//Pagination
+//Pagination START
 function paginationClickHandler(e) {
   const item = e.target.closest('.pagination__item:not(.pagination--active)')
   const currPageModal = getCurrentPage()
@@ -337,6 +339,8 @@ const paginationClick = (event) => {
 
 paginationBlock.addEventListener('click', paginationClick)
 
+//Pagination END
+
 //Preloader
 // const startPreloader = () => {
 //   preloaderOverlay.addEventListener('animationend', function () {
@@ -363,23 +367,22 @@ function setSubstrateBody() {
 }
 
 function afterPreloader() {
+  if (!getIsMobileDevice()) {
+    setSubstrateBody()
+    document.addEventListener('wheel', scrollHandler)
+    document.addEventListener('keydown', keydownHandler)
+  }
+
   pageOne.classList.add('page--active')
-  setSubstrateBody()
   substrateBody.classList.add(SUBSTARATE_BODY_ACTIVE)
   paginationBlock.classList.add('pagination--active')
-
-  document.addEventListener('wheel', scrollHandler)
-  document.addEventListener('keydown', keydownHandler)
 }
 
 rotater.addEventListener('transitionend', function (e) {
-  setIsScroling(true)
+  if (!getIsMobileDevice()) {
+    setIsScroling(true)
+  }
 })
-
-//DOMContentLoaded
-// document.addEventListener('DOMContentLoaded', function () {
-//   startPreloader()
-// })
 
 //Loader START
 const circleLoader = document.querySelector('#white')
@@ -410,7 +413,6 @@ function startAnimation(speed) {
     circleLoader.style.strokeDashoffset = couterSVG + ''
     loadingText.innerHTML = counterText + '%'
     if (counterText >= FINISH_LOAD) {
-      console.log(counterText)
       clearInterval(loaderInterval)
       loadingOverlay.classList.add('inactive')
       setTimeout(() => {
@@ -424,15 +426,15 @@ function startAnimation(speed) {
 
 startAnimation(500)
 
-const startPreloader = () => {
-  loadingOverlayContainer.addEventListener('animationend', function () {
-    loadingOverlay.classList.add('inactive')
-  })
-  loadingOverlay.addEventListener('transitionend', function () {
-    loadingOverlay.classList.add('hidden')
-    setTimeout(afterPreloader, afterPreloaderAT)
-  })
-}
+// const startPreloader = () => {
+//   loadingOverlayContainer.addEventListener('animationend', function () {
+//     loadingOverlay.classList.add('inactive')
+//   })
+//   loadingOverlay.addEventListener('transitionend', function () {
+//     loadingOverlay.classList.add('hidden')
+//     setTimeout(afterPreloader, afterPreloaderAT)
+//   })
+// }
 
 window.addEventListener('DOMContentLoaded', async () => {
   setTypeDevice()

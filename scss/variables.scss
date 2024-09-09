@@ -180,19 +180,21 @@ $show-up-home-content-width: 67rem;
 }
 
 %opacityScroll {
-  opacity: 0;
-  transition: opacity calc($headingsAT / 2) ease-out;
+  @include respond(lg) {
+    opacity: 0;
+    transition: opacity calc($headingsAT / 2) ease-out;
 
-  .page.page--active & {
-    opacity: 1;
-    transition: opacity $headingsAT calc($headingsAT * 4) ease-out;
+    .page.page--active & {
+      opacity: 1;
+      transition: opacity $headingsAT calc($headingsAT * 4) ease-out;
 
-    img {
-      animation: bounce;
-      animation-duration: 1s;
-      animation-delay: 5s;
-      animation-direction: alternate;
-      animation-iteration-count: infinite;
+      img {
+        animation: bounce;
+        animation-duration: 1s;
+        animation-delay: 5s;
+        animation-direction: alternate;
+        animation-iteration-count: infinite;
+      }
     }
   }
 }

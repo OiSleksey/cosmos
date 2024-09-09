@@ -7,6 +7,11 @@ $showDurationNav: 0.4s;
   left: 0;
   right: 0;
   z-index: 4;
+  transition: opacity $headingsAT;
+
+  &--hidden {
+    opacity: 0;
+  }
 
   &__container {
     width: 100%;
