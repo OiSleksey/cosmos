@@ -1,6 +1,7 @@
 export const afterPreloaderAT = 200
 let isScrolling = true
 let curPage = 1
+export const desktopSize = 1024
 
 export function getCurrentPage() {
   return curPage
@@ -20,10 +21,16 @@ export function setIsScroling(state) {
 
 let isMobileDevice = true
 
-export function setTypeDevice() {
-  isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-    navigator.userAgent,
-  )
+export function setTypeDevice(size) {
+  if (size < desktopSize) {
+    isMobileDevice = true
+  } else {
+    isMobileDevice = false
+  }
+
+  // isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+  //   navigator.userAgent,
+  // )
 }
 
 export function getIsMobileDevice() {

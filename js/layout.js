@@ -6,6 +6,8 @@ import {
   setIsScroling,
   setTypeDevice,
   getIsMobileDevice,
+  desktopSize,
+  toggleIsBlockBody,
 } from '../js/general.js'
 
 const substrateBody = document.querySelector('.substrate-body')
@@ -75,8 +77,8 @@ function toggleActiveShowUpCosmicCareers(state) {
 //showUpCosmicCareers END
 
 //substrateFirstWomen START
-const substrateFirstWomen = document.querySelector('.substrate-first-women')
-const SUBSTRATE_FIRST_WOMAN_ACTIVE = 'substrate-first-women--active'
+const substrateFirstWomen = document.querySelector('.substrate-first-woman')
+const SUBSTRATE_FIRST_WOMAN_ACTIVE = 'substrate-first-woman--active'
 const NUMBER_SUBSTRATE_FIRST_WOMAN = 17
 
 function toggleSubstrateFirstWomen(state) {
@@ -181,8 +183,6 @@ navigation.addEventListener('transitionend', function (event) {
 function navigationItemClick(event) {
   const clickNumberPage = event.target.getAttribute('data-page')
   if (clickNumberPage) {
-    console.log('CurrPage ', getCurrentPage())
-    console.log('clicPage ', clickNumberPage)
     const direction = getCurrentPage() < clickNumberPage ? DIRECTION_UP : DIRECTION_DOWN
     console.log(direction, 'navigationItemClick')
     setCurrentPage(clickNumberPage)
@@ -236,35 +236,38 @@ function setDirectionForPage(direction) {
 
 function pagination(direction, page) {
   if (!getIsMobileDevice()) {
+    //DESKTOP navigation
     setDirectionForPage(direction)
     setIsScroling(false)
     setSubstrateBody()
-  }
 
-  const currPageModal = getCurrentPage()
-  // setTimeout(() => {
-  // if (currPageModal == NUMBER_PAGE_COSMIC_CARRER) {
-  //   toggleActiveShowUpCosmicCareers(true)
-  // } else {
-  //   toggleActiveShowUpCosmicCareers(false)
-  // }
-  if (currPageModal == NUMBER_SUBSTRATE_FIRST_WOMAN) {
-    toggleSubstrateFirstWomen(true)
+    const currPageModal = getCurrentPage()
+    if (currPageModal == NUMBER_SUBSTRATE_FIRST_WOMAN) {
+      toggleSubstrateFirstWomen(true)
+    } else {
+      toggleSubstrateFirstWomen(false)
+    }
+    const pageActive = document.querySelectorAll('.page.page--active')
+    const nextActivePage = document.querySelector('.page-' + currPageModal)
+    pageActive.forEach((page) => page.classList.remove('page--active'))
+    nextActivePage.classList.add('page--active')
+    document
+      .querySelectorAll('.pagination__item.pagination--active')
+      .forEach((item) => item.classList.remove('pagination--active'))
+    document
+      .querySelector('.pagination__item[data-page="' + currPageModal + '"]')
+      .classList.add('pagination--active')
+    rotater.style.transform = 'rotate(' + (currPageModal - 1) * 180 + 'deg)'
   } else {
-    toggleSubstrateFirstWomen(false)
+    //MOBILE navigation
+    const currPageModal = getCurrentPage()
+    const nextActivePage = document.querySelector('.page-' + currPageModal)
+    const sectionPosition = nextActivePage.getBoundingClientRect().top + window.pageYOffset
+    window.scrollTo({
+      top: sectionPosition,
+      behavior: 'smooth',
+    })
   }
-  const pageActive = document.querySelectorAll('.page.page--active')
-  const nextActivePage = document.querySelector('.page-' + currPageModal)
-  pageActive.forEach((page) => page.classList.remove('page--active'))
-  nextActivePage.classList.add('page--active')
-  document
-    .querySelectorAll('.pagination__item.pagination--active')
-    .forEach((item) => item.classList.remove('pagination--active'))
-  document
-    .querySelector('.pagination__item[data-page="' + currPageModal + '"]')
-    .classList.add('pagination--active')
-  rotater.style.transform = 'rotate(' + (currPageModal - 1) * 180 + 'deg)'
-  // }, 600)
 }
 
 function navigateUp() {
@@ -366,11 +369,55 @@ function setSubstrateBody() {
   }
 }
 
+const pagesHeightForMobile = []
+const getNumberPage = (classes) => {
+  const pageClass = Array.from(classes).find((cls) => cls.startsWith('page-'))
+  if (pageClass) {
+    const pageNumber = pageClass.match(/page-(\d+)/)
+    if (pageNumber) {
+      pageNumber[1]
+      return pageNumber[1]
+    }
+    return null
+  }
+  return null
+}
+const handleIntersection = (entries, index, tett) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      console.log('PAGE-2')
+      console.log('Entries ', entry.target.classList)
+      const currObservePage = getNumberPage(entry.target.classList)
+      if (currObservePage === null) return null
+      if (currObservePage == 1 || currObservePage == 2) {
+        const heightPage = pagesHeightForMobile[0] + pagesHeightForMobile[1]
+        console.log(heightPage)
+      }
+    }
+  })
+}
+
 function afterPreloader() {
   if (!getIsMobileDevice()) {
     setSubstrateBody()
     document.addEventListener('wheel', scrollHandler)
     document.addEventListener('keydown', keydownHandler)
+  } else {
+    setSubstrateBody()
+    const pages = document.querySelectorAll('.page')
+    const observer = new IntersectionObserver(handleIntersection, { threshold: 0.1 })
+    pages.forEach((page, index) => {
+      pagesHeightForMobile.push(page.clientHeight)
+    })
+    pages.forEach((page, index) => {
+      observer.observe(page, index)
+    })
+    console.log(pagesHeightForMobile)
+
+    // const pagpagesTes = document.querySelector('.pages')
+    // document.addEventListener('scroll', function (event) {
+    //   console.log('index', event)
+    // })
   }
 
   pageOne.classList.add('page--active')
@@ -418,6 +465,7 @@ function startAnimation(speed) {
       setTimeout(() => {
         loadingOverlay.classList.add('hidden')
         setTimeout(afterPreloader, afterPreloaderAT)
+        toggleIsBlockBody(true)
         setDirectionForPage(DIRECTION_UP)
       }, 100)
     }
@@ -435,10 +483,15 @@ startAnimation(500)
 //     setTimeout(afterPreloader, afterPreloaderAT)
 //   })
 // }
-
+let isCurrentMobileDevice = true
 window.addEventListener('DOMContentLoaded', async () => {
-  setTypeDevice()
+  setTypeDevice(window.innerWidth)
   startAnimation(DOM_SPEED)
+  if (getIsMobileDevice()) {
+    isCurrentMobileDevice = true
+  } else {
+    isCurrentMobileDevice = false
+  }
 })
 
 window.addEventListener('load', async () => {
@@ -446,6 +499,19 @@ window.addEventListener('load', async () => {
 })
 //Loader END
 
-// window.addEventListener('resize', function (event) {
-//   window.location.reload()
-// })
+window.addEventListener('resize', function (event) {
+  const width = window.innerWidth
+  if (width < desktopSize) {
+    if (!isCurrentMobileDevice) {
+      setTypeDevice(width)
+      isCurrentMobileDevice = true
+      window.location.reload()
+    }
+  } else {
+    if (isCurrentMobileDevice) {
+      setTypeDevice(width)
+      isCurrentMobileDevice = false
+      window.location.reload()
+    }
+  }
+})
