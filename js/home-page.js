@@ -27,18 +27,22 @@ showUpHomeOpenButtons.forEach(function (button, index) {
     setStyleOverlayBody(true)
     showUpHomeWrapper[index].classList.add(SHOW_UP_HOME_ACTIVE)
     toggleIsBlockBody(false)
-    toggleVisibleHeader(false)
+    toggleVisibleHeader(false, true)
   })
 })
 
+function closeShoupHome(index, displayClose) {
+  setIsScroling(true)
+  toggleIsBlockBody(true)
+  toggleVisibleHeader(true, displayClose)
+  setStyleOverlayBody(false)
+  showUpHomeWrapper[index].classList.remove(SHOW_UP_HOME_ACTIVE)
+}
 showUpHomeWrapper.forEach(function (wrapper, index) {
+  const closeHeaderButton = document.querySelector('.header__close')
   const closeButton = wrapper.querySelector('.show-up-home__close')
 
-  closeButton.addEventListener('click', function (event) {
-    setIsScroling(true)
-    toggleIsBlockBody(true)
-    toggleVisibleHeader(true)
-    setStyleOverlayBody(false)
-    showUpHomeWrapper[index].classList.remove(SHOW_UP_HOME_ACTIVE)
-  })
+  closeButton.addEventListener('click', () => closeShoupHome(index))
+
+  closeHeaderButton.addEventListener('click', () => closeShoupHome(index, true))
 })

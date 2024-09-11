@@ -4,6 +4,7 @@
 *:before,
 *:after {
   box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -40,6 +41,10 @@ a {
 
 img {
   max-width: 100%;
+}
+
+ul {
+  list-style: none;
 }
 
 .body-container {
@@ -342,8 +347,20 @@ $deep-page-pink: 100vh;
 
   &--active {
     opacity: 1;
-    transform: none;
+
     transition-timing-function: ease;
+
+    @media (max-height: 600px) {
+      transform: none;
+    }
+
+    @media (min-height: 600px) {
+      transform: translateY(220px);
+    }
+
+    @include respond(lg) {
+      transform: none;
+    }
 
     .show-up-home__close {
       transition: opacity $headingsAT calc($headingsDelay / 2);
@@ -439,9 +456,10 @@ $deep-page-pink: 100vh;
     cursor: pointer;
     width: 2.7rem;
     opacity: 0;
+    display: none;
 
     @include respond(lg) {
-      top: 0rem;
+      display: block;
       top: 3rem;
     }
 
@@ -475,8 +493,9 @@ $deep-page-pink: 100vh;
     font-family: inherit;
     letter-spacing: 0.1rem;
     font-weight: 300;
-    font-size: 3.8rem;
-    line-height: 6rem;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 26px;
 
     @include respond(lg) {
       font-size: 4.6rem;

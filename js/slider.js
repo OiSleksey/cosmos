@@ -185,7 +185,7 @@ sustainabilityGaleryImg.forEach((card, index) => {
   })
 })
 
-closeButton.addEventListener('click', function () {
+function closeShowUpSustainabilityGalery() {
   setIsScroling(true)
   toggleVisibleHeader(true)
   toggleIsBlockBody(true)
@@ -195,4 +195,6 @@ closeButton.addEventListener('click', function () {
     swiperGalery.destroy(true, true)
     swiperGalery = null
   }
-})
+}
+
+closeButton.addEventListener('click', closeShowUpSustainabilityGalery)

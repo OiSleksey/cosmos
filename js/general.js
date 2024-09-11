@@ -37,9 +37,11 @@ export function getIsMobileDevice() {
   return isMobileDevice
 }
 
-const header = document.querySelector('.header')
-const HIDDEN_HEADER = 'header--hidden'
+const headerContainer = document.querySelector('.header__container')
+const HIDDEN_HEADER = 'header__container--hidden'
+const closeHeaderButton = document.querySelector('.header__close')
 const NO_SCROLL = 'no-scroll'
+const HEADER_CLOSE_ACTIVE = 'header__close--active'
 
 export function toggleIsBlockBody(state) {
   if (!getIsMobileDevice()) return null
@@ -50,11 +52,17 @@ export function toggleIsBlockBody(state) {
   }
 }
 
-export function toggleVisibleHeader(state) {
+export function toggleVisibleHeader(state, displayClose) {
   if (!getIsMobileDevice()) return null
   if (!state) {
-    header.classList.add(HIDDEN_HEADER)
+    headerContainer.classList.add(HIDDEN_HEADER)
+    if (displayClose) {
+      closeHeaderButton.classList.add(HEADER_CLOSE_ACTIVE)
+    }
   } else {
-    header.classList.remove(HIDDEN_HEADER)
+    headerContainer.classList.remove(HIDDEN_HEADER)
+    if (displayClose) {
+      closeHeaderButton.classList.remove(HEADER_CLOSE_ACTIVE)
+    }
   }
 }

@@ -41,18 +41,93 @@ function togleMainScroll(event, state) {
 //infoButton start
 const infoButton = document.querySelector('.info-button__img')
 const infoTooltip = document.querySelector('.info-tooltip')
+const infoTooltipContainer = document.querySelector('.info-tooltip__container')
 const INFO_TOOLTIP_ACTIVE = 'info-tooltip--active'
 
 function toggleInfoTooltip(state) {
   if (state) {
+    // infoTooltip.style.display = 'block'
+    // infoTooltip.style.zIndex = '10'
+    // positioning()
     infoTooltip.classList.add(INFO_TOOLTIP_ACTIVE)
   } else {
+    // infoTooltip.style.display = 'none'
+    // infoTooltip.style.zIndex = '0'
+    // unPositioning()
     infoTooltip.classList.remove(INFO_TOOLTIP_ACTIVE)
   }
 }
 
-infoButton.addEventListener('mouseenter', () => toggleInfoTooltip(true))
-infoButton.addEventListener('mouseleave', () => toggleInfoTooltip(false))
+function positioning() {
+  unPositioning()
+  const clientWidth = document.documentElement.clientWidth
+  const clientHeight = document.documentElement.clientHeight
+  const parentElementBounding = infoButton.getBoundingClientRect()
+  const parentTopPosition = parentElementBounding.top
+  const parentBottomPosition = parentElementBounding.bottom
+  const parentLeftPosition = parentElementBounding.left
+  const parentRightPosition = parentElementBounding.right
+
+  const infoPopupBounding = infoTooltipContainer.getBoundingClientRect()
+  console.log(infoPopupBounding)
+  const infoPopupHeight = infoPopupBounding.height
+  const infoPopupWidth = infoPopupBounding.width
+
+  infoTooltip.style.top = parentBottomPosition + 0 + 'px'
+  console.log('IF parentBottomPosition ', parentBottomPosition)
+  console.log('IF infoPopupHeight ', infoPopupHeight)
+  console.log('clientHeight ', clientHeight)
+
+  if (parentBottomPosition + infoPopupHeight + 0 < clientHeight) {
+    infoTooltip.style.top = parentBottomPosition + 0 + 'px'
+    console.log('IF parentBottomPosition ', parentBottomPosition)
+    console.log('IF infoPopupHeight ', infoPopupHeight)
+    console.log('clientHeight ', clientHeight)
+  } else {
+    if (parentTopPosition - infoPopupHeight - 0 > 0) {
+      infoTooltip.style.top = parentTopPosition - infoPopupHeight - 0 + 'px'
+      console.log('ELSE IF')
+    } else {
+      infoTooltip.style.bottom = 0 + 'px'
+      console.log('ELSE ELSE')
+    }
+  }
+
+  if (parentRightPosition + infoPopupWidth + 0 < clientWidth) {
+    infoTooltip.style.left = parentRightPosition + 0 + 'px'
+  } else {
+    if (parentLeftPosition - infoPopupWidth - 0 > 0) {
+      infoTooltip.style.left = parentLeftPosition - infoPopupWidth - 0 + 'px'
+    } else {
+      infoTooltip.style.left = 0 + 'px'
+    }
+  }
+  // infoTooltip.style.display = 'block'
+}
+
+function unPositioning() {
+  infoTooltip.style.top = 'unset'
+  infoTooltip.style.right = 'unset'
+  infoTooltip.style.bottom = 'unset'
+  infoTooltip.style.left = 'unset'
+}
+
+document.querySelectorAll('[data-bs-toggle="popover"]').forEach((popover) => {
+  new bootstrap.Popover(popover)
+})
+
+// const popoverElement = document.querySelector('[data-bs-toggle="popover"]')
+// const popover = new bootstrap.Popover(popoverElement, {
+//   trigger: 'manual', // Trigger set to manual
+// })
+
+// popoverElement.addEventListener('mouseover', () => popover.show())
+// popoverElement.addEventListener('mouseout', () => popover.hide())
+
+// infoButton.addEventListener('mouseenter', () => toggleInfoTooltip(true))
+// infoButton.addEventListener('mouseleave', () => toggleInfoTooltip(false))
+// infoButton.addEventListener('touchend', () => toggleInfoTooltip(false))
+// infoButton.addEventListener('pointerleave', () => toggleInfoTooltip(false))
 //infoButton end
 
 //showUpCosmicCareers START

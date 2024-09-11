@@ -9,18 +9,22 @@ $showDurationNav: 0.4s;
   z-index: 4;
   transition: opacity $headingsAT;
 
-  &--hidden {
-    opacity: 0;
-  }
-
   &__container {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 4rem 4rem;
+    padding: 20px 20px;
     max-width: $maxWidthAllContent;
     margin: 0 auto;
+
+    &--hidden {
+      display: none;
+    }
+
+    @include respond(lg) {
+      padding: 4rem 4rem;
+    }
   }
 
   &__logo {
@@ -28,10 +32,14 @@ $showDurationNav: 0.4s;
     align-items: center;
     gap: 0.8rem;
     cursor: pointer;
-    width: 2.8rem;
+    width: 18px;
 
     img {
       width: 100%;
+    }
+
+    @include respond(lg) {
+      width: 2.8rem;
     }
   }
 
@@ -51,7 +59,11 @@ $showDurationNav: 0.4s;
 
   &__nav {
     cursor: pointer;
-    width: 2.9rem;
+    width: 18px;
+
+    @include respond(lg) {
+      width: 2.8rem;
+    }
 
     img {
       width: 100%;
@@ -64,6 +76,23 @@ $showDurationNav: 0.4s;
     //   transform: scale(1);
     //   }
     // }
+  }
+
+  &__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    width: 18px;
+    display: none;
+
+    img {
+      width: 100%;
+    }
+
+    &--active {
+      display: block;
+    }
   }
 }
 
