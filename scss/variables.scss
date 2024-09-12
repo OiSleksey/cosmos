@@ -2,7 +2,7 @@
   src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/polar.otf');
   font-family: 'Custom Font';
 }
-$maxWidthAllContent: 190.2rem;
+$maxWidthAllContent: 1920px;
 $arrowSize: 20px;
 $customFont: 'Custom Font', Helvetica, Arial, sans-serif;
 
@@ -104,6 +104,31 @@ $show-up-home-content-width: 67rem;
     }
 
     .page.page--active & {
+      opacity: 1;
+      transform: none;
+      transition-timing-function: ease;
+      transition-delay: calc($headingsDelay * $delay);
+      // transition-delay: calc($headingsDelay * $delay);
+    }
+  }
+}
+
+@mixin movingDeepPage($delay) {
+  @include respond(lg) {
+    opacity: 0;
+    transition: opacity $headingsAT, transform $headingsAT ease-out;
+
+    .page.page--moving-up {
+      transform: translateY(200px);
+      // transition-delay: calc($headingsDelay * $delay);
+    }
+
+    .page.page--moving-down {
+      transform: translateY(-200px);
+      // transition-delay: calc($headingsDelay * 1);
+    }
+
+    .page.page--active {
       opacity: 1;
       transform: none;
       transition-timing-function: ease;

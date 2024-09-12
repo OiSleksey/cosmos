@@ -69,7 +69,7 @@ const swiper = new Swiper('.swiper.company-slider__swiper', {
     },
     // когда ширина экрана больше 768px
     1024: {
-      slidesPerView: 4,
+      slidesPerView: 3,
       spaceBetween: 66,
     },
   },
@@ -85,7 +85,7 @@ const swiper = new Swiper('.swiper.company-slider__swiper', {
 const swiper2 = new Swiper('.swiper.cosmic-careers-slider__swiper', {
   // Optional parameters
   direction: 'horizontal',
-  loop: true,
+  // loop: true,
   // slidesPerView: 3,
   // spaceBetween: 66,
   slidesPerView: 'auto',
@@ -93,16 +93,16 @@ const swiper2 = new Swiper('.swiper.cosmic-careers-slider__swiper', {
   breakpoints: {
     320: {
       slidesPerView: 1,
-      spaceBetween: 10,
+      spaceBetween: 20,
     },
     600: {
       slidesPerView: 2,
-      spaceBetween: 10,
+      spaceBetween: 20,
     },
     // когда ширина экрана меньше или равна 768px
     768: {
       slidesPerView: 3,
-      spaceBetween: 10,
+      spaceBetween: 30,
     },
     // когда ширина экрана больше 768px
     1024: {

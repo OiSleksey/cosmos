@@ -16,8 +16,6 @@ const socialsMobileCards = socialsMobile.querySelectorAll('.swiper-slide')
 const SHOW_UP_SOCIALS_ACTIVE = 'show-up-socials--active'
 const header = document.querySelector('.header')
 
-console.log('socialsCards ', socialsCards)
-console.log('socialsMobileCards ', socialsMobileCards)
 //show-up-socials
 header.addEventListener('click', function () {
   showUpSocials.forEach((social) => {

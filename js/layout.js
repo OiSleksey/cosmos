@@ -18,7 +18,7 @@ const rotater = document.querySelector('.rotater')
 const preloaderOverlay = document.querySelector('.preloader__overlay')
 const pageOne = document.querySelector('.page-1')
 const paginationBlock = document.querySelector('.pagination')
-const deepPageButtons = document.querySelectorAll('.deep-page__button')
+const nextPageButton = document.querySelectorAll('.next-page-button')
 const PAGE_MOVING_UP = 'page--moving-up'
 const PAGE_MOVING_DOWN = 'page--moving-down'
 const DIRECTION_UP = 'direction-up'
@@ -69,27 +69,17 @@ function positioning() {
   const parentRightPosition = parentElementBounding.right
 
   const infoPopupBounding = infoTooltipContainer.getBoundingClientRect()
-  console.log(infoPopupBounding)
   const infoPopupHeight = infoPopupBounding.height
   const infoPopupWidth = infoPopupBounding.width
 
   infoTooltip.style.top = parentBottomPosition + 0 + 'px'
-  console.log('IF parentBottomPosition ', parentBottomPosition)
-  console.log('IF infoPopupHeight ', infoPopupHeight)
-  console.log('clientHeight ', clientHeight)
-
   if (parentBottomPosition + infoPopupHeight + 0 < clientHeight) {
     infoTooltip.style.top = parentBottomPosition + 0 + 'px'
-    console.log('IF parentBottomPosition ', parentBottomPosition)
-    console.log('IF infoPopupHeight ', infoPopupHeight)
-    console.log('clientHeight ', clientHeight)
   } else {
     if (parentTopPosition - infoPopupHeight - 0 > 0) {
       infoTooltip.style.top = parentTopPosition - infoPopupHeight - 0 + 'px'
-      console.log('ELSE IF')
     } else {
       infoTooltip.style.bottom = 0 + 'px'
-      console.log('ELSE ELSE')
     }
   }
 
@@ -137,7 +127,6 @@ const SHOW_UP_COSMIC_CAREERS_MOVING_UP = 'show-up-cosmic-careers--moving-up'
 const NUMBER_PAGE_COSMIC_CARRER = 15
 
 showUpCosmicCareers.addEventListener('click', function (event) {
-  console.log(event.target)
   showUpCosmicCareers.classList.toggle(SHOW_UP_COSMIC_CAREERS_MOVING_UP)
 })
 
@@ -209,7 +198,6 @@ deepPageSliders.forEach((deepPage) => {
 const cosmicCareersSlider = document.querySelector('.cosmic-careers-slider')
 const deepPageSliderSlides = cosmicCareersSlider.querySelectorAll('.swiper-slide')
 deepPageSliderSlides.forEach((card, index) => {
-  console.log(card)
   const delay = 0.8 + 0.05 * index
   card.style.transitionDelay = `${delay}s`
 })
@@ -247,7 +235,7 @@ navigationClose.addEventListener('click', () => toggleNavigation(false))
 
 navigation.addEventListener('transitionend', function (event) {
   if (event.target.classList.contains('navigation--active')) {
-    console.log('transitionend')
+    // console.log('transitionend')
   } else {
     setTimeout(() => {
       event.target.style.zIndex = 0
@@ -271,9 +259,14 @@ navigationItems.forEach((item) => {
 })
 //Navigation Main END
 
-deepPageButtons.forEach((button) => {
-  button.addEventListener('click', navigateDown)
+nextPageButton.forEach((button) => {
+  button.addEventListener('click', navigateDownMobile)
 })
+
+function navigateDownMobile(event) {
+  event.preventDefault()
+  navigateDown(event)
+}
 
 function setDirectionForPage(direction) {
   const currPageModal = getCurrentPage()
@@ -290,17 +283,17 @@ function setDirectionForPage(direction) {
   } else {
     pages.forEach((page, index) => {
       if (index === 11) {
-        console.log('if')
+        // console.log('if')
       }
       if (currPageModal <= index + 1) {
         if (index === 11) {
-          console.log('if ', currPageModal)
+          // console.log('if ', currPageModal)
         }
         page.classList.add(PAGE_MOVING_UP)
         page.classList.remove(PAGE_MOVING_DOWN)
       } else {
         if (index === 11) {
-          console.log('else ', currPageModal)
+          // console.log('else ', currPageModal)
         }
         page.classList.remove(PAGE_MOVING_UP)
         page.classList.add(PAGE_MOVING_DOWN)
@@ -335,6 +328,7 @@ function pagination(direction, page) {
     rotater.style.transform = 'rotate(' + (currPageModal - 1) * 180 + 'deg)'
   } else {
     //MOBILE navigation
+    console.log(getCurrentPage())
     const currPageModal = getCurrentPage()
     const nextActivePage = document.querySelector('.page-' + currPageModal)
     const sectionPosition = nextActivePage.getBoundingClientRect().top + window.pageYOffset
@@ -353,7 +347,18 @@ function navigateUp() {
   pagination(DIRECTION_DOWN)
 }
 
-function navigateDown() {
+function navigateDown(event) {
+  // event.preventDefault()
+  if (getIsMobileDevice() && event) {
+    const pageElement = event.target.closest('.page')
+    if (pageElement) {
+      const classes = pageElement.className.split(' ')
+      const pageClass = classes.find((cls) => cls.startsWith('page-'))
+      const pageNumber = pageClass ? pageClass.split('-')[1] : null
+      if (pageNumber) setCurrentPage(pageNumber)
+    }
+  }
+
   let currPageModal = getCurrentPage()
   if (currPageModal == numOfPages) return
   currPageModal++
@@ -460,13 +465,10 @@ const getNumberPage = (classes) => {
 const handleIntersection = (entries, index, tett) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
-      console.log('PAGE-2')
-      console.log('Entries ', entry.target.classList)
       const currObservePage = getNumberPage(entry.target.classList)
       if (currObservePage === null) return null
       if (currObservePage == 1 || currObservePage == 2) {
         const heightPage = pagesHeightForMobile[0] + pagesHeightForMobile[1]
-        console.log(heightPage)
       }
     }
   })
@@ -487,7 +489,6 @@ function afterPreloader() {
     pages.forEach((page, index) => {
       observer.observe(page, index)
     })
-    console.log(pagesHeightForMobile)
 
     // const pagpagesTes = document.querySelector('.pages')
     // document.addEventListener('scroll', function (event) {

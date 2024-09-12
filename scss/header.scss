@@ -6,8 +6,12 @@ $showDurationNav: 0.4s;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 4;
+  z-index: 9;
   transition: opacity $headingsAT;
+
+  @include respond(lg) {
+    z-index: 4;
+  }
 
   &__container {
     width: 100%;
