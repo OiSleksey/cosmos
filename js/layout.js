@@ -143,7 +143,7 @@ function toggleActiveShowUpCosmicCareers(state) {
 //substrateFirstWomen START
 const substrateFirstWomen = document.querySelector('.substrate-first-woman')
 const SUBSTRATE_FIRST_WOMAN_ACTIVE = 'substrate-first-woman--active'
-const NUMBER_SUBSTRATE_FIRST_WOMAN = 17
+const NUMBER_SUBSTRATE_FIRST_WOMAN = 16
 
 function toggleSubstrateFirstWomen(state) {
   if (state) {
@@ -349,7 +349,7 @@ function navigateUp() {
 
 function navigateDown(event) {
   // event.preventDefault()
-  if (getIsMobileDevice() && event) {
+  if (getIsMobileDevice()) {
     const pageElement = event.target.closest('.page')
     if (pageElement) {
       const classes = pageElement.className.split(' ')
@@ -372,7 +372,7 @@ function scrollHandler(e) {
   if (e.deltaY < 0) {
     navigateUp()
   } else {
-    navigateDown()
+    navigateDown(e)
   }
 }
 
@@ -384,7 +384,7 @@ function keydownHandler(e) {
   if (e.key === 'ArrowUp') {
     navigateUp()
   } else if (e.key === 'ArrowDown') {
-    navigateDown()
+    navigateDown(e)
   }
 }
 
@@ -406,7 +406,7 @@ function paginationArrowHandler(e) {
   if (e.target.classList.contains('js-up')) {
     navigateUp()
   } else {
-    navigateDown()
+    navigateDown(e)
   }
 }
 
@@ -474,11 +474,40 @@ const handleIntersection = (entries, index, tett) => {
   })
 }
 
+//Mobile Sctoll Swipe START
+let startX
+let startY
+
+function handleTouchStart(event) {
+  const touch = event.touches[0]
+  startX = touch.clientX
+  startY = touch.clientY
+}
+
+function handleTouchEnd(event) {
+  if (!getIsScroling()) return
+  const touch = event.changedTouches[0]
+  const endX = touch.clientX
+  const endY = touch.clientY
+  const diffX = endX - startX
+  const diffY = endY - startY
+  if (Math.abs(diffY) > Math.abs(diffX)) {
+    if (diffY > 0) {
+      navigateUp()
+    } else {
+      navigateDown(event)
+    }
+  }
+}
+//Mobile Sctoll Swipe END
+
 function afterPreloader() {
   if (!getIsMobileDevice()) {
     setSubstrateBody()
     document.addEventListener('wheel', scrollHandler)
     document.addEventListener('keydown', keydownHandler)
+    document.addEventListener('touchstart', handleTouchStart)
+    document.addEventListener('touchend', handleTouchEnd)
   } else {
     setSubstrateBody()
     const pages = document.querySelectorAll('.page')

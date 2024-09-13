@@ -24,7 +24,19 @@
   }
 
   @if $breakpoint == 2xl {
+    @media only screen and (min-width: 1399px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == 3xl {
     @media only screen and (min-width: 1536px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == 4xl {
+    @media only screen and (min-width: 1800px) {
       @content;
     }
   }
