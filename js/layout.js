@@ -26,11 +26,28 @@ const DIRECTION_DOWN = 'direction-down'
 const SUBSTARATE_BODY_TO_BOTTOM = 'substrate-body--to-bottom'
 const SUBSTARATE_BODY_TO_TOP = 'substrate-body--to-top'
 const SUBSTARATE_BODY_ACTIVE = 'substrate-body--active'
+const header = document.querySelector('.header')
 
 //scroll main START
-function togleMainScroll(event, state) {
+function togleMainScroll(state) {
   // console.log(event.target)
   if (state) {
+    let isReturn = false
+    const showUpSustainabilityGalery = document.querySelector('.show-up-sustainability-galery')
+    const SHOW_UP_SUSTAINABILITY_GALERY = 'show-up-sustainability-galery--active'
+    const SHOW_UP_SOCIALS_ACTIVE = 'show-up-socials--active'
+    const showUpSocials = document.querySelectorAll('.show-up-socials')
+    isReturn = false
+    showUpSocials.forEach((item) => {
+      if (item.classList.contains(SHOW_UP_SOCIALS_ACTIVE)) {
+        isReturn = true
+      }
+    })
+    if (showUpSustainabilityGalery.classList.contains(SHOW_UP_SUSTAINABILITY_GALERY)) {
+      isReturn = true
+    }
+    if (isReturn) return null
+    console.log('THIS')
     setIsScroling(true)
   } else {
     setIsScroling(false)
@@ -44,81 +61,9 @@ const infoTooltip = document.querySelector('.info-tooltip')
 const infoTooltipContainer = document.querySelector('.info-tooltip__container')
 const INFO_TOOLTIP_ACTIVE = 'info-tooltip--active'
 
-function toggleInfoTooltip(state) {
-  if (state) {
-    // infoTooltip.style.display = 'block'
-    // infoTooltip.style.zIndex = '10'
-    // positioning()
-    infoTooltip.classList.add(INFO_TOOLTIP_ACTIVE)
-  } else {
-    // infoTooltip.style.display = 'none'
-    // infoTooltip.style.zIndex = '0'
-    // unPositioning()
-    infoTooltip.classList.remove(INFO_TOOLTIP_ACTIVE)
-  }
-}
-
-function positioning() {
-  unPositioning()
-  const clientWidth = document.documentElement.clientWidth
-  const clientHeight = document.documentElement.clientHeight
-  const parentElementBounding = infoButton.getBoundingClientRect()
-  const parentTopPosition = parentElementBounding.top
-  const parentBottomPosition = parentElementBounding.bottom
-  const parentLeftPosition = parentElementBounding.left
-  const parentRightPosition = parentElementBounding.right
-
-  const infoPopupBounding = infoTooltipContainer.getBoundingClientRect()
-  const infoPopupHeight = infoPopupBounding.height
-  const infoPopupWidth = infoPopupBounding.width
-
-  infoTooltip.style.top = parentBottomPosition + 0 + 'px'
-  if (parentBottomPosition + infoPopupHeight + 0 < clientHeight) {
-    infoTooltip.style.top = parentBottomPosition + 0 + 'px'
-  } else {
-    if (parentTopPosition - infoPopupHeight - 0 > 0) {
-      infoTooltip.style.top = parentTopPosition - infoPopupHeight - 0 + 'px'
-    } else {
-      infoTooltip.style.bottom = 0 + 'px'
-    }
-  }
-
-  if (parentRightPosition + infoPopupWidth + 0 < clientWidth) {
-    infoTooltip.style.left = parentRightPosition + 0 + 'px'
-  } else {
-    if (parentLeftPosition - infoPopupWidth - 0 > 0) {
-      infoTooltip.style.left = parentLeftPosition - infoPopupWidth - 0 + 'px'
-    } else {
-      infoTooltip.style.left = 0 + 'px'
-    }
-  }
-  // infoTooltip.style.display = 'block'
-}
-
-function unPositioning() {
-  infoTooltip.style.top = 'unset'
-  infoTooltip.style.right = 'unset'
-  infoTooltip.style.bottom = 'unset'
-  infoTooltip.style.left = 'unset'
-}
-
 document.querySelectorAll('[data-bs-toggle="popover"]').forEach((popover) => {
   new bootstrap.Popover(popover)
 })
-
-// const popoverElement = document.querySelector('[data-bs-toggle="popover"]')
-// const popover = new bootstrap.Popover(popoverElement, {
-//   trigger: 'manual', // Trigger set to manual
-// })
-
-// popoverElement.addEventListener('mouseover', () => popover.show())
-// popoverElement.addEventListener('mouseout', () => popover.hide())
-
-// infoButton.addEventListener('mouseenter', () => toggleInfoTooltip(true))
-// infoButton.addEventListener('mouseleave', () => toggleInfoTooltip(false))
-// infoButton.addEventListener('touchend', () => toggleInfoTooltip(false))
-// infoButton.addEventListener('pointerleave', () => toggleInfoTooltip(false))
-//infoButton end
 
 //showUpCosmicCareers START
 const showUpCosmicCareers = document.querySelector('.show-up-cosmic-careers')
@@ -129,15 +74,6 @@ const NUMBER_PAGE_COSMIC_CARRER = 15
 showUpCosmicCareers.addEventListener('click', function (event) {
   showUpCosmicCareers.classList.toggle(SHOW_UP_COSMIC_CAREERS_MOVING_UP)
 })
-
-function toggleActiveShowUpCosmicCareers(state) {
-  if (state) {
-    showUpCosmicCareers.classList.add(SHOW_UP_COSMIC_CAREERS_ACTIVE)
-  } else {
-    showUpCosmicCareers.classList.remove(SHOW_UP_COSMIC_CAREERS_ACTIVE)
-    showUpCosmicCareers.classList.remove(SHOW_UP_COSMIC_CAREERS_MOVING_UP)
-  }
-}
 //showUpCosmicCareers END
 
 //substrateFirstWomen START
@@ -160,8 +96,8 @@ const sustainabilityGaleryButton = document.querySelector('#sustainabilityGalery
 const sustainabilityGaleryCards = document.querySelectorAll('.sustainability-galery__card')
 const SUSTABILITY_GALERY_CARD_NONE = 'sustainability-galery__card--none'
 
-sustainabilityGalery.addEventListener('mouseenter', (event) => togleMainScroll(event, false))
-sustainabilityGalery.addEventListener('mouseleave', (event) => togleMainScroll(event, true))
+sustainabilityGalery.addEventListener('mouseenter', (event) => togleMainScroll(false))
+sustainabilityGalery.addEventListener('mouseleave', (event) => togleMainScroll(true))
 sustainabilityGaleryButton.addEventListener('click', function () {
   sustainabilityGaleryCards.forEach((card) => {
     card.classList.remove(SUSTABILITY_GALERY_CARD_NONE)
@@ -179,8 +115,8 @@ socialsCards.forEach((card, index) => {
   card.style.transitionDelay = `${delay}s`
 })
 
-socials.addEventListener('mouseenter', (event) => togleMainScroll(event, false))
-socials.addEventListener('mouseleave', (event) => togleMainScroll(event, true))
+socials.addEventListener('mouseenter', (event) => togleMainScroll(false))
+socials.addEventListener('mouseleave', (event) => togleMainScroll(true))
 //socials  END
 
 //deep-page-slider  START
@@ -216,11 +152,13 @@ const navigationItems = document.querySelectorAll('.navigation__item')
 // }
 function toggleNavigation(state) {
   if (state) {
-    setIsScroling(false)
+    togleMainScroll(false)
+    toggleIsBlockBody(false)
     navigation.classList.add('navigation--active')
     navigation.style.zIndex = 9
   } else {
-    setIsScroling(true)
+    togleMainScroll(true)
+    toggleIsBlockBody(true)
     navigation.classList.remove('navigation--active')
   }
 }
@@ -325,6 +263,11 @@ function pagination(direction, page) {
     document
       .querySelector('.pagination__item[data-page="' + currPageModal + '"]')
       .classList.add('pagination--active')
+    if (nextActivePage.classList.contains('deep-page')) {
+      header.style.zIndex = 2
+    } else {
+      header.style.zIndex = 4
+    }
     rotater.style.transform = 'rotate(' + (currPageModal - 1) * 180 + 'deg)'
   } else {
     //MOBILE navigation
@@ -466,10 +409,15 @@ const handleIntersection = (entries, index, tett) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       const currObservePage = getNumberPage(entry.target.classList)
-      if (currObservePage === null) return null
-      if (currObservePage == 1 || currObservePage == 2) {
-        const heightPage = pagesHeightForMobile[0] + pagesHeightForMobile[1]
+      console.log(currObservePage)
+      const nextPage = document.querySelector(`.page-${currObservePage}`)
+      if (nextPage) {
+        nextPage.classList.add('page--mobile-active')
       }
+      // if (currObservePage === null) return null
+      // if (currObservePage == 1 || currObservePage == 2) {
+      //   const heightPage = pagesHeightForMobile[0] + pagesHeightForMobile[1]
+      // }
     }
   })
 }
@@ -532,7 +480,7 @@ function afterPreloader() {
 
 rotater.addEventListener('transitionend', function (e) {
   if (!getIsMobileDevice()) {
-    setIsScroling(true)
+    togleMainScroll(true)
   }
 })
 

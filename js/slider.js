@@ -11,6 +11,26 @@ import {
 
 const deepPageSliders = document.querySelectorAll('.deep-page-slider')
 
+function updateNavigation(buttonLeft, buttonRight, swiper) {
+  if (!swiper) {
+    buttonLeft.classList.add('disabled')
+    return null
+  }
+  // Проверка, если слайдер на первом слайде
+  if (swiper?.isBeginning) {
+    buttonLeft.classList.add('disabled')
+  } else {
+    buttonLeft.classList.remove('disabled')
+  }
+
+  // Проверка, если слайдер на последнем слайде
+  if (swiper?.isEnd) {
+    buttonRight.classList.add('disabled')
+  } else {
+    buttonRight.classList.remove('disabled')
+  }
+}
+
 deepPageSliders.forEach((wrapper, index) => {
   new Swiper(`.swiper.deep-page-slider__swiper[data-slider='${index + 1}']`, {
     direction: 'horizontal',
@@ -21,15 +41,6 @@ deepPageSliders.forEach((wrapper, index) => {
       320: {
         slidesPerView: 'auto',
         spaceBetween: 10,
-      },
-      600: {
-        slidesPerView: 2,
-        spaceBetween: 20,
-      },
-      // когда ширина экрана меньше или равна 768px
-      768: {
-        slidesPerView: 3,
-        spaceBetween: 30,
       },
       // когда ширина экрана больше 768px
       1024: {
@@ -42,17 +53,26 @@ deepPageSliders.forEach((wrapper, index) => {
       nextEl: `.deep-page-slider__arrow--right[data-slider='${index + 1}']`,
       prevEl: `.deep-page-slider__arrow--left[data-slider='${index + 1}']`,
     },
+
+    on: {
+      slideChange: function () {
+        const leftButton = wrapper.querySelector(`.deep-page-slider__arrow--left`)
+        const righrButton = wrapper.querySelector(`.deep-page-slider__arrow--right`)
+        updateNavigation(leftButton, righrButton, wrapper)
+      },
+      init: function () {
+        const leftButton = wrapper.querySelector(`.deep-page-slider__arrow--left`)
+        const righrButton = wrapper.querySelector(`.deep-page-slider__arrow--right`)
+        updateNavigation(leftButton, righrButton, wrapper)
+      },
+    },
   })
 })
 
-const swiper = new Swiper('.swiper.company-slider__swiper', {
-  // Optional parameters
+let companySlider = null
+companySlider = new Swiper('.swiper.company-slider__swiper', {
   direction: 'horizontal',
-  loop: true,
-  // slidesPerView: 3,
-  // spaceBetween: 66,
   slidesPerView: 'auto',
-  // slidesPerView: 4,
   breakpoints: {
     320: {
       slidesPerView: 1,
@@ -62,34 +82,39 @@ const swiper = new Swiper('.swiper.company-slider__swiper', {
       slidesPerView: 2,
       spaceBetween: 10,
     },
-    // когда ширина экрана меньше или равна 768px
     768: {
       slidesPerView: 3,
       spaceBetween: 10,
     },
-    // когда ширина экрана больше 768px
     1024: {
       slidesPerView: 3,
       spaceBetween: 66,
     },
   },
-  // spaceBetween: 'auto',
 
-  // Navigation arrows
   navigation: {
     nextEl: '.company-slider__arrow--right',
     prevEl: '.company-slider__arrow--left',
   },
+
+  on: {
+    slideChange: function () {
+      const leftButton = document.querySelector('.company-slider__arrow--right')
+      const righrButton = document.querySelector('.company-slider__arrow--left')
+      updateNavigation(leftButton, righrButton, companySlider)
+    },
+    init: function () {
+      const leftButton = document.querySelector('.company-slider__arrow--right')
+      const righrButton = document.querySelector('.company-slider__arrow--left')
+      updateNavigation(leftButton, righrButton, companySlider)
+    },
+  },
 })
 
-const swiper2 = new Swiper('.swiper.cosmic-careers-slider__swiper', {
-  // Optional parameters
+let cosmicCareersSlider = null
+cosmicCareersSlider = new Swiper('.swiper.cosmic-careers-slider__swiper', {
   direction: 'horizontal',
-  // loop: true,
-  // slidesPerView: 3,
-  // spaceBetween: 66,
   slidesPerView: 'auto',
-  // slidesPerView: 4,
   breakpoints: {
     320: {
       slidesPerView: 1,
@@ -99,54 +124,41 @@ const swiper2 = new Swiper('.swiper.cosmic-careers-slider__swiper', {
       slidesPerView: 2,
       spaceBetween: 20,
     },
-    // когда ширина экрана меньше или равна 768px
     768: {
       slidesPerView: 3,
       spaceBetween: 30,
     },
-    // когда ширина экрана больше 768px
     1024: {
       slidesPerView: 3,
       spaceBetween: 50,
     },
   },
-  // Navigation arrows
+
   navigation: {
     nextEl: '.cosmic-careers-slider__arrow--right',
     prevEl: '.cosmic-careers-slider__arrow--left',
   },
+
+  on: {
+    slideChange: function () {
+      const leftButton = document.querySelector('.cosmic-careers-slider__arrow--right')
+      const righrButton = document.querySelector('.cosmic-careers-slider__arrow--left')
+      updateNavigation(leftButton, righrButton, cosmicCareersSlider)
+    },
+    init: function () {
+      const leftButton = document.querySelector('.cosmic-careers-slider__arrow--right')
+      const righrButton = document.querySelector('.cosmic-careers-slider__arrow--left')
+      updateNavigation(leftButton, righrButton, cosmicCareersSlider)
+    },
+  },
 })
 
-const swiper3 = new Swiper('.swiper.socials-mobile__swiper', {
-  // Optional parameters
-  direction: 'horizontal',
+//END
 
-  // slidesPerView: 3,
-  // spaceBetween: 66,
+const socialsMobile = new Swiper('.swiper.socials-mobile__swiper', {
+  direction: 'horizontal',
   slidesPerView: 'auto',
   spaceBetween: 24,
-  // slidesPerView: 4,
-  // breakpoints: {
-  //   320: {
-  //     slidesPerView: 1,
-  //     spaceBetween: 10,
-  //   },
-  //   600: {
-  //     slidesPerView: 2,
-  //     spaceBetween: 10,
-  //   },
-  //   // когда ширина экрана меньше или равна 768px
-  //   768: {
-  //     slidesPerView: 3,
-  //     spaceBetween: 10,
-  //   },
-  //   // когда ширина экрана больше 768px
-  //   1024: {
-  //     slidesPerView: 3,
-  //     spaceBetween: 50,
-  //   },
-  // },
-  // Navigation arrows
   navigation: {
     nextEl: '.socials-mobile__arrow--right',
     prevEl: '.socials-mobile__arrow--left',
@@ -171,12 +183,6 @@ const setStyleOverlayBody = (state) => {
 sustainabilityGaleryImg.forEach((card, index) => {
   card.addEventListener('click', function (event) {
     event.stopPropagation()
-    toggleIsBlockBody(false)
-    setIsScroling(false)
-    toggleVisibleHeader(false)
-    setStyleOverlayBody(true)
-    toggleVisibleHeader(false, false)
-    showUpSustainabilityGalery.classList.add(SHOW_UP_SUSTAINABILITY_GALERY_ACTIVE)
     swiperGalery = new Swiper('.swiper.sustainability-slider__swiper', {
       // Optional parameters
       direction: 'horizontal',
@@ -193,6 +199,12 @@ sustainabilityGaleryImg.forEach((card, index) => {
         prevEl: '.sustainability-slider__arrow--left',
       },
     })
+    toggleIsBlockBody(false)
+    setIsScroling(false)
+    toggleVisibleHeader(false)
+    setStyleOverlayBody(true)
+    toggleVisibleHeader(false, false)
+    showUpSustainabilityGalery.classList.add(SHOW_UP_SUSTAINABILITY_GALERY_ACTIVE)
   })
 })
 
@@ -203,7 +215,6 @@ function closeShowUpSustainabilityGalery() {
   toggleVisibleHeader(true)
   setStyleOverlayBody(false)
   showUpSustainabilityGalery.classList.remove(SHOW_UP_SUSTAINABILITY_GALERY_ACTIVE)
-
   if (swiperGalery) {
     swiperGalery.destroy(true, true)
     swiperGalery = null

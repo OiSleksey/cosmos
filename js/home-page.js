@@ -18,10 +18,10 @@ const SHOW_UP_HOME_ACTIVE = 'show-up-home--active'
 const SHOW_UP_SUBMIT_ACTIVE = 'show-up-submit--active'
 const overlayBody = document.querySelector('.overlay-body')
 const socials = document.querySelector('.socials')
-const socialsCards = socials.querySelectorAll('.socials__card')
+const socialsCards = socials.querySelectorAll('.socials__button')
 const showUpSocials = document.querySelectorAll('.show-up-socials')
 const socialsMobile = document.querySelector('.socials-mobile')
-const socialsMobileCards = socialsMobile.querySelectorAll('.swiper-slide')
+const socialsMobileCards = document.querySelectorAll('.socials-mobile__button')
 const SHOW_UP_SOCIALS_ACTIVE = 'show-up-socials--active'
 const header = document.querySelector('.header')
 
@@ -43,6 +43,10 @@ showUpHomeOpenButtons.forEach(function (button, index) {
     toggleVisibleHeader(false, true)
   })
 })
+
+document
+  .querySelector('.sustainability-slider__img-container')
+  .addEventListener('click', function () {})
 
 function closeShoupHome(index, displayClose) {
   setIsScroling(true)
@@ -121,6 +125,7 @@ function setEventCloseButton(social) {
 
 socialsCards.forEach((button, index) => {
   button.addEventListener('click', function (event) {
+    event.preventDefault()
     setIsScroling(false)
     setStyleOverlayBody(true)
     showUpSocials[index].classList.add(SHOW_UP_SOCIALS_ACTIVE)
@@ -131,6 +136,7 @@ socialsCards.forEach((button, index) => {
 
 socialsMobileCards.forEach((button, index) => {
   button.addEventListener('click', function (event) {
+    event.preventDefault()
     setIsScroling(false)
     setStyleOverlayBody(true)
     showUpSocials[index].classList.add(SHOW_UP_SOCIALS_ACTIVE)

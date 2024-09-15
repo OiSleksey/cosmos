@@ -27,6 +27,10 @@ html {
     font-size: 62.5%;
   }
 
+  @include respond(5xl) {
+    font-size: 75%;
+  }
+
   // font-size: 30%;
   // @include respond(lg) {
   //   font-size: 40%;
@@ -107,6 +111,7 @@ ul {
   @extend %scaleBody;
   position: fixed;
   top: 0;
+
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
@@ -118,10 +123,13 @@ ul {
   display: none;
 
   @include respond(lg) {
+    background-size: calc(100vh * 3) 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-size: 100%, 100vh;
+    bottom: 0;
+    // background-size: 100%, 100vh;
+    // background-size: auto, 100vh;
     background-image: url('/img/background-body-desktop.png');
   }
 
@@ -132,13 +140,13 @@ ul {
     right: 0;
     top: 0;
     bottom: 0;
-    background: rgb(0, 0, 0);
-    background: linear-gradient(
-      0deg,
-      rgba(0, 0, 3, 0.6) 0%,
-      // rgba(0, 0, 3, 0.5) 35%,
-      rgba(0, 0, 3, 0) 100%
-    );
+    // background: rgb(0, 0, 0);
+    // background: linear-gradient(
+    //   0deg,
+    //   rgba(0, 0, 3, 0.6) 0%,
+    //   // rgba(0, 0, 3, 0.5) 35%,
+    //   rgba(0, 0, 3, 0) 100%
+    // );
     z-index: 1;
   }
 }
@@ -146,11 +154,11 @@ ul {
 .substrate-body-stones {
   @extend %movingBodyBottom;
   position: fixed;
-  bottom: -4rem;
+  bottom: 0;
   left: 0;
   right: 0;
   height: 100%;
-  min-height: 100%;
+  // min-height: 100vh;
   display: none;
 
   @include respond(lg) {
@@ -159,18 +167,21 @@ ul {
 
   &__top {
     width: 100vw;
-    background-size: 100vw 100%;
+    // background-size: 100vw auto;
+    background-size: cover;
     background-image: url('/img/background-body-bottom.png');
+    // background-image: url('/img/stones-big.png');
     background-repeat: no-repeat;
     background-position-y: bottom;
     background-position-x: center;
-    height: 100%;
+    height: 100vh;
   }
 
   &__bottom {
     height: 100vh;
     width: 100vw;
     background: rgb(0, 0, 0);
+    min-height: 100vh;
   }
 
   &::after {
@@ -180,12 +191,14 @@ ul {
     left: 0;
     right: 0;
     bottom: 0;
+    // background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.9));
     background: linear-gradient(
       to bottom,
-      transparent,
-      rgba(0, 0, 0, 0.9)
-    ); // Adjust the gradient as needed
-    z-index: 1; // Ensure it's above the background image
+      transparent 18%,
+      rgba(0, 0, 0, 0.1) 70%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+    z-index: 1;
   }
 }
 
@@ -221,9 +234,6 @@ ul {
     );
     z-index: 1;
   }
-}
-
-.substrate-page-mobile {
 }
 
 .substrate-page-stones-mobile {
@@ -336,7 +346,7 @@ ul {
     position: absolute;
     left: 50%;
     top: 0;
-    margin: 0 auto;
+    // margin: 0 auto;
     transform: translateX(-50%);
     width: 100%;
     height: 100%;
@@ -514,7 +524,7 @@ $deep-page-pink: 100vh;
 
     @include respond(lg) {
       font-size: 4.6rem;
-      line-height: 1;
+      line-height: 5rem;
     }
   }
 
@@ -528,18 +538,19 @@ $deep-page-pink: 100vh;
     @include respond(lg) {
       flex-direction: row;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
     }
   }
 
   &__button {
+    @include rectangleButton;
     cursor: pointer;
     width: max-content;
     color: #fff;
     font-family: inherit;
-    font-size: 4.6rem;
+    font-size: 22px;
     font-weight: 400;
-    letter-spacing: 4.25px;
+    letter-spacing: 1.064px;
     white-space: nowrap;
     text-decoration: none;
 
@@ -547,28 +558,8 @@ $deep-page-pink: 100vh;
     background-repeat: no-repeat;
     padding: 1rem 4rem;
 
-    &--blue {
-      background-image: url('/img/rectangle-blue.svg');
-    }
-
-    &--pink {
-      background-image: url('/img/rectangle-pink.svg');
-    }
-
-    &--aqua {
-      background-image: url('/img/rectangle-aqua.svg');
-    }
-
-    &--yellow {
-      background-image: url('/img/rectangle-yellow.svg');
-    }
-
-    &--magenta {
-      background-image: url('/img/rectangle-magenta.svg');
-    }
-
-    &--violet {
-      background-image: url('/img/rectangle-violet.svg');
+    @include respond(lg) {
+      font-size: 4.6rem;
     }
   }
 }
@@ -700,9 +691,8 @@ $deep-page-pink: 100vh;
 }
 
 .submit-files {
-  padding: 20px 20px;
-  max-height: 67vh;
-  overflow-y: auto;
+  @include maxHeightShowUpDesktop;
+  padding: 20px 20px 80px 20px;
 
   @media (max-height: 600px) {
     max-height: 67vh;
@@ -796,18 +786,8 @@ $deep-page-pink: 100vh;
 
     @include respond(lg) {
       flex-direction: row;
-      gap: 7rem;
-      padding: 4.8rem 0;
-    }
-  }
-
-  &__col {
-    display: flex;
-    flex-direction: column;
-    gap: 6.25rem;
-
-    @include respond(lg) {
       gap: 3rem;
+      padding: 4.8rem 0;
     }
   }
 
@@ -822,6 +802,7 @@ $deep-page-pink: 100vh;
   }
 
   &__type-name {
+    @include backgroundColorType;
     padding: 8px 10px;
     display: flex;
     justify-content: center;
@@ -838,22 +819,6 @@ $deep-page-pink: 100vh;
     @include respond(lg) {
       padding: 1.1rem 1.4rem;
       font-size: 4.4rem;
-    }
-
-    &--yellow {
-      background-color: #fa9f2b;
-    }
-
-    &--blue {
-      background-color: #2b71fa;
-    }
-
-    &--magenta {
-      background-color: #ba3c8f;
-    }
-
-    &--violet {
-      background-color: #7c4ffd;
     }
   }
 
@@ -872,6 +837,11 @@ $deep-page-pink: 100vh;
   &__caption {
     color: #fff;
     font-weight: 400;
+    margin-bottom: 10px;
+
+    @include respond(lg) {
+      margin-bottom: 1rem;
+    }
   }
 
   &__size {
@@ -897,7 +867,7 @@ $deep-page-pink: 100vh;
 
     @include respond(lg) {
       font-size: 4.6rem;
-      padding: 1rem 2rem;
+      padding: 1rem 5rem 1rem 4rem;
     }
 
     &--blue {

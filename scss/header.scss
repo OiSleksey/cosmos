@@ -27,7 +27,7 @@ $showDurationNav: 0.4s;
     }
 
     @include respond(lg) {
-      padding: 4rem 4rem;
+      padding: 3rem 4rem;
     }
   }
 
@@ -51,10 +51,9 @@ $showDurationNav: 0.4s;
     display: none;
     color: #fff;
     font-family: inherit;
-    font-size: 3rem;
-    font-style: normal;
+    font-size: 30px;
     font-weight: 900;
-    text-transform: uppercase;
+    letter-spacing: 2px;
 
     @include respond(lg) {
       display: block;
@@ -142,7 +141,7 @@ $showDurationNav: 0.4s;
 
   &__close {
     position: absolute;
-    top: 4.6rem;
+    top: 3.8rem;
     right: 4rem;
     cursor: pointer;
     width: 2.8rem;
@@ -154,17 +153,11 @@ $showDurationNav: 0.4s;
   }
 
   &__list {
+    @include maxHeightShowUpDesktop;
     list-style: none;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
     gap: 2rem;
     padding: 0 3rem;
-    max-height: calc(100vh - 6rem);
-    overflow-y: auto;
 
-    @include hideScroll;
     @include respond(2xl) {
       max-height: none;
     }
