@@ -1,45 +1,5 @@
-$preloaderAT: 1.5s;
-$preloaderDelay: 0.5s;
-$preloaderFadeAT: 0.5s;
-
-.preloader {
-  z-index: 10;
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  background: #000;
-  transition: opacity $preloaderFadeAT;
-  opacity: 1;
-  overflow: hidden;
-
-  &.inactive {
-    opacity: 0;
-  }
-
-  &.hidden {
-    display: none;
-  }
-
-  &__overlay {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    animation: animatePreloader $preloaderAT $preloaderDelay ease-in forwards;
-  }
-}
-
-@keyframes animatePreloader {
-  to {
-    transform: translate3d(100%, 0, 0);
-  }
-}
-
 .loading-overlay {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
@@ -60,15 +20,6 @@ $preloaderFadeAT: 0.5s;
     display: none;
   }
 
-  // &__container {
-  //   position: absolute;
-  //   left: 0;
-  //   top: 0;
-  //   bottom: 0;
-  //   right: 0;
-  //   animation: animatePreloader $preloaderAT $preloaderDelay ease-in forwards;
-  // }
-
   .loader {
     position: absolute;
     top: 50%;
@@ -87,7 +38,6 @@ $preloaderFadeAT: 0.5s;
   &__text {
     color: #fff;
     font-family: inherit;
-    // font-family: "DM Mono";
     font-size: 1.2rem;
     font-weight: 500;
     letter-spacing: 2.25px;

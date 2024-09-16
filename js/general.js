@@ -37,6 +37,32 @@ export function getIsMobileDevice() {
   return isMobileDevice
 }
 
+//scroll main START
+export function togleMainScroll(state) {
+  if (state) {
+    let isReturn = false
+    const showUpSustainabilityGalery = document.querySelector('.show-up-sustainability-galery')
+    const SHOW_UP_SUSTAINABILITY_GALERY = 'show-up-sustainability-galery--active'
+    const SHOW_UP_SOCIALS_ACTIVE = 'show-up-socials--active'
+    const showUpSocials = document.querySelectorAll('.show-up-socials')
+    isReturn = false
+    showUpSocials.forEach((item) => {
+      if (item.classList.contains(SHOW_UP_SOCIALS_ACTIVE)) {
+        isReturn = true
+      }
+    })
+    if (showUpSustainabilityGalery.classList.contains(SHOW_UP_SUSTAINABILITY_GALERY)) {
+      isReturn = true
+    }
+    if (isReturn) return null
+    console.log('THIS')
+    setIsScroling(true)
+  } else {
+    setIsScroling(false)
+  }
+}
+//scroll main END
+
 const headerContainer = document.querySelector('.header__container')
 const HIDDEN_HEADER = 'header__container--hidden'
 const closeHeaderButton = document.querySelector('.header__close')

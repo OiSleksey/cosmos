@@ -1,33 +1,26 @@
-@font-face {
-  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/polar.otf');
-  font-family: 'Custom Font';
-}
-
 $maxWidthAllContent: 1920px;
-$arrowSize: 20px;
-$customFont: 'Custom Font', Helvetica, Arial, sans-serif;
 
-$numOfPages: 13;
-
-$padding: 50px;
-$pagiItemW: 14px;
-$yellow: #f6cc4c;
+$preloaderAT: 1.5s;
+$preloaderDelay: 0.5s;
+$preloaderFadeAT: 0.5s;
 
 $rotatingAT: 1s;
 $headingsAT: $rotatingAT * 0.6;
 $headingsDelay: $rotatingAT * 0.8;
 
-$phoneW: 36.4rem;
-$phoneH: $phoneW * 2.042;
-$iphoneImg: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/iphone-6-mockup.png';
-
-// $sizeSubstratePlanet: 62rem;
+$sizeSubstratePlanetMobile: 243px;
 $sizeSubstrateObject: 70rem;
 $sizeSubstratePlanet: 52rem;
 $sizeSubstrateSpaceStation: 52.5rem;
 $show-up-home-pink: 100vh;
 $show-up-home-blue: calc($show-up-home-pink - 2rem);
 $show-up-home-content-width: 67rem;
+$deep-page-pink: 100vh;
+$showUpBackgroundWidth: 230rem;
+$show-up-cosmic-careers-pink: 86vh;
+$show-up-cosmic-careers-blue: 84vh;
+$hideDurationNav: 0.2s;
+$showDurationNav: 0.4s;
 
 @mixin lineTitle {
   &--dark-blue::before {
@@ -153,68 +146,6 @@ $show-up-home-content-width: 67rem;
   }
 }
 
-%movingContainer {
-  @include respond(lg) {
-    opacity: 0;
-    transition: opacity $headingsAT, transform $headingsAT ease-out;
-
-    .page.page--moving-up & {
-      transform: translateY(200px);
-    }
-
-    .page.page--moving-down & {
-      transform: translateY(-200px);
-    }
-
-    .page.page--active & {
-      opacity: 1;
-      transform: none;
-      transition-timing-function: ease;
-      transition-delay: $headingsDelay;
-    }
-  }
-}
-
-%movingSubstrate {
-  opacity: 0;
-  transition: opacity calc($headingsAT * 1.5), transform calc($headingsAT * 1.5) ease-out;
-
-  .page.page--moving-up & {
-    transform: translateY(200px);
-  }
-
-  .page.page--moving-down & {
-    transform: translateY(-200px);
-  }
-
-  .page.page--active & {
-    opacity: 1;
-    transform: none;
-    transition-timing-function: ease;
-    transition-delay: $headingsDelay;
-  }
-}
-
-// %movingEarthPlanet {
-//   opacity: 0;
-//   transition: opacity calc($headingsAT * 1.5), transform calc($headingsAT * 1.5) ease-out;
-
-//   .page.page--moving-up & {
-//     transform: translateY(200px);
-//   }
-
-//   .page.page--moving-down & {
-//     transform: translateY(-200px);
-//   }
-
-//   .page.page--active & {
-//     opacity: 1;
-//     transform: none;
-//     transition-timing-function: ease;
-//     transition-delay: $headingsDelay;
-//   }
-// }
-
 @mixin movingElement($delay) {
   opacity: 0;
   transition: opacity $headingsAT, transform $headingsAT ease-out;
@@ -224,7 +155,6 @@ $show-up-home-content-width: 67rem;
     opacity: 1;
     transform: translateY(0);
     transition-timing-function: ease;
-    transition-delay: calc($headingsDelay * $delay);
   }
 
   @include respond(lg) {
@@ -261,18 +191,18 @@ $show-up-home-content-width: 67rem;
     opacity: 1;
     transform: translateY(0) scale(1);
     transition-timing-function: ease;
-    transition-delay: calc($headingsDelay * $delay);
   }
+
   @include respond(lg) {
     opacity: 0;
     transition: opacity $headingsAT, transform $headingsAT ease-out;
 
     .page.page--moving-up & {
-      transform: translateY(200px) scale(0.8);
+      transform: translateY(400px) scale(0.4);
     }
 
     .page.page--moving-down & {
-      transform: translateY(-200px) scale(0.8);
+      transform: translateY(-400px) scale(0.4);
     }
 
     .page.page--active & {
@@ -287,6 +217,56 @@ $show-up-home-content-width: 67rem;
 
     .page.page--active.page--moving-down & {
       transition-delay: calc($headingsDelay / $delay);
+    }
+  }
+}
+
+@mixin movingSubstrateEarthMain($delay) {
+  opacity: 0;
+  transition: opacity $headingsAT, transform $headingsAT ease-out;
+  transform: translateY(-400px) scale(0.8);
+
+  .page.page--mobile-active & {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition-timing-function: ease;
+  }
+
+  @include respond(lg) {
+    opacity: 0;
+    transition: opacity $headingsAT, transform $headingsAT ease-out;
+    transform: translateY(-400px) scale(0.4);
+
+    .page.page--active & {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      transition-timing-function: ease;
+      transition-delay: calc($headingsDelay * $delay);
+    }
+  }
+}
+
+@mixin movingSubstrateEarth($delay) {
+  opacity: 0;
+  transition: opacity $headingsAT, transform $headingsAT ease-out;
+  transform: translateY(200px) scale(0.8);
+
+  .page.page--mobile-active & {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition-timing-function: ease;
+    // transition-delay: calc($headingsDelay * $delay);
+  }
+  @include respond(lg) {
+    opacity: 0;
+    transition: opacity $headingsAT, transform $headingsAT ease-out;
+    transform: translateY(200px) scale(0.4);
+
+    .page.page--active & {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      transition-timing-function: ease;
+      transition-delay: calc($headingsDelay * $delay);
     }
   }
 }
@@ -322,14 +302,6 @@ $show-up-home-content-width: 67rem;
     transition: opacity $headingsAT, transform $headingsAT ease-out;
     transform: translateY(200px);
 
-    // .page.page--moving-up & {
-    //   transform: translateY(200px);
-    // }
-
-    // .page.page--moving-down & {
-    //   transform: translateY(-200px);
-    // }
-
     .page.page--active & {
       opacity: 1;
       transform: none;
@@ -342,12 +314,10 @@ $show-up-home-content-width: 67rem;
 %movingBodyBottom {
   transition: transform calc($headingsAT * 1.2) ease-out;
   transform: translateY(100%);
-  // transform: translateY(100%) scaleY(0.8);
   transition-delay: $headingsDelay;
 
   .substrate-body.substrate-body--to-bottom & {
     opacity: 1;
-    // transform: translateY(0) scaleY(0.8);
     transform: translateY(0);
     transition-timing-function: ease;
     transition-delay: $headingsDelay;
@@ -356,7 +326,6 @@ $show-up-home-content-width: 67rem;
   .substrate-body.substrate-body--to-top & {
     opacity: 1;
     transform: translateY(-60%);
-    // transform: translateY(-60%) scaleY(0.8);
     transition-timing-function: ease;
     transition-delay: $headingsDelay;
   }
@@ -364,24 +333,36 @@ $show-up-home-content-width: 67rem;
 
 @mixin hideScroll {
   &::-webkit-scrollbar {
-    width: 0px;
-    background: transparent;
+    // width: 0px;
+    // background: transparent;
+    -ms-overflow-style: none; /* IE и Edge */
+    scrollbar-width: none; /* Firefox */
+
+    &::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, Opera */
+    }
   }
 }
 
 %scaleBody {
-  transition: background-size $headingsAT ease-out;
-  // transition: transform $headingsAT ease-out;
+  transition: background-size $headingsAT ease-out,
+    background-position calc($headingsAT * 2) cubic-bezier(0.61, 0.2, 0.54, 0.87);
 
   &.substrate-body--active {
-    // background-size: 3040px, 1568px;
     background-size: 420%, 100vh;
 
     @include respond(lg) {
       background-size: calc(100vh * 4) calc(100vh * 1.3);
     }
+  }
 
-    // transform: translate(-50%, -50%) scale(2.8);
+  @include respond(lg) {
+    &.substrate-body--left {
+      background-position: top 40% left 40%;
+    }
+    &.substrate-body--right {
+      background-position: top 60% left 60%;
+    }
   }
 }
 
@@ -413,28 +394,3 @@ $show-up-home-content-width: 67rem;
     transform: translate3d(0, 10px, 0);
   }
 }
-
-// @mixin centerElement($width, $height) {
-//   position: absolute;
-//   left: 50%;
-//   top: 50%;
-//   width: $width;
-//   height: $height;
-//   margin-left: $width / -2;
-//   margin-top: $height / -2;
-// }
-
-// %movingHeading {
-//     position: absolute;
-//     right: calc(50% + #{$phoneW} / 2 + 5rem);
-//     opacity: 0;
-//     transform: translateY(200px);
-//     transition: opacity $headingsAT, transform $headingsAT ease-out;
-
-//     .page.active & {
-//       opacity: 1;
-//       transform: none;
-//       transition-timing-function: ease;
-//       transition-delay: $headingsDelay;
-//     }
-//   }

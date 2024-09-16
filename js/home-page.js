@@ -85,44 +85,6 @@ closeHeaderButton.addEventListener('click', () => closeShoupSubmit(true))
 //show-up-submit END
 
 //show-up-socials START
-// header.addEventListener('click', function () {
-//   showUpSocials.forEach((social) => {
-//     if (social.classList.contains(SHOW_UP_SOCIALS_ACTIVE)) {
-//       social.classList.remove(SHOW_UP_SOCIALS_ACTIVE)
-//       setIsScroling(true)
-//       toggleIsBlockBody(false)
-//       toggleVisibleHeader(false)
-//     }
-//   })
-// })
-
-function setEventCloseButton(social) {
-  const closeButton = social.querySelector('.show-up-socials__close')
-  closeButton.addEventListener('click', function (event) {
-    social.classList.remove(SHOW_UP_SOCIALS_ACTIVE)
-    setIsScroling(true)
-    toggleIsBlockBody(true)
-    toggleVisibleHeader(true)
-  })
-}
-
-// function setStateShowUp(showUpCurrent) {
-//   showUpSocials.forEach((social, index) => {
-//     const socialCurr = social?.dataset?.showUp
-//     if (socialCurr) {
-//       setIsScroling(false)
-//       toggleIsBlockBody(false)
-//       toggleVisibleHeader(false)
-//       if (index === showUpCurrent) {
-//         social.classList.add(SHOW_UP_SOCIALS_ACTIVE)
-//         setEventCloseButton(social)
-//       } else {
-//         social.classList.remove(SHOW_UP_SOCIALS_ACTIVE)
-//       }
-//     }
-//   })
-// }
-
 socialsCards.forEach((button, index) => {
   button.addEventListener('click', function (event) {
     event.preventDefault()
