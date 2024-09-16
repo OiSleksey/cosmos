@@ -115,19 +115,35 @@ let cosmicCareersSlider = null
 cosmicCareersSlider = new Swiper('.swiper.cosmic-careers-slider__swiper', {
   direction: 'horizontal',
   slidesPerView: 'auto',
+  // breakpoints: {
+  //   320: {
+  //     slidesPerView: 1,
+  //     spaceBetween: 20,
+  //   },
+  //   600: {
+  //     slidesPerView: 2,
+  //     spaceBetween: 20,
+  //   },
+  //   768: {
+  //     slidesPerView: 3,
+  //     spaceBetween: 30,
+  //   },
+  //   1024: {
+  //     slidesPerView: 3,
+  //     spaceBetween: 50,
+  //   },
+  // },
+
+  // direction: 'horizontal',
+  //   slidesPerView: 'auto',
+  // spaceBetween: 24,
+
   breakpoints: {
     320: {
-      slidesPerView: 1,
-      spaceBetween: 20,
-    },
-    600: {
-      slidesPerView: 2,
-      spaceBetween: 20,
-    },
-    768: {
-      slidesPerView: 3,
+      slidesPerView: 'auto',
       spaceBetween: 30,
     },
+    // когда ширина экрана больше 768px
     1024: {
       slidesPerView: 3,
       spaceBetween: 50,

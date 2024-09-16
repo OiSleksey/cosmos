@@ -333,7 +333,8 @@ $showDurationNav: 0.4s;
 
 @mixin hideScroll {
   &::-webkit-scrollbar {
-    // width: 0px;
+    width: 0;
+    height: 0;
     // background: transparent;
     -ms-overflow-style: none; /* IE и Edge */
     scrollbar-width: none; /* Firefox */

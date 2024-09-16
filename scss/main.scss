@@ -1,3 +1,131 @@
+.home-page {
+  padding: 20px 16px 20px 16px;
+
+  @include respond(sm) {
+    padding: 20px 16px 40px 16px;
+  }
+
+  @include respond(lg) {
+    padding: 11rem 4.3rem;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+
+    @include respond(lg) {
+      min-height: calc(100vh - 22rem);
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    margin-top: 150px;
+
+    @include respond(lg) {
+      max-width: 61.3rem;
+      margin-top: 0;
+    }
+  }
+
+  &__line {
+    // margin-bottom: 2.4rem;
+    @include movingElement(1);
+  }
+
+  &__header,
+  &__description {
+    margin-bottom: 24px;
+
+    @include respond(lg) {
+      margin-bottom: 2.4rem;
+    }
+  }
+
+  &__header {
+    @include movingElement(1);
+
+    color: #fff;
+    font-family: inherit;
+    font-size: 36.588px;
+    font-weight: 900;
+    letter-spacing: 0.53rem;
+    color: #fff;
+    letter-spacing: 2.56px;
+
+    @include respond(lg) {
+      font-size: 7.6rem;
+    }
+  }
+
+  &__description {
+    @include movingElement(1.1);
+    color: #fff;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    line-height: 18px;
+
+    @include respond(lg) {
+      font-size: 2.6rem;
+      line-height: 3.3rem;
+    }
+  }
+
+  &__nav {
+    @include movingElement(1.2);
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+
+    @include respond(lg) {
+      max-width: 53.4rem;
+    }
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: 3.4rem;
+    @include respond(lg) {
+      gap: 1.6rem;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    width: 50px;
+    flex-shrink: 0;
+    opacity: 1;
+    transition: opacity 0.6s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    @include respond(lg) {
+      width: 5.2rem;
+    }
+  }
+
+  &__text {
+    color: #fff;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.1rem;
+    line-height: 22px;
+
+    @include respond(lg) {
+      font-size: 2.2rem;
+      line-height: 2.8rem;
+    }
+  }
+}
+
 .info-button {
   display: inline-flex;
   align-items: flex-end;
@@ -621,7 +749,7 @@
     background-image: url('/img/substrate-short.svg');
     background-repeat: no-repeat;
     background-size: auto 100vh;
-    background-position: top 50% left 50%;
+    background-position: top 50% left 70%;
     // min-height: 100vh;
     @include movingElement(1);
     padding: 20px 0;
@@ -637,12 +765,17 @@
     width: 100%;
     background-image: url('/img/show-up-pink.svg');
     background-repeat: no-repeat;
-    background-size: calc($maxWidthAllContent * 2.5) 250rem;
-    background-position: top 50% left 50%;
+    background-size: calc($maxWidthAllContent * 2.5) 120%;
+    background-position: top 50% left 69.5%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px 0;
+
+    @include respond(sm) {
+      background-position: top 50% left 50%;
+      background-size: calc($maxWidthAllContent * 2.5) 250rem;
+    }
 
     @include respond(lg) {
       @include movingElement(1);
@@ -654,6 +787,22 @@
     @include respond(2xl) {
       background-size: calc(100vw * 1.5) $deep-page-pink;
     }
+
+    &.for-educators__substrate-pink {
+      min-height: 60vh;
+      background-size: cover;
+      background-position: top 50% left 50%;
+
+      @include respond(lg) {
+        background-size: calc($maxWidthAllContent * 1.5) 100%;
+        min-height: calc(97vh - 3rem);
+        padding: 2rem 0;
+      }
+
+      @include respond(2xl) {
+        background-size: calc(100vw * 1.5) $deep-page-pink;
+      }
+    }
   }
 
   &__substrate-blue {
@@ -661,13 +810,18 @@
     background-image: url('/img/show-up-blue.svg');
     background-repeat: no-repeat;
     background-size: calc($maxWidthAllContent * 2.5) 120%;
-    background-position: center left 50%;
+    background-position: center left 70%;
 
     min-height: 80vh;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include respond(sm) {
+      background-position: top 50% left 50%;
+      // background-size: calc($maxWidthAllContent * 2.5) 250rem;
+    }
 
     @include respond(lg) {
       margin-top: 2vh;
@@ -677,6 +831,23 @@
 
     @include respond(2xl) {
       background-size: calc(100vw * 1.5) 100%;
+    }
+
+    &.for-educators__substrate-blue {
+      min-height: 60vh;
+      background-size: cover;
+      background-position: top 50% left 58.5%;
+
+      @include respond(lg) {
+        margin-top: 2vh;
+        background-size: calc($maxWidthAllContent * 1.5) 100%;
+        min-height: calc(97vh - 3rem);
+        background-position: top 50% left 50%;
+      }
+
+      @include respond(2xl) {
+        background-size: calc(100vw * 1.5) 100%;
+      }
     }
   }
 
@@ -692,6 +863,17 @@
       min-height: 40rem;
       max-width: $maxWidthAllContent;
       padding: 0 3.4rem;
+    }
+
+    &.for-educators__content {
+      padding: 70px 16px 70px 16px;
+
+      @include respond(lg) {
+        margin-bottom: 3vh;
+        min-height: 40rem;
+        max-width: $maxWidthAllContent;
+        padding: 0 3.4rem;
+      }
     }
   }
 
@@ -1304,7 +1486,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      border: 3px solid rgba(253, 232, 176, 0.5);
+      border: 0.6rem solid rgba(253, 232, 176, 0.5);
       z-index: 1;
       border-radius: 0.6rem;
     }
@@ -1492,7 +1674,6 @@
 }
 
 .first-woman {
-  margin: 0 -4.3rem;
   // padding: 11rem 4.3rem 3rem 4.3rem;
   width: 100vw;
 
@@ -1501,6 +1682,7 @@
   justify-content: space-between;
 
   @include respond(lg) {
+    margin: 0 -4.3rem;
     min-height: calc(100vh - 15rem);
   }
 
@@ -1579,9 +1761,9 @@
   }
 
   &__unit {
-    padding: 0 16px;
     @include movingElement(1.2);
     @include respond(lg) {
+      padding: 0 16px;
       padding-left: 8rem;
     }
 

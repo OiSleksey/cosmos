@@ -263,24 +263,42 @@ function setPositionSubstrateBody(currPage) {
   }
 }
 
+let isScrollUp = false
+let isTop = false
+
 function navigateUp() {
   let currPageModal = getCurrentPage()
   if (currPageModal == 1) return
   const currPage = document.querySelector(`.page-${currPageModal}`)
   const scrollTopHeightCurrPage = currPage.scrollTop
-  if (scrollTopHeightCurrPage >= 30) {
+  if (isTop) isScrollUp = true
+  if (scrollTopHeightCurrPage >= 10) {
+    return null
+  } else {
+    isTop = true
+  }
+
+  if (!isScrollUp) {
     return null
   }
+  //
+
+  //
   // const currActivePage = document.querySelector('.page-' + currPageModal)
   // currActivePage.scroll({ top: 0 })
-
+  isScrollDown = false
+  isBottom = false
   setPositionSubstrateBody(currPageModal)
   currPageModal--
   setCurrentPage(currPageModal)
   pagination(DIRECTION_DOWN)
 }
 
+let isScrollDown = false
+let isBottom = false
+
 function navigateDown() {
+  console.log('navigateDown')
   let currPageModal = getCurrentPage()
   if (currPageModal == numOfPages) return
   if (!getIsMobileDevice()) {
@@ -288,13 +306,24 @@ function navigateDown() {
     const offsetHeightCurrPage = currPage.offsetHeight
     const scrollHeightCurrPage = currPage.scrollHeight
     const scrollTopHeightCurrPage = currPage.scrollTop
-    if (scrollHeightCurrPage - offsetHeightCurrPage - scrollTopHeightCurrPage >= 30) {
+
+    if (isBottom) isScrollDown = true
+    if (scrollHeightCurrPage - offsetHeightCurrPage - scrollTopHeightCurrPage >= 10) {
+      isScrollDown = false
+      return null
+    } else {
+      isBottom = true
+    }
+
+    if (!isScrollDown) {
       return null
     }
-    const currActivePage = document.querySelector('.page-' + currPageModal)
-    currActivePage.scroll({ top: 0 })
-  }
 
+    const currActivePage = document.querySelector('.page-' + currPageModal)
+    // currActivePage.scroll({ top: 0 })
+  }
+  isScrollDown = false
+  isBottom = false
   setPositionSubstrateBody(currPageModal)
   currPageModal++
   setCurrentPage(currPageModal)
