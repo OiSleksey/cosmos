@@ -293,15 +293,19 @@ function navigateUp() {
   isScrollDown = false
   isBottom = false
   setPositionSubstrateBody(currPageModal)
-  currPageModal--
+  if (currPageModal == 16) {
+    currPageModal = parseFloat(currPageModal) - 2
+  } else {
+    currPageModal--
+  }
+
   setCurrentPage(currPageModal)
   pagination(DIRECTION_DOWN)
 }
 let scrollForEducators = false
 const showUpEducators = document.querySelector('.show-up-educators')
 showUpEducators.addEventListener('transitionend', function (e) {
-  console.log('showUpEducators')
-  togleMainScroll(true)
+  setTimeout(() => togleMainScroll(true), 1000)
 })
 showUpEducators.addEventListener('click', function (e) {
   toggleEducatorsActive(14, true, 'down')
@@ -377,7 +381,12 @@ function navigateDown(isButtonClick) {
   isScrollDown = false
   isBottom = false
   setPositionSubstrateBody(currPageModal)
-  currPageModal++
+  if (currPageModal == 14) {
+    currPageModal = parseFloat(currPageModal) + 2
+  } else {
+    currPageModal++
+  }
+
   setCurrentPage(currPageModal)
   pagination(DIRECTION_UP)
 }

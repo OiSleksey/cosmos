@@ -1,12 +1,13 @@
 $maxWidthAllContent: 1920px;
 
-$preloaderAT: 1.5s;
-$preloaderDelay: 0.5s;
+// $preloaderAT: 1.5s;
+// $preloaderDelay: 0.5s;
 $preloaderFadeAT: 0.5s;
 
-$rotatingAT: 1s;
+$rotatingAT: 1.5s;
 $headingsAT: $rotatingAT * 0.6;
-$headingsDelay: $rotatingAT * 0.8;
+$headingsDelay: $rotatingAT;
+// $headingsDelay: $rotatingAT * 0.8;
 
 $sizeSubstratePlanetMobile: 243px;
 $sizeSubstrateObject: 70rem;
