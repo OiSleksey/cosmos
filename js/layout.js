@@ -230,6 +230,7 @@ function pagination(direction, page) {
     } else {
       toggleSubstrateFirstWomen(false)
     }
+    toggleEducatorsShow(currPageModal)
     const pageActive = document.querySelectorAll('.page.page--active')
     const nextActivePage = document.querySelector('.page-' + currPageModal)
     pageActive.forEach((page) => page.classList.remove('page--active'))
@@ -269,9 +270,11 @@ let isTop = false
 
 function navigateUp() {
   let currPageModal = getCurrentPage()
+  toggleEducatorsActive(currPageModal, false, 'up')
   if (currPageModal == 1) return
   const currPage = document.querySelector(`.page-${currPageModal}`)
   const scrollTopHeightCurrPage = currPage.scrollTop
+
   if (isTop) isScrollUp = true
   if (scrollTopHeightCurrPage >= 10) {
     return null
@@ -294,6 +297,41 @@ function navigateUp() {
   setCurrentPage(currPageModal)
   pagination(DIRECTION_DOWN)
 }
+let isDown = false
+
+function toggleEducatorsActive(currPage, state, direction) {
+  // console.log('currPage ', currPage)
+  // console.log('state ', state)
+  const showUpEducators = document.querySelector('.show-up-educators')
+
+  if (currPage == 14) {
+    if (direction === 'up') {
+      showUpEducators.classList.remove('show-up-educators--active')
+      isDown = false
+      return
+    } else {
+      if (showUpEducators.classList.contains('show-up-educators--active')) {
+        showUpEducators.classList.remove('show-up-educators--active')
+        isDown = false
+      } else {
+        showUpEducators.classList.add('show-up-educators--active')
+        isDown = true
+      }
+    }
+    return isDown
+  }
+
+  return false
+}
+
+function toggleEducatorsShow(currPage, state) {
+  const showUpEducators = document.querySelector('.show-up-educators')
+  if (currPage == 14) {
+    showUpEducators.classList.add('show-up-educators--show')
+  } else {
+    showUpEducators.classList.remove('show-up-educators--show')
+  }
+}
 
 let isScrollDown = false
 let isBottom = false
@@ -311,6 +349,7 @@ function navigateDown(isButtonClick) {
       if (isBottom) isScrollDown = true
       if (scrollHeightCurrPage - offsetHeightCurrPage - scrollTopHeightCurrPage >= 10) {
         isScrollDown = false
+        toggleEducatorsActive(currPageModal, true, 'down')
         return null
       } else {
         isBottom = true
@@ -320,7 +359,7 @@ function navigateDown(isButtonClick) {
         return null
       }
     }
-
+    if (toggleEducatorsActive(currPageModal, false, 'down')) return null
     const currActivePage = document.querySelector('.page-' + currPageModal)
     // currActivePage.scroll({ top: 0 })
   }
@@ -506,19 +545,19 @@ function setOverflowPages() {
     }
   })
 }
-let timeOutPageTransition
-const animationElements = document.querySelectorAll('.animation-element')
-function setEventTransitinPages() {
-  animationElements.forEach((element, index) => {
-    element.addEventListener('transitionend', function (event) {
-      event.stopPropagation()
-      clearInterval(timeOutPageTransition)
-      timeOutPageTransition = setTimeout(() => {
-        setOverflowPages()
-      }, 200)
-    })
-  })
-}
+// let timeOutPageTransition
+// const animationElements = document.querySelectorAll('.animation-element')
+// function setEventTransitinPages() {
+//   animationElements.forEach((element, index) => {
+//     element.addEventListener('transitionend', function (event) {
+//       event.stopPropagation()
+//       clearInterval(timeOutPageTransition)
+//       timeOutPageTransition = setTimeout(() => {
+//         setOverflowPages()
+//       }, 200)
+//     })
+//   })
+// }
 
 let isCurrentMobileDevice = true
 window.addEventListener('DOMContentLoaded', async () => {
@@ -538,7 +577,8 @@ window.addEventListener('load', async () => {
   }
 
   startGalerry()
-  setEventTransitinPages()
+  setOverflowPages()
+  // setEventTransitinPages()
   // heightPageContent()
 })
 //Loader END
@@ -564,6 +604,7 @@ window.addEventListener('resize', function (event) {
 rotater.addEventListener('transitionend', function (e) {
   if (!getIsMobileDevice()) {
     // console.log('transition')
+    setOverflowPages()
     togleMainScroll(true)
   }
 })

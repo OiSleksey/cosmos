@@ -607,7 +607,7 @@
 
     @include respond(md) {
       transform: translateY(88px);
-    } 
+    }
 
     @include respond(lg) {
       transform: translateY(3vw);
@@ -1274,6 +1274,123 @@
         width: 0.4rem;
         height: 0.4rem;
       }
+    }
+  }
+}
+
+.show-up-educators {
+  opacity: 0;
+  transition: opacity $headingsAT, transform $headingsAT ease-out;
+  transform: translateY(200px);
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 3;
+
+  &--active {
+    .show-up-educators__container {
+      transform: translateY(0%);
+    }
+
+    .show-up-educators__body {
+      opacity: 1;
+    }
+  }
+
+  &--show {
+    opacity: 1;
+    transform: translateY(0);
+    transition-timing-function: ease;
+    transition-delay: calc($headingsDelay / 1.4);
+  }
+
+  &__container {
+    // position: absolute;
+    background: #08c;
+    // bottom: 0;
+    // left: 0;
+    // right: 0;
+    transform: translateY(61%);
+    padding: 3rem 0;
+    transition: transform $headingsAT ease;
+  }
+
+  &__head {
+  }
+
+  &__header {
+    margin-bottom: 2rem;
+
+    color: #fff;
+    font-family: inherit;
+    font-size: 40px;
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: 3.06px;
+    text-transform: uppercase;
+    text-align: center;
+
+    @include respond(lg) {
+      font-size: 5.6rem;
+    }
+  }
+
+  &__body {
+    transition: opacity $headingsAT ease;
+    opacity: 0;
+  }
+
+  &__description {
+    margin: 0 auto 2.4rem auto;
+
+    color: #fff;
+    font-family: inherit;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 1.064px;
+    line-height: 26px;
+    text-align: center;
+
+    @include respond(lg) {
+      max-width: 114rem;
+      font-size: 2rem;
+      line-height: 2.6rem;
+    }
+  }
+
+  &__register {
+    color: inherit;
+    font-family: inherit;
+    font-weight: 900;
+    text-decoration: underline;
+  }
+
+  &__button-block {
+    text-align: center;
+  }
+
+  &__button {
+    @include rectangleButton;
+    cursor: pointer;
+    color: #fff;
+    width: max-content;
+
+    font-family: inherit;
+    font-size: 4.6rem;
+    font-weight: 400;
+    letter-spacing: 1.064px;
+    text-transform: capitalize;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 1rem 2rem;
+    opacity: 1;
+    transition: opacity 0.6s;
+
+    &:hover {
+      opacity: 0.8;
     }
   }
 }
