@@ -497,6 +497,7 @@ scrollToTop()
 
 function setOverflowPages() {
   const currPage = getCurrentPage()
+  console.log('currPage ', currPage)
   pages.forEach((page, index) => {
     if (currPage == index + 1) {
       page.style.overflowY = 'auto'
@@ -506,16 +507,15 @@ function setOverflowPages() {
   })
 }
 let timeOutPageTransition
+const animationElements = document.querySelectorAll('.animation-element')
 function setEventTransitinPages() {
-  pages.forEach((page, index) => {
-    page.addEventListener('transitionend', function (event) {
+  animationElements.forEach((element, index) => {
+    element.addEventListener('transitionend', function (event) {
+      event.stopPropagation()
       clearInterval(timeOutPageTransition)
       timeOutPageTransition = setTimeout(() => {
-        console.log(event.target.classList)
-        if ([...event.target.classList].some((className) => className.includes('page'))) {
-          setOverflowPages()
-        }
-      }, 700)
+        setOverflowPages()
+      }, 200)
     })
   })
 }
