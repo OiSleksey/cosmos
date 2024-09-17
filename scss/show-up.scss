@@ -10,10 +10,10 @@
   transition: opacity $headingsAT, transform $headingsAT ease-out;
   max-width: 100vw;
   overflow: hidden;
-  background-image: url('/img/substrate-long.svg');
+  background-image: url('/img/bg-new.png');
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: top 0 left 50%;
+  background-size: 100% 122%;
+  background-position: center top 20%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -21,6 +21,8 @@
 
   @include respond(lg) {
     padding: 6rem 0;
+    background-size: 100% 122%;
+    background-position: center top 20%;
   }
 
   @include respond(3xl) {

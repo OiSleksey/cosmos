@@ -123,14 +123,10 @@ $showDurationNav: 0.4s;
 @mixin maxHeightShowUpDesktop {
   @include hideScroll;
   overflow-y: auto;
-  max-height: calc(100vh - 80px);
+  max-height: 100vh;
 
   @include respond(lg) {
     @include hideScroll;
-    max-height: calc(100vh - 5rem);
-    @media only screen and (min-height: 600px) {
-      max-height: 90vh;
-    }
   }
 }
 
