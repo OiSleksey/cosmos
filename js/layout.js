@@ -270,7 +270,7 @@ let isTop = false
 
 function navigateUp() {
   let currPageModal = getCurrentPage()
-  toggleEducatorsActive(currPageModal, false, 'up')
+  if (toggleEducatorsActive(currPageModal, false, 'up')) return null
   if (currPageModal == 1) return
   const currPage = document.querySelector(`.page-${currPageModal}`)
   const scrollTopHeightCurrPage = currPage.scrollTop
@@ -297,28 +297,35 @@ function navigateUp() {
   setCurrentPage(currPageModal)
   pagination(DIRECTION_DOWN)
 }
-let isDown = false
-
+let scrollForEducators = false
+const showUpEducators = document.querySelector('.show-up-educators')
+showUpEducators.addEventListener('transitionend', function (e) {
+  console.log('showUpEducators')
+  togleMainScroll(true)
+})
 function toggleEducatorsActive(currPage, state, direction) {
   // console.log('currPage ', currPage)
   // console.log('state ', state)
-  const showUpEducators = document.querySelector('.show-up-educators')
 
   if (currPage == 14) {
+    togleMainScroll(false)
     if (direction === 'up') {
-      showUpEducators.classList.remove('show-up-educators--active')
-      isDown = false
-      return
+      if (showUpEducators.classList.contains('show-up-educators--active')) {
+        showUpEducators.classList.remove('show-up-educators--active')
+        scrollForEducators = true
+      } else {
+        scrollForEducators = false
+      }
     } else {
       if (showUpEducators.classList.contains('show-up-educators--active')) {
         showUpEducators.classList.remove('show-up-educators--active')
-        isDown = false
+        scrollForEducators = false
       } else {
         showUpEducators.classList.add('show-up-educators--active')
-        isDown = true
+        scrollForEducators = true
       }
     }
-    return isDown
+    return scrollForEducators
   }
 
   return false
