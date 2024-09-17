@@ -591,6 +591,12 @@
     min-height: 80rem;
   }
 
+  @include respond(2xl) {
+    padding: 13rem 0;
+    background-image: url('/img/bg-new.svg');
+    background-position: top 0 right 0;
+  }
+
   &--active {
     opacity: 1;
 
@@ -605,8 +611,12 @@
       transform: translateY(3vw);
     }
 
-    @include respond(2xl) {
+    @include respond(xl) {
       transform: translateY(7rem);
+    }
+
+    @include respond(2xl) {
+      transform: translateY(13rem);
     }
 
     .show-up-home__close {

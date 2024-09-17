@@ -759,95 +759,26 @@
     }
   }
 
-  &__substrate-pink {
+  &__substrate-blue {
     position: relative;
-    min-height: 80vh;
+    min-height: 100vh;
     width: 100%;
-    background-image: url('/img/show-up-pink.svg');
+    background-image: url('/img/bg-new.png');
     background-repeat: no-repeat;
-    background-size: calc($maxWidthAllContent * 2.5) 120%;
-    background-position: top 50% left 69.5%;
+    background-size: 300%;
+    background-position: center top;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px 0;
 
     @include respond(sm) {
-      background-position: top 50% left 50%;
-      background-size: calc($maxWidthAllContent * 2.5) 250rem;
+      background-size: 200%;
     }
 
     @include respond(lg) {
       @include movingElement(1);
-      background-size: calc($maxWidthAllContent * 1.5) $deep-page-pink;
-      min-height: calc(100vh - 3rem);
-      padding: 2rem 0;
-    }
-
-    @include respond(2xl) {
-      background-size: calc(100vw * 1.5) $deep-page-pink;
-    }
-
-    &.for-educators__substrate-pink {
-      min-height: 60vh;
-      background-size: cover;
-      background-position: top 50% left 50%;
-
-      @include respond(lg) {
-        background-size: calc($maxWidthAllContent * 1.5) 100%;
-        min-height: calc(97vh - 3rem);
-        padding: 2rem 0;
-      }
-
-      @include respond(2xl) {
-        background-size: calc(100vw * 1.5) $deep-page-pink;
-      }
-    }
-  }
-
-  &__substrate-blue {
-    width: 100%;
-    background-image: url('/img/show-up-blue.svg');
-    background-repeat: no-repeat;
-    background-size: calc($maxWidthAllContent * 2.5) 120%;
-    background-position: center left 70%;
-
-    min-height: 80vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    @include respond(sm) {
-      background-position: top 50% left 50%;
-      // background-size: calc($maxWidthAllContent * 2.5) 250rem;
-    }
-
-    @include respond(lg) {
-      margin-top: 2vh;
-      background-size: calc($maxWidthAllContent * 1.5) 100%;
-      min-height: calc(97vh - 3rem);
-    }
-
-    @include respond(2xl) {
-      background-size: calc(100vw * 1.5) 100%;
-    }
-
-    &.for-educators__substrate-blue {
-      min-height: 60vh;
-      background-size: cover;
-      background-position: top 50% left 58.5%;
-
-      @include respond(lg) {
-        margin-top: 2vh;
-        background-size: calc($maxWidthAllContent * 1.5) 100%;
-        min-height: calc(97vh - 3rem);
-        background-position: top 50% left 50%;
-      }
-
-      @include respond(2xl) {
-        background-size: calc(100vw * 1.5) 100%;
-      }
+      background-size: 100% 122%;
+      background-position: center top 20%;
     }
   }
 
@@ -1082,7 +1013,11 @@
     @include respond(lg) {
       margin: 0;
       padding: 0;
+    }
+
+    @include respond(2xl) {
       max-width: 114.2rem;
+      overflow: visible;
     }
   }
   .swiper-slide {
