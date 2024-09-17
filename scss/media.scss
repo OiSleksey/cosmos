@@ -30,7 +30,7 @@
   }
 
   @if $breakpoint == 3xl {
-    @media only screen and (min-width: 1536px) {
+    @media only screen and (min-width: 1540px) {
       @content;
     }
   }
