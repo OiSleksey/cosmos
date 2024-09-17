@@ -1724,10 +1724,6 @@
       width: 115rem;
       max-width: 100%;
     }
-
-    @include respond(2xl) {
-      padding-left: 12rem;
-    }
   }
 
   &__text {
