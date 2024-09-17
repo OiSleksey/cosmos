@@ -320,7 +320,6 @@ function toggleEducatorsActive(currPage, state, direction) {
 
   if (currPage == 14) {
     togleMainScroll(false)
-
     if (direction === 'up') {
       if (showUpEducators.classList.contains('show-up-educators--active')) {
         showUpEducators.classList.remove('show-up-educators--active')
