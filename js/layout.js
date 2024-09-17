@@ -314,15 +314,34 @@ showUpEducators.addEventListener('click', function (e) {
   toggleEducatorsActive(14, true, 'down')
 })
 
-function toggleEducatorsActive(currPage, state, direction) {
-  // console.log('currPage ', currPage)
-  // console.log('state ', state)
+let maxHeightCaptions = 0
+const cosmicCareersSliderCaptions = document.querySelectorAll('.cosmic-careers-slider__caption')
 
+cosmicCareersSliderCaptions.forEach((caption) => {
+  if (maxHeightCaptions < caption.offsetHeight) {
+    maxHeightCaptions = caption.offsetHeight
+  }
+})
+
+function toggleCosmicCareersSliderHeight(state) {
+  if (state) {
+    cosmicCareersSliderCaptions.forEach((caption) => {
+      caption.style.maxHeight = 0 + 'px'
+    })
+  } else {
+    cosmicCareersSliderCaptions.forEach((caption) => {
+      caption.style.maxHeight = maxHeightCaptions + 30 + 'px'
+    })
+  }
+}
+
+function toggleEducatorsActive(currPage, state, direction) {
   if (currPage == 14) {
     togleMainScroll(false)
     if (direction === 'up') {
       if (showUpEducators.classList.contains('show-up-educators--active')) {
         showUpEducators.classList.remove('show-up-educators--active')
+        toggleCosmicCareersSliderHeight(false)
         scrollForEducators = true
       } else {
         scrollForEducators = false
@@ -330,11 +349,11 @@ function toggleEducatorsActive(currPage, state, direction) {
     } else {
       if (showUpEducators.classList.contains('show-up-educators--active')) {
         showUpEducators.classList.remove('show-up-educators--active')
-        console.log('if')
+        toggleCosmicCareersSliderHeight(false)
         scrollForEducators = false
       } else {
         showUpEducators.classList.add('show-up-educators--active')
-        console.log('else')
+        toggleCosmicCareersSliderHeight(true)
         scrollForEducators = true
       }
     }
@@ -561,7 +580,6 @@ scrollToTop()
 
 function setOverflowPages() {
   const currPage = getCurrentPage()
-  console.log('currPage ', currPage)
   pages.forEach((page, index) => {
     if (currPage == index + 1) {
       page.style.overflowY = 'auto'

@@ -399,6 +399,9 @@
     line-height: 26px;
     letter-spacing: 1px;
     margin-bottom: 8px;
+    max-height: 100vh;
+    transition: max-height $headingsAT ease;
+    overflow: hidden;
 
     @include respond(lg) {
       margin-bottom: 0.8rem;
@@ -1348,7 +1351,7 @@
     opacity: 1;
     transform: translateY(0);
     transition-timing-function: ease;
-    transition-delay: calc($headingsDelay / 1.4);
+    transition-delay: calc($headingsDelay * 1.4);
   }
 
   &__container {
