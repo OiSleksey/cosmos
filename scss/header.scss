@@ -87,6 +87,18 @@
       display: block;
     }
   }
+
+  &::before {
+    content: '';
+    height: 150px;
+    display: block;
+    position: absolute;
+    top: -50px;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.517266281512605) 60%, rgba(0,0,0,0) 100%);
+  }
 }
 
 .navigation {
