@@ -761,21 +761,23 @@
 
   &__substrate-blue {
     position: relative;
-    min-height: 100vh;
+    min-height: none;
     width: 100%;
     background-image: url('/img/bg-new.png');
     background-repeat: no-repeat;
-    background-size: 300%;
-    background-position: center top;
+    background-size: 190% 120%;
+    background-position: center top 15%;
     display: flex;
     justify-content: center;
     align-items: center;
 
     @include respond(sm) {
       background-size: 200%;
+      background-position: center top;
     }
 
     @include respond(lg) {
+      min-height: 100vh;
       @include movingElement(1);
       background-size: 100% 122%;
       background-position: center top 20%;
@@ -786,31 +788,26 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 20px 16px 40px 16px;
+    padding: 60px 16px;
     width: 100%;
 
+    @include respond(sm) {
+      padding: 100px 16px 50px;
+    }
+
     @include respond(lg) {
+      padding: 20px 16px 40px 16px;
       margin-bottom: 3vh;
       min-height: 40rem;
       max-width: $maxWidthAllContent;
       padding: 0 3.4rem;
-    }
-
-    &.for-educators__content {
-      padding: 70px 16px 70px 16px;
-
-      @include respond(lg) {
-        margin-bottom: 3vh;
-        min-height: 40rem;
-        max-width: $maxWidthAllContent;
-        padding: 0 3.4rem;
-      }
     }
   }
 
   &__wrap {
     max-width: 100vw;
     padding: 16px;
+    margin-bottom: 6rem;
 
     @include respond(lg) {
       padding: 3.2rem;
@@ -829,6 +826,7 @@
     letter-spacing: 1.064px;
 
     @include respond(lg) {
+      padding-top: 3rem;
       max-width: 114rem;
       font-size: 4.6rem;
     }
@@ -849,7 +847,7 @@
 
   &__header {
     @include movingElement(1.2);
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 
     color: #fff;
     font-family: inherit;
@@ -886,7 +884,7 @@
 
   &__caption {
     @include movingElement(1.3);
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 
     color: #fff;
     font-family: inherit;
@@ -1242,6 +1240,7 @@
   justify-content: center;
   max-width: $maxWidthAllContent;
   width: 100%;
+  max-width: 145rem;
   @include movingElement(1.3);
 
   &__cards {
@@ -1713,7 +1712,7 @@
     @include movingElement(1.2);
     @include respond(lg) {
       padding: 0 3rem;
-      width: 130rem;
+      width: 115rem;
       max-width: 100%;
     }
 
@@ -2052,5 +2051,14 @@
     @include respond(lg) {
       font-size: 1.4rem;
     }
+  }
+}
+
+.collaborators {
+  padding-bottom: 1rem;
+  min-height: 50vh;
+
+  @include respond(lg) {
+    min-height: 100vh;
   }
 }

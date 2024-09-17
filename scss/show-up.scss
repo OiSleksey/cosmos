@@ -1,6 +1,6 @@
 .show-up-sustainability-galery {
   position: fixed;
-  min-height: 100vh;
+  min-height: 80vh;
   left: 0;
   right: 0;
   bottom: 0;
@@ -12,8 +12,8 @@
   overflow: hidden;
   background-image: url('/img/bg-new.png');
   background-repeat: no-repeat;
-  background-size: 100% 122%;
-  background-position: center top 20%;
+  background-size: 190% 120%;
+  background-position: center top 15%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -23,10 +23,17 @@
     padding: 6rem 0;
     background-size: 100% 122%;
     background-position: center top 20%;
+    min-height: 100vh;
   }
 
   @include respond(3xl) {
-    padding: 14vh 0 14vh 0;
+    padding: 7vh 0 1vh 0;
+  }
+  @include respond(4xl) {
+    padding: 8vh 0 1vh 0;
+  }
+  @include respond(5xl) {
+    padding: 10vh 0 1vh 0;
   }
 
   &--active {
@@ -81,7 +88,8 @@
   &__body {
     max-width: $maxWidthAllContent;
     margin: 0 auto;
-    width: 100%;
+    width: 140rem;
+    max-width: 100%;
     display: flex;
     // align-items: center;
     justify-content: center;
@@ -90,7 +98,12 @@
     min-height: 50vh;
 
     @include respond(lg) {
-      padding: 0 7rem;
+      padding: 0 10rem;
+      max-width: 150vh;
+    }
+
+    @include respond(xl) {
+      padding: 0 8rem;
     }
   }
 }
@@ -101,6 +114,7 @@
   justify-content: center;
   max-width: $maxWidthAllContent;
   width: 100%;
+  position: relative;
   // margin: 0 -16px;
 
   &__wrapper {
@@ -166,7 +180,8 @@
     @include respond(lg) {
       padding: 0;
       font-size: 2rem;
-      max-width: 104.8rem;
+      width: 100%;
+      max-width: 80vh;
       margin-bottom: 2.4rem;
     }
   }
@@ -181,15 +196,12 @@
     position: relative;
     margin: 0 auto;
     background-color: rgba(55, 6, 113, 0.9);
-    max-width: 90vh;
 
     @include respond(sm) {
-      max-width: 68vh;
       margin: 0 auto;
     }
 
     @include respond(lg) {
-      max-width: 88vh;
       margin: 0 auto;
     }
 
@@ -223,6 +235,9 @@
 
     @include respond(lg) {
       display: block;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
     }
 
     &:hover {
@@ -230,11 +245,11 @@
     }
 
     &--left {
-      margin-right: 5.5rem;
+      left: -6.5rem;
     }
 
     &--right {
-      margin-left: 5.5rem;
+      right: -6.5rem;
     }
     &.swiper-button-disabled {
       opacity: 0.2;
@@ -752,10 +767,10 @@
   transition: opacity $headingsAT, transform $headingsAT ease-out;
   max-width: 100vw;
   overflow: hidden;
-  background-image: url('/img/substrate-long.svg');
+  background-image: url('/img/bg-new.png');
+  background-size: 190% 120%;
+  background-position: center top 15%;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: top 0 left 50%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -763,11 +778,15 @@
 
   @include respond(sm) {
     padding: 8vh 0 8vh 0;
+    background-size: 200%;
+    background-position: center top;
   }
 
   @include respond(lg) {
     max-width: none;
     padding: 4rem 0 4rem 0;
+    background-size: 100% 122%;
+    background-position: center top 20%;
   }
 
   @include respond(2xl) {
@@ -1010,38 +1029,41 @@
 
 .show-up-socials {
   position: fixed;
-  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
   z-index: 8;
   width: 100%;
-  min-height: 100vh;
+  height: 80vh;
   opacity: 0;
   transform: translateY(100%);
   transition: opacity $headingsAT, transform $headingsAT ease-out;
   max-width: 100vw;
   overflow: hidden;
   padding: 12vh 0 8vh 0;
-
-  background-image: url('/img/substrate-long.svg');
+  background-image: url('/img/bg-new.png');
+  background-size: 190% 120%;
+  background-position: center top 15%;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: top 0 left 50%;
   display: flex;
   align-items: center;
   flex-direction: column;
 
   @include respond(sm) {
     padding: 8vh 0 8vh 0;
+    background-size: 200%;
+    background-position: center top;
   }
 
   @include respond(lg) {
     max-width: none;
     padding: 4rem 0 4rem 0;
+    background-size: 100% 130%;
+    background-position: center top;
   }
 
   @include respond(2xl) {
-    padding: 8rem 0 8rem 0;
+    padding: 4rem 0 4rem 0;
   }
 
   &--active {
@@ -1077,8 +1099,23 @@
   }
 
   &__container {
-    @include maxHeightShowUpDesktop;
-    padding-bottom: 60px;
+    padding-bottom: 0;
+    @include hideScroll;
+    overflow-y: auto;
+
+    @include respond(lg) {
+      overflow-y: visible;
+      max-height: none;
+    }
+  }
+
+  &__content {
+    
+    @include respond(lg) {
+      @include hideScroll;
+      overflow-y: auto;
+      max-height: 52vh;
+    }
   }
 
   &__body {
@@ -1092,9 +1129,13 @@
 
     @include respond(lg) {
       gap: 8.1rem;
-      padding: 8rem 4rem;
+      padding: 4rem 4rem 1rem;
       flex-direction: row;
       align-items: flex-start;
+    }
+
+    @include respond(xl) {
+      padding: 1rem 4rem;
     }
   }
 
