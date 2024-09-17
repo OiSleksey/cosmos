@@ -303,6 +303,10 @@ showUpEducators.addEventListener('transitionend', function (e) {
   console.log('showUpEducators')
   togleMainScroll(true)
 })
+showUpEducators.addEventListener('click', function (e) {
+  toggleEducatorsActive(14, true, 'down')
+})
+
 function toggleEducatorsActive(currPage, state, direction) {
   // console.log('currPage ', currPage)
   // console.log('state ', state)
