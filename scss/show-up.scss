@@ -236,8 +236,7 @@
     @include respond(lg) {
       display: block;
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 48%;
     }
 
     &:hover {
@@ -422,9 +421,10 @@
     letter-spacing: 4.25px;
     text-transform: uppercase;
 
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
-    padding: 1rem 2.4rem;
+    background-position: center;
+    padding: 1rem 2.5rem;
     opacity: 1;
     transition: opacity 0.6s;
 
@@ -1340,6 +1340,22 @@
     .show-up-educators__container {
       transform: translateY(0%);
       padding-top: 120px;
+
+      @include respond(xl) {
+        padding-top: 128px;
+      }
+
+      @include respond(2xl) {
+        padding-top: 136px;
+      }
+
+      @include respond(3xl) {
+        padding-top: 142px;
+      }
+
+      @include respond(4xl) {
+        padding-top: 150px;
+      }
     }
 
     .show-up-educators__body {
@@ -1369,7 +1385,25 @@
     @include respond(lg) {
       background-size: 100%;
       background-position: center top;
-      padding-top: 90px;
+      padding-top: 96px;
+    }
+
+    @include respond(xl) {
+      padding-top: 100px;
+      transform: translateY(48%);
+    }
+
+    @include respond(2xl) {
+      padding-top: 110px;
+      transform: translateY(49%);
+    }
+
+    @include respond(3xl) {
+      padding-top: 122px;
+    }
+
+    @include respond(4xl) {
+      padding-top: 135px;
     }
   }
 
