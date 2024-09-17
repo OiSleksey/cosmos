@@ -1110,7 +1110,6 @@
   }
 
   &__content {
-    
     @include respond(lg) {
       @include hideScroll;
       overflow-y: auto;
@@ -1328,6 +1327,11 @@
   right: 0;
   left: 0;
   z-index: 3;
+  display: none;
+
+  @include respond(lg) {
+    display: block;
+  }
 
   &--active {
     .show-up-educators__container {
