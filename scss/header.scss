@@ -37,6 +37,7 @@
 
     img {
       width: 100%;
+      min-width: 28px;
     }
 
     @include respond(lg) {
