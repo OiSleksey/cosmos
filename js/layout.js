@@ -305,7 +305,10 @@ function navigateUp() {
 let scrollForEducators = false
 const showUpEducators = document.querySelector('.show-up-educators')
 showUpEducators.addEventListener('transitionend', function (e) {
-  setTimeout(() => togleMainScroll(true), 1000)
+  setTimeout(() => {
+    togleMainScroll(true)
+    scrollForEducators = true
+  }, 1000)
 })
 showUpEducators.addEventListener('click', function (e) {
   toggleEducatorsActive(14, true, 'down')
@@ -327,9 +330,11 @@ function toggleEducatorsActive(currPage, state, direction) {
     } else {
       if (showUpEducators.classList.contains('show-up-educators--active')) {
         showUpEducators.classList.remove('show-up-educators--active')
+        console.log('if')
         scrollForEducators = false
       } else {
         showUpEducators.classList.add('show-up-educators--active')
+        console.log('else')
         scrollForEducators = true
       }
     }
