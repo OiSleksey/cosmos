@@ -1022,22 +1022,25 @@
   max-width: 100vw;
   overflow: hidden;
   padding: 12vh 0 8vh 0;
-
-  background-image: url('/img/substrate-long.svg');
+  background-image: url('/img/bg-new.png');
+  background-size: 190% 120%;
+  background-position: center top 15%;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: top 0 left 50%;
   display: flex;
   align-items: center;
   flex-direction: column;
 
   @include respond(sm) {
     padding: 8vh 0 8vh 0;
+    background-size: 200%;
+    background-position: center top;
   }
 
   @include respond(lg) {
     max-width: none;
     padding: 4rem 0 4rem 0;
+    background-size: 100% 122%;
+    background-position: center top 20%;
   }
 
   @include respond(2xl) {
@@ -1077,7 +1080,9 @@
   }
 
   &__container {
-    @include maxHeightShowUpDesktop;
+    @include hideScroll;
+    overflow-y: auto;
+    max-height: 82vh;
     padding-bottom: 60px;
   }
 

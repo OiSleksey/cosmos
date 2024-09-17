@@ -765,14 +765,15 @@
     width: 100%;
     background-image: url('/img/bg-new.png');
     background-repeat: no-repeat;
-    background-size: 300%;
-    background-position: center top;
+    background-size: 350%;
+    background-position: center top -40px;
     display: flex;
     justify-content: center;
     align-items: center;
 
     @include respond(sm) {
       background-size: 200%;
+      background-position: center top;
     }
 
     @include respond(lg) {
@@ -811,6 +812,7 @@
   &__wrap {
     max-width: 100vw;
     padding: 16px;
+    margin-bottom: 6rem;
 
     @include respond(lg) {
       padding: 3.2rem;

@@ -1734,8 +1734,8 @@ ul {
   width: 100%;
   background-image: url("/img/bg-new.png");
   background-repeat: no-repeat;
-  background-size: 300%;
-  background-position: center top;
+  background-size: 350%;
+  background-position: center top -40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1743,6 +1743,7 @@ ul {
 @media only screen and (min-width: 640px) {
   .deep-page__substrate-blue {
     background-size: 200%;
+    background-position: center top;
   }
 }
 @media only screen and (min-width: 1024px) {
@@ -1807,6 +1808,7 @@ ul {
 .deep-page__wrap {
   max-width: 100vw;
   padding: 16px;
+  margin-bottom: 6rem;
 }
 @media only screen and (min-width: 1024px) {
   .deep-page__wrap {
@@ -4845,10 +4847,10 @@ ul {
   max-width: 100vw;
   overflow: hidden;
   padding: 12vh 0 8vh 0;
-  background-image: url("/img/substrate-long.svg");
+  background-image: url("/img/bg-new.png");
+  background-size: 190% 120%;
+  background-position: center top 15%;
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: top 0 left 50%;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -4856,12 +4858,16 @@ ul {
 @media only screen and (min-width: 640px) {
   .show-up-socials {
     padding: 8vh 0 8vh 0;
+    background-size: 200%;
+    background-position: center top;
   }
 }
 @media only screen and (min-width: 1024px) {
   .show-up-socials {
     max-width: none;
     padding: 4rem 0 4rem 0;
+    background-size: 100% 122%;
+    background-position: center top 20%;
   }
 }
 @media only screen and (min-width: 1399px) {
@@ -4901,7 +4907,7 @@ ul {
 }
 .show-up-socials__container {
   overflow-y: auto;
-  max-height: 100vh;
+  max-height: 82vh;
   padding-bottom: 60px;
 }
 .show-up-socials__container::-webkit-scrollbar {
@@ -4912,17 +4918,6 @@ ul {
 }
 .show-up-socials__container::-webkit-scrollbar::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
-}
-@media only screen and (min-width: 1024px) {
-  .show-up-socials__container::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-    -ms-overflow-style: none; /* IE и Edge */
-    scrollbar-width: none; /* Firefox */
-  }
-  .show-up-socials__container::-webkit-scrollbar::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-  }
 }
 .show-up-socials__body {
   max-width: 1920px;
