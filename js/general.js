@@ -55,7 +55,6 @@ export function togleMainScroll(state) {
       isReturn = true
     }
     if (isReturn) return null
-    console.log('THIS')
     setIsScroling(true)
   } else {
     setIsScroling(false)
