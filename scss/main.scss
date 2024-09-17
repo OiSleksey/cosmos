@@ -1013,7 +1013,7 @@
       padding: 0;
     }
 
-    @include respond(2xl) {
+    @include respond(4xl) {
       max-width: 114.2rem;
       overflow: visible;
     }
@@ -1126,6 +1126,12 @@
     @include respond(lg) {
       margin-top: 0;
       min-height: calc(100vh - 15rem);
+    }
+
+    &.align-top {
+      @include respond(lg) {
+        align-items: flex-start;
+      }
     }
 
     // @include respond(lg) {
