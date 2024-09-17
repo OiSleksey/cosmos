@@ -182,7 +182,8 @@ nextPageButton.forEach((button) => {
 
 function navigateDownMobile(event) {
   event.preventDefault()
-  navigateDown()
+
+  navigateDown(true)
 }
 
 function setDirectionForPage(direction) {
@@ -235,11 +236,11 @@ function pagination(direction, page) {
     nextActivePage.classList.add('page--active')
     // }, 3000)
 
-    // if (nextActivePage.classList.contains('deep-page')) {
-    //   header.style.zIndex = 2
-    // } else {
-    //   header.style.zIndex = 4
-    // }
+    if (nextActivePage.classList.contains('deep-page')) {
+      header.style.zIndex = 2
+    } else {
+      header.style.zIndex = 4
+    }
     setRotater(currPageModal)
   } else {
     //MOBILE navigation
@@ -297,8 +298,7 @@ function navigateUp() {
 let isScrollDown = false
 let isBottom = false
 
-function navigateDown() {
-  console.log('navigateDown')
+function navigateDown(isButtonClick) {
   let currPageModal = getCurrentPage()
   if (currPageModal == numOfPages) return
   if (!getIsMobileDevice()) {
@@ -307,16 +307,18 @@ function navigateDown() {
     const scrollHeightCurrPage = currPage.scrollHeight
     const scrollTopHeightCurrPage = currPage.scrollTop
 
-    if (isBottom) isScrollDown = true
-    if (scrollHeightCurrPage - offsetHeightCurrPage - scrollTopHeightCurrPage >= 10) {
-      isScrollDown = false
-      return null
-    } else {
-      isBottom = true
-    }
+    if (!isButtonClick) {
+      if (isBottom) isScrollDown = true
+      if (scrollHeightCurrPage - offsetHeightCurrPage - scrollTopHeightCurrPage >= 10) {
+        isScrollDown = false
+        return null
+      } else {
+        isBottom = true
+      }
 
-    if (!isScrollDown) {
-      return null
+      if (!isScrollDown) {
+        return null
+      }
     }
 
     const currActivePage = document.querySelector('.page-' + currPageModal)
@@ -427,6 +429,9 @@ function afterPreloader() {
     document.addEventListener('keydown', keydownHandler)
     document.addEventListener('touchstart', handleTouchStart)
     document.addEventListener('touchend', handleTouchEnd)
+    pages.forEach((page, index) => {
+      page.style.overflowY = 'auto'
+    })
   } else {
     //MOBILE
     setSubstrateBody()
@@ -437,6 +442,7 @@ function afterPreloader() {
   }
 
   pageOne.classList.add('page--active')
+  // pageOne.style.overflowY = 'auto'
   substrateBody.classList.add(SUBSTARATE_BODY_ACTIVE)
 }
 
@@ -489,6 +495,31 @@ function scrollToTop() {
 
 scrollToTop()
 
+function setOverflowPages() {
+  const currPage = getCurrentPage()
+  pages.forEach((page, index) => {
+    if (currPage == index + 1) {
+      page.style.overflowY = 'auto'
+    } else {
+      page.style.overflowY = 'hidden'
+    }
+  })
+}
+let timeOutPageTransition
+function setEventTransitinPages() {
+  pages.forEach((page, index) => {
+    page.addEventListener('transitionend', function (event) {
+      clearInterval(timeOutPageTransition)
+      timeOutPageTransition = setTimeout(() => {
+        console.log(event.target.classList)
+        if ([...event.target.classList].some((className) => className.includes('page'))) {
+          setOverflowPages()
+        }
+      }, 700)
+    })
+  })
+}
+
 let isCurrentMobileDevice = true
 window.addEventListener('DOMContentLoaded', async () => {
   setTypeDevice(window.innerWidth)
@@ -507,6 +538,7 @@ window.addEventListener('load', async () => {
   }
 
   startGalerry()
+  setEventTransitinPages()
   // heightPageContent()
 })
 //Loader END
