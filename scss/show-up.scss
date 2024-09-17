@@ -563,11 +563,11 @@
   transition: opacity $headingsAT, transform $headingsAT ease-out;
   max-width: 100vw;
   overflow: hidden;
-  background-image: url('/img/substrate-short.svg');
+  background-image: url('/img/substrate-bg-short.svg');
   background-repeat: no-repeat;
   // background-size: $maxWidthAllContent 740px;
   background-size: cover;
-  background-position: top 0 left 50%;
+  background-position: top -13vw left 50%;
   display: flex;
   // justify-content: center;
   align-items: center;
@@ -599,10 +599,14 @@
 
     @include respond(md) {
       transform: translateY(88px);
-    }
+    } 
 
     @include respond(lg) {
-      transform: translateY(14rem);
+      transform: translateY(3vw);
+    }
+
+    @include respond(2xl) {
+      transform: translateY(7rem);
     }
 
     .show-up-home__close {

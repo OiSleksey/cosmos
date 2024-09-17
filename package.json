@@ -5,6 +5,6 @@
     "watch-css": "sass --watch scss/index.scss css/style.css"
   },
   "devDependencies": {
-    "sass": "^1.77.8"
+    "sass": "^1.78.0"
   }
 }
