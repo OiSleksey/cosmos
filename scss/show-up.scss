@@ -1336,6 +1336,7 @@
   &--active {
     .show-up-educators__container {
       transform: translateY(0%);
+      padding-top: 120px;
     }
 
     .show-up-educators__body {
@@ -1358,14 +1359,14 @@
     // bottom: 0;
     // left: 0;
     // right: 0;
-    transform: translateY(40%);
+    transform: translateY(45%);
     padding: 3rem 0;
-    transition: transform $headingsAT ease;
+    transition: transform $headingsAT ease, padding-top $headingsAT ease;
 
     @include respond(lg) {
       background-size: 100%;
       background-position: center top;
-      padding-top: 120px;
+      padding-top: 90px;
     }
   }
 

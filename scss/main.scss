@@ -1298,12 +1298,15 @@
     font-style: normal;
     font-weight: 900;
     letter-spacing: 1px;
-    font-size: 28px;
     line-height: 32px;
 
     @include respond(lg) {
       margin-bottom: 2rem;
       line-height: 1;
+    }
+
+    @include respond(2xl) {
+      font-size: 5rem;
     }
   }
 
