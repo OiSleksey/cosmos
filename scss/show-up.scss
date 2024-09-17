@@ -1322,7 +1322,6 @@
   opacity: 0;
   transition: opacity $headingsAT, transform $headingsAT ease-out;
   transform: translateY(200px);
-
   position: absolute;
   bottom: 0;
   right: 0;
@@ -1337,6 +1336,7 @@
   &--active {
     .show-up-educators__container {
       transform: translateY(0%);
+      padding-top: 120px;
     }
 
     .show-up-educators__body {
@@ -1353,13 +1353,21 @@
 
   &__container {
     // position: absolute;
-    background: #08c;
+    background-image: url('/img/bg-new.png');
+    background-size: 190% 120%;
+    background-position: center top 15%;
     // bottom: 0;
     // left: 0;
     // right: 0;
-    transform: translateY(61%);
+    transform: translateY(45%);
     padding: 3rem 0;
-    transition: transform $headingsAT ease;
+    transition: transform $headingsAT ease, padding-top $headingsAT ease;
+
+    @include respond(lg) {
+      background-size: 100%;
+      background-position: center top;
+      padding-top: 90px;
+    }
   }
 
   &__head {
