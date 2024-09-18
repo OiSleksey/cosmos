@@ -1,3 +1,4 @@
+// @import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css';
 $maxWidthAllContent: 1920px;
 
 // $preloaderAT: 1.5s;
@@ -22,6 +23,10 @@ $show-up-cosmic-careers-pink: 86vh;
 $show-up-cosmic-careers-blue: 84vh;
 $hideDurationNav: 0.2s;
 $showDurationNav: 0.4s;
+
+//Bootstrap
+$bs-blue: #007bff; // Пример изменения значения
+$bs-purple: #8a2be2; // Изменение цвета
 
 @mixin lineTitle {
   &--dark-blue::before {
