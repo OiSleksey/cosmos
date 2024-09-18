@@ -75,16 +75,16 @@ companySlider = new Swiper('.swiper.company-slider__swiper', {
   slidesPerView: 'auto',
   breakpoints: {
     320: {
-      slidesPerView: 1,
-      spaceBetween: 10,
+      slidesPerView: 'auto',
+      spaceBetween: 40,
     },
-    600: {
+    640: {
       slidesPerView: 2,
-      spaceBetween: 10,
+      spaceBetween: 50,
     },
     768: {
       slidesPerView: 3,
-      spaceBetween: 10,
+      spaceBetween: 50,
     },
     1024: {
       slidesPerView: 3,

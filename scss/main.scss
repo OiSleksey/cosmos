@@ -1300,13 +1300,14 @@
     color: #fff;
     text-shadow: 0px 2px 12px rgba(0, 0, 0, 0.15);
     font-family: inherit;
-    font-size: 4.8rem;
+    font-size: 6rem;
     font-style: normal;
     font-weight: 900;
     letter-spacing: 1px;
-    line-height: 32px;
+    line-height: 1.2;
 
     @include respond(lg) {
+      font-size: 4.8rem;
       margin-bottom: 2rem;
       line-height: 1;
     }
@@ -1326,11 +1327,15 @@
     font-weight: 300;
     line-height: 27px;
     letter-spacing: 1px;
+    max-height: 81px;
+    overflow: hidden;
 
     @include respond(lg) {
       font-size: 2rem;
       line-height: 2.7rem;
       margin-bottom: 2.8rem;
+      max-height: none;
+      overflow: visible;
     }
   }
 
@@ -1339,8 +1344,8 @@
     cursor: pointer;
     color: #fff;
     width: max-content;
-    padding: 1rem 2rem;
-    background-size: cover;
+    padding: 1.5rem 2rem;
+    background-size: 100%;
     background-repeat: no-repeat;
 
     font-family: inherit;
@@ -1351,6 +1356,8 @@
     text-transform: uppercase;
     opacity: 1;
     transition: opacity 0.6s;
+    text-align: center;
+    min-width: 140px;
 
     &:hover {
       opacity: 0.8;
@@ -1358,6 +1365,31 @@
 
     @include respond(lg) {
       font-size: 1.4rem;
+      padding: 1rem 2rem;
+    }
+  }
+
+  &__swiper {
+    margin: 0 -16px 25px;
+    padding: 0 16px;
+
+    .swiper-slide {
+      max-width: 250px;
+      
+      @include respond(lg) {
+        max-width: none;
+      }
+    }
+
+    @include respond(sm) {
+      padding: 0 36px;
+      margin: 0 -36px 20px;
+    }
+
+    @include respond(lg) {
+      padding: 0 16px;
+      margin: 0;
+      max-width: none;
     }
   }
 }
@@ -2028,10 +2060,15 @@
   // right: 0;
   // bottom: 0;
   width: 100%;
-  padding: 3rem 3.8rem;
+  padding: 2rem 0;
+
+  @include respond(lg) {
+    padding: 3rem 3.8rem;
+  }
 
   &__logo-institute {
     width: 100px;
+    max-width: 25%;
     display: flex;
     align-items: center;
     justify-content: center;
