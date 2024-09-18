@@ -602,6 +602,9 @@
     min-height: 480px;
   }
 
+  @include respond(sm) {
+    background-position: top -13vw left 50%;
+  }
   @include respond(md) {
     min-height: 420px;
   }
@@ -623,12 +626,16 @@
     transition-timing-function: ease;
     transform: translateY(70px);
 
+    @include respond(sm) {
+      transform: translateY(100px);
+    }
+
     @include respond(md) {
       transform: translateY(88px);
     }
 
     @include respond(lg) {
-      transform: translateY(3vw);
+      transform: translateY(7vw);
     }
 
     @include respond(xl) {
@@ -672,11 +679,14 @@
 
     @include respond(lg) {
       display: block;
-      top: 50%;
+      top: 34%;
     }
 
+    @include respond(xl) {
+      top: 20%;
+    }
     @include respond(2xl) {
-      top: 50%;
+      top: 0;
     }
 
     img {
@@ -687,10 +697,14 @@
   &__content {
     max-width: 107.4rem;
 
-    padding: 10px 16px 50px 16px;
+    padding: 40px 16px 50px 16px;
     display: flex;
     justify-content: center;
     flex-direction: column;
+
+    @include respond(sm) {
+      padding: 10px 16px 50px 16px;
+    }
 
     @include respond(lg) {
       padding: 3.2rem 3.2rem 3.2rem 3.2rem;
@@ -699,7 +713,7 @@
   }
 
   &__text {
-    margin-bottom: 2rem;
+    margin-bottom: 20px;
 
     color: #fff;
     font-family: inherit;
@@ -707,11 +721,13 @@
     font-weight: 300;
     font-size: 18px;
     font-weight: 300;
-    line-height: 26px;
+    line-height: 1.6;
 
     @include respond(lg) {
       font-size: 4.6rem;
-      line-height: 5rem;
+      // line-height: 5rem;
+      line-height: 1.2;
+      margin-bottom: 2rem;
     }
   }
 
@@ -720,9 +736,12 @@
     flex-direction: column;
 
     justify-content: center;
-    row-gap: 4rem;
+    row-gap: 13px;
+    margin-left: -6px;
 
     @include respond(lg) {
+      margin-left: 0;
+      row-gap: 4rem;
       flex-direction: row;
       align-items: center;
       justify-content: flex-start;
