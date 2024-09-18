@@ -559,6 +559,27 @@ let couterSVGLoading = STROKE_DASHOFFSET_START
 circleLoader.style.strokeDasharray = STROKE_DASHARRAY
 circleLoader.style.strokeDashoffset = STROKE_DASHOFFSET_START
 
+let isEndLoad = false
+let timeoutEndAnimation = null
+function setCancelLoad() {
+  if (!isEndLoad) {
+    console.log('setCancelLoad')
+    clearInterval(timeoutEndAnimation)
+    timeoutEndAnimation = setTimeout(() => {
+      setCancelLoad()
+    }, 500)
+  } else {
+    console.log('TRUE setCancelLoad')
+    loadingOverlay.classList.add('inactive')
+    setTimeout(() => {
+      loadingOverlay.classList.add('hidden')
+      setTimeout(afterPreloader, afterPreloaderAT)
+      toggleIsBlockBody(true)
+      setDirectionForPage(DIRECTION_UP)
+    }, 100)
+  }
+}
+
 function startAnimation(speed) {
   clearInterval(loaderInterval)
   loaderInterval = setInterval(() => {
@@ -568,13 +589,7 @@ function startAnimation(speed) {
     loadingText.innerHTML = counterTextLoading + '%'
     if (counterTextLoading >= FINISH_LOAD) {
       clearInterval(loaderInterval)
-      loadingOverlay.classList.add('inactive')
-      setTimeout(() => {
-        loadingOverlay.classList.add('hidden')
-        setTimeout(afterPreloader, afterPreloaderAT)
-        toggleIsBlockBody(true)
-        setDirectionForPage(DIRECTION_UP)
-      }, 100)
+      setCancelLoad()
     }
   }, speed)
 }
@@ -628,11 +643,13 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 window.addEventListener('load', async () => {
   startAnimation(LOAD_SPEED)
+  isEndLoad = true
   if (!getIsMobileDevice()) {
     setDelayCards()
+    setOverflowPages()
   } else {
   }
-  setOverflowPages()
+
   // setEventTransitinPages()
   // heightPageContent()
 })
