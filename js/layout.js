@@ -9,6 +9,7 @@ import {
   desktopSize,
   toggleIsBlockBody,
   togleMainScroll,
+  toggleVisibleDarkContent,
 } from '../js/general.js'
 
 const substrateBody = document.querySelector('.substrate-body')
@@ -116,9 +117,7 @@ function setDelayCards() {
 let counterSustainabilityGaleryCard = 0
 
 function setDelaySustainabilityGaleryCard() {
-  console.log('start')
   sustainabilityGaleryCards.forEach((card) => {
-    console.log(counterSustainabilityGaleryCard)
     if (card.classList.contains(SUSTABILITY_GALERY_CARD_HIDDEN)) {
       const delay = 0.2 * counterSustainabilityGaleryCard
       card.style.transitionDelay = `${delay}s`
@@ -253,6 +252,7 @@ function pagination(direction, page) {
     } else {
       header.style.zIndex = 4
     }
+    console.log(currPageModal)
     setRotater(currPageModal)
   } else {
     //MOBILE navigation
@@ -563,13 +563,11 @@ let isEndLoad = false
 let timeoutEndAnimation = null
 function setCancelLoad() {
   if (!isEndLoad) {
-    console.log('setCancelLoad')
     clearInterval(timeoutEndAnimation)
     timeoutEndAnimation = setTimeout(() => {
       setCancelLoad()
     }, 500)
   } else {
-    console.log('TRUE setCancelLoad')
     loadingOverlay.classList.add('inactive')
     setTimeout(() => {
       loadingOverlay.classList.add('hidden')
@@ -681,7 +679,6 @@ rotater.addEventListener('transitionend', function (e) {
   }
 })
 // IMPORTANT. This component in the desktop version starts and stops scrolling. END
-
 const pageContent = document.querySelectorAll('.page__content')
 function heightPageContent() {
   pageContent.forEach((content, index) => {

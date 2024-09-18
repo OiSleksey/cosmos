@@ -7,6 +7,7 @@ import {
   setIsScroling,
   toggleIsBlockBody,
   toggleVisibleHeader,
+  toggleVisibleDarkContent,
 } from '../js/general.js'
 
 const deepPageSliders = document.querySelectorAll('.deep-page-slider')
@@ -191,8 +192,10 @@ const overlayBody = document.querySelector('.overlay-body')
 const setStyleOverlayBody = (state) => {
   if (state) {
     overlayBody.classList.add('overlay-body--active')
+    toggleVisibleDarkContent(false)
   } else {
     overlayBody.classList.remove('overlay-body--active')
+    toggleVisibleDarkContent(true)
   }
 }
 

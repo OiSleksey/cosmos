@@ -91,3 +91,31 @@ export function toggleVisibleHeader(state, displayClose) {
     }
   }
 }
+
+export function toggleVisibleDarkContent(state) {
+  if (!getIsMobileDevice()) return null
+
+  const darkPageContainer = document.querySelectorAll('.dark-page__container')
+  const deepPageContents = document.querySelectorAll('.deep-page__content')
+  const substrateFirstWomanMobile = document.querySelector('.substrate-first-woman-mobile')
+  darkPageContainer.forEach((content) => {
+    if (state) {
+      content.classList.remove('dark-page__container--hidden')
+    } else {
+      content.classList.add('dark-page__container--hidden')
+    }
+  })
+  deepPageContents.forEach((content) => {
+    if (state) {
+      content.classList.remove('deep-page__content--hidden')
+    } else {
+      content.classList.add('deep-page__content--hidden')
+    }
+  })
+
+  if (state) {
+    substrateFirstWomanMobile.classList.remove('substrate-first-woman-mobile--hidden')
+  } else {
+    substrateFirstWomanMobile.classList.add('substrate-first-woman-mobile--hidden')
+  }
+}

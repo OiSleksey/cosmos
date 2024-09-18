@@ -6,6 +6,8 @@ import {
   setIsScroling,
   toggleIsBlockBody,
   toggleVisibleHeader,
+  getIsMobileDevice,
+  toggleVisibleDarkContent,
 } from '../js/general.js'
 
 const showUpHomeOpenButtons = document.querySelectorAll('.home-page__button')
@@ -34,6 +36,18 @@ const setStyleOverlayBody = (state) => {
 }
 
 //show-up-home START
+
+function toggleVisibleHomeContent(state) {
+  if (!getIsMobileDevice()) return null
+
+  const homePageContent = document.querySelector('.home-page__content')
+  if (state) {
+    homePageContent.classList.remove('home-page__content--hidden')
+  } else {
+    homePageContent.classList.add('home-page__content--hidden')
+  }
+}
+
 showUpHomeOpenButtons.forEach(function (button, index) {
   button.addEventListener('click', function (event) {
     setIsScroling(false)
@@ -41,6 +55,7 @@ showUpHomeOpenButtons.forEach(function (button, index) {
     showUpHomeWrapper[index].classList.add(SHOW_UP_HOME_ACTIVE)
     toggleIsBlockBody(false)
     toggleVisibleHeader(false, true)
+    toggleVisibleHomeContent(false)
   })
 })
 
@@ -54,6 +69,7 @@ function closeShoupHome(index, displayClose) {
   toggleVisibleHeader(true, displayClose)
   setStyleOverlayBody(false)
   showUpHomeWrapper[index].classList.remove(SHOW_UP_HOME_ACTIVE)
+  toggleVisibleHomeContent(true)
 }
 
 showUpHomeWrapper.forEach(function (wrapper, index) {
@@ -64,12 +80,14 @@ showUpHomeWrapper.forEach(function (wrapper, index) {
 //show-up-home END
 
 //show-up-submit START
+
 showUpSubmitOpenButton.addEventListener('click', function (event) {
   setIsScroling(false)
   setStyleOverlayBody(true)
   showUpSubmitWrapper.classList.add(SHOW_UP_SUBMIT_ACTIVE)
   toggleIsBlockBody(false)
   toggleVisibleHeader(false, true)
+  toggleVisibleDarkContent(false)
 })
 
 function closeShoupSubmit(displayClose) {
@@ -78,6 +96,7 @@ function closeShoupSubmit(displayClose) {
   toggleVisibleHeader(true, displayClose)
   setStyleOverlayBody(false)
   showUpSubmitWrapper.classList.remove(SHOW_UP_SUBMIT_ACTIVE)
+  toggleVisibleDarkContent(true)
 }
 
 showUpSubmitCloseButton.addEventListener('click', () => closeShoupSubmit())
@@ -102,6 +121,7 @@ socialsMobileCards.forEach((button, index) => {
     setIsScroling(false)
     setStyleOverlayBody(true)
     showUpSocials[index].classList.add(SHOW_UP_SOCIALS_ACTIVE)
+    toggleVisibleDarkContent(false)
     toggleIsBlockBody(false)
     toggleVisibleHeader(false, false)
   })
@@ -113,6 +133,7 @@ function closeShoupSocials(index, displayClose) {
   toggleVisibleHeader(true, displayClose)
   setStyleOverlayBody(false)
   showUpSocials[index].classList.remove(SHOW_UP_SOCIALS_ACTIVE)
+  toggleVisibleDarkContent(true)
 }
 
 showUpSocials.forEach(function (wrapper, index) {
