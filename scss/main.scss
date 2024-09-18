@@ -298,6 +298,11 @@
     left: calc(60% - $sizeSubstrateObject / 2);
     width: $sizeSubstrateObject;
 
+    @include respond(tablet) {
+      left: 45%;
+      width: 60%;
+    }
+
     img {
       width: 100%;
     }
@@ -386,6 +391,10 @@
     @include respond(lg) {
       max-width: 51rem;
       gap: 2rem;
+    }
+
+    @include respond(tablet) {
+      padding-bottom: 70rem;
     }
 
     & > div:first-child {
@@ -498,6 +507,11 @@
     @include respond(lg) {
       max-width: 41rem;
       gap: 4.8rem;
+    }
+
+    @include respond(tablet) {
+      max-width: 45rem;
+      padding-bottom: 70rem;
     }
 
     & > div:first-child {
@@ -629,6 +643,11 @@
       width: $sizeSubstratePlanet;
     }
 
+    @include respond(tablet) {
+      top: calc(63% - $sizeSubstratePlanet / 2);
+      width: 60rem;
+    }
+
     img {
       width: 100%;
     }
@@ -648,6 +667,17 @@
       width: $sizeSubstrateSpaceStation;
       left: calc(50% - $sizeSubstrateSpaceStation / 2);
     }
+
+    @include respond(tablet) {
+      width: 60%;
+      top: 72%;
+      left: 20%;
+    }
+
+    // @include respond(tablet) {
+    //   top: calc(63% - $sizeSubstratePlanet / 2);
+    //   width: 60rem;
+    // }
 
     img {
       width: 100%;
@@ -795,7 +825,7 @@
     width: 100%;
     background-image: url('/img/bg-new.png');
     background-repeat: no-repeat;
-    background-size: 190% 120%;
+    background-size: 122% 114%;
     background-position: center top 15%;
     display: flex;
     justify-content: center;
@@ -811,6 +841,10 @@
       @include movingElement(1);
       background-size: 100% 122%;
       background-position: center top 20%;
+    }
+
+    @include respond(tablet) {
+      background-size: 200% 122%;
     }
   }
 
@@ -859,6 +893,10 @@
       padding-top: 3rem;
       max-width: 114rem;
       font-size: 4.6rem;
+    }
+
+    @include respond(tablet) {
+      padding-left: 35px;
     }
   }
 
@@ -1158,6 +1196,10 @@
       min-height: calc(100vh - 15rem);
     }
 
+    @include respond(tablet) {
+      min-height: 80vh;
+    }
+
     &.align-top {
       @include respond(lg) {
         align-items: flex-start;
@@ -1183,6 +1225,10 @@
 
     @include respond(lg) {
       min-height: calc(100vh - 22rem);
+    }
+
+    @include respond(tablet) {
+      min-height: 80vh;
     }
   }
 
@@ -1438,6 +1484,11 @@
     // max-height: 50rem;
   }
 
+  @include respond(tablet) {
+    margin: 8rem auto;
+    max-width: 100%;
+  }
+
   &__cards {
     display: flex;
     justify-content: space-between;
@@ -1635,6 +1686,11 @@
     @include respond(2xl) {
       width: 90rem;
     }
+
+    @include respond(tablet) {
+      width: 100rem;
+      left: 28%;
+    }
   }
 }
 
@@ -1702,6 +1758,11 @@
     margin: 0 -4.3rem;
     min-height: calc(100vh - 15rem);
   }
+
+  @include respond(tablet) {
+    min-height: 58vh;
+  }
+  
 
   &::after {
     content: '';
@@ -1872,6 +1933,10 @@
       text-align: center;
       align-self: unset;
       padding: 2rem 10rem 2rem 6rem;
+    }
+
+    @include respond(tablet) {
+      margin-bottom: 130px;
     }
   }
   &__img-container {
@@ -2132,5 +2197,12 @@
 
   @include respond(lg) {
     min-height: 100vh;
+  }
+
+  @include respond(tablet) {
+    .dark-page__content{
+      height: calc(100vh - 15rem);
+      max-height: 92vh;
+    }
   }
 }

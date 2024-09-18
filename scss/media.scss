@@ -24,6 +24,12 @@
     }
   }
 
+  @if $breakpoint == tablet {
+    @media only screen and (min-width: 1024px) and (orientation: portrait) {
+      @content;
+    }
+  }
+
   @if $breakpoint == xl {
     @media only screen and (min-width: 1280px) {
       @content;

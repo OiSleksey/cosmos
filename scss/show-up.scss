@@ -812,7 +812,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 12vh 0 8vh 0;
+  padding: 12vh 0 0 0;
 
   @include respond(sm) {
     padding: 8vh 0 8vh 0;
@@ -829,6 +829,10 @@
 
   @include respond(2xl) {
     padding: 8rem 0 8rem 0;
+  }
+
+  @include respond(tablet) {
+    background-size: 200% 122%;
   }
 
   &--active {
@@ -885,7 +889,7 @@
   }
 
   @media (min-height: 600px) {
-    max-height: 80vh;
+    max-height: 83vh;
   }
 
   @include respond(lg) {
@@ -1091,6 +1095,11 @@
     padding: 8vh 0 0 0;
     background-size: 200%;
     background-position: center top;
+  }
+
+
+  @include respond(tablet) {
+    background-size: 125% 122%;
   }
 
   @include respond(lg) {

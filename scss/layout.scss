@@ -14,6 +14,9 @@ html {
   @include respond(lg) {
     font-size: 40%;
   }
+  @include respond(tablet) {
+    font-size: 50%;
+  }
   @include respond(xl) {
     font-size: 46%;
   }
@@ -75,6 +78,10 @@ ul {
 
 .vertical-start {
   justify-content: flex-start !important;
+
+  @include respond(tablet) {
+    justify-content: center !important;
+  }
 }
 
 .gap-6 {
