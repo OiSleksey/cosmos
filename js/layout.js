@@ -74,15 +74,6 @@ sustainabilityGaleryButton.addEventListener('click', function () {
   this.style.display = 'none'
 })
 
-let counterSustainabilityGaleryCard = 0
-
-sustainabilityGaleryCards.forEach((card) => {
-  if (card.classList.contains(SUSTABILITY_GALERY_CARD_HIDDEN)) {
-    const delay = 0.2 * counterSustainabilityGaleryCard
-    card.style.transitionDelay = `${delay}s`
-    counterSustainabilityGaleryCard++
-  }
-})
 //sustainabilityGalery END
 
 //socials  START
@@ -122,12 +113,32 @@ function setDelayCards() {
   //socials  END
 }
 
-function startGalerry() {
-  sustainabilityGaleryCards.forEach((card, index) => {
-    if (!card.classList.contains('sustainability-galery__card--hidden')) {
-      card.classList.add('sustainability-galery__card--visible')
+let counterSustainabilityGaleryCard = 0
+
+function setDelaySustainabilityGaleryCard() {
+  console.log('start')
+  sustainabilityGaleryCards.forEach((card) => {
+    console.log(counterSustainabilityGaleryCard)
+    if (card.classList.contains(SUSTABILITY_GALERY_CARD_HIDDEN)) {
+      const delay = 0.2 * counterSustainabilityGaleryCard
+      card.style.transitionDelay = `${delay}s`
+      counterSustainabilityGaleryCard++
     }
   })
+}
+
+function startGalerry(count) {
+  sustainabilityGaleryCards.forEach((card, index) => {
+    if (index < count) {
+      card.classList.add('sustainability-galery__card--visible')
+    } else {
+      card.classList.add('sustainability-galery__card--hidden')
+    }
+    // if (!card.classList.contains('sustainability-galery__card--hidden')) {
+    //   card.classList.add('sustainability-galery__card--visible')
+    // }
+  })
+  setDelaySustainabilityGaleryCard()
 }
 
 //Navigation Main START
@@ -608,8 +619,10 @@ window.addEventListener('DOMContentLoaded', async () => {
   startAnimation(DOM_SPEED)
   if (getIsMobileDevice()) {
     isCurrentMobileDevice = true
+    startGalerry(4)
   } else {
     isCurrentMobileDevice = false
+    startGalerry(8)
   }
 })
 
@@ -617,9 +630,8 @@ window.addEventListener('load', async () => {
   startAnimation(LOAD_SPEED)
   if (!getIsMobileDevice()) {
     setDelayCards()
+  } else {
   }
-
-  startGalerry()
   setOverflowPages()
   // setEventTransitinPages()
   // heightPageContent()

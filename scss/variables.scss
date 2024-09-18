@@ -152,6 +152,7 @@ $showDurationNav: 0.4s;
     opacity: 1;
     transform: translateY(0);
     transition-timing-function: ease;
+    transition-delay: calc($headingsDelay / 2 * $delay);
   }
 
   @include respond(lg) {
