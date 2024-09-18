@@ -594,18 +594,14 @@
   flex-direction: column;
   padding: 20px 0;
 
-  @media (max-height: 600px) {
-    min-height: 500px;
-  }
-
   @media (min-height: 600px) {
-    min-height: 550px;
+    min-height: 500px;
   }
 
   @include respond(sm) {
     // background-position: top -13vw left 50%;
     padding: 75px 0 40px;
-    min-height: 600px;
+    min-height: 530px;
   }
 
   @include respond(lg) {
