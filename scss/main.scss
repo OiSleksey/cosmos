@@ -1080,11 +1080,6 @@
       margin: 0;
       padding: 0;
     }
-
-    @include respond(4xl) {
-      max-width: 114.2rem;
-      overflow: visible;
-    }
   }
   .swiper-slide {
     @include movingElement(1);
