@@ -1324,7 +1324,7 @@
 .show-up-educators {
   opacity: 0;
   transition: opacity $headingsAT, transform $headingsAT ease-out;
-  transform: translateY(200px);
+  transform: translateY(100%);
   position: absolute;
   bottom: 0;
   right: 0;
