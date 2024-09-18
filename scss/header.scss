@@ -97,7 +97,12 @@
     left: 0;
     right: 0;
     z-index: -1;
-    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.517266281512605) 60%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 0.517266281512605) 60%,
+      rgba(0, 0, 0, 0) 100%
+    );
   }
 }
 
@@ -110,9 +115,25 @@
   min-height: 100vh;
   opacity: 0;
   transition: opacity $hideDurationNav ease-in;
-  background: rgba(50, 28, 86, 0.2);
-  backdrop-filter: blur(45px);
-  -webkit-backdrop-filter: blur(45px);
+  background-image: url('/img/background-blur.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  // background: rgba(50, 28, 86, 0.2);
+  // backdrop-filter: blur(45px);
+  // -webkit-backdrop-filter: blur(45px);
+
+  // &::before {
+  //   content: '';
+  //   position: fixed;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  //   bottom: 0;
+  //   filter: url(#blur);
+  //   background: rgba(50, 28, 86, 0.2);
+  //   z-index: 8;
+  // }
 
   &--active {
     opacity: 1;
