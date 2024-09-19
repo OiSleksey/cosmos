@@ -912,6 +912,7 @@
   @include respond(lg) {
     padding: 3.4rem 3.4rem;
     max-height: 74vh;
+    max-width: 92rem;
   }
 
   @include respond(lg) {
@@ -1404,9 +1405,26 @@
     display: block;
   }
 
+  &--show {
+    opacity: 1;
+    transform: translateY(45%);
+    transition-timing-function: ease;
+    // transition-delay: calc($headingsDelay * 1.4);
+
+    @include respond(xl) {
+      transform: translateY(48%);
+    }
+
+    @include respond(2xl) {
+      transform: translateY(49%);
+    }
+  }
+
   &--active {
+    transform: translateY(0);
+    transition-timing-function: ease;
+    transition-delay: 0;
     .show-up-educators__container {
-      transform: translateY(0%);
       padding-top: 120px;
 
       @include respond(xl) {
@@ -1431,24 +1449,12 @@
     }
   }
 
-  &--show {
-    opacity: 1;
-    transform: translateY(0);
-    transition-timing-function: ease;
-    transition-delay: calc($headingsDelay * 1.4);
-  }
-
   &__container {
-    // position: absolute;
     background-image: url('/img/bg-new.png');
     background-size: 190% 120%;
     background-position: center top 15%;
-    // bottom: 0;
-    // left: 0;
-    // right: 0;
-    transform: translateY(45%);
     padding: 3rem 0;
-    transition: transform $headingsAT ease, padding-top $headingsAT ease;
+    transition: padding-top $headingsAT ease;
 
     @include respond(lg) {
       background-size: 100%;
@@ -1458,12 +1464,10 @@
 
     @include respond(xl) {
       padding-top: 100px;
-      transform: translateY(48%);
     }
 
     @include respond(2xl) {
       padding-top: 110px;
-      transform: translateY(49%);
     }
 
     @include respond(3xl) {
