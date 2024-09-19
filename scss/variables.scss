@@ -360,7 +360,7 @@ $bs-purple: #8a2be2; // Изменение цвета
     }
   }
 
-  @include respond(lg) {
+  @include respond(lg) { 
     &.substrate-body--left {
       background-position: top 35% left 45%;
     }

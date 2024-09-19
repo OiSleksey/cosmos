@@ -908,7 +908,7 @@
   @media (min-height: 600px) {
     max-height: 83vh;
   }
-
+ 
   @include respond(lg) { 
     padding: 3.4rem 3.4rem;
     max-height: 74vh;
