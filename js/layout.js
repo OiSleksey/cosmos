@@ -10,6 +10,7 @@ import {
   toggleIsBlockBody,
   togleMainScroll,
   toggleVisibleDarkContent,
+  toggleVisibleHeader,
 } from '../js/general.js'
 
 const substrateBody = document.querySelector('.substrate-body')
@@ -475,10 +476,12 @@ const getNumberPage = (classes) => {
   return null
 }
 
-const handleIntersection = (entries, index, tett) => {
+const handleIntersection = (entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       const currObservePage = getNumberPage(entry.target.classList)
+      console.log(currObservePage)
+      setCurrentPage(currObservePage - 1)
       const nextPage = document.querySelector(`.page-${currObservePage}`)
       if (nextPage) {
         nextPage.classList.add('page--mobile-active')
@@ -539,6 +542,128 @@ function afterPreloader() {
   // pageOne.style.overflowY = 'auto'
   substrateBody.classList.add(SUBSTARATE_BODY_ACTIVE)
 }
+
+//show-up START
+const showUpHomeOpenButtons = document.querySelectorAll('.home-page__button')
+const showUpSubmitOpenButton = document.querySelector('.submit-open-button')
+const showUpHomeWrapper = document.querySelectorAll('.show-up-home')
+const showUpSubmitWrapper = document.querySelector('.show-up-submit')
+const closeHeaderButton = document.querySelector('.header__close')
+const showUpSubmitCloseButton = document.querySelector('.show-up-submit__close')
+const SHOW_UP_HOME_ACTIVE = 'show-up-home--active'
+const SHOW_UP_SUBMIT_ACTIVE = 'show-up-submit--active'
+const overlayBody = document.querySelector('.overlay-body')
+const showUpSocials = document.querySelectorAll('.show-up-socials')
+const SHOW_UP_SOCIALS_ACTIVE = 'show-up-socials--active'
+
+const setStyleOverlayBody = (state) => {
+  if (state) {
+    overlayBody.classList.add('overlay-body--active')
+  } else {
+    overlayBody.classList.remove('overlay-body--active')
+  }
+}
+
+function toggleVisibleHomeContent(state) {
+  if (!getIsMobileDevice()) return null
+
+  const homePageContent = document.querySelector('.home-page__content')
+  if (state) {
+    homePageContent.classList.remove('home-page__content--hidden')
+  } else {
+    homePageContent.classList.add('home-page__content--hidden')
+  }
+}
+
+showUpHomeOpenButtons.forEach(function (button, index) {
+  button.addEventListener('click', function (event) {
+    setIsScroling(false)
+    setStyleOverlayBody(true)
+    showUpHomeWrapper[index].classList.add(SHOW_UP_HOME_ACTIVE)
+    toggleIsBlockBody(false)
+    toggleVisibleHeader(false, true)
+    toggleVisibleHomeContent(false)
+  })
+})
+
+document
+  .querySelector('.sustainability-slider__img-container')
+  .addEventListener('click', function () {})
+
+function closeShoupHome(index, displayClose) {
+  setIsScroling(true)
+  toggleIsBlockBody(true)
+  toggleVisibleHeader(true, displayClose)
+  setStyleOverlayBody(false)
+  showUpHomeWrapper[index].classList.remove(SHOW_UP_HOME_ACTIVE)
+  toggleVisibleHomeContent(true)
+}
+
+showUpHomeWrapper.forEach(function (wrapper, index) {
+  const closeButton = wrapper.querySelector('.show-up-home__close')
+  closeButton.addEventListener('click', () => closeShoupHome(index))
+  closeHeaderButton.addEventListener('click', () => closeShoupHome(index, true))
+  //show-up-home__button START
+  const showUpHomeButton = wrapper.querySelectorAll('.show-up-home__button')
+  showUpHomeButton.forEach((button) => {
+    button.addEventListener('click', function (event) {
+      event.preventDefault()
+      const clickNumberPage = button.dataset?.page
+      if (clickNumberPage) {
+        console.log(clickNumberPage)
+        console.log(index)
+        closeShoupHome(index, true)
+        const direction = getCurrentPage() < clickNumberPage ? DIRECTION_UP : DIRECTION_DOWN
+        setCurrentPage(clickNumberPage)
+        pagination(direction)
+        toggleNavigation(false)
+      }
+    })
+  })
+  //show-up-home__button END
+})
+
+//show-up-submit START
+
+showUpSubmitOpenButton.addEventListener('click', function (event) {
+  setIsScroling(false)
+  setStyleOverlayBody(true)
+  showUpSubmitWrapper.classList.add(SHOW_UP_SUBMIT_ACTIVE)
+  toggleIsBlockBody(false)
+  toggleVisibleHeader(false, true)
+  toggleVisibleDarkContent(false)
+})
+
+function closeShoupSubmit(displayClose) {
+  setIsScroling(true)
+  toggleIsBlockBody(true)
+  toggleVisibleHeader(true, displayClose)
+  setStyleOverlayBody(false)
+  showUpSubmitWrapper.classList.remove(SHOW_UP_SUBMIT_ACTIVE)
+  toggleVisibleDarkContent(true)
+}
+
+showUpSubmitCloseButton.addEventListener('click', () => closeShoupSubmit())
+closeHeaderButton.addEventListener('click', () => closeShoupSubmit(true))
+//show-up-submit END
+
+function closeShoupSocials(index, displayClose) {
+  setIsScroling(true)
+  toggleIsBlockBody(true)
+  toggleVisibleHeader(true, displayClose)
+  setStyleOverlayBody(false)
+  showUpSocials[index].classList.remove(SHOW_UP_SOCIALS_ACTIVE)
+  toggleVisibleDarkContent(true)
+}
+
+showUpSocials.forEach(function (wrapper, index) {
+  const closeButton = wrapper.querySelector('.show-up-socials__close')
+  closeButton.addEventListener('click', () => closeShoupSocials(index))
+})
+
+//show-up-socials END
+
+//show-up END
 
 //Loader START
 const circleLoader = document.querySelector('#loadingCircle')
