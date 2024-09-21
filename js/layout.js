@@ -253,7 +253,6 @@ function pagination(direction, page) {
     } else {
       header.style.zIndex = 4
     }
-    console.log(currPageModal)
     setRotater(currPageModal)
   } else {
     //MOBILE navigation
@@ -480,7 +479,6 @@ const handleIntersection = (entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
       const currObservePage = getNumberPage(entry.target.classList)
-      console.log(currObservePage)
       setCurrentPage(currObservePage - 1)
       const nextPage = document.querySelector(`.page-${currObservePage}`)
       if (nextPage) {
@@ -610,8 +608,6 @@ showUpHomeWrapper.forEach(function (wrapper, index) {
       event.preventDefault()
       const clickNumberPage = button.dataset?.page
       if (clickNumberPage) {
-        console.log(clickNumberPage)
-        console.log(index)
         closeShoupHome(index, true)
         const direction = getCurrentPage() < clickNumberPage ? DIRECTION_UP : DIRECTION_DOWN
         setCurrentPage(clickNumberPage)

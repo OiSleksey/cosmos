@@ -279,10 +279,9 @@ collaboratorsGaleryImg.forEach((card, index) => {
   })
 })
 
-
-
 socialsMobileCards.forEach((card, index) => {
   card.addEventListener('click', function (event) {
+    event.preventDefault()
     event.stopPropagation()
     swiperGaleryCollaborations = new Swiper('.swiper.collaborators-slider__swiper', {
       // Optional parameters
