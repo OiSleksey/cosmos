@@ -190,10 +190,13 @@ ul {
   transform: translateX(-50%);
   width: 100vw;
   min-height: 100vh;
-  background-size: 320%, 100vh;
-  background-image: url('/img/background-body-mobile.png');
-  background-repeat: no-repeat;
-  background-position: top center;
+  background: url('/img/background-body-mobile.png') bottom center no-repeat;
+  background-size: cover;
+
+  @include respond(mobile-landscaape) {
+    background: url('/img/background-body-desktop.png') center no-repeat;
+    background-size: cover;
+  }
 
   @include respond(lg) {
     display: none;
@@ -250,6 +253,10 @@ ul {
     background-position-y: bottom;
     background-position-x: center;
     height: 300px;
+
+    &.to-top {
+      height: 150px;
+    }
   }
 
   &__bottom {

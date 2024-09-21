@@ -358,6 +358,11 @@ $bs-purple: #8a2be2; // Изменение цвета
     @include respond(lg) {
       background-size: 170% 145%;
     }
+
+    @include respond(tablet) {
+      background-size: cover;
+      background-position: left 33% center;
+    }
   }
 
   @include respond(lg) { 

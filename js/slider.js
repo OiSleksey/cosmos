@@ -185,6 +185,7 @@ const socialsMobile = new Swiper('.swiper.socials-mobile__swiper', {
 const closeButton = document.querySelector('.show-up-sustainability-galery__close')
 const sustainabilityGaleryImg = document.querySelectorAll('.sustainability-galery__img-container')
 const showUpSustainabilityGalery = document.querySelector('.show-up-sustainability-galery')
+const socialsMobileCards = document.querySelectorAll('.socials-mobile__button')
 const SHOW_UP_SUSTAINABILITY_GALERY_ACTIVE = 'show-up-sustainability-galery--active'
 let swiperGalery
 const overlayBody = document.querySelector('.overlay-body')
@@ -241,3 +242,83 @@ function closeShowUpSustainabilityGalery() {
 }
 
 closeButton.addEventListener('click', closeShowUpSustainabilityGalery)
+
+const closeButtonCollaboration = document.querySelector('.collaborators-galery__close')
+const collaboratorsGaleryImg = document.querySelectorAll('.socials__card')
+const collaboratorsMobileGaleryImg = document.querySelectorAll('.socials__mobile')
+const showUpCollaborationGalery = document.querySelector('.collaborators-galery')
+const SHOW_UP_COLLABORATION_GALERY_ACTIVE = 'collaborators-galery--active'
+let swiperGaleryCollaborations
+const overlayBodyCollaborations = document.querySelector('.overlay-body')
+
+collaboratorsGaleryImg.forEach((card, index) => {
+  card.addEventListener('click', function (event) {
+    event.stopPropagation()
+    swiperGaleryCollaborations = new Swiper('.swiper.collaborators-slider__swiper', {
+      // Optional parameters
+      direction: 'horizontal',
+      initialSlide: index,
+      //   rewind: true,
+      //   loop: true,
+      centeredSlides: true,
+      spaceBetween: 66,
+      slidesPerView: 1,
+      zoom: true,
+      // Navigation arrows
+      navigation: {
+        nextEl: '.collaborators-slider__arrow--right',
+        prevEl: '.collaborators-slider__arrow--left',
+      },
+    })
+    toggleIsBlockBody(false)
+    setIsScroling(false)
+    toggleVisibleHeader(false)
+    setStyleOverlayBody(true)
+    toggleVisibleHeader(false, false)
+    showUpCollaborationGalery.classList.add(SHOW_UP_COLLABORATION_GALERY_ACTIVE)
+  })
+})
+
+
+
+socialsMobileCards.forEach((card, index) => {
+  card.addEventListener('click', function (event) {
+    event.stopPropagation()
+    swiperGaleryCollaborations = new Swiper('.swiper.collaborators-slider__swiper', {
+      // Optional parameters
+      direction: 'horizontal',
+      initialSlide: index,
+      //   rewind: true,
+      //   loop: true,
+      centeredSlides: true,
+      spaceBetween: 66,
+      slidesPerView: 1,
+      zoom: true,
+      // Navigation arrows
+      navigation: {
+        nextEl: '.collaborators-slider__arrow--right',
+        prevEl: '.collaborators-slider__arrow--left',
+      },
+    })
+    toggleIsBlockBody(false)
+    setIsScroling(false)
+    toggleVisibleHeader(false)
+    setStyleOverlayBody(true)
+    toggleVisibleHeader(false, false)
+    showUpCollaborationGalery.classList.add(SHOW_UP_COLLABORATION_GALERY_ACTIVE)
+  })
+})
+
+function closeShowUpCollaborationGalery() {
+  setIsScroling(true)
+  toggleVisibleHeader(true)
+  toggleIsBlockBody(true)
+  toggleVisibleHeader(true)
+  setStyleOverlayBody(false)
+  showUpCollaborationGalery.classList.remove(SHOW_UP_COLLABORATION_GALERY_ACTIVE)
+  if (swiperGaleryCollaborations) {
+    swiperGaleryCollaborations.destroy(true, true)
+    swiperGaleryCollaborations = null
+  }
+}
+closeButtonCollaboration.addEventListener('click', closeShowUpCollaborationGalery)

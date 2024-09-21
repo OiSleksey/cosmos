@@ -1278,6 +1278,10 @@
     text-align: center;
     letter-spacing: 3.06px;
 
+    @include respond(xs) {
+      max-width: 84vw;
+    }
+
     @include respond(lg) {
       font-size: 7rem;
       margin-bottom: 0.8rem;
@@ -2076,7 +2080,7 @@
 
     background-size: cover;
     background-repeat: no-repeat;
-    padding: 1rem 2rem;
+    padding: 0.9rem 2rem;
     opacity: 1;
     transition: opacity 0.6s;
 

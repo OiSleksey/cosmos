@@ -24,6 +24,12 @@
     }
   }
 
+  @if $breakpoint == mobile-landscaape {
+    @media only screen and (orientation: landscape) {
+      @content;
+    }
+  }
+
   @if $breakpoint == tablet {
     @media only screen and (min-width: 1024px) and (orientation: portrait) {
       @content;

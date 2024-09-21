@@ -23,7 +23,7 @@ const socials = document.querySelector('.socials')
 const socialsCards = socials.querySelectorAll('.socials__button')
 const showUpSocials = document.querySelectorAll('.show-up-socials')
 const socialsMobile = document.querySelector('.socials-mobile')
-const socialsMobileCards = document.querySelectorAll('.socials-mobile__button')
+// const socialsMobileCards = document.querySelectorAll('.socials-mobile__button')
 const SHOW_UP_SOCIALS_ACTIVE = 'show-up-socials--active'
 const header = document.querySelector('.header')
 
@@ -104,28 +104,28 @@ closeHeaderButton.addEventListener('click', () => closeShoupSubmit(true))
 //show-up-submit END
 
 //show-up-socials START
-socialsCards.forEach((button, index) => {
-  button.addEventListener('click', function (event) {
-    event.preventDefault()
-    setIsScroling(false)
-    setStyleOverlayBody(true)
-    showUpSocials[index].classList.add(SHOW_UP_SOCIALS_ACTIVE)
-    toggleIsBlockBody(false)
-    toggleVisibleHeader(false, false)
-  })
-})
+// socialsCards.forEach((button, index) => {
+//   button.addEventListener('click', function (event) {
+//     event.preventDefault()
+//     setIsScroling(false)
+//     setStyleOverlayBody(true)
+//     showUpSocials[index].classList.add(SHOW_UP_SOCIALS_ACTIVE)
+//     toggleIsBlockBody(false)
+//     toggleVisibleHeader(false, false)
+//   })
+// })
 
-socialsMobileCards.forEach((button, index) => {
-  button.addEventListener('click', function (event) {
-    event.preventDefault()
-    setIsScroling(false)
-    setStyleOverlayBody(true)
-    showUpSocials[index].classList.add(SHOW_UP_SOCIALS_ACTIVE)
-    toggleVisibleDarkContent(false)
-    toggleIsBlockBody(false)
-    toggleVisibleHeader(false, false)
-  })
-})
+// socialsMobileCards.forEach((button, index) => {
+//   button.addEventListener('click', function (event) {
+//     event.preventDefault()
+//     setIsScroling(false)
+//     setStyleOverlayBody(true)
+//     showUpSocials[index].classList.add(SHOW_UP_SOCIALS_ACTIVE)
+//     toggleVisibleDarkContent(false)
+//     toggleIsBlockBody(false)
+//     toggleVisibleHeader(false, false)
+//   })
+// })
 
 function closeShoupSocials(index, displayClose) {
   setIsScroling(true)
