@@ -193,6 +193,11 @@ ul {
   background: url('/img/background-body-mobile.png') bottom center no-repeat;
   background-size: cover;
 
+  @include respond(xsm) {
+    background: url('/img/background-body-desktop.png') center bottom no-repeat;
+    background-size: cover;
+  }
+
   @include respond(mobile-landscaape) {
     background: url('/img/background-body-desktop.png') center no-repeat;
     background-size: cover;
