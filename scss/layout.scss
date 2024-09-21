@@ -10,7 +10,7 @@
 }
 
 html {
-  font-size: 30%; 
+  font-size: 30%;
   @include respond(lg) {
     font-size: 40%;
   }
@@ -330,6 +330,7 @@ ul {
     bottom: 0;
     height: 100vh;
     @include hideScroll;
+    margin: 0 auto;
 
     &.page--active {
       z-index: 2;

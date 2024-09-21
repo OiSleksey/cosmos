@@ -225,7 +225,38 @@ sustainabilityGaleryImg.forEach((card, index) => {
     setStyleOverlayBody(true)
     toggleVisibleHeader(false, false)
     showUpSustainabilityGalery.classList.add(SHOW_UP_SUSTAINABILITY_GALERY_ACTIVE)
+    updateSustainabilitySlideHeight()
   })
+})
+
+function updateSustainabilitySlideHeight() {
+  console.log('Resixe')
+  const sustainabilitySlider = document.querySelector('.sustainability-slider')
+  const slides = sustainabilitySlider.querySelectorAll('.swiper-slide')
+  slides.forEach((slide) => {
+    const width = slide.clientWidth
+    slide.style.height = `${width / 2}px`
+  })
+}
+function updateSustainabilityGaleryImg() {
+  console.log('Resixe')
+  const sustainabilityGalery = document.querySelector('.sustainability-galery')
+  const imgContainer = sustainabilityGalery.querySelectorAll(
+    '.sustainability-galery__img-container',
+  )
+  imgContainer.forEach((slide) => {
+    const width = slide.clientWidth
+    slide.style.height = `${width / 1.5}px`
+  })
+}
+
+window.addEventListener('resize', function () {
+  updateSustainabilitySlideHeight()
+  updateSustainabilityGaleryImg()
+})
+
+window.addEventListener('DOMContentLoaded', async () => {
+  updateSustainabilityGaleryImg()
 })
 
 function closeShowUpSustainabilityGalery() {
@@ -234,11 +265,14 @@ function closeShowUpSustainabilityGalery() {
   toggleIsBlockBody(true)
   toggleVisibleHeader(true)
   setStyleOverlayBody(false)
+
   showUpSustainabilityGalery.classList.remove(SHOW_UP_SUSTAINABILITY_GALERY_ACTIVE)
-  if (swiperGalery) {
-    swiperGalery.destroy(true, true)
-    swiperGalery = null
-  }
+  setTimeout(() => {
+    if (swiperGalery) {
+      swiperGalery.destroy(true, true)
+      swiperGalery = null
+    }
+  }, 1000)
 }
 
 closeButton.addEventListener('click', closeShowUpSustainabilityGalery)
