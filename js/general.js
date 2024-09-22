@@ -119,3 +119,14 @@ export function toggleVisibleDarkContent(state) {
     substrateFirstWomanMobile.classList.add('substrate-first-woman-mobile--hidden')
   }
 }
+
+export function updateSustainabilityGaleryImg() {
+  const sustainabilityGalery = document.querySelector('.sustainability-galery')
+  const imgContainer = sustainabilityGalery.querySelectorAll(
+    '.sustainability-galery__img-container',
+  )
+  imgContainer.forEach((slide) => {
+    const width = slide.clientWidth
+    slide.style.height = `${width / 1.5}px`
+  })
+}

@@ -8,6 +8,7 @@ import {
   toggleIsBlockBody,
   toggleVisibleHeader,
   toggleVisibleDarkContent,
+  updateSustainabilityGaleryImg,
 } from '../js/general.js'
 
 const deepPageSliders = document.querySelectorAll('.deep-page-slider')
@@ -230,7 +231,6 @@ sustainabilityGaleryImg.forEach((card, index) => {
 })
 
 function updateSustainabilitySlideHeight() {
-  console.log('Resixe')
   const sustainabilitySlider = document.querySelector('.sustainability-slider')
   const slides = sustainabilitySlider.querySelectorAll('.swiper-slide')
   slides.forEach((slide) => {
@@ -238,26 +238,30 @@ function updateSustainabilitySlideHeight() {
     slide.style.height = `${width / 2}px`
   })
 }
-function updateSustainabilityGaleryImg() {
-  console.log('Resixe')
-  const sustainabilityGalery = document.querySelector('.sustainability-galery')
-  const imgContainer = sustainabilityGalery.querySelectorAll(
-    '.sustainability-galery__img-container',
-  )
-  imgContainer.forEach((slide) => {
-    const width = slide.clientWidth
-    slide.style.height = `${width / 1.5}px`
-  })
-}
+// function updateSustainabilityGaleryImg() {
+//   console.log('Resixe')
+//   const sustainabilityGalery = document.querySelector('.sustainability-galery')
+//   const imgContainer = sustainabilityGalery.querySelectorAll(
+//     '.sustainability-galery__img-container',
+//   )
+//   imgContainer.forEach((slide) => {
+//     const width = slide.clientWidth
+//     slide.style.height = `${width / 1.5}px`
+//   })
+// }
 
 window.addEventListener('resize', function () {
   updateSustainabilitySlideHeight()
   updateSustainabilityGaleryImg()
 })
 
-window.addEventListener('DOMContentLoaded', async () => {
-  updateSustainabilityGaleryImg()
-})
+// window.addEventListener('DOMContentLoaded', function () {
+//   updateSustainabilityGaleryImg()
+// })
+
+// window.addEventListener('load', function () {
+//   updateSustainabilityGaleryImg()
+// })
 
 function closeShowUpSustainabilityGalery() {
   setIsScroling(true)

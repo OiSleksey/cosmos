@@ -11,6 +11,7 @@ import {
   togleMainScroll,
   toggleVisibleDarkContent,
   toggleVisibleHeader,
+  updateSustainabilityGaleryImg,
 } from '../js/general.js'
 
 const substrateBody = document.querySelector('.substrate-body')
@@ -69,6 +70,7 @@ const SUSTABILITY_GALERY_CARD_VISIBLE = 'sustainability-galery__card--visible'
 sustainabilityGaleryButton.addEventListener('click', function () {
   sustainabilityGaleryCards.forEach((card) => {
     card.classList.remove(SUSTABILITY_GALERY_CARD_HIDDEN)
+    updateSustainabilityGaleryImg()
     setTimeout(() => {
       card.classList.add(SUSTABILITY_GALERY_CARD_VISIBLE)
     }, 100)
@@ -768,6 +770,8 @@ window.addEventListener('load', async () => {
     setOverflowPages()
   } else {
   }
+
+  updateSustainabilityGaleryImg()
 
   // setEventTransitinPages()
   // heightPageContent()
