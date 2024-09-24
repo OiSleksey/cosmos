@@ -3,6 +3,7 @@
     display: flex;
     align-items: center;
     min-height: 100vh;
+    min-height: 100svh;
     padding: 20px 16px 20px 16px;
 
     @include respond(sm) {
@@ -229,11 +230,17 @@
   padding-right: 16px;
   padding-left: 16px;
   max-width: 94vw;
-  
+  border-color: transparent !important;
+
   @include respond(sm) {
     max-width: 92vw;
   }
 
+  @include respond(lg) {
+    padding-right: 0;
+    padding-left: 0;
+    border-color: transparent #40297c;
+  }
 }
 
 .bs-popover-auto[data-popper-placement^='top'] > .popover-arrow::before,
@@ -332,6 +339,7 @@
       justify-content: space-between;
       padding: 5rem 4.3rem 2rem 4.3rem;
       min-height: 100vh;
+      min-height: 100svh;
     }
   }
 
@@ -387,7 +395,7 @@
     }
 
     @include respond(tablet) {
-      padding-top: 32rem;
+      padding-top: 40rem;
     }
 
     & > div:first-child {
@@ -504,7 +512,7 @@
 
     @include respond(tablet) {
       max-width: 45rem;
-      padding-top: 32rem;
+      padding-top: 40rem;
     }
 
     & > div:first-child {
@@ -637,7 +645,7 @@
     }
 
     @include respond(tablet) {
-      top: calc(23% - 30rem);
+      top: calc(27% - 30rem);
       width: 60rem;
     }
 
@@ -835,6 +843,7 @@
 
     @include respond(lg) {
       min-height: 100vh;
+      min-height: 100svh;
       @include movingElement(1);
       background-size: 100% 122%;
       background-position: center top 20%;
@@ -1224,6 +1233,7 @@
       overflow-y: auto;
       margin-top: 0;
       min-height: 100vh;
+      min-height: 100svh;
       padding: 11rem 4.3rem 2rem 4.3rem;
     }
 
@@ -1256,6 +1266,7 @@
 
     @include respond(tablet) {
       min-height: 80vh;
+      min-height: 80dvh;
     }
   }
 
@@ -1845,6 +1856,7 @@
 
   @include respond(tablet) {
     min-height: 58vh;
+    margin: 0;
   }
 
   @include respond(2xl) {
@@ -1985,6 +1997,10 @@
       text-align: center;
       align-self: unset;
       padding: 2rem 10rem 2rem 5rem;
+    }
+
+    @include respond(tablet) {
+      padding: 2rem 10rem 2rem 0;
     }
   }
 
@@ -2264,7 +2280,7 @@
   }
 
   &__copyright {
-    color: var(--White, #fff);
+    color: #fff;
 
     font-family: inherit;
     font-size: 11px;
@@ -2282,12 +2298,13 @@
 
   @include respond(lg) {
     min-height: 100vh;
+    max-height: 100dvh;
   }
 
   @include respond(tablet) {
     .dark-page__content {
       height: calc(100vh - 15rem);
-      max-height: 92vh;
+      max-height: 92dvh;
     }
   }
 }

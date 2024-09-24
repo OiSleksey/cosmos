@@ -29,10 +29,17 @@ const SUBSTARATE_BODY_TO_TOP = 'substrate-body--to-top'
 const SUBSTARATE_BODY_ACTIVE = 'substrate-body--active'
 const header = document.querySelector('.header')
 
+const popovers = {}
 //infoButton START
-document.querySelectorAll('[data-bs-toggle="popover"]').forEach((popover) => {
-  new bootstrap.Popover(popover)
+document.querySelectorAll('[data-bs-toggle="popover"]').forEach((popover, index) => {
+  popovers[index] = new bootstrap.Popover(popover)
 })
+
+function hideAllPopovers() {
+  Object.values(popovers).forEach((popoverInstance) => {
+    popoverInstance.hide() // Скрываем каждый Popover
+  })
+}
 //infoButton END
 
 //showUpCosmicCareers START
@@ -234,6 +241,7 @@ function setRotater(currPage) {
 function pagination(direction, page) {
   if (!getIsMobileDevice()) {
     //DESKTOP navigation
+    hideAllPopovers()
     setDirectionForPage(direction)
     setSubstrateBody()
 

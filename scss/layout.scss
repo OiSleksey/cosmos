@@ -290,11 +290,15 @@ ul {
 
 .main-content {
   position: relative;
-
   height: 100vh;
+  height: 100svh;
 
   @include respond(lg) {
     width: 100vw;
+  }
+
+  @include respond(tablet) {
+    height: 100svh;
   }
 
   &__inner {
@@ -302,7 +306,7 @@ ul {
 
     @include respond(lg) {
       overflow: hidden;
-      height: 100%;
+      height: auto;
     }
   }
 }
@@ -314,6 +318,7 @@ ul {
   overflow: hidden;
   @include respond(lg) {
     overflow: hidden;
+    height: auto;
   }
 }
 
@@ -329,12 +334,18 @@ ul {
     top: 0;
     bottom: 0;
     height: 100vh;
+    height: 100svh;
     @include hideScroll;
     margin: 0 auto;
 
     &.page--active {
       z-index: 2;
     }
+  }
+
+  @include respond(tablet) {
+    // min-height: 80vh;
+    height: 100dvh;
   }
 }
 
