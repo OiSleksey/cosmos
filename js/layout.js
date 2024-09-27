@@ -387,7 +387,9 @@ function toggleEducatorsActive(currPage, state, direction) {
 function toggleEducatorsShow(currPage, state) {
   const showUpEducators = document.querySelector('.show-up-educators')
   if (currPage == 14) {
-    showUpEducators.classList.add('show-up-educators--show')
+    setTimeout(() => {
+      showUpEducators.classList.add('show-up-educators--show')
+    }, 2500)
   } else {
     showUpEducators.classList.remove('show-up-educators--show')
   }
@@ -612,7 +614,7 @@ showUpHomeWrapper.forEach(function (wrapper, index) {
   closeButton.addEventListener('click', () => closeShoupHome(index))
   closeHeaderButton.addEventListener('click', () => closeShoupHome(index, true))
   //show-up-home__button START
-  const showUpHomeButton = wrapper.querySelectorAll('.show-up-home__button')
+  const showUpHomeButton = wrapper.querySelectorAll('.show-up-home__button[data-page]')
   showUpHomeButton.forEach((button) => {
     button.addEventListener('click', function (event) {
       event.preventDefault()

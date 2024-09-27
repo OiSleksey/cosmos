@@ -12,22 +12,22 @@
 html {
   font-size: 30%;
   @include respond(lg) {
-    font-size: 40%;
+    font-size: 50%;
   }
   @include respond(tablet) {
     font-size: 50%;
   }
   @include respond(xl) {
-    font-size: 46%;
+    font-size: 62.5%;
   }
   @include respond(2xl) {
-    font-size: 53.1%;
+    font-size: 64%;
   }
   @include respond(3xl) {
-    font-size: 56.2%;
+    font-size: 66%;
   }
   @include respond(4xl) {
-    font-size: 62.5%;
+    font-size: 68%;
   }
 
   @include respond(5xl) {
