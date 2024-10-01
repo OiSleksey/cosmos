@@ -1711,6 +1711,7 @@
 .show-up-educators {
   opacity: 0;
   transition: opacity $headingsAT, transform $headingsAT ease-out;
+  // transition: opacity calc($headingsAT / 2), transform calc( $headingsAT / 2 ) ease-out;
   transform: translateY(100%);
   position: absolute;
   bottom: 0;
@@ -1727,6 +1728,7 @@
     opacity: 1;
     transform: translateY(45%);
     transition-timing-function: ease;
+    transition: opacity $headingsAT, transform $headingsAT ease-out;
     // transition-delay: calc($headingsDelay * 1.4);
 
     @include respond(xl) {
@@ -1741,7 +1743,8 @@
   &--active {
     transform: translateY(0);
     transition-timing-function: ease;
-    transition-delay: 0;
+    transition-delay: 0s;
+    transition: opacity $headingsAT, transform $headingsAT ease-out;
     .show-up-educators__container {
       padding-top: 120px;
 

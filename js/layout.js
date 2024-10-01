@@ -96,14 +96,14 @@ const socials = document.querySelector('.socials')
 
 function setDelayCards() {
   //deep-page-slider  START
-  const deepPageSliders = document.querySelectorAll('.deep-page-slider')
-  deepPageSliders.forEach((deepPage) => {
-    const deepPageSliderSlides = deepPage.querySelectorAll('.swiper-slide')
-    deepPageSliderSlides.forEach((card, index) => {
-      const delay = 0.8 + 0.05 * index
-      card.style.transitionDelay = `${delay}s`
-    })
-  })
+  // const deepPageSliders = document.querySelectorAll('.deep-page-slider')
+  // deepPageSliders.forEach((deepPage) => {
+  //   const deepPageSliderSlides = deepPage.querySelectorAll('.swiper-slide')
+  //   deepPageSliderSlides.forEach((card, index) => {
+  //     const delay = 0.8 + 0.05 * index
+  //     card.style.transitionDelay = `${delay}s`
+  //   })
+  // })
   //deep-page-slider  END
 
   //cosmic-careers-slider  START
@@ -359,10 +359,15 @@ function toggleCosmicCareersSliderHeight(state) {
 function toggleEducatorsActive(currPage, state, direction) {
   if (currPage == 14) {
     togleMainScroll(false)
+    const currPageSection = document.querySelector( `.page-${currPage}`)
+    const currPageContent = currPageSection.querySelector( '.dark-page__container')
+    console.log('1', currPageSection)
+    console.log('2', currPageContent)
     if (direction === 'up') {
       if (showUpEducators.classList.contains('show-up-educators--active')) {
         showUpEducators.classList.remove('show-up-educators--active')
-        toggleCosmicCareersSliderHeight(false)
+        currPageContent.classList.remove('dark-page__container--move-up')
+        // toggleCosmicCareersSliderHeight(false)
         scrollForEducators = true
       } else {
         scrollForEducators = false
@@ -370,11 +375,13 @@ function toggleEducatorsActive(currPage, state, direction) {
     } else {
       if (showUpEducators.classList.contains('show-up-educators--active')) {
         showUpEducators.classList.remove('show-up-educators--active')
-        toggleCosmicCareersSliderHeight(false)
+        currPageContent.classList.remove('dark-page__container--move-up')
+        // toggleCosmicCareersSliderHeight(false)
         scrollForEducators = false
       } else {
         showUpEducators.classList.add('show-up-educators--active')
-        toggleCosmicCareersSliderHeight(true)
+        currPageContent.classList.add('dark-page__container--move-up')
+        // toggleCosmicCareersSliderHeight(true)
         scrollForEducators = true
       }
     }
@@ -389,7 +396,7 @@ function toggleEducatorsShow(currPage, state) {
   if (currPage == 14) {
     setTimeout(() => {
       showUpEducators.classList.add('show-up-educators--show')
-    }, 2500)
+    }, 2600)
   } else {
     showUpEducators.classList.remove('show-up-educators--show')
   }

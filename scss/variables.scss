@@ -6,8 +6,9 @@ $maxWidthAllContent: 1920px;
 $preloaderFadeAT: 0.5s;
 
 $rotatingAT: 1.5s;
-$headingsAT: $rotatingAT * 0.6;
-$headingsDelay: $rotatingAT;
+// $headingsAT: $rotatingAT * 0.6;
+$headingsAT: $rotatingAT * 1;
+$headingsDelay: $rotatingAT ;
 // $headingsDelay: $rotatingAT * 0.8;
 
 $sizeSubstratePlanetMobile: 243px;
@@ -151,6 +152,43 @@ $bs-purple: #8a2be2; // Изменение цвета
 @mixin movingElement($delay) {
   opacity: 0;
   transition: opacity $headingsAT, transform $headingsAT ease-out;
+  transform: translateY(300px);
+
+  .page.page--mobile-active & {
+    opacity: 1;
+    transform: translateY(0);
+    transition-timing-function: ease;
+    transition-delay: calc($headingsDelay / 2 * $delay);
+  }
+
+  @include respond(lg) {
+    .page.page--moving-up & {
+      transform: translateY(300px);
+    }
+
+    .page.page--moving-down & {
+      transform: translateY(-300px);
+    }
+
+    .page.page--active & {
+      opacity: 1;
+      transform: translateY(0);
+      transition-timing-function: ease;
+    }
+
+    .page.page--active.page--moving-up & {
+      transition-delay: calc($headingsDelay * $delay);
+    }
+
+    .page.page--active.page--moving-down & {
+      transition-delay: calc($headingsDelay / $delay);
+    }
+  }
+}
+
+@mixin movingObject($delay) {
+  opacity: 0;
+  transition: opacity $headingsAT, transform $headingsAT ease-out;
   transform: translateY(200px);
 
   .page.page--mobile-active & {
@@ -188,7 +226,7 @@ $bs-purple: #8a2be2; // Изменение цвета
 @mixin movingSubstrate($delay) {
   opacity: 0;
   transition: opacity $headingsAT, transform $headingsAT ease-out;
-  transform: translateY(200px) scale(0.8);
+  transform: translateY(400px) scale(0.8);
 
   .page.page--mobile-active & {
     opacity: 1;
@@ -219,7 +257,7 @@ $bs-purple: #8a2be2; // Изменение цвета
     }
 
     .page.page--active.page--moving-down & {
-      transition-delay: calc($headingsDelay / $delay);
+      transition-delay: calc($headingsDelay * $delay);
     }
   }
 }
@@ -315,22 +353,23 @@ $bs-purple: #8a2be2; // Изменение цвета
 }
 
 %movingBodyBottom {
-  transition: transform calc($headingsAT * 1.2) ease-out;
+  transition: transform calc($headingsAT * 1.8) ease-out,  opacity  calc($headingsAT * 2) ease-out;
   transform: translateY(100%);
-  transition-delay: $headingsDelay;
+  // transition-delay: $headingsDelay;
+  // opacity: 0;
 
   .substrate-body.substrate-body--to-bottom & {
     opacity: 1;
     transform: translateY(0);
     transition-timing-function: ease;
-    transition-delay: $headingsDelay;
+    // transition-delay: $headingsDelay;
   }
 
   .substrate-body.substrate-body--to-top & {
     opacity: 1;
     transform: translateY(-60%);
     transition-timing-function: ease;
-    transition-delay: $headingsDelay;
+    // transition-delay: $headingsDelay;
   }
 }
 
